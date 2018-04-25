@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const db = require("../models/Gifs");
+const db = require("../models");
 mongoose.Promise = global.Promise;
 
 //This file empties the gif collections and inserts gifs below
 
 mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/", 
+	process.env.MONGODB_URI || "mongodb://localhost/gifcategories", 
 	{
 		useMongoClient: true
 	}
@@ -36,10 +36,10 @@ const = gifSeed = [
 		theme: "Bromance",
 		categories: ["Joe Biden and Barack Obama", "Matthew Mcconaughey and Jared Leto", "Mike Corbett and Michael Belsito",
 		"Dane Dehaan and Daniel Radcliffe", "Micahel Cera and Jonah Hill", "Justin Bieber and Usher", "Jay Z and Kanye West",
-		"Paul Rudd and Jason Segel", "Daft Punk", "Stephen Colbert and Jon Stewart", "Tobey Maguire and Leonardo di Caprio",
+		"Paul Rudd and Jason Segel", "Daft Punk", "Stephen Colbert and Jon Stewart", "Tobey Maguire and Leonardo diCaprio",
 		"Adam Levine and Blake Shelton", "Bradley Cooper and Gerard Butler", "Darren Criss and Chord Overstreet", 
 		"One Direction", "Owen Wilson and Ben Stiller", "Jimmy Fallon and Justin Timberlake", "Ben Affleck and Matt Damon",
-		"Leonardo di Caprio and Jonah Hill", "Zac Efron and Michael B Jordan", "James Franco and Seth Rogen", 
+		"Leonardo diCaprio and Jonah Hill", "Zac Efron and Michael B Jordan", "James Franco and Seth Rogen", 
 		"Zach Braff and Donald Faison", "Matthew Mcconaughey and Woody Harrelson", "Dave Coulier, John Stamos, Bob Saget", 
 		"George Clooney and Brad Pitt"]
 	},
@@ -82,7 +82,7 @@ const = gifSeed = [
 		"World of Warcraft", "Auto-Tune", "Twilight", "Vampires", "Zombies", "Sacha Baron Cohen", "The Office", "Parks and Rec", "Ron Swanson", 
 		"Dick in a Box", "Tina Fey as Sarah Palin", "The Hangover", "The History of Rap", "Betty White", "Man Buns", "Antoine Dodson", "Hide Yo Kids",
 		"Justin Bieber", "Boy Bands", "The Jersey Shore", "Westworld", "HBO", "Beards", "Movember", "Mark Ronson", "Bruno Mars", "Usain Bolt", 
-		"Chicago Cubs World Series Champs", "Game of Thrones", "Hamilton", "The Book of Mormon", "Insta Famous"]
+		"Chicago Cubs World Series Champs", "Game of Thrones", "Hamilton", "The Book of Mormon", "Insta Famous", "Adam Rippon", "Fake News"]
 	},
 	{
 		theme: "Minnesota",
@@ -94,4 +94,16 @@ const = gifSeed = [
 		"Jesse Ventura", "Biking", "Minnesota Nice", "Hotdish", "Fargo", "Grumpy Old Men", "Mary Tyler Moore", "The Mighty Ducks", "Great Minnesota Get Together",
 		"Winter Carnival", "Renassaince Festival", "WE Fest", "Detroit Lakes"]
 	}
-]
+];
+
+db.Gif
+	.remove({})
+	.then(() => db.Gif.collection.insertMany(gifSeed))
+	.then(data => {
+		console.log(data.insertedIds.length + "categories inserted");
+		process.exit(0);
+	})
+	.catch(err => {
+		console.log(err);
+		process.exit(1);
+});
