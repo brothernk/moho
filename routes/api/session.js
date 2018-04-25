@@ -3,6 +3,7 @@ const sessionController = require("../../controllers/sessionController");
 
 // Matches with "/api/articles"
 router.route("/")
+  .get(sessionController.findAll)
   .post(sessionController.create);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios"
 import { SignupBtn, LoginBtn } from "../../components/Buttons";
+import API from "../../utils/API"
 
 class Login extends Component {
 
@@ -32,14 +33,25 @@ class Login extends Component {
                 url += "/" + randomArray[i]
             }
             this.setState({randomURL: url})
-            this.printState();
+            this.saveSessionData()
         })
         .catch(err => console.log(err))
 
     }
 
     saveSessionData = () => {
-        
+        API.saveSession({
+            title: this.state.randomWord,
+            url: this.state.randomURL
+        })
+        .then(res => this.loadSavedSessions())
+        .catch(err => console.log(err.response));
+    }
+
+    loadSavedSessions = () => {
+        API.getSessions()
+        .then(res => console.log(res))
+        .catch(err => console.log(err.response));
     }
 
     printState = () => {
