@@ -1,4 +1,4 @@
 module.exports = {
 	Gif: require("./Gif"),
-	Session: require("./Session"),
+	Session: require("./Session")
 };
