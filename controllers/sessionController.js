@@ -13,6 +13,12 @@ module.exports = {
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  findByTitle: function(req, res) {
+    db.Session
+      .find({"title": req.params.session})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
  
 };

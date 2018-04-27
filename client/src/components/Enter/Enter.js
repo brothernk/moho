@@ -6,7 +6,7 @@ export const Enter = props => (
             <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-sm">Game Keyword</span>
             </div>
-            <input type="text" className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+            <input type="text" className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" {...props}/>
         </div>
     </div>
 )
