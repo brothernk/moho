@@ -49,8 +49,9 @@ $grey: grey; //Mike, what color grey did you use/want?
 }
 //Body ===========================================================
 body {
-  background: $background;
   @include position;
+  @include font;
+  background: $background;
   color:white;
 }
 
@@ -72,7 +73,7 @@ body {
 }
 
 //Room Key ======================================================
-.roomkey{
+.enter-key{
   @include font;
   font-size: 40px;
 }
@@ -81,8 +82,28 @@ input[type="text"]{
   @extend %text-entry;
   @include position;
   margin-top:20px;
+  cursor: bold;
 }
 
 input[type="text"]:focus{
   outline:none;
+}
+
+#roomkey{
+ background-color: $orange;
+ @include border-radius(22px);
+ @include position;
+ width:400px;
+ margin-top:50px;
+ font-size:14px;
+ padding:5px;
+}
+
+#random-word{
+  margin-top:-10px;
+  font-size: 40px;
+}
+
+p{
+  margin:0px;
 }
