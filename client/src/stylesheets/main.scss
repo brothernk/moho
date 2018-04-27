@@ -1,27 +1,31 @@
-// Colors
+//Font ===========================================================
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+
+// Colors =========================================================
 $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
 $grey: grey; //Mike, what color grey did you use/want?
 
-//Body =======================================================
-body {
-  background: $background;
+//Mixins =========================================================
+@mixin position{
   margin:auto;
   text-align: center;
-  color:white;
+}
+@mixin border-radius($radius){
+  border-radius: $radius;
 }
 
-//Buttons =======================================================
-@mixin border-radius($corners){
-  border-radius: $corners;
+@mixin font{
+  font-family: "Montserrat", sans-serif;
 }
 
-%homepage-buttons{
-  @include border-radius(50px);
-  border:none;
-  width:160px;
-  font-size:20px;
+//Placeholders ===================================================
+%buttons{
+  @include border-radius(30px);
+  @include font;
+  width:145px;
+  font-size:15px;
   float:left;
   clear:both;
   position: absolute;
@@ -34,18 +38,51 @@ body {
   background:$grey;
 }
 
+%text-entry{
+  @include border-radius(30px);
+  @include font;
+  background-color: lightgrey;
+  color:grey;
+  padding: 10px;
+  border:none;
+  font-size: 20px;
+}
+//Body ===========================================================
+body {
+  background: $background;
+  @include position;
+  color:white;
+}
+
+//Buttons =========================================================
 .signup-btn{
-  @extend %homepage-buttons;
+  @extend %buttons;
   background:$orange;
   right:50%;
 }
 
 .login-btn, .enter-btn{
-  @extend %homepage-buttons;
+  @extend %buttons;
   background: $green;
   left:50%;
 }
 
-.signup-btn:hover, .login-btn:hover{
+.signup-btn:hover, .login-btn:hover, .enter-btn{
   @extend %hover;
+}
+
+//Room Key ======================================================
+.roomkey{
+  @include font;
+  font-size: 40px;
+}
+
+input[type="text"]{
+  @extend %text-entry;
+  @include position;
+  margin-top:20px;
+}
+
+input[type="text"]:focus{
+  outline:none;
 }
