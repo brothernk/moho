@@ -1,14 +1,9 @@
-body {
-  background: #31263E;
-  margin: auto;
-  text-align: center;
-  color: white; }
-
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 .signup-btn, .login-btn, .enter-btn {
-  border-radius: 50px;
-  border: none;
-  width: 160px;
-  font-size: 20px;
+  border-radius: 30px;
+  font-family: "Montserrat", sans-serif;
+  width: 145px;
+  font-size: 15px;
   float: left;
   clear: both;
   position: absolute;
@@ -16,8 +11,23 @@ body {
   margin: 15px;
   padding: 8px; }
 
-.signup-btn:hover, .login-btn:hover {
+.signup-btn:hover, .login-btn:hover, .enter-btn {
   background: grey; }
+
+input[type="text"] {
+  border-radius: 30px;
+  font-family: "Montserrat", sans-serif;
+  background-color: lightgrey;
+  color: grey;
+  padding: 10px;
+  border: none;
+  font-size: 20px; }
+
+body {
+  background: #31263E;
+  margin: auto;
+  text-align: center;
+  color: white; }
 
 .signup-btn {
   background: #FF8A5B;
@@ -26,3 +36,15 @@ body {
 .login-btn, .enter-btn {
   background: #44BBA4;
   left: 50%; }
+
+.roomkey {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px; }
+
+input[type="text"] {
+  margin: auto;
+  text-align: center;
+  margin-top: 20px; }
+
+input[type="text"]:focus {
+  outline: none; }

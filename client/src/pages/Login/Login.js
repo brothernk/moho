@@ -26,7 +26,6 @@ class Login extends Component {
             this.generateRandomURL();
         })
         .catch(err => console.log(err))
-
     }
 
     generateRandomURL = () => {
@@ -44,7 +43,6 @@ class Login extends Component {
             this.printState()
         })
         .catch(err => console.log(err))
-
     }
 
     saveSessionData = () => {
