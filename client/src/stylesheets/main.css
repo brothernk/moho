@@ -1,2 +1,28 @@
 body {
-  background: #31263E; }
+  background: #31263E;
+  margin: auto;
+  text-align: center;
+  color: white; }
+
+.signup-btn, .login-btn, .enter-btn {
+  border-radius: 50px;
+  border: none;
+  width: 160px;
+  font-size: 20px;
+  float: left;
+  clear: both;
+  position: absolute;
+  top: 50%;
+  margin: 15px;
+  padding: 8px; }
+
+.signup-btn:hover, .login-btn:hover {
+  background: grey; }
+
+.signup-btn {
+  background: #FF8A5B;
+  right: 50%; }
+
+.login-btn, .enter-btn {
+  background: #44BBA4;
+  left: 50%; }
