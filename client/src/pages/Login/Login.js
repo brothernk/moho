@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios"
-import { SignupBtn, LoginBtn } from "../../components/Buttons";
+import { SignupBtn, LoginBtn, EnterBtn } from "../../components/Buttons";
+import { Enter } from "../../components/Enter";
 import API from "../../utils/API"
 
 class Login extends Component {
 
     state = {
         randomWord: "",
-        randomURL: ""
+        randomURL: "",
+        showResults: false
     }
 
     generateRandomWord = () => {
@@ -34,6 +36,7 @@ class Login extends Component {
             }
             this.setState({randomURL: url})
             this.saveSessionData()
+            this.printState()
         })
         .catch(err => console.log(err))
 
@@ -54,16 +57,32 @@ class Login extends Component {
         .catch(err => console.log(err.response));
     }
 
+    loginClick = () => {
+        this.setState({showResults: true})
+    }
+
     printState = () => {
         console.log(this.state.randomWord)
         console.log(this.state.randomURL)
     }
 
+    enterGame = () => {
+        console.log("Enter Game")
+    }
+
     render() {
         return (
             <div> 
-                <SignupBtn onClick = {this.generateRandomWord}/>
-                <LoginBtn />
+                <SignupBtn onClick={this.generateRandomWord} randomword = {this.state.randomWord}/>
+                { this.state.showResults=== false ? 
+                <LoginBtn onClick={this.loginClick}/>
+                : null}
+                { this.state.showResults ? 
+                <div>
+                    <Enter/> 
+                    <EnterBtn onClick={this.enterGame}/> 
+                </div>
+                : null }
             </div>
         );
     }
