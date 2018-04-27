@@ -5,13 +5,18 @@ mongoose.Promise = global.Promise;
 //This file empties the gif collections and inserts gifs below
 
 mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/", 
+	process.env.MONGODB_URI || "mongodb://localhost/gifcategories", 
 	{
 		useMongoClient: true
 	}
 );
 
-const = gifCategories = [
+const gifCategories = [
+	// {
+	// 	theme: "Natural Disasters",
+	// 	categories: ["Meteor", "Avalanche", "Drought", "Earthquake", "Extinction", "Flood", "Geomagnetic Storms", "Ghost Towns", 
+	// 	"Landslides", "Locust Swarms", "Tornado", "Tsunami", "Volcano", "Wildfire", "Zombie Attack"]
+	// }
 	{
 		categories: ["Natural Disasters","Meteor", "Avalanche", "Drought", "Earthquake", "Extinction", "Flood", "Geomagnetic Storms", "Ghost Towns", 
 		"Landslides", "Locust Swarms", "Tornado", "Tsunami", "Volcano", "Wildfire", "Zombie Attack", "Pirates", "Jack Sparrow", "Eye Patch", "Peg Legged", "Ahoy Matey", "Walk The Plank", "Treasure Chest", 
@@ -37,11 +42,11 @@ const = gifCategories = [
 		"Britney Spears", "Christina Aguilera", "Genie in a Bottle", "Man, I Feel Like a Woman", "Don't Speak", "Michael Jordan",
 		"Wayne Gretsky", "Tiger Woods", "Plaid", "Windbreakers", "Combat Boots", "Bandannas", "Hyper Colored", "F*R*I*E*N*D*S", 
 		"Will and Grace", "Seinfeld", "Elaine Dancing", "Full House", "How Rude", "Did I Do That?", "Boy Meets World", 
-		"My So-Called Life", "Buffy the Vampire Slayer", "Dawson's Creek", "Felicity", "Saved by the Bell", "TGIF" "Kelly Kapowski",
+		"My So-Called Life", "Buffy the Vampire Slayer", "Dawson's Creek", "Felicity", "Saved by the Bell", "TGIF", "Kelly Kapowski",
 		"Zach Attack", "All That", "Mr. Rogers", "Matrix", "Clueless", "Home Alone", "Independence Day", "Men in Black",
 		"Dennis Rodman", "Tom Cruise and Nicole Kidman", "Ironic", "Julia Roberts and Lyle Lovett", "Slap Bracelets", "Lisa Frank",
 		"Trapper Keepers", "The Macarena", "The Walkman", "You Got Mail", "Slip n Slide", "Easy Bake Oven", "Cabbage Patch Dolls",
-		"Skip-it", "Tomogatchi", "Super Soaker", "Y2K", "Jurassic Park", "Mary Kate and Ashley", "Pokemon", "80s", "Dallas", "M*A*S*H", "Who Shot JR?" "Video Killed the Radio Star", "MTV", "Prince", "Purple Rain", "Madonna",
+		"Skip-it", "Tomogatchi", "Super Soaker", "Y2K", "Jurassic Park", "Mary Kate and Ashley", "Pokemon", "80s", "Dallas", "M*A*S*H", "Who Shot JR?", "Video Killed the Radio Star", "MTV", "Prince", "Purple Rain", "Madonna",
 		"Like a Virgin", "CNN", "1984", "Mac or PC", "Gordon Gekko", "Reganomics", "Berlin Wall", "Gorbachev", "David Hasselhoff",
 		"Wall Street", "Shoulder Pads", "Permed Hair", "Joan Jett", "Brooke Shields", "Fanny Packs", "Frankie Says", "Jordache", "Scrunchies",
 		"Spandex", "Muscle Tees", "Paula Abdul", "New Kids on the Block", "Tiffany", "Boy George", "Wham", "Just Say No", "Brat Pack",
