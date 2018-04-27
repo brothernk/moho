@@ -2,9 +2,50 @@
 $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
+$grey: grey; //Mike, what color grey did you use/want?
 
+//Body =======================================================
 body {
   background: $background;
+  margin:auto;
+  text-align: center;
+  color:white;
 }
 
-// dsfdfdfgsdfg
+//Buttons =======================================================
+@mixin border-radius($corners){
+  border-radius: $corners;
+}
+
+%homepage-buttons{
+  @include border-radius(50px);
+  border:none;
+  width:160px;
+  font-size:20px;
+  float:left;
+  clear:both;
+  position: absolute;
+  top: 50%;
+  margin: 15px;
+  padding: 8px;
+}
+
+%hover{
+  background:$grey;
+}
+
+.signup-btn{
+  @extend %homepage-buttons;
+  background:$orange;
+  right:50%;
+}
+
+.login-btn, .enter-btn{
+  @extend %homepage-buttons;
+  background: $green;
+  left:50%;
+}
+
+.signup-btn:hover, .login-btn:hover{
+  @extend %hover;
+}
