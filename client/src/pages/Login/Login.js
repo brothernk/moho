@@ -14,6 +14,7 @@ class Login extends Component {
 
     componentDidMount = () => {
         this.loadSavedSessions()
+        this.loadCategories()
     }
 
     generateRandomWord = () => {
@@ -57,6 +58,12 @@ class Login extends Component {
 
     loadSavedSessions = () => {
         API.getSessions()
+        .then(res => console.log(res))
+        .catch(err => console.log(err.response));
+    }
+
+    loadCategories = () => {
+        API.getCategories()
         .then(res => console.log(res))
         .catch(err => console.log(err.response));
     }
