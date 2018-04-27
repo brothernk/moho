@@ -1,8 +1,22 @@
+/* Colors
+#FF8A5B = Orange
+#31263E = Dark Purple */
+
+body{
+  margin:auto;
+  text-align:center;
+  background-color: #F75C03;
+}
+
 .signup-btn,
 .login-btn {
     margin: 10px;
     padding: 10px 50px 10px 50px;
+    background-color: #31263E;
+    border:none;
   }
+
+
 
 
   
