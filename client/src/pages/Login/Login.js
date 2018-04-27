@@ -9,15 +9,19 @@ class Login extends Component {
     state = {
         randomWord: "",
         randomURL: "",
-        showResults: false
+        enteredWord: "",
+        showResults: false,
+        showError: false
     }
 
     componentDidMount = () => {
         this.loadSavedSessions()
-        this.loadCategories()
     }
 
     generateRandomWord = () => {
+
+        this.setState({showResults: false})
+        this.setState({showError: false})
 
         var apiURL = "http://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=false&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
         axios.get(apiURL)
@@ -60,12 +64,6 @@ class Login extends Component {
         .catch(err => console.log(err.response));
     }
 
-    loadCategories = () => {
-        API.getCategories()
-        .then(res => console.log(res))
-        .catch(err => console.log(err.response));
-    }
-
     loginClick = () => {
         this.setState({showResults: true})
     }
@@ -73,25 +71,54 @@ class Login extends Component {
     printState = () => {
         console.log(this.state.randomWord)
         console.log(this.state.randomURL)
+        console.log(this.state)
     }
 
     enterGame = () => {
-        console.log("Enter Game")
+        API.checkSession(this.state.enteredWord)
+        .then(res =>{
+            if (res.data.length < 1) {
+                console.log("Not found")
+                this.setState({showError: true})
+            }
+
+            else {
+                let url = res.data[0].url
+                window.location.href = (url)
+                return false
+            }
+        })
+        .catch(err => console.log(err.response));
     }
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
 
     render() {
         return (
             <div> 
                 <SignupBtn onClick={this.generateRandomWord} randomword = {this.state.randomWord}/>
+                { this.state.showError ? 
+                    <div> 
+                        <p>Session does not exist, double check game keyword or create new game</p>
+                    </div>
+                : null }
+
                 { this.state.showResults=== false ? 
                 <LoginBtn onClick={this.loginClick}/>
                 : null}
+
                 { this.state.showResults ? 
                 <div>
-                    <Enter/> 
+                    <Enter name="enteredWord" value={this.state.enteredWord} onChange={this.handleInputChange}/> 
                     <EnterBtn onClick={this.enterGame}/> 
                 </div>
                 : null }
+
             </div>
         );
     }
