@@ -13,5 +13,18 @@ module.exports = {
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(4220).json(err));
+  },
+  create: function(req, res) {
+    db.Gif
+    .create(req.body)
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+  },
+  update: function(req, res) {
+    db.Gif
+      // THIS NEEDS TO BE CHANGED
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(4220).json(err));
   }
 };

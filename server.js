@@ -14,7 +14,9 @@ app.use(express.static("client/build"));
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gifcategories");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gifcategories", function(err) {
+  if (err) throw err;
+});
 
 // Start the API server
 app.listen(PORT, function() {
