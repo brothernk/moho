@@ -6,6 +6,12 @@ $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
 $grey: grey; //Mike, what color grey did you use/want?
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
 
 //Mixins =========================================================
 @mixin position{
@@ -107,4 +113,37 @@ input[type="text"]:focus{
 
 p{
   margin:0px;
+}
+
+//Profile Page ======================================================
+
+.color-btn{
+  @include border-radius(50px);
+  height: 100px;
+  width:100px;
+}
+
+#yellow-prof{
+  background-color:$yellow;
+}
+#blue-prof{
+  background-color:$blue;
+}
+#red-prof{
+  background-color:$red;
+}
+#pink-prof{
+  background-color:$pink;
+}
+#green-prof{
+  background-color:$green;
+}
+#orange-prof{
+  background-color:$orange;
+}
+#purple-prof{
+  background-color:$purple;
+}
+#charcoal-prof{
+  background-color:$charcoal;
 }

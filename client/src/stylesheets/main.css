@@ -67,3 +67,32 @@ input[type="text"]:focus {
 
 p {
   margin: 0px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px; }
+
+#yellow-prof {
+  background-color: #FFC655; }
+
+#blue-prof {
+  background-color: #5FACFF; }
+
+#red-prof {
+  background-color: #FF6161; }
+
+#pink-prof {
+  background-color: #D45FFF; }
+
+#green-prof {
+  background-color: #44BBA4; }
+
+#orange-prof {
+  background-color: #FF8A5B; }
+
+#purple-prof {
+  background-color: #9964FF; }
+
+#charcoal-prof {
+  background-color: #444444; }
