@@ -11,7 +11,9 @@ class Login extends Component {
         randomURL: "",
         enteredWord: "",
         showResults: false,
-        showError: false
+        showError: false,
+        gameStart: false,
+        searchTerm: "dancing"
     }
 
     componentDidMount = () => {
@@ -29,6 +31,14 @@ class Login extends Component {
             this.setState({randomWord: response.data.word}, function() {
                 this.generateRandomURL();
             });
+        })
+        .catch(err => console.log(err))
+    }
+
+    callGIPHY = () => {
+        API.getGIF(this.state.searchTerm)
+        .then(response => {
+            console.log(response);
         })
         .catch(err => console.log(err))
     }
@@ -68,7 +78,8 @@ class Login extends Component {
     }
 
     loginClick = () => {
-        this.setState({showResults: true})
+        this.setState({showResults: true});
+        this.callGIPHY()
     }
 
     printState = () => {

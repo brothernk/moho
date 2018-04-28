@@ -19,4 +19,3 @@ export const SignupBtn = props => (
     
   </div>
 )
-
