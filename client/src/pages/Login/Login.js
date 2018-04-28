@@ -36,14 +36,6 @@ class Login extends Component {
         .catch(err => console.log(err))
     }
 
-    callGIPHY = () => {
-        API.getGIF(this.state.searchTerm)
-        .then(response => {
-            console.log(response);
-        })
-        .catch(err => console.log(err))
-    }
-
     generateRandomURL = () => {
         var apiURL = "https://makemeapassword.org/api/v1/passphrase/json?pc=1&wc=6&sp=y"
         axios.get(apiURL)
@@ -80,7 +72,6 @@ class Login extends Component {
 
     loginClick = () => {
         this.setState({showResults: true});
-        this.callGIPHY()
     }
 
     printState = () => {

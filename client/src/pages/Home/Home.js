@@ -7,6 +7,7 @@ class Home extends Component {
 
     state = {
         urlString: "",
+        searchTerm: "dancing"
 
     }
 
@@ -27,6 +28,14 @@ class Home extends Component {
             this.checkURL()
         })
 
+    }
+    
+    callGIPHY = () => {
+        API.getGIF(this.state.searchTerm)
+        .then(response => {
+            console.log(response.data.data);
+        })
+        .catch(err => console.log(err))
     }
 
     checkURL = () => {
@@ -56,7 +65,11 @@ class Home extends Component {
     render() {
         return (
             <div> 
+          
+                <EnterBtn onClick={this.callGIPHY} />
+
                 <Profile />
+
             </div>
         );
     }
