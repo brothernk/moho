@@ -7,8 +7,11 @@ export default {
     saveSession: function(sessionData) {
         return axios.post("/api/session", sessionData)
     },
-    checkSession: function(sessionTitle) {
-        return axios.get("/api/session/" + sessionTitle)
+    checkSessionTitle: function(sessionTitle) {
+        return axios.get("/api/session/title/" + sessionTitle)
+    },
+    checkSessionUrl: function(sessionUrl) {
+        return axios.get("/api/session/url/" + sessionUrl)
     },
     getCategories: function() {
         return axios.get("/api/gif")
