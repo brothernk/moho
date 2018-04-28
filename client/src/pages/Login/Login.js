@@ -12,8 +12,7 @@ class Login extends Component {
         enteredWord: "",
         showResults: false,
         showError: false,
-        gameStart: false,
-        searchTerm: "dancing"
+        gameStart: false
     }
 
     componentDidMount = () => {
@@ -31,14 +30,6 @@ class Login extends Component {
             this.setState({randomWord: response.data.word}, function() {
                 this.generateRandomURL();
             });
-        })
-        .catch(err => console.log(err))
-    }
-
-    callGIPHY = () => {
-        API.getGIF(this.state.searchTerm)
-        .then(response => {
-            console.log(response.data.data);
         })
         .catch(err => console.log(err))
     }
@@ -79,7 +70,6 @@ class Login extends Component {
 
     loginClick = () => {
         this.setState({showResults: true});
-        this.callGIPHY()
     }
 
     printState = () => {
