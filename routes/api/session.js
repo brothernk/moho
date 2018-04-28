@@ -6,11 +6,12 @@ router.route("/")
   .get(sessionController.findAll)
   .post(sessionController.create);
 
-  // Mathces with /api/session/title/sessiontitle
+// Matches with /api/session/title/sessiontitle
 router.route("/title/:session")
   .get(sessionController.findByTitle)
 
-router.route("/url/:session")
+// Matches with /api/session/url/sessionurl
+router.route("/url/:word1/:word2/:word3/:word4/:word5/:word6")
   .get(sessionController.findByUrl)
 
 module.exports = router;
