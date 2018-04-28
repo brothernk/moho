@@ -41,6 +41,13 @@ $charcoal: #444444;
   padding: 8px;
 }
 
+%round-buttons{
+  @include border-radius(50px);
+  height: 100px;
+  width:100px;
+  margin:10px;
+}
+
 %hover{
   background:$grey;
 }
@@ -116,11 +123,18 @@ p{
 }
 
 //Profile Page ======================================================
+.enter-profile{
+  font-size:40px;
+  margin-top:2%;
+}
+
+.enter-color{
+  font-size:20px;
+  margin:50px 0px 15px 0px;
+}
 
 .color-btn{
-  @include border-radius(50px);
-  height: 100px;
-  width:100px;
+  @extend %round-buttons;
 }
 
 #yellow-prof{
