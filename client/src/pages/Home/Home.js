@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import axios from "axios"
 import API from "../../utils/API"
-import { EnterBtn } from "../../components/Buttons";
+import { Profile } from "../../components/Profile";
 
 class Home extends Component {
 
@@ -56,7 +56,7 @@ class Home extends Component {
     render() {
         return (
             <div> 
-                <EnterBtn />
+                <Profile />
             </div>
         );
     }
