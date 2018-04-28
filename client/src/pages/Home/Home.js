@@ -66,7 +66,7 @@ class Home extends Component {
         return (
             <div> 
           
-                <EnterBtn onClick={this.callGIPHY} />
+                {/* <EnterBtn onClick={this.callGIPHY} /> */}
 
                 <Profile />
 

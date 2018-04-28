@@ -6,7 +6,7 @@
   font-size: 15px;
   float: left;
   clear: both;
-  position: relative;
+  position: absolute;
   top: 50%;
   margin: 15px;
   padding: 8px; }
