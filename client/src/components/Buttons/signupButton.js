@@ -1,5 +1,4 @@
 import React from "react";
-import "./button.css"
 
 export const SignupBtn = props => (
   <div>
@@ -12,10 +11,12 @@ export const SignupBtn = props => (
       </div>
     : null }
 
-    <span {...props} id = {props.id} className="btn signup-btn">
-    {/* className="btn btn-success signup-btn */}
-    Create Game
-    </span>
+    { props.showbutton !== false ?
+      <span {...props} id = {props.id} className="btn signup-btn">
+      {/* className="btn btn-success signup-btn */}
+      Create Game
+      </span>
+    : null }
     
   </div>
 )
