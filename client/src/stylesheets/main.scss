@@ -1,5 +1,6 @@
 //Font ===========================================================
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
 
 // Colors =========================================================
 $background: #31263E;
@@ -31,8 +32,8 @@ $charcoal: #444444;
 %buttons{
   @include border-radius(30px);
   @include font;
-  width:145px;
-  font-size:15px;
+  width:200px;
+  font-size:25px;
   float:left;
   clear:both;
   position: absolute;
@@ -87,6 +88,11 @@ body {
 }
 
 //Room Key ======================================================
+#key-icon{
+  transform: rotate(45deg);
+  font-size: 40px;
+}
+
 .enter-key{
   @include font;
   font-size: 40px;
@@ -105,12 +111,12 @@ input[type="text"]:focus{
 
 #roomkey{
  background-color: $orange;
- @include border-radius(22px);
+ @include border-radius(30px);
  @include position;
- width:400px;
+ width:300px;
  margin-top:50px;
  font-size:14px;
- padding:5px;
+ padding:10px;
 }
 
 #random-word{
@@ -135,6 +141,10 @@ p{
 
 .color-btn{
   @extend %round-buttons;
+}
+
+.color-btn:hover{
+  margin-bottom:-10px;
 }
 
 #yellow-prof{
