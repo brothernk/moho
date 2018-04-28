@@ -20,7 +20,7 @@ class Home extends Component {
         let newurl = ""
         
         for (var i = 4; i < spliturl.length; i ++ ) {
-            newurl += spliturl[i] + "/"
+            newurl += "/" + spliturl[i]
         }
 
         this.setState({urlString: newurl}, function() {
@@ -32,7 +32,6 @@ class Home extends Component {
     checkURL = () => {
         API.checkSessionUrl(this.state.urlString)
         .then(res =>{ 
-            console.log(res)
             if (res.data.length < 1) {
                 console.log("Not found")
                 window.location.href = "/notfound"

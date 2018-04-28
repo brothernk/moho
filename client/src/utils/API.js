@@ -11,7 +11,7 @@ export default {
         return axios.get("/api/session/title/" + sessionTitle)
     },
     checkSessionUrl: function(sessionUrl) {
-        return axios.get("/api/session/url/" + sessionUrl)
+        return axios.get("/api/session/url" + sessionUrl)
     },
     getCategories: function() {
         return axios.get("/api/gif")
