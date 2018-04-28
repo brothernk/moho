@@ -13,6 +13,9 @@ export default {
     checkSessionUrl: function(sessionUrl) {
         return axios.get("/api/session/url" + sessionUrl)
     },
+    addSessionMember: function(memberData) {
+        return axios.post("/api/session/member", memberData)
+    },
     getCategories: function() {
         return axios.get("/api/gif")
     },

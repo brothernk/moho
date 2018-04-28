@@ -21,13 +21,24 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findByUrl: function(req, res) {
-
     let url = "/" + req.params.word1 + "/" + req.params.word2 + "/" + req.params.word3 + "/" + req.params.word4 + "/" + req.params.word5 + "/" + req.params.word6
     db.Session
       .find({"url": url})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-
+  addMember: function(req, res) {
+    let memberObject = {
+      name: req.body.username,
+      color: req.body.color
+    }
+    db.Session
+      .update(
+        {"url": req.body.url},
+        { $push: { members: memberObject}}
+      )
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  }
  
 };
