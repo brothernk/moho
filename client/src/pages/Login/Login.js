@@ -22,7 +22,7 @@ class Login extends Component {
     }
 
     generateRandomWord = () => {
-        this.setState({showButton: false})
+
         this.setState({showResults: false})
         this.setState({showError: false})
 
