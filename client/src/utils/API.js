@@ -17,6 +17,7 @@ export default {
         return axios.get("/api/gif")
     },
     getGIF: function(searchTerm) {
-        return axios.get("https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=" + searchTerm + "&rating=PG")
+        // Need to send to /api route to hide API Key
+        return axios.get("/api/giphy/?" + searchTerm)
     }
 }

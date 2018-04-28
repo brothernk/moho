@@ -38,7 +38,7 @@ class Login extends Component {
     callGIPHY = () => {
         API.getGIF(this.state.searchTerm)
         .then(response => {
-            console.log(response);
+            console.log(response.data.data);
         })
         .catch(err => console.log(err))
     }
