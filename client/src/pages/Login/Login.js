@@ -12,6 +12,7 @@ class Login extends Component {
         enteredWord: "",
         showResults: false,
         showError: false,
+        showButton: true,
         gameStart: false,
         searchTerm: "dancing"
     }
@@ -21,10 +22,11 @@ class Login extends Component {
     }
 
     generateRandomWord = () => {
+
         this.setState({showResults: false})
         this.setState({showError: false})
 
-        var apiURL = "http://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=false&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
+        var apiURL = "http://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=false&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=10&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
         axios.get(apiURL)
         .then(response => {
             this.setState({randomWord: response.data.word}, function() {
@@ -116,7 +118,8 @@ class Login extends Component {
     render() {
         return (
             <div> 
-                <SignupBtn onClick={this.generateRandomWord} randomword={this.state.randomWord}/>
+                <SignupBtn onClick={this.generateRandomWord} randomword={this.state.randomWord} showbutton={this.state.showButton}/>
+
                 { this.state.showError ? 
                     <div> 
                         <p>Session does not exist, double check game keyword or create new game</p>
@@ -124,7 +127,7 @@ class Login extends Component {
                 : null }
 
                 { this.state.showResults=== false ? 
-                <LoginBtn onClick={this.loginClick}/>
+                    <LoginBtn onClick={this.loginClick}/>
                 : null}
 
                 { this.state.showResults ? 

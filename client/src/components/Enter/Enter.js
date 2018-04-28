@@ -4,7 +4,7 @@ export const Enter = props => (
     <div>
         <div className="enter-game">
             <div className="enter-key">Enter Your Room Key</div>
-            <input type="text"{...props}/>
+            <input type="text"{...props} placeholder="moldy cheese"/>
         </div>
     </div>
 )
