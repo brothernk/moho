@@ -12,5 +12,8 @@ export default {
     },
     getCategories: function() {
         return axios.get("/api/gif")
+    },
+    getGIF: function(searchTerm) {
+        return axios.get("https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=" + searchTerm + "&rating=PG")
     }
 }
