@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "proxy": "http://localhost:3001/",
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
@@ -28,6 +29,7 @@
     "mongoose": "^5.0.16",
     "node-sass": "^4.8.3",
     "node-sass-chokidar": "^1.2.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "socket.io": "^2.1.0"
   }
 }
