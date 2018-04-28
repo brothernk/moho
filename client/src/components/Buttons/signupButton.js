@@ -11,7 +11,7 @@ export const SignupBtn = props => (
       </div>
     : null }
 
-    { props.showbutton !== false ?
+    { props.showbutton === "true" ?
       <span {...props} id = {props.id} className="btn signup-btn">
       {/* className="btn btn-success signup-btn */}
       Create Game
