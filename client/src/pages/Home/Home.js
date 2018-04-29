@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 // import axios from "axios"
 import API from "../../utils/API"
-import { Profile } from "../../components/Profile";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
+import Profile from "../../components/Profile";
 
 class Home extends Component {
 
     state = {
-        urlString: "",
-        searchTerm: "dancing"
-
+        urlString: ""
     }
 
     componentDidMount = () => {

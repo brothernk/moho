@@ -1,11 +1,18 @@
 //Font ===========================================================
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
 
 // Colors =========================================================
 $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
 $grey: grey; //Mike, what color grey did you use/want?
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
 
 //Mixins =========================================================
 @mixin position{
@@ -25,14 +32,21 @@ $grey: grey; //Mike, what color grey did you use/want?
 %buttons{
   @include border-radius(30px);
   @include font;
-  width:145px;
-  font-size:15px;
+  width:200px;
+  font-size:25px;
   float:left;
   clear:both;
   position: absolute;
   top: 50%;
   margin: 15px;
   padding: 8px;
+}
+
+%round-buttons{
+  @include border-radius(50px);
+  height: 100px;
+  width:100px;
+  margin:10px;
 }
 
 %hover{
@@ -74,6 +88,11 @@ body {
 }
 
 //Room Key ======================================================
+#key-icon{
+  transform: rotate(45deg);
+  font-size: 40px;
+}
+
 .enter-key{
   @include font;
   font-size: 40px;
@@ -92,12 +111,12 @@ input[type="text"]:focus{
 
 #roomkey{
  background-color: $orange;
- @include border-radius(22px);
+ @include border-radius(30px);
  @include position;
- width:400px;
+ width:300px;
  margin-top:50px;
  font-size:14px;
- padding:5px;
+ padding:10px;
 }
 
 #random-word{
@@ -135,4 +154,48 @@ p{
     border-radius: 15px;
   }
 
+}
+
+//Profile Page ======================================================
+.enter-profile{
+  font-size:40px;
+  margin-top:2%;
+}
+
+.enter-color{
+  font-size:20px;
+  margin:50px 0px 15px 0px;
+}
+
+.color-btn{
+  @extend %round-buttons;
+}
+
+.color-btn:hover{
+  margin-bottom:-10px;
+}
+
+#yellow-prof{
+  background-color:$yellow;
+}
+#blue-prof{
+  background-color:$blue;
+}
+#red-prof{
+  background-color:$red;
+}
+#pink-prof{
+  background-color:$pink;
+}
+#green-prof{
+  background-color:$green;
+}
+#orange-prof{
+  background-color:$orange;
+}
+#purple-prof{
+  background-color:$purple;
+}
+#charcoal-prof{
+  background-color:$charcoal;
 }

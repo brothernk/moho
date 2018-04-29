@@ -1,15 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
 .signup-btn, .login-btn, .enter-btn {
   border-radius: 30px;
   font-family: "Montserrat", sans-serif;
-  width: 145px;
-  font-size: 15px;
+  width: 200px;
+  font-size: 25px;
   float: left;
   clear: both;
   position: absolute;
   top: 50%;
   margin: 15px;
   padding: 8px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px; }
 
 .signup-btn:hover, .login-btn:hover, .enter-btn {
   background: grey; }
@@ -38,6 +45,10 @@ body {
   background: #44BBA4;
   left: 50%; }
 
+#key-icon {
+  transform: rotate(45deg);
+  font-size: 40px; }
+
 .enter-key {
   font-family: "Montserrat", sans-serif;
   font-size: 40px; }
@@ -53,13 +64,13 @@ input[type="text"]:focus {
 
 #roomkey {
   background-color: #FF8A5B;
-  border-radius: 22px;
+  border-radius: 30px;
   margin: auto;
   text-align: center;
-  width: 400px;
+  width: 300px;
   margin-top: 50px;
   font-size: 14px;
-  padding: 5px; }
+  padding: 10px; }
 
 #random-word {
   margin-top: -10px;
@@ -86,3 +97,39 @@ p {
     width: 100%;
     margin-top: 25px;
     border-radius: 15px; }
+
+.enter-profile {
+  font-size: 40px;
+  margin-top: 2%; }
+
+.enter-color {
+  font-size: 20px;
+  margin: 50px 0px 15px 0px; }
+
+.color-btn:hover {
+  margin-bottom: -10px; }
+
+#yellow-prof {
+  background-color: #FFC655; }
+
+#blue-prof {
+  background-color: #5FACFF; }
+
+#red-prof {
+  background-color: #FF6161; }
+
+#pink-prof {
+  background-color: #D45FFF; }
+
+#green-prof {
+  background-color: #44BBA4; }
+
+#orange-prof {
+  background-color: #FF8A5B; }
+
+#purple-prof {
+  background-color: #9964FF; }
+
+#charcoal-prof {
+  background-color: #444444; }
+
