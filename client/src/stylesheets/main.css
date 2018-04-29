@@ -79,6 +79,25 @@ input[type="text"]:focus {
 p {
   margin: 0px; }
 
+.search-holder {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto; }
+  .search-holder input[type="text"] {
+    width: calc(100% - 65px); }
+  .search-holder .search-button {
+    width: 50px;
+    height: 50px;
+    background: green;
+    display: inline-block;
+    margin: 0px 0px 0px 15px;
+    position: relative;
+    top: 18px; }
+  .search-holder img {
+    width: 100%;
+    margin-top: 25px;
+    border-radius: 15px; }
+
 .enter-profile {
   font-size: 40px;
   margin-top: 2%; }
@@ -113,3 +132,4 @@ p {
 
 #charcoal-prof {
   background-color: #444444; }
+

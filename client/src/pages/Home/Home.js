@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import axios from "axios"
 import API from "../../utils/API"
+import GiphySearch from "../../components/GiphySearch/GiphySearch";
 import Profile from "../../components/Profile";
 
 class Home extends Component {
@@ -67,6 +68,7 @@ class Home extends Component {
                 {/* <EnterBtn onClick={this.callGIPHY} /> */}
 
                 <Profile />
+                <GiphySearch />
 
             </div>
         );
