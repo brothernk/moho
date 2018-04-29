@@ -67,3 +67,19 @@ input[type="text"]:focus {
 
 p {
   margin: 0px; }
+
+.search-holder {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto; }
+  .search-holder input[type="text"] {
+    width: calc(100% - 65px); }
+  .search-holder .search-button {
+    width: 50px;
+    height: 50px;
+    background: green;
+    display: inline-block;
+    margin: 20px 0px 0px 15px; }
+  .search-holder img {
+    width: 100%;
+    padding-top: 25px; }
