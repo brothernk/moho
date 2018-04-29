@@ -48,6 +48,8 @@ class GiphySearch extends Component {
                 <input name="giphySearchBar" onChange={this.searchTerm} type="text" />
                 <div onClick={this.callGIPHY} className="search-button"></div>
                 <img src={this.state.image_url} alt="" className="gif-preview"/>
+                <div className="button research">
+                </div>
               </div>
 
           </div>
