@@ -1,0 +1,30 @@
+// Colors =========================================================
+$background: #31263E;
+$green: #44BBA4;
+$orange: #FF8A5B;
+$grey: grey; //Mike, what color grey did you use/want?
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
+
+.promptSelect-component {
+  padding: 15px;
+
+  .prompt-card {
+    text-align: left;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    background: $red;
+    padding: 15px 20px 10px 20px;
+    border-radius: 15px;
+
+    i {
+      padding-right: 15px;
+    }
+  }
+
+}

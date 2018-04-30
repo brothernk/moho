@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import API from "../../utils/API"
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
 import Profile from "../../components/Profile";
+import PromptSelect from "../../components/PromptSelect/PromptSelect";
 
 class Home extends Component {
 
@@ -69,6 +70,7 @@ class Home extends Component {
 
                 <Profile />
                 <GiphySearch />
+                <PromptSelect />
 
             </div>
         );
