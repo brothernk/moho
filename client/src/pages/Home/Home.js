@@ -69,6 +69,7 @@ class Home extends Component {
 
                 <Profile />
                 <GiphySearch />
+                <BottomNav />
 
             </div>
         );
