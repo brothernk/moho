@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import axios from "axios"
-import API from "../../utils/API"
+import API from "../../utils/API";
+import BottomNav from "../../components/BottomNav/bottomNav";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
