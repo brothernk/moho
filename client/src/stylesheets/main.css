@@ -142,6 +142,19 @@ p {
           right: 15px;
           font-size: 20px; }
 
+.promptSelect-component {
+  padding: 15px; }
+  .promptSelect-component .prompt-card {
+    text-align: left;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    background: #FF6161;
+    padding: 15px 20px 10px 20px;
+    border-radius: 15px; }
+    .promptSelect-component .prompt-card i {
+      padding-right: 15px; }
+
 .enter-profile {
   font-size: 40px;
   margin-top: 2%; }
