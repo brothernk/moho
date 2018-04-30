@@ -70,7 +70,10 @@ class Home extends Component {
 
                 <Profile />
                 <GiphySearch />
+
                 <PromptSelect />
+
+                <BottomNav />
 
             </div>
         );
