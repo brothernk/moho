@@ -6,7 +6,8 @@ class GiphySearch extends Component {
 
   state = {
       searchTerm: "",
-      image_url: ""
+      image_url: "",
+      confirm: false
   }
 
   componentDidMount = () => {
@@ -38,17 +39,34 @@ class GiphySearch extends Component {
     });
   }
 
+  confirmSelection = () => {
+      this.setState({
+          confirm: true
+      });
+  }
+
   render() {
       return (
-          <div> 
-        
-              {/* <EnterBtn onClick={this.callGIPHY} /> */}
-              <h1>GIPHY SEARCH</h1>
+          <div className="giphy-component"> 
+              <h6>Player's Prompt</h6>
+              <h4>Placeholder Prompt</h4>
               <div className="search-holder">
                 <input name="giphySearchBar" onChange={this.searchTerm} type="text" />
-                <div onClick={this.callGIPHY} className="search-button"></div>
+                <div onClick={this.callGIPHY} className="search-button">
+                    <i className="fas fa-search"></i>
+                </div>
                 <img src={this.state.image_url} alt="" className="gif-preview"/>
-                <div className="button research">
+                <div className="button-holder">
+                    <div className="timer-placeholder">
+                        <i className="fas fa-stopwatch"></i>
+                        <span className="timer">10</span>
+                    </div>
+                    <div className="button research" onClick={this.callGIPHY}>
+                        <i className="fas fa-redo"></i>
+                    </div>
+                    <div className="button confirm" onClick={this.confirmSelection}>
+                        <i className="fas fa-check"></i>
+                    </div>
                 </div>
               </div>
 

@@ -79,24 +79,68 @@ input[type="text"]:focus {
 p {
   margin: 0px; }
 
-.search-holder {
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto; }
-  .search-holder input[type="text"] {
-    width: calc(100% - 65px); }
-  .search-holder .search-button {
-    width: 50px;
-    height: 50px;
-    background: green;
-    display: inline-block;
-    margin: 0px 0px 0px 15px;
-    position: relative;
-    top: 18px; }
-  .search-holder img {
+.giphy-component {
+  padding: 15px; }
+  .giphy-component .search-holder {
     width: 100%;
-    margin-top: 25px;
-    border-radius: 15px; }
+    max-width: 450px;
+    margin: 0 auto; }
+    .giphy-component .search-holder input[type="text"] {
+      width: calc(100% - 65px); }
+    .giphy-component .search-holder .search-button {
+      width: 50px;
+      height: 50px;
+      background: #FF8A5B;
+      display: inline-block;
+      margin: 0px 0px 0px 15px;
+      position: relative;
+      top: 18px;
+      border-radius: 50%; }
+      .giphy-component .search-holder .search-button i {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 20px; }
+    .giphy-component .search-holder img {
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 15px; }
+    .giphy-component .search-holder .button-holder {
+      width: 100%;
+      text-align: right;
+      padding-top: 20px; }
+      .giphy-component .search-holder .button-holder .timer-placeholder {
+        display: inline-block;
+        width: calc(100% - 115px);
+        text-align: left;
+        font-size: 30px;
+        position: relative;
+        bottom: 12px; }
+        .giphy-component .search-holder .button-holder .timer-placeholder i {
+          padding-right: 10px; }
+      .giphy-component .search-holder .button-holder .button {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: inline-block; }
+      .giphy-component .search-holder .button-holder .research {
+        background: lightgray;
+        position: relative; }
+        .giphy-component .search-holder .button-holder .research i {
+          color: darkgrey;
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          font-size: 20px; }
+      .giphy-component .search-holder .button-holder .confirm {
+        background: #44BBA4;
+        position: relative;
+        margin-left: 10px; }
+        .giphy-component .search-holder .button-holder .confirm i {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          font-size: 20px; }
 
 .enter-profile {
   font-size: 40px;
@@ -132,4 +176,3 @@ p {
 
 #charcoal-prof {
   background-color: #444444; }
-
