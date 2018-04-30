@@ -1,0 +1,109 @@
+// Colors =========================================================
+$background: #31263E;
+$green: #44BBA4;
+$orange: #FF8A5B;
+$grey: grey; //Mike, what color grey did you use/want?
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
+
+.giphy-component {
+  padding: 15px;
+
+  .search-holder{
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+  
+    input[type="text"] {
+      width: calc(100% - 65px);
+    }
+  
+    .search-button {
+      width: 50px;
+      height: 50px;
+      background: $orange;
+      display: inline-block;
+      margin: 0px 0px 0px 15px;
+      position: relative;
+      top: 18px;
+      border-radius: 50%;
+  
+      i {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 20px;
+      }
+  
+    }
+  
+    img {
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 15px;
+    }
+  
+    .button-holder {
+  
+      width: 100%;
+      text-align: right;
+      padding-top: 20px;
+
+      .timer-placeholder{
+        display: inline-block;
+        width: calc(100% - 115px);
+        text-align: left;
+        font-size: 30px;
+        position: relative;
+        bottom: 12px;
+
+        i {
+          padding-right: 10px;
+        }
+
+      }
+  
+      .button {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+    
+      .research {
+        background: lightgray;
+        position: relative;
+    
+        i {
+          color: darkgrey;
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          font-size: 20px;
+        }
+    
+      }
+    
+      .confirm {
+        background: $green;
+        position: relative;
+        margin-left: 10px;
+    
+        i {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          font-size: 20px;
+        }
+    
+      }
+  
+    }
+  
+  }
+
+}
