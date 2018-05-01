@@ -1,8 +1,8 @@
-// Colors =========================================================
+//Colors ===============================================================
 $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
-$grey: grey; //Mike, what color grey did you use/want?
+$grey: grey;
 $yellow: #FFC655;
 $blue: #5FACFF;
 $red: #FF6161;
@@ -12,7 +12,11 @@ $charcoal: #444444;
 
 .giphy-component {
   padding: 15px;
-
+  
+  h4, h6 {
+    @include font;
+  }
+  
   .search-holder{
     width: 100%;
     max-width: 450px;
@@ -38,7 +42,6 @@ $charcoal: #444444;
         right: 15px;
         font-size: 20px;
       }
-  
     }
   
     img {
@@ -64,7 +67,6 @@ $charcoal: #444444;
         i {
           padding-right: 10px;
         }
-
       }
   
       .button {
@@ -85,7 +87,6 @@ $charcoal: #444444;
           right: 15px;
           font-size: 20px;
         }
-    
       }
     
       .confirm {
@@ -99,11 +100,7 @@ $charcoal: #444444;
           right: 15px;
           font-size: 20px;
         }
-    
       }
-  
     }
-  
   }
-
 }
