@@ -5,7 +5,6 @@ export const SignupBtn = props => (
     { props.randomword !== "" ?
       <div id = "roomkey"> 
         <i class="fas fa-key" id="key-icon"></i>
-         {/* Temporary key until we get Mike’s cute lil pic */}
         <p>Your room key is</p>
         <p id="random-word">{props.randomword}</p>
       </div>

@@ -21,7 +21,6 @@ class Login extends Component {
     }
 
     generateRandomWord = () => {
-
         this.setState({showResults: false})
         this.setState({showError: false})
 
@@ -48,8 +47,7 @@ class Login extends Component {
             this.setState({randomURL: url}, function() {
                 this.saveSessionData()
                 this.printState()
-            })
-            
+            })    
         })
         .catch(err => console.log(err))
     }
@@ -108,7 +106,8 @@ class Login extends Component {
     render() {
         return (
             <div> 
-                <SignupBtn onClick={this.generateRandomWord} randomword={this.state.randomWord} showbutton={this.state.showButton.toString()}/>
+                <SignupBtn onClick={this.generateRandomWord} randomword={this.state.randomWord} 
+                showbutton={this.state.showButton.toString()}/>
 
                 { this.state.showError ? 
                     <div> 
@@ -126,7 +125,6 @@ class Login extends Component {
                     <EnterBtn onClick={this.enterGame}/> 
                 </div>
                 : null }
-
             </div>
         );
     }

@@ -5,10 +5,8 @@
   font-family: "Montserrat", sans-serif;
   width: 200px;
   font-size: 25px;
-  float: left;
-  clear: both;
-  position: absolute;
-  top: 50%;
+  float: center;
+  position: relative;
   margin: 15px;
   padding: 8px; }
 
@@ -17,9 +15,6 @@
   height: 100px;
   width: 100px;
   margin: 10px; }
-
-.signup-btn:hover, .login-btn:hover, .enter-btn {
-  background: grey; }
 
 input[type="text"] {
   border-radius: 30px;
@@ -38,12 +33,21 @@ body {
   color: white; }
 
 .signup-btn {
-  background: #FF8A5B;
-  right: 50%; }
+  background: #FF8A5B; }
 
 .login-btn, .enter-btn {
-  background: #44BBA4;
-  left: 50%; }
+  background: #44BBA4; }
+
+.signup-btn:hover, .login-btn:hover, .enter-btn:hover {
+  background-color: grey; }
+
+input[type="text"] {
+  margin: auto;
+  text-align: center;
+  margin-top: 20px; }
+
+input[type="text"]:focus {
+  outline: none; }
 
 #key-icon {
   transform: rotate(45deg);
@@ -52,15 +56,6 @@ body {
 .enter-key {
   font-family: "Montserrat", sans-serif;
   font-size: 40px; }
-
-input[type="text"] {
-  margin: auto;
-  text-align: center;
-  margin-top: 20px;
-  cursor: bold; }
-
-input[type="text"]:focus {
-  outline: none; }
 
 #roomkey {
   background-color: #FF8A5B;
