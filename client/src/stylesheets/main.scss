@@ -6,7 +6,7 @@
 $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
-$grey: grey; //Mike, what color grey did you use/want?
+$grey: grey;
 $yellow: #FFC655;
 $blue: #5FACFF;
 $red: #FF6161;
@@ -20,40 +20,37 @@ $charcoal: #444444;
   text-align: center;
 }
 
-@mixin border-radius($radius){
-  border-radius: $radius;
-}
-
 @mixin font{
   font-family: "Montserrat", sans-serif;
+  color:white;
 }
 
 //Placeholders ===================================================
 %buttons{
-  @include border-radius(30px);
   @include font;
-  width:200px;
+  border-radius: 30px;
   font-size:25px;
   float:center;
   position: relative;
+  width:200px;
   margin: 15px;
   padding: 8px;
 }
 
 %round-buttons{
-  @include border-radius(50px);
+  border-radius: 50px;
   height: 100px;
   width:100px;
   margin:10px;
 }
 
 %text-entry{
-  @include border-radius(30px);
   @include font;
+  border-radius: 30px;
+  border:none;
   background-color: lightgrey;
   color:grey;
   padding: 10px;
-  border:none;
   font-size: 20px;
 }
 
@@ -62,7 +59,6 @@ body {
   @include position;
   @include font;
   background: $background;
-  color:white;
 }
 
 //Buttons =========================================================
@@ -82,8 +78,8 @@ body {
 
 //Text Input =====================================================
 input[type="text"]{
-  @extend %text-entry;
   @include position;
+  @extend %text-entry;
   margin-top:20px;
 }
 
@@ -103,9 +99,9 @@ input[type="text"]:focus{
 }
 
 #roomkey{
- background-color: $orange;
- @include border-radius(30px);
  @include position;
+ border-radius: 30px;
+ background-color: $orange;
  width:300px;
  margin-top:50px;
  font-size:14px;
@@ -128,45 +124,4 @@ p{
 @import "PromptSelect.scss";
 
 //Profile Page ======================================================
-.enter-profile{
-  font-size:40px;
-  margin-top:2%;
-}
-
-.enter-color{
-  font-size:20px;
-  margin:50px 0px 15px 0px;
-}
-
-.color-btn{
-  @extend %round-buttons;
-}
-
-.color-btn:hover{
-  margin-bottom:-10px;
-}
-
-#yellow-prof{
-  background-color:$yellow;
-}
-#blue-prof{
-  background-color:$blue;
-}
-#red-prof{
-  background-color:$red;
-}
-#pink-prof{
-  background-color:$pink;
-}
-#green-prof{
-  background-color:$green;
-}
-#orange-prof{
-  background-color:$orange;
-}
-#purple-prof{
-  background-color:$purple;
-}
-#charcoal-prof{
-  background-color:$charcoal;
-}
+@import "profilePage.scss";

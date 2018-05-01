@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 @import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
 .signup-btn, .login-btn, .enter-btn {
-  border-radius: 30px;
   font-family: "Montserrat", sans-serif;
-  width: 200px;
+  color: white;
+  border-radius: 30px;
   font-size: 25px;
   float: center;
   position: relative;
+  width: 200px;
   margin: 15px;
   padding: 8px; }
 
@@ -17,20 +18,21 @@
   margin: 10px; }
 
 input[type="text"] {
-  border-radius: 30px;
   font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  border: none;
   background-color: lightgrey;
   color: grey;
   padding: 10px;
-  border: none;
   font-size: 20px; }
 
 body {
   margin: auto;
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  background: #31263E;
-  color: white; }
+  color: white;
+  background: #31263E; }
 
 .signup-btn {
   background: #FF8A5B; }
@@ -55,13 +57,14 @@ input[type="text"]:focus {
 
 .enter-key {
   font-family: "Montserrat", sans-serif;
+  color: white;
   font-size: 40px; }
 
 #roomkey {
-  background-color: #FF8A5B;
-  border-radius: 30px;
   margin: auto;
   text-align: center;
+  border-radius: 30px;
+  background-color: #FF8A5B;
   width: 300px;
   margin-top: 50px;
   font-size: 14px;
@@ -76,6 +79,9 @@ p {
 
 .giphy-component {
   padding: 15px; }
+  .giphy-component h4, .giphy-component h6 {
+    font-family: "Montserrat", sans-serif;
+    color: white; }
   .giphy-component .search-holder {
     width: 100%;
     max-width: 450px;
@@ -139,6 +145,12 @@ p {
 
 .promptSelect-component {
   padding: 15px; }
+  .promptSelect-component h4, .promptSelect-component h5 {
+    font-family: "Montserrat", sans-serif;
+    color: white; }
+  .promptSelect-component h4 {
+    text-transform: uppercase;
+    margin-bottom: 25px; }
   .promptSelect-component .prompt-card {
     text-align: left;
     width: 80%;
@@ -159,7 +171,7 @@ p {
   margin: 50px 0px 15px 0px; }
 
 .color-btn:hover {
-  margin-bottom: -10px; }
+  box-shadow: 0 0 10px grey; }
 
 #yellow-prof {
   background-color: #FFC655; }

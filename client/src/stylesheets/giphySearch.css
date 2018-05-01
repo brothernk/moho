@@ -1,5 +1,8 @@
 .giphy-component {
   padding: 15px; }
+  .giphy-component h4 {
+    font-family: "Montserrat", sans-serif;
+    color: white; }
   .giphy-component .search-holder {
     width: 100%;
     max-width: 450px;

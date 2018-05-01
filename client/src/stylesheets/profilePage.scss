@@ -1,0 +1,54 @@
+//Colors ===============================================================
+$background: #31263E;
+$green: #44BBA4;
+$orange: #FF8A5B;
+$grey: grey;
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
+
+.enter-profile{
+    font-size:40px;
+    margin-top:2%;
+  }
+  
+  .enter-color{
+    font-size:20px;
+    margin:50px 0px 15px 0px;
+  }
+  
+  .color-btn{
+    @extend %round-buttons;
+  }
+
+  .color-btn:hover{
+    box-shadow: 0 0 10px grey;
+  }
+  
+  #yellow-prof{
+    background-color:$yellow;
+  }
+  #blue-prof{
+    background-color:$blue;
+  }
+  #red-prof{
+    background-color:$red;
+  }
+  #pink-prof{
+    background-color:$pink;
+  }
+  #green-prof{
+    background-color:$green;
+  }
+  #orange-prof{
+    background-color:$orange;
+  }
+  #purple-prof{
+    background-color:$purple;
+  }
+  #charcoal-prof{
+    background-color:$charcoal;
+  }
