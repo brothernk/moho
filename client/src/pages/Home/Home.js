@@ -9,7 +9,8 @@ import PromptSelect from "../../components/PromptSelect/PromptSelect";
 class Home extends Component {
 
     state = {
-        urlString: ""
+        urlString: "",
+        profileName: ""
     }
 
     componentDidMount = () => {
@@ -49,6 +50,7 @@ class Home extends Component {
             }
 
             else {
+                console.log(res.data)
                 console.log("You entered a valid session!")
             }
         })
@@ -70,6 +72,7 @@ class Home extends Component {
                 {/* <EnterBtn onClick={this.callGIPHY} /> */}
 
                 <Profile />
+
                 <GiphySearch />
 
                 <PromptSelect />
