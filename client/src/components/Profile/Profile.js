@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../../utils/API"
+import API from "../../utils/API";
 
 class Profile extends Component {
 
@@ -7,12 +7,11 @@ class Profile extends Component {
         url: "",
         username: "",
         color: "",
-        showProfile: true
+        showProfile: true,
+        showError: false
     }
 
     componentDidMount = () => {
-
-        this.loadSavedSessions();
         
         let currenturl = window.location.href;
         let spliturl = currenturl.split("/");
@@ -40,8 +39,13 @@ class Profile extends Component {
 
     enterProfile = event => {
         
-        let profileColor = event.target.id
-        this.setState({color:profileColor}, function(){
+        if (this.state.username === "") {
+            this.setState({showError: true})
+        }
+
+        else {
+            let profileColor = event.target.id
+            this.setState({color:profileColor}, function(){
             
             API.addSessionMember({
                 url: this.state.url,
@@ -55,6 +59,7 @@ class Profile extends Component {
             .catch(err => console.log(err.response));
 
         })
+        }
 
     }
 
@@ -66,8 +71,17 @@ class Profile extends Component {
 
         return (
             <div>
+
             { this.state.showProfile ? 
+
                 <div>
+
+                    { this.state.showError ?
+                        <div>
+                            <p>Please enter a username</p>
+                        </div>
+                    : null }
+
                     <div className="setup-profile">
                         <div className="enter-profile">Setup Your Profile</div>
                         <input type="text" placeholder="Enter Name" name="username" value={this.state.username} onChange={this.handleInputChange}/>
@@ -87,6 +101,7 @@ class Profile extends Component {
                     </div>
                 </div>
             : null }
+
             </div>
 
                
