@@ -1,8 +1,8 @@
-//Font ===========================================================
+//Fonts ==================================================================
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 @import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
 
-// Colors =========================================================
+//Colors ===============================================================
 $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
@@ -14,7 +14,7 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
-//Mixins =========================================================
+//Mixins ===============================================================
 @mixin position{
   margin:auto;
   text-align: center;
@@ -34,10 +34,8 @@ $charcoal: #444444;
   @include font;
   width:200px;
   font-size:25px;
-  float:left;
-  clear:both;
-  position: absolute;
-  top: 50%;
+  float:center;
+  position: relative;
   margin: 15px;
   padding: 8px;
 }
@@ -49,10 +47,6 @@ $charcoal: #444444;
   margin:10px;
 }
 
-%hover{
-  background:$grey;
-}
-
 %text-entry{
   @include border-radius(30px);
   @include font;
@@ -62,6 +56,7 @@ $charcoal: #444444;
   border:none;
   font-size: 20px;
 }
+
 //Body ===========================================================
 body {
   @include position;
@@ -74,17 +69,26 @@ body {
 .signup-btn{
   @extend %buttons;
   background:$orange;
-  right:50%;
 }
 
 .login-btn, .enter-btn{
   @extend %buttons;
   background: $green;
-  left:50%;
 }
 
-.signup-btn:hover, .login-btn:hover, .enter-btn{
-  @extend %hover;
+.signup-btn:hover, .login-btn:hover, .enter-btn:hover{
+  background-color: grey;
+}
+
+//Text Input =====================================================
+input[type="text"]{
+  @extend %text-entry;
+  @include position;
+  margin-top:20px;
+}
+
+input[type="text"]:focus{
+  outline:none;
 }
 
 //Room Key ======================================================
@@ -96,17 +100,6 @@ body {
 .enter-key{
   @include font;
   font-size: 40px;
-}
-
-input[type="text"]{
-  @extend %text-entry;
-  @include position;
-  margin-top:20px;
-  cursor: bold;
-}
-
-input[type="text"]:focus{
-  outline:none;
 }
 
 #roomkey{
