@@ -68,7 +68,7 @@ class Profile extends Component {
             <div>
             { this.state.showProfile ? 
                 <div>
-                    <div className="setup-profile">
+                    <div className="profilePage-component">
                         <div className="enter-profile">Setup Your Profile</div>
                         <input type="text" placeholder="Enter Name" name="username" value={this.state.username} onChange={this.handleInputChange}/>
                     </div>
