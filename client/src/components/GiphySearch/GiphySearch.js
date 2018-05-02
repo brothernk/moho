@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import axios from "axios"
 import API from "../../utils/API"
 
 class GiphySearch extends Component {
@@ -69,7 +68,6 @@ class GiphySearch extends Component {
                     </div>
                 </div>
               </div>
-
           </div>
       );
   }

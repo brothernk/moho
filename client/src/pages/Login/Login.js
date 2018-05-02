@@ -12,7 +12,7 @@ class Login extends Component {
         enteredWord: "",
         showResults: false,
         showError: false,
-        showButton: true
+        showButton: true,
     }
 
     componentDidMount = () => {

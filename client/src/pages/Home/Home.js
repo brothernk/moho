@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import axios from "axios"
 import API from "../../utils/API";
 import BottomNav from "../../components/BottomNav/bottomNav";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
@@ -29,7 +28,6 @@ class Home extends Component {
         this.setState({urlString: newurl}, function() {
             this.checkURL()
         })
-
     }
     
     callGIPHY = () => {
@@ -57,7 +55,6 @@ class Home extends Component {
         .catch(err => console.log(err.response));
     };
 
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -68,17 +65,10 @@ class Home extends Component {
     render() {
         return (
             <div> 
-          
-                {/* <EnterBtn onClick={this.callGIPHY} /> */}
-
                 <Profile />
-
                 <GiphySearch />
-
                 <PromptSelect />
-
                 <BottomNav />
-
             </div>
         );
     }
