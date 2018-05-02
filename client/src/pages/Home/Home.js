@@ -16,7 +16,7 @@ class Home extends Component {
 
     componentDidMount = () => {
         this.setUrl()
-        axios.get('https://json.geoiplookup.io/api?callback=?', function(data) {
+        axios.get('https://api.ipdata.co', function(data) {
             console.log(JSON.stringify(data, null, 2));
           });
     }
