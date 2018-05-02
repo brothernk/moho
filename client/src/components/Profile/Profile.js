@@ -7,7 +7,6 @@ class Profile extends Component {
         url: "",
         username: "",
         color: "",
-        showProfile: true,
         showError: false
     }
 
@@ -72,11 +71,7 @@ class Profile extends Component {
         return (
             <div>
 
-            { this.state.showProfile ? 
-
-                <div>
-
-                    { this.state.showError ?
+                { this.state.showError ?
                         <div>
                             <p>Please enter a username</p>
                         </div>
@@ -99,10 +94,9 @@ class Profile extends Component {
                         <span id="purple-prof" className="btn color-btn" onClick={this.enterProfile}></span>
                         <span id="charcoal-prof" className="btn color-btn" onClick={this.enterProfile}></span>
                     </div>
-                </div>
-            : null }
+                : null }
 
-            </div>
+        </div>
 
                
         )
