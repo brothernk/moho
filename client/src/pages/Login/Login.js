@@ -60,7 +60,7 @@ class Login extends Component {
 
     loadSavedSessions = () => {
         API.getSessions()
-        .then(res => console.log(res))
+        .then(res => console.log(res.data))
         .catch(err => console.log(err.response));
     }
 
