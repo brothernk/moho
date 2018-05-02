@@ -12,7 +12,12 @@ router.route("/title/:session")
 
 // Matches with /api/session/url/sessionurl
 router.route("/url/:word1/:word2/:word3/:word4/:word5/:word6")
-  .get(sessionController.findByUrl)
+  .get(() => {
+    const gameSocket = io.of('randomlygnerated');
+    gameSocket.on('connect', () => {
+      consol.log('user connected.');
+    })
+  })
 
 router.route("/member")
   .post(sessionController.addMember)

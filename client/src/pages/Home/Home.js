@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import BottomNav from "../../components/BottomNav/bottomNav";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
+import openSocket from 'socket.io-client';
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import { lookup } from "ipdata"
@@ -26,6 +27,7 @@ class Home extends Component {
     componentDidMount = () => {
         this.checkIp();
         {this.returnCategories()}
+
     }
 
     // Grab user IP address set state variable, then continue to set URL state variable
@@ -36,6 +38,9 @@ class Home extends Component {
             this.setState({ipAddress: info.ip})
             this.setUrl()
         })
+
+        this.setUrl();
+        const socket = openSocket(this.props.match.url);
         
     }
 
@@ -49,9 +54,9 @@ class Home extends Component {
             newurl += "/" + spliturl[i]
         }
 
-        this.setState({urlString: newurl}, function() {
-            this.checkURL()
-        })
+        // this.setState({urlString: newurl}, function() {
+        //     this.checkURL()
+        // })
     }
 
     // Check state variable URL against session database. If url exist is database, the user can continue into the game
