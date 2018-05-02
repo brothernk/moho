@@ -44,3 +44,10 @@ module.exports = {
   }
  
 };
+
+// .get(() => {
+//   const gameSocket = io.of('randomlygnerated');
+//   gameSocket.on('connect', () => {
+//     consol.log('user connected.');
+//   })
+// })
