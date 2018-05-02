@@ -4,6 +4,7 @@ import BottomNav from "../../components/BottomNav/bottomNav";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
+import axios from "axios";
 
 class Home extends Component {
 
@@ -15,6 +16,9 @@ class Home extends Component {
 
     componentDidMount = () => {
         this.setUrl()
+        axios.get('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+            console.log(JSON.stringify(data, null, 2));
+        });
     }
 
     setUrl = () => {

@@ -94,7 +94,6 @@ class Profile extends Component {
                         <span id="purple-prof" className="btn color-btn" onClick={this.enterProfile}></span>
                         <span id="charcoal-prof" className="btn color-btn" onClick={this.enterProfile}></span>
                     </div>
-                : null }
 
         </div>
 
