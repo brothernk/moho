@@ -4,7 +4,7 @@ import BottomNav from "../../components/BottomNav/bottomNav";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
-import axios from "axios";
+import { lookup } from "ipdata"
 
 class Home extends Component {
 
@@ -16,11 +16,14 @@ class Home extends Component {
 
     componentDidMount = () => {
         this.setUrl()
-        axios.get('https://api.ipdata.co', function(data) {
-            console.log("api search")
-            console.log(data)
-            // console.log(JSON.stringify(data, null, 2));
-        });
+        this.checkIp()
+    }
+
+    checkIp = () => {
+       lookup()
+       .then(function(info) {
+           console.log(info)
+       })
     }
 
     setUrl = () => {
