@@ -4,7 +4,7 @@ export const SignupBtn = props => (
   <div>
     { props.randomword !== "" ?
       <div id = "roomkey"> 
-        <i class="fas fa-key" id="key-icon"></i>
+        <i className="fas fa-key" id="key-icon"></i>
         <p>Your room key is</p>
         <p id="random-word">{props.randomword}</p>
       </div>
