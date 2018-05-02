@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import axios from "axios"
 import API from "../../utils/API";
 import BottomNav from "../../components/BottomNav/bottomNav";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
@@ -10,7 +9,8 @@ class Home extends Component {
 
     state = {
         urlString: "",
-        profileName: ""
+        profileName: "",
+        showProfile: false
     }
 
     componentDidMount = () => {
@@ -29,18 +29,18 @@ class Home extends Component {
         this.setState({urlString: newurl}, function() {
             this.checkURL()
         })
-
     }
-    
+
     callGIPHY = () => {
         API.getGIF(this.state.searchTerm)
         .then(response => {
             console.log(response.data.data);
         })
         .catch(err => console.log(err))
-    }
+    };
 
     checkURL = () => {
+
         API.checkSessionUrl(this.state.urlString)
         .then(res =>{ 
             if (res.data.length < 1) {
@@ -57,7 +57,6 @@ class Home extends Component {
         .catch(err => console.log(err.response));
     };
 
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -68,17 +67,10 @@ class Home extends Component {
     render() {
         return (
             <div> 
-          
-                {/* <EnterBtn onClick={this.callGIPHY} /> */}
-
                 <Profile />
-
                 <GiphySearch />
-
                 <PromptSelect />
-
                 <BottomNav />
-
             </div>
         );
     }

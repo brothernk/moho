@@ -15,6 +15,7 @@ var GifSchema = new Schema({
 		type: String,
 		required: true
 	},
+
 	//category is required and an array
 	categories: {
 		type: Array,

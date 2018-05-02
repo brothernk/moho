@@ -95,6 +95,7 @@ input[type="text"]:focus{
 
 .enter-key{
   @include font;
+  margin:100px 0px 5px 0px;
   font-size: 40px;
 }
 
@@ -117,10 +118,10 @@ p{
   margin:0px;
 }
 
-// GIPHY Search Screen =================================================
+// GIPHY Search Screen =============================================
 @import "giphySearch.scss";
 
-// Prompt Select Screen =================================================
+// Prompt Select Screen ============================================
 @import "PromptSelect.scss";
 
 //Profile Page ======================================================
