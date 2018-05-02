@@ -9,7 +9,7 @@ var GifSchema = new Schema({
 	theme: {
 		type: String,
 		required: true
-	}
+	},
 	//category is required and a type of string
 	categories: {
 		type: Array,
