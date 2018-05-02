@@ -17,8 +17,10 @@ class Home extends Component {
     componentDidMount = () => {
         this.setUrl()
         axios.get('https://api.ipdata.co', function(data) {
-            console.log(JSON.stringify(data, null, 2));
-          });
+            console.log("api search")
+            console.log(data)
+            // console.log(JSON.stringify(data, null, 2));
+        });
     }
 
     setUrl = () => {
