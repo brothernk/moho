@@ -22,12 +22,12 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gifcategories",
   if (err) throw err;
 });
 
-io.on('connection', function (socket) {
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-});
+// io.on('connection', function (socket) {
+//   console.log('a user connected');
+//   socket.on('disconnect', function(){
+//     console.log('user disconnected');
+//   });
+// });
 
 // Start the API server
 server.listen(PORT, function() {
