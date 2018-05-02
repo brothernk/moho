@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const server = require('http').Server(app)
-const io = require('socket.io').listen(server);
+// const io = require('socket.io').listen(server);
 const PORT = process.env.PORT || 3001;
 
 // Configure body parser for AJAX requests
