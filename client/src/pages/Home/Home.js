@@ -9,7 +9,8 @@ class Home extends Component {
 
     state = {
         urlString: "",
-        profileName: ""
+        profileName: "",
+        showProfile: false
     }
 
     componentDidMount = () => {
@@ -29,16 +30,17 @@ class Home extends Component {
             this.checkURL()
         })
     }
-    
+
     callGIPHY = () => {
         API.getGIF(this.state.searchTerm)
         .then(response => {
             console.log(response.data.data);
         })
         .catch(err => console.log(err))
-    }
+    };
 
     checkURL = () => {
+
         API.checkSessionUrl(this.state.urlString)
         .then(res =>{ 
             if (res.data.length < 1) {
