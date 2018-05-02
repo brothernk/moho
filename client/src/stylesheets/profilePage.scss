@@ -10,6 +10,13 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
+%round-buttons{
+  border-radius: 50px;
+  height: 100px;
+  width:100px;
+  margin:10px;
+}
+
 .enter-profile{
     font-size:40px;
     margin-top:2%;

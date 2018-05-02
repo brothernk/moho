@@ -2,6 +2,7 @@ import React from "react";
 
 export const SignupBtn = props => (
   <div>
+
     { props.randomword !== "" ?
       <div id = "roomkey"> 
         <i className="fas fa-key" id="key-icon"></i>

@@ -46,7 +46,7 @@ class GiphySearch extends Component {
   }
 
   render() {
-      return (
+    return (
           <div className="promptSelect-component"> 
               <h4>Select a Theme</h4>
               {/* Will need to use a map function to pull out the categories and assign the proper fa icon. Will also need to assign a random color */}
@@ -54,7 +54,7 @@ class GiphySearch extends Component {
               <h5><i className="fas fa-exclamation-triangle"></i>Natural Disasters</h5>
               </div>
           </div>
-      );
+    );
   }
 }
 
