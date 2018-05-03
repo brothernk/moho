@@ -5,7 +5,18 @@ var Schema = mongoose.Schema;
 
 //Using the Schema constructor, create a new GifSchema object
 var GifSchema = new Schema({
-	//category is required and a type of string
+	//icon is required and a type of string
+	icon: {
+		type: Object,
+		required: true
+	},
+	//theme is required and a type of string
+	theme: {
+		type: String,
+		required: true
+	},
+
+	//category is required and an array
 	categories: {
 		type: Array,
 		required: true

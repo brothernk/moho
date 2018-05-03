@@ -30,7 +30,8 @@ module.exports = {
   addMember: function(req, res) {
     let memberObject = {
       name: req.body.username,
-      color: req.body.color
+      color: req.body.color,
+      ip: req.body.ip
     }
     db.Session
       .update(

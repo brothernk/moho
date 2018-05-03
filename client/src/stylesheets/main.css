@@ -58,6 +58,7 @@ input[type="text"]:focus {
 .enter-key {
   font-family: "Montserrat", sans-serif;
   color: white;
+  margin: 100px 0px 5px 0px;
   font-size: 40px; }
 
 #roomkey {
