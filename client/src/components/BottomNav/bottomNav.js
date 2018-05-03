@@ -11,7 +11,7 @@ const BottomNav = props => (
 				</span>
 
 				<p className="userScore"><i className="fas fa-trophy"></i> {props.userScore}</p>
-				<Link to="/"><i className="fas fa-home"></i>/Link>
+				<Link to="/"><i className="fas fa-home"></i></Link>
 		</div>
 	</nav>
 );
