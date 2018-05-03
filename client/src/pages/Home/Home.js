@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import axios from "axios"
 import API from "../../utils/API";
 import BottomNav from "../../components/BottomNav/bottomNav";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
@@ -74,6 +75,8 @@ class Home extends Component {
                 <Profile />
 
                 <GiphySearch />
+
+                <LoadingScreen />
 
                 <PromptSelect />
 

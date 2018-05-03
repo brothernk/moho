@@ -10,6 +10,30 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
+@mixin font{
+  font-family: "Montserrat", sans-serif;
+  color:white;
+}
+
+//Placeholders ===================================================
+%buttons{
+  @include font;
+  border-radius: 30px;
+  font-size:25px;
+  float:center;
+  position: relative;
+  width:200px;
+  margin: 15px;
+  padding: 8px;
+}
+
+%round-buttons{
+  border-radius: 50px;
+  height: 100px;
+  width:100px;
+  margin:10px;
+}
+
 .giphy-component {
   padding: 15px;
   

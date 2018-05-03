@@ -10,6 +10,11 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
+@mixin font{
+  font-family: "Montserrat", sans-serif;
+  color:white;
+}
+
 .promptSelect-component {
   padding: 15px;
 
