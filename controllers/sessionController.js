@@ -31,7 +31,8 @@ module.exports = {
     let memberObject = {
       name: req.body.username,
       color: req.body.color,
-      ip: req.body.ip
+      ip: req.body.ip,
+      score: 0
     }
     db.Session
       .update(
