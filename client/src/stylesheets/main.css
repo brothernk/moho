@@ -78,6 +78,23 @@ input[type="text"]:focus {
 p {
   margin: 0px; }
 
+.signup-btn, .login-btn, .enter-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  float: center;
+  position: relative;
+  width: 200px;
+  margin: 15px;
+  padding: 8px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px; }
+
 .giphy-component {
   padding: 15px; }
   .giphy-component h4, .giphy-component h6 {
@@ -204,6 +221,36 @@ p {
 #charcoal-prof {
   background-color: #444444; }
 
-#username {
-  color: black;
-}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: lightgray;
+  height: 50px; }
+  .bottom-nav .content-holder {
+    width: 100%;
+    position: relative; }
+    .bottom-nav .content-holder .user-initial {
+      position: absolute;
+      left: 15px;
+      top: 8px;
+      padding: 5px 10px 5px 10px;
+      background: #FFC655;
+      border-radius: 50%; }
+    .bottom-nav .content-holder .userScore {
+      position: absolute;
+      left: 60px;
+      top: 14px; }
+    .bottom-nav .content-holder .home-button {
+      position: absolute;
+      right: 15px;
+      top: 13px;
+      color: grey;
+      font-size: 25px; }
+
+.loading-gif {
+  width: 100%;
+  padding: 15px;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto; }

@@ -1,0 +1,54 @@
+//Colors ===============================================================
+$background: #31263E;
+$green: #44BBA4;
+$orange: #FF8A5B;
+$grey: grey;
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
+
+@mixin font{
+  font-family: "Montserrat", sans-serif;
+  color:white;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: lightgray;
+  height: 50px;
+
+  .content-holder {
+    width: 100%;
+    position: relative;
+
+    .user-initial {
+      position: absolute;
+      left: 15px;
+      top: 8px;
+      padding: 5px 10px 5px 10px;
+      background: $yellow;
+      border-radius: 50%;
+    }
+
+    .userScore {
+      position: absolute;
+      left: 60px;
+      top: 14px;
+    }
+
+    .home-button {
+      position: absolute;
+      right: 15px;
+      top: 13px;
+      color: $grey;
+      font-size: 25px;
+    }
+
+  }
+
+}
