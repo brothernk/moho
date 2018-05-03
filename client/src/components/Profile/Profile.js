@@ -7,26 +7,25 @@ class Profile extends Component {
         url: "",
         username: "",
         color: "",
+        ip: "",
         showError: false
     }
 
     componentDidMount = () => {
-        
-        let currenturl = window.location.href;
-        let spliturl = currenturl.split("/");
-        let newurl = ""
-        
-        for (var i = 4; i < spliturl.length; i ++ ) {
-            newurl += "/" + spliturl[i]
-        }
 
-        this.setState({url: newurl})
-    }
+        console.log(this.props)
+        
+        this.setState({url: this.props.url})
+        this.setState({ip: this.props.ip})
+        // let currenturl = window.location.href;
+        // let spliturl = currenturl.split("/");
+        // let newurl = ""
+        
+        // for (var i = 4; i < spliturl.length; i ++ ) {
+        //     newurl += "/" + spliturl[i]
+        // }
 
-    loadSavedSessions = () => {
-        API.getSessions()
-        .then(res => console.log(res))
-        .catch(err => console.log(err.response));
+        // this.setState({url: newurl})
     }
 
     handleInputChange = event => {
@@ -43,27 +42,44 @@ class Profile extends Component {
         }
 
         else {
-            let profileColor = event.target.id
+            let divTarget = event.target
+            let profileColor = divTarget.getAttribute('data')
             this.setState({color:profileColor}, function(){
             
-            API.addSessionMember({
-                url: this.state.url,
-                username: this.state.username,
-                color: this.state.color
-            })
-            .then(res => 
-                console.log(res),
-                this.hideProfile()
-            )
-            .catch(err => console.log(err.response));
+                console.log(this.state)
+
+                API.addSessionMember({
+                    url: this.state.url,
+                    username: this.state.username,
+                    color: this.state.color,
+                    ip: this.state.ip
+                })
+                .then(res => 
+                    this.showSessionData()
+                )
+                .catch(err => console.log(err.response));
 
         })
         }
 
     }
 
-    hideProfile = () => {
-        this.setState({showProfile: false})
+    showSessionData = () => {
+        API.checkSessionUrl(this.state.url)
+        .then(res =>{ 
+            console.log(res.data);
+            this.props.profileAdded('showProfile', false);
+            this.props.profileAdded('showHome', true);
+
+            for (var i = 0; i < res.data[0].members.length; i ++ ){
+                if (res.data[0].members[i].ip === this.state.ip) {
+                    this.props.profileAdded('userName', res.data[0].members[i].name);
+                    this.props.profileAdded('userScore', res.data[0].members[i].score);
+                    this.props.profileAdded('userColor', res.data[0].members[i].color)
+                }
+            }
+            
+        })
     }
 
     render() {
@@ -74,26 +90,27 @@ class Profile extends Component {
                         <div>
                             <p>Please enter a username</p>
                         </div>
-                    : null }
+                : null }
 
-                    <div className="setup-profile">
-                        <div className="enter-profile">Setup Your Profile</div>
-                        <input type="text" placeholder="Enter Name" name="username" value={this.state.username} onChange={this.handleInputChange}/>
-                    </div>
-                    <div className="setup-color">
-                        <div className="enter-color">Pick a Color</div>
-                    </div>
-                    <div className="setup-color-buttondiv">
-                        <span id="yellow-prof" className="btn color-btn" onClick={this.enterProfile}></span>
-                        <span id="blue-prof" className="btn color-btn" onClick={this.enterProfile}></span>
-                        <span id="red-prof" className="btn color-btn" onClick={this.enterProfile}></span>
-                        <span id="pink-prof" className="btn color-btn" onClick={this.enterProfile}></span>
-                        <span id="green-prof" className="btn color-btn" onClick={this.enterProfile}></span>
-                        <span id="orange-prof" className="btn color-btn" onClick={this.enterProfile}></span>
-                        <span id="purple-prof" className="btn color-btn" onClick={this.enterProfile}></span>
-                        <span id="charcoal-prof" className="btn color-btn" onClick={this.enterProfile}></span>
-                    </div>
-            </div>      
+                <div className="setup-profile">
+                    <div className="enter-profile">Setup Your Profile</div>
+                    <input type="text" placeholder="Enter Name" name="username" value={this.state.username} onChange={this.handleInputChange}/>
+                </div>
+                <div className="setup-color">
+                    <div className="enter-color">Pick a Color</div>
+                </div>
+                <div className="setup-color-buttondiv">
+                    <span id="yellow-prof" data="#FFC655" className="btn color-btn" onClick={this.enterProfile}></span>
+                    <span id="blue-prof" data="#5FACFF" className="btn color-btn" onClick={this.enterProfile}></span>
+                    <span id="red-prof" data="#FF6161" className="btn color-btn" onClick={this.enterProfile}></span>
+                    <span id="pink-prof" data="#D45FFF" className="btn color-btn" onClick={this.enterProfile}></span>
+                    <span id="green-prof" data="#44BBA4" className="btn color-btn" onClick={this.enterProfile}></span>
+                    <span id="orange-prof" data="#FF8A5B" className="btn color-btn" onClick={this.enterProfile}></span>
+                    <span id="purple-prof" data="#9964FF" className="btn color-btn" onClick={this.enterProfile}></span>
+                    <span id="charcoal-prof" data="#444444" className="btn color-btn" onClick={this.enterProfile}></span>
+                </div>
+
+        </div>
         )
     }
 }
