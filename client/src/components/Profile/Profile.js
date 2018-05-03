@@ -83,7 +83,6 @@ class Profile extends Component {
     }
 
     render() {
-
         return (
             <div>
 
@@ -112,8 +111,6 @@ class Profile extends Component {
                 </div>
 
         </div>
-
-               
         )
     }
 }
