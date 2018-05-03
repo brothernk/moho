@@ -7,14 +7,17 @@ import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import { lookup } from "ipdata"
 
+
 class Home extends Component {
 
     state = {
         urlString: "",
-        profileName: "",
         ipAddress: "",
         showProfile: false,
-        showHome: false
+        showHome: false, 
+        userName: "",
+        userScore: "",
+        userColor: "",
     }
 
     // check IP address on mount
@@ -98,6 +101,7 @@ class Home extends Component {
 
     profileOnAdd = (field, value) => {
         this.setState({[field]: value})
+        console.log(this.state)
     }
 
     render() {
@@ -111,8 +115,12 @@ class Home extends Component {
                     <div>
                         <GiphySearch />
                         <PromptSelect />
+
+                        <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>
+
                         <LoadingScreen />
-                        <BottomNav />
+                
+
                     </div>
                 : null}
             </div>
