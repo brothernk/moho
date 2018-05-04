@@ -3,7 +3,6 @@ import API from "../../utils/API";
 import BottomNav from "../../components/BottomNav/bottomNav";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
-import openSocket from 'socket.io-client';
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import { lookup } from "ipdata"
@@ -26,21 +25,27 @@ class Home extends Component {
     // check IP address on mount
     componentDidMount = () => {
         this.checkIp();
+<<<<<<< HEAD
         {this.returnCategories()}
 
+=======
+        console.log("random url: " + this.props.match.randomURL);
+>>>>>>> socket created on url generation
     }
 
     // Grab user IP address set state variable, then continue to set URL state variable
     checkIp = () => {
-        
         lookup()
         .then((info) => {
             this.setState({ipAddress: info.ip})
             this.setUrl()
         })
+<<<<<<< HEAD
 
         this.setUrl();
         const socket = openSocket(this.props.match.url);
+=======
+>>>>>>> socket created on url generation
         
     }
 

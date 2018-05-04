@@ -14,7 +14,6 @@ router.route("/title/:session")
 router.route("/url/:word1/:word2/:word3/:word4/:word5/:word6")
   .get(sessionController.findByUrl)
 
-
 router.route("/member")
   .post(sessionController.addMember)
 
