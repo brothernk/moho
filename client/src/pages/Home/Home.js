@@ -7,15 +7,19 @@ import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import { lookup } from "ipdata"
 
+
 class Home extends Component {
 
     state = {
         urlString: "",
-        profileName: "",
         ipAddress: "",
         showProfile: false,
-        showHome: false,
-        theme: ""
+        theme: "",
+        showPending: false,
+        showHome: false, 
+        userName: "",
+        userScore: "",
+        userColor: "",
     }
 
     // check IP address on mount
@@ -81,7 +85,7 @@ class Home extends Component {
                     if (res.data[0].members[i].ip === this.state.ipAddress) {
                         console.log("member already exists in session ") 
                         this.setState({showProfile: false})
-                        this.setState({showHome: true})
+                        this.setState({showPending: true})
                         break
                     }
 
@@ -100,6 +104,7 @@ class Home extends Component {
 
     profileOnAdd = (field, value) => {
         this.setState({[field]: value})
+        console.log(this.state)
     }
 
     returnCategories = () => {
@@ -118,8 +123,17 @@ class Home extends Component {
                     <Profile url={this.state.urlString} ip={this.state.ipAddress} profileAdded={this.profileOnAdd.bind(this)}/>
                 : null}
 
-                { this.state.showHome ?
+                { this.state.showPending ?
                     <div>
+                
+                        <LoadingScreen url={this.state.urlString} />
+                        <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>    
+                
+                    </div>
+                : null}
+
+                { this.state.showHome ?
+                    <div> 
                         <GiphySearch />
                         {this.state.theme.map(prompt => (
                             <PromptSelect
