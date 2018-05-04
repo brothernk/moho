@@ -120,11 +120,8 @@ class Home extends Component {
 
                 { this.state.showPending ?
                     <div>
-                        <GiphySearch />
-                        <PromptSelect />
                         <LoadingScreen url={this.state.urlString} />
                         <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>    
-                
                     </div>
                 : null}
 
