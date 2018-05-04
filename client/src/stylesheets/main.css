@@ -7,9 +7,9 @@
   font-size: 25px;
   float: center;
   position: relative;
-  width: 200px;
   margin: 15px;
-  padding: 8px; }
+  padding: 8px;
+  width: 220px; }
 
 .color-btn {
   border-radius: 50px;
@@ -24,8 +24,8 @@ input[type="text"] {
   border: none;
   background-color: lightgrey;
   color: grey;
-  padding: 10px;
-  font-size: 20px; }
+  padding: 8px;
+  font-size: 25px; }
 
 body {
   margin: auto;
@@ -46,19 +46,14 @@ body {
 input[type="text"] {
   margin: auto;
   text-align: center;
-  margin-top: 20px; }
+  margin-top: 20px;
+  width: 200px; }
 
 input[type="text"]:focus {
   outline: none; }
 
 #key-icon {
   transform: rotate(45deg);
-  font-size: 40px; }
-
-.enter-key {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  margin: 100px 0px 5px 0px;
   font-size: 40px; }
 
 #roomkey {

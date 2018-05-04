@@ -92,9 +92,6 @@ class Home extends Component {
                         this.setState({showProfile: true})
                     }
                 }
-
-
-            
             }
         })
         .catch(err => console.log(err.response));
@@ -123,7 +120,8 @@ class Home extends Component {
 
                 { this.state.showPending ?
                     <div>
-                
+                        <GiphySearch />
+                        <PromptSelect />
                         <LoadingScreen url={this.state.urlString} />
                         <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>    
                 
