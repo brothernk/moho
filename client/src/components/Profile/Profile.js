@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import openSocket from "socket.io-client";
 
 class Profile extends Component {
 
@@ -46,9 +47,11 @@ class Profile extends Component {
                     color: this.state.color,
                     ip: this.state.ip
                 })
-                .then(res => 
-                    this.showSessionData()
-                )
+                .then(res => {
+                    // const socket = openSocket(res.data.url);
+                    // socket.on('connection', () => console.log("hello"));
+                    this.showSessionData();
+                })
                 .catch(err => console.log(err.response));
 
         })

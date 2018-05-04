@@ -25,12 +25,7 @@ class Home extends Component {
     // check IP address on mount
     componentDidMount = () => {
         this.checkIp();
-<<<<<<< HEAD
         {this.returnCategories()}
-
-=======
-        console.log("random url: " + this.props.match.randomURL);
->>>>>>> socket created on url generation
     }
 
     // Grab user IP address set state variable, then continue to set URL state variable
@@ -39,14 +34,7 @@ class Home extends Component {
         .then((info) => {
             this.setState({ipAddress: info.ip})
             this.setUrl()
-        })
-<<<<<<< HEAD
-
-        this.setUrl();
-        const socket = openSocket(this.props.match.url);
-=======
->>>>>>> socket created on url generation
-        
+        })        
     }
 
     // Grab current URL and set state variable, then continue to check URL

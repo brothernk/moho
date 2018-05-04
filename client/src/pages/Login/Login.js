@@ -2,14 +2,8 @@ import React, { Component } from "react";
 import axios from "axios"
 import { SignupBtn, LoginBtn, EnterBtn } from "../../components/Buttons";
 import { Enter } from "../../components/Enter";
-<<<<<<< HEAD
-import API from "../../utils/API";
-import mnGen from "mngen";
-=======
 import API from "../../utils/API"
 import mnGen from "mngen"
-import openSocket from "socket.io-client";
->>>>>>> socket created on url generation
 
 class Login extends Component {
 
@@ -63,8 +57,8 @@ class Login extends Component {
             url: this.state.randomURL
         })
         .then(res => {
-            const socket = openSocket(res.data.url);
-            socket.on('connection', () => console.log("hello"));
+            // const socket = openSocket(res.data.url);
+            // socket.on('connection', () => console.log("hello"));
             this.loadSavedSessions()
         })
         .catch(err => console.log(err.response));
