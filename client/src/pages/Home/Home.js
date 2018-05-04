@@ -25,18 +25,16 @@ class Home extends Component {
     // check IP address on mount
     componentDidMount = () => {
         this.checkIp();
-        {this.returnCategories()}
+        this.returnCategories()
     }
 
     // Grab user IP address set state variable, then continue to set URL state variable
     checkIp = () => {
-        
         lookup()
         .then((info) => {
             this.setState({ipAddress: info.ip})
             this.setUrl()
-        })
-        
+        })        
     }
 
     // Grab current URL and set state variable, then continue to check URL

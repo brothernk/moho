@@ -1,4 +1,5 @@
 const db = require("../models");
+const io = require('socket.io')();
 
 // Defining methods for the sessionController
 module.exports = {
@@ -11,7 +12,14 @@ module.exports = {
   create: function(req, res) {
     db.Session
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        const gameSocket = io.of(dbModel.url);
+        console.log("setting up connection")
+        gameSocket.on('connect', () => {
+          console.log('user connected.');
+        });
+        res.json(dbModel);
+      })
       .catch(err => res.status(422).json(err));
   },
   findByTitle: function(req, res) {
@@ -42,5 +50,4 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
- 
 };
