@@ -3,6 +3,7 @@ import axios from "axios"
 import { SignupBtn, LoginBtn, EnterBtn } from "../../components/Buttons";
 import { Enter } from "../../components/Enter";
 import API from "../../utils/API"
+import mnGen from "mngen"
 
 class Login extends Component {
 
@@ -24,14 +25,12 @@ class Login extends Component {
         this.setState({showError: false})
         this.setState({showButton: false})
 
-        var apiURL = "http://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=10&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
-        axios.get(apiURL)
-        .then(response => {
-            this.setState({randomWord: response.data.word}, function() {
-                this.generateRandomURL();
-            });
+        var word = mnGen.word()
+
+        this.setState({randomWord: word}, function() {
+            this.generateRandomURL();
         })
-        .catch(err => console.log(err))
+
     }
 
     generateRandomURL = () => {
@@ -57,7 +56,11 @@ class Login extends Component {
             title: this.state.randomWord,
             url: this.state.randomURL
         })
-        .then(res => this.loadSavedSessions())
+        .then(res => {
+            // const socket = openSocket(res.data.url);
+            // socket.on('connection', () => console.log("hello"));
+            this.loadSavedSessions()
+        })
         .catch(err => console.log(err.response));
     }
 

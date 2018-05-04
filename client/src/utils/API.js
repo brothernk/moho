@@ -8,7 +8,7 @@ export default {
         return axios.post("/api/session", sessionData)
     },
     checkSessionTitle: function(sessionTitle) {
-        return axios.get("/api/session/title/" + sessionTitle)
+        return axios.get("/api/session/title/" + sessionTitle);
     },
     checkSessionUrl: function(sessionUrl) {
         return axios.get("/api/session/url" + sessionUrl)

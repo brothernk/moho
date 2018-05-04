@@ -14,6 +14,8 @@ class Home extends Component {
         urlString: "",
         ipAddress: "",
         showProfile: false,
+        theme: "",
+        showPending: false,
         showHome: false, 
         userName: "",
         userScore: "",
@@ -22,17 +24,17 @@ class Home extends Component {
 
     // check IP address on mount
     componentDidMount = () => {
-        this.checkIp()
+        this.checkIp();
+        this.returnCategories()
     }
 
     // Grab user IP address set state variable, then continue to set URL state variable
     checkIp = () => {
-        
         lookup()
         .then((info) => {
             this.setState({ipAddress: info.ip})
             this.setUrl()
-        }) 
+        })        
     }
 
     // Grab current URL and set state variable, then continue to check URL
@@ -81,7 +83,7 @@ class Home extends Component {
                     if (res.data[0].members[i].ip === this.state.ipAddress) {
                         console.log("member already exists in session ") 
                         this.setState({showProfile: false})
-                        this.setState({showHome: true})
+                        this.setState({showPending: true})
                         break
                     }
 
@@ -100,6 +102,15 @@ class Home extends Component {
         console.log(this.state)
     }
 
+    returnCategories = () => {
+        API.getCategories()
+        .then(response => {
+          console.log(response.data);
+          this.setState({theme: response.data});
+        })
+        .catch(err => console.log(err))
+    }
+
     render() {
         return (
             <div> 
@@ -107,12 +118,30 @@ class Home extends Component {
                     <Profile url={this.state.urlString} ip={this.state.ipAddress} profileAdded={this.profileOnAdd.bind(this)}/>
                 : null}
 
-                { this.state.showHome ?
+                { this.state.showPending ?
                     <div>
                         <GiphySearch />
                         <PromptSelect />
-                        <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>
+                        <LoadingScreen url={this.state.urlString} />
+                        <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>    
+                
+                    </div>
+                : null}
+
+                { this.state.showHome ?
+                    <div> 
+                        <GiphySearch />
+                        {this.state.theme.map(prompt => (
+                            <PromptSelect
+                            id={prompt.id}
+                            key={prompt.id}
+                            icon={prompt.icon}
+                            theme={prompt.theme}
+                            color={prompt.color}
+                            />
+                        ))}
                         <LoadingScreen />
+                        <BottomNav />
                     </div>
                 : null}
             </div>
