@@ -14,12 +14,14 @@ class Home extends Component {
         profileName: "",
         ipAddress: "",
         showProfile: false,
-        showHome: false
+        showHome: false,
+        theme: ""
     }
 
     // check IP address on mount
     componentDidMount = () => {
-        this.checkIp()
+        this.checkIp();
+        {this.returnCategories()}
     }
 
     // Grab user IP address set state variable, then continue to set URL state variable
@@ -100,6 +102,15 @@ class Home extends Component {
         this.setState({[field]: value})
     }
 
+    returnCategories = () => {
+        API.getCategories()
+        .then(response => {
+          console.log(response.data);
+          this.setState({theme: response.data});
+        })
+        .catch(err => console.log(err))
+    }
+
     render() {
         return (
             <div> 
@@ -110,7 +121,15 @@ class Home extends Component {
                 { this.state.showHome ?
                     <div>
                         <GiphySearch />
-                        <PromptSelect />
+                        {this.state.theme.map(prompt => (
+                            <PromptSelect
+                            id={prompt.id}
+                            key={prompt.id}
+                            icon={prompt.icon}
+                            theme={prompt.theme}
+                            color={prompt.color}
+                            />
+                        ))}
                         <LoadingScreen />
                         <BottomNav />
                     </div>
