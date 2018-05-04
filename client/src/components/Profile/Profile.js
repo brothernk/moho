@@ -48,9 +48,9 @@ class Profile extends Component {
                     ip: this.state.ip
                 })
                 .then(res => {
-                    // const socket = openSocket(res.data.url);
-                    // socket.on('connection', () => console.log("hello"));
-                    this.showSessionData();
+                    const socket = openSocket(res.data.url);
+                    socket.on('connection', () => console.log("hello"));
+                    this.showSessionData()
                 })
                 .catch(err => console.log(err.response));
 

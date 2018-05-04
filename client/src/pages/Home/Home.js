@@ -25,7 +25,7 @@ class Home extends Component {
     // check IP address on mount
     componentDidMount = () => {
         this.checkIp();
-        {this.returnCategories()}
+        this.returnCategories()
     }
 
     // Grab user IP address set state variable, then continue to set URL state variable
@@ -47,9 +47,9 @@ class Home extends Component {
             newurl += "/" + spliturl[i]
         }
 
-        // this.setState({urlString: newurl}, function() {
-        //     this.checkURL()
-        // })
+        this.setState({urlString: newurl}, function() {
+            this.checkURL()
+        })
     }
 
     // Check state variable URL against session database. If url exist is database, the user can continue into the game
