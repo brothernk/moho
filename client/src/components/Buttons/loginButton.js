@@ -7,3 +7,5 @@ export const LoginBtn = props => (
   </span>
 )
 
+export default LoginBtn;
+

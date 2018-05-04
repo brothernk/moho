@@ -2,25 +2,25 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: lightgray;
-  height: 50px; }
+  background: #C0C0C0;
+  height: 40px; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
     .bottom-nav .content-holder .user-initial {
       position: absolute;
       left: 15px;
-      top: 8px;
-      padding: 5px 10px 5px 10px;
+      top: 4px;
+      padding: 4px 9px 4px 9px;
       background: #FFC655;
       border-radius: 50%; }
     .bottom-nav .content-holder .userScore {
       position: absolute;
       left: 60px;
-      top: 14px; }
+      top: 11px; }
     .bottom-nav .content-holder .home-button {
       position: absolute;
       right: 15px;
-      top: 13px;
+      top: 9px;
       color: grey;
       font-size: 25px; }

@@ -5,3 +5,19 @@
   display: block;
   margin: 0 auto;
 }
+
+#current-players{
+  @include font;
+}
+
+#username{
+  @include font;
+  font-size: 35px;
+}
+
+#user-icon{
+  @include position;
+  display: inline-block;
+  position: relative;
+  clear: both;
+}

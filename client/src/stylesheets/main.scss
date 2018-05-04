@@ -6,7 +6,7 @@
 $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
-$grey: grey;
+$grey: #C0C0C0;
 $yellow: #FFC655;
 $blue: #5FACFF;
 $red: #FF6161;
@@ -32,6 +32,7 @@ $charcoal: #444444;
   font-size:25px;
   float:center;
   position: relative;
+  clear:both;
   margin: 15px;
   padding: 8px;
   width:220px;
@@ -127,3 +128,8 @@ p{
 
 //Bottom Nav ======================================================
 @import "LoadingScreen.scss";
+
+
+.rowC{
+  background-color: black;
+}
