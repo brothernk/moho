@@ -14,6 +14,7 @@ class Home extends Component {
         urlString: "",
         ipAddress: "",
         showProfile: false,
+        showPending: false,
         showHome: false, 
         userName: "",
         userScore: "",
@@ -82,7 +83,7 @@ class Home extends Component {
                     if (res.data[0].members[i].ip === this.state.ipAddress) {
                         console.log("member already exists in session ") 
                         this.setState({showProfile: false})
-                        this.setState({showHome: true})
+                        this.setState({showPending: true})
                         break
                     }
 
@@ -111,16 +112,19 @@ class Home extends Component {
                     <Profile url={this.state.urlString} ip={this.state.ipAddress} profileAdded={this.profileOnAdd.bind(this)}/>
                 : null}
 
-                { this.state.showHome ?
+                { this.state.showPending ?
                     <div>
+                
+                        <LoadingScreen url={this.state.urlString} />
+                        <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>    
+                
+                    </div>
+                : null}
+
+                { this.state.showHome ?
+                    <div> 
                         <GiphySearch />
                         <PromptSelect />
-
-                        <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>
-
-                        <LoadingScreen />
-                
-
                     </div>
                 : null}
             </div>

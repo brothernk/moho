@@ -17,15 +17,7 @@ class Profile extends Component {
         
         this.setState({url: this.props.url})
         this.setState({ip: this.props.ip})
-        // let currenturl = window.location.href;
-        // let spliturl = currenturl.split("/");
-        // let newurl = ""
-        
-        // for (var i = 4; i < spliturl.length; i ++ ) {
-        //     newurl += "/" + spliturl[i]
-        // }
 
-        // this.setState({url: newurl})
     }
 
     handleInputChange = event => {
@@ -69,7 +61,7 @@ class Profile extends Component {
         .then(res =>{ 
             console.log(res.data);
             this.props.profileAdded('showProfile', false);
-            this.props.profileAdded('showHome', true);
+            this.props.profileAdded('showPending', true);
 
             for (var i = 0; i < res.data[0].members.length; i ++ ){
                 if (res.data[0].members[i].ip === this.state.ip) {
