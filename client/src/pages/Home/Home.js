@@ -32,8 +32,7 @@ class Home extends Component {
         .then((info) => {
             this.setState({ipAddress: info.ip})
             this.setUrl()
-        })
-        
+        }) 
     }
 
     // Grab current URL and set state variable, then continue to check URL
@@ -91,9 +90,6 @@ class Home extends Component {
                         this.setState({showProfile: true})
                     }
                 }
-
-
-            
             }
         })
         .catch(err => console.log(err.response));
@@ -115,12 +111,8 @@ class Home extends Component {
                     <div>
                         <GiphySearch />
                         <PromptSelect />
-
                         <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>
-
                         <LoadingScreen />
-                
-
                     </div>
                 : null}
             </div>
