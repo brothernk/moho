@@ -4,3 +4,22 @@
   max-width: 400px;
   display: block;
   margin: 0 auto; }
+
+#current-players {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-top: 20px; }
+
+#username {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-size: 35px; }
+
+#user-icon {
+  margin: auto;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  clear: both; }
