@@ -21,6 +21,7 @@ $charcoal: #444444;
   width: 100%;
   background: lightgray;
   height: 50px;
+  transition: .25s;
 
   .content-holder {
     width: 100%;
@@ -51,4 +52,13 @@ $charcoal: #444444;
 
   }
 
+}
+
+.expanded {
+  min-height: 25vh;
+  // height: 25vh;
+}
+
+.not-expanded {
+  min-height: 0;
 }
