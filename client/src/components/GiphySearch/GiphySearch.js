@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import API from "../../utils/API"
+import API from "../../utils/API";
+import Gif from "../Gif/Gif";
 
 class GiphySearch extends Component {
 
@@ -54,7 +55,8 @@ class GiphySearch extends Component {
                 <div onClick={this.callGIPHY} className="search-button">
                     <i className="fas fa-search"></i>
                 </div>
-                <img src={this.state.image_url} alt="" className="gif-preview"/>
+                <Gif src={this.state.image_url} alt="" />
+                {/* <img src={this.state.image_url} alt="" className="gif-preview"/> */}
                 <div className="button-holder">
                     <div className="timer-placeholder">
                         <i className="fas fa-stopwatch"></i>
