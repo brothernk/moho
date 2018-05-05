@@ -30,7 +30,7 @@ class LoadingScreen extends Component {
   render() {
     return (
       <div>
-        <p> Current judge: {this.props.judge}</p>
+        <p id="judge">Judge: {this.props.judge}</p>
 
         <img src={gif} alt="" className="loading-gif"/>
 
