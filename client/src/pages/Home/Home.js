@@ -20,6 +20,8 @@ class Home extends Component {
         userName: "",
         userScore: "",
         userColor: "",
+        userJudge: false, 
+        currentJudge: ""
     }
 
     // check IP address on mount
@@ -97,7 +99,7 @@ class Home extends Component {
         .catch(err => console.log(err.response));
     };
 
-    profileOnAdd = (field, value) => {
+    componentChange = (field, value) => {
         this.setState({[field]: value})
         console.log(this.state)
     }
@@ -115,12 +117,12 @@ class Home extends Component {
         return (
             <div> 
                 { this.state.showProfile ? 
-                    <Profile url={this.state.urlString} ip={this.state.ipAddress} profileAdded={this.profileOnAdd.bind(this)}/>
+                    <Profile url={this.state.urlString} ip={this.state.ipAddress} profileAdded={this.componentChange.bind(this)}/>
                 : null}
 
                 { this.state.showPending ?
                     <div>
-                        <LoadingScreen url={this.state.urlString} />
+                        <LoadingScreen judge={this.state.currentJudge} url={this.state.urlString} />
                         <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>    
                     </div>
                 : null}
