@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import BottomNav from "../../components/BottomNav/bottomNav";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
+import PlayerList from "../../components/PlayerList/PlayerList";
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import { lookup } from "ipdata"
@@ -142,7 +143,9 @@ class Home extends Component {
                     <div>
                 
                         <LoadingScreen url={this.state.urlString} />
-                        <BottomNav expand={() => { this.expandToggle() }} userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor} class={this.state.BottomNavClasses}/>    
+                        <BottomNav expand={() => { this.expandToggle() }} userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor} class={this.state.BottomNavClasses}>
+                            <PlayerList />
+                        </BottomNav>    
                 
                     </div>
                 : null}
@@ -163,6 +166,8 @@ class Home extends Component {
                         <BottomNav />
                     </div>
                 : null}
+                {/* Use to test Giphy Search w/o running the game logic */}
+                {/* <GiphySearch /> */}
             </div>
         );
     }

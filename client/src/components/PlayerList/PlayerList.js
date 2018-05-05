@@ -2,9 +2,7 @@ import React from "react";
 
 const PlayerList = props => (
  <div className="playerlist-holder">
-  <h1>Players</h1>
-  <hr />
-  <p><i class="fas fa-circle"></i></p>
+  <p><i className="fas fa-circle"></i>M{props.playerName}<i className="fas fa-trophy"></i>24{props.playerScore}</p>
  </div> 
 )
 

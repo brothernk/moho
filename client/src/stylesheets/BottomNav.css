@@ -27,7 +27,8 @@
       font-size: 25px; }
 
 .expanded {
-  min-height: 25vh; }
+  min-height: 25vh;
+  height: 25vh; }
 
 .not-expanded {
   min-height: 0; }

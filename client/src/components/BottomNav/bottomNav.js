@@ -8,6 +8,7 @@ const BottomNav = props => (
 		<p className="userScore"><i className="fas fa-trophy"></i> {props.userScore}</p>
 		<i onClick={props.expand} className="fas fa-bars home-button"></i>
 		</div>
+		{props.children}
 	</nav>
 );
 
