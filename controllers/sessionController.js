@@ -40,6 +40,7 @@ module.exports = {
       name: req.body.username,
       color: req.body.color,
       ip: req.body.ip,
+      judge: req.body.judge,
       score: 0
     }
     db.Session
