@@ -19,6 +19,7 @@ $charcoal: #444444;
   position: fixed;
   bottom: 0;
   width: 100%;
+  transition: .25s;
   background: $grey;
   height: 40px;
 
@@ -49,4 +50,14 @@ $charcoal: #444444;
       font-size: 25px;
     }
   }
+
+}
+
+.expanded {
+  min-height: 25vh;
+  // height: 25vh;
+}
+
+.not-expanded {
+  min-height: 0;
 }

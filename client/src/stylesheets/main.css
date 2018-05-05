@@ -221,8 +221,10 @@ p {
   position: fixed;
   bottom: 0;
   width: 100%;
+  transition: .25s; }
   background: #C0C0C0;
   height: 40px; }
+
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
@@ -243,6 +245,12 @@ p {
       top: 9px;
       color: grey;
       font-size: 25px; }
+
+.expanded {
+  min-height: 25vh; }
+
+.not-expanded {
+  min-height: 0; }
 
 .loading-gif {
   width: 100%;

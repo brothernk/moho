@@ -20,6 +20,8 @@ class Home extends Component {
         userName: "",
         userScore: "",
         userColor: "",
+        BottomNavExpanded: false,
+        BottomNavClasses: "bottom-nav",
         userJudge: false, 
         currentJudge: ""
     }
@@ -113,6 +115,22 @@ class Home extends Component {
         .catch(err => console.log(err))
     }
 
+    expandToggle = () => {
+        if (this.state.BottomNavExpanded) {
+            console.log("expanded!")
+            this.setState({
+                BottomNavClasses: "bottom-nav not-expanded",
+                BottomNavExpanded: false
+            })
+        } else {
+            console.log("Not expanded :/");
+            this.setState({
+                BottomNavClasses: "bottom-nav expanded",
+                BottomNavExpanded: true
+            })
+        }
+    };
+
     render() {
         return (
             <div> 
@@ -122,8 +140,10 @@ class Home extends Component {
 
                 { this.state.showPending ?
                     <div>
-                        <LoadingScreen judge={this.state.currentJudge} url={this.state.urlString} />
-                        <BottomNav userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor}/>    
+                
+                        <LoadingScreen url={this.state.urlString} />
+                        <BottomNav expand={() => { this.expandToggle() }} userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor} class={this.state.BottomNavClasses}/>    
+                
                     </div>
                 : null}
 
