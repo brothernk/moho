@@ -7,7 +7,7 @@ import PlayerList from "../../components/PlayerList/PlayerList";
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import { lookup } from "ipdata"
-
+import io from "socket.io-client";
 
 class Home extends Component {
 
@@ -74,6 +74,9 @@ class Home extends Component {
             else {
                 console.log(res.data)
                 console.log("You entered a valid session!")
+
+                const socket = io(this.state.urlString);
+                console.log("Socket object:", socket);
 
                 // If no members yet exist in session, user is shown profile page
                 if (res.data[0].members.length === 0 ) {
