@@ -21,7 +21,9 @@ class Home extends Component {
         userScore: "",
         userColor: "",
         BottomNavExpanded: false,
-        BottomNavClasses: "bottom-nav"
+        BottomNavClasses: "bottom-nav",
+        userJudge: false, 
+        currentJudge: ""
     }
 
     // check IP address on mount
@@ -94,15 +96,12 @@ class Home extends Component {
                         this.setState({showProfile: true})
                     }
                 }
-
-
-            
             }
         })
         .catch(err => console.log(err.response));
     };
 
-    profileOnAdd = (field, value) => {
+    componentChange = (field, value) => {
         this.setState({[field]: value})
         console.log(this.state)
     }
@@ -136,7 +135,7 @@ class Home extends Component {
         return (
             <div> 
                 { this.state.showProfile ? 
-                    <Profile url={this.state.urlString} ip={this.state.ipAddress} profileAdded={this.profileOnAdd.bind(this)}/>
+                    <Profile url={this.state.urlString} ip={this.state.ipAddress} profileAdded={this.componentChange.bind(this)}/>
                 : null}
 
                 { this.state.showPending ?

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import gif from "./spin.gif";
 
 class LoadingScreen extends Component {
 
@@ -29,14 +30,16 @@ class LoadingScreen extends Component {
   render() {
     return (
       <div>
-        <img src="https://media.giphy.com/media/11FuEnXyGsXFba/giphy.gif" alt="" className="loading-gif"/>
+        <p> Current judge: {this.props.judge}</p>
+
+        <img src={gif} alt="" className="loading-gif"/>
 
         {this.state.members.length ? (
               <div>
-                <h1>{this.state.members.length} Current Players </h1>
+                <h1 id="current-players"> Current Players </h1>
                 {this.state.members.map(member => (
                   <div key={member.ip}>
-                    <span className="fa-stack fa-3x">
+                    <span className="fa-stack fa-3x" id="user-icon">
                       <i className="fas fa-circle" style={{color:member.color}}></i>
                       <strong className="fa-stack-1x" id="username">{member.name.charAt(0)}</strong>
                     </span>
@@ -52,6 +55,5 @@ class LoadingScreen extends Component {
     )
   }
 }
-
 
 export default LoadingScreen;

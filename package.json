@@ -28,7 +28,7 @@
     "ipdata": "^1.1.1",
     "mngen": "^1.1.0",
     "moment": "^2.22.1",
-    "mongoose": "^5.0.16",
+    "mongoose": "^5.0.17",
     "node-sass": "^4.8.3",
     "node-sass-chokidar": "^1.2.2",
     "path": "^0.12.7",

@@ -6,7 +6,7 @@
 $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
-$grey: grey;
+$grey: #C0C0C0;
 $yellow: #FFC655;
 $blue: #5FACFF;
 $red: #FF6161;
@@ -32,9 +32,10 @@ $charcoal: #444444;
   font-size:25px;
   float:center;
   position: relative;
-  width:200px;
+  clear:both;
   margin: 15px;
   padding: 8px;
+  width:220px;
 }
 
 %round-buttons{
@@ -50,8 +51,8 @@ $charcoal: #444444;
   border:none;
   background-color: lightgrey;
   color:grey;
-  padding: 10px;
-  font-size: 20px;
+  padding: 8px;
+  font-size: 25px;
 }
 
 //Body ===========================================================
@@ -81,6 +82,7 @@ input[type="text"]{
   @include position;
   @extend %text-entry;
   margin-top:20px;
+  width:200px;
 }
 
 input[type="text"]:focus{
@@ -90,12 +92,6 @@ input[type="text"]:focus{
 //Room Key ======================================================
 #key-icon{
   transform: rotate(45deg);
-  font-size: 40px;
-}
-
-.enter-key{
-  @include font;
-  margin:100px 0px 5px 0px;
   font-size: 40px;
 }
 

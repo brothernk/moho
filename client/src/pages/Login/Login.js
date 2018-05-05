@@ -114,7 +114,7 @@ class Login extends Component {
 
                 { this.state.showError ? 
                     <div> 
-                        <p>Session does not exist, double check game keyword or create new game</p>
+                        <p id="session-not-exist">Session does not exist, double check game keyword or create new game</p>
                     </div>
                 : null }
 

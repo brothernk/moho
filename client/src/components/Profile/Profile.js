@@ -9,7 +9,8 @@ class Profile extends Component {
         username: "",
         color: "",
         ip: "",
-        showError: false
+        judge: false,
+        showError: false,
     }
 
     componentDidMount = () => {
@@ -38,26 +39,44 @@ class Profile extends Component {
             let divTarget = event.target
             let profileColor = divTarget.getAttribute('data')
             this.setState({color:profileColor}, function(){
-            
-                console.log(this.state)
 
-                API.addSessionMember({
-                    url: this.state.url,
-                    username: this.state.username,
-                    color: this.state.color,
-                    ip: this.state.ip
-                })
+                API.checkSessionUrl(this.state.url)
                 .then(res => {
-                    const socket = openSocket(res.data.url);
-                    socket.on('connection', () => console.log("hello"));
-                    this.showSessionData()
+
+                    if (res.data[0].members.length === 0) {
+
+                        this.setState({judge: true}, function() {
+                            this.addMember()
+                        })
+                    }
+
+                    else {
+
+                        this.setState({judge: false}, function() {
+                            this.addMember()
+                        })
+                    }
                 })
-                .catch(err => console.log(err.response));
-
-        })
+            })
         }
-
     }
+
+    addMember = () => {
+        API.addSessionMember({
+            url: this.state.url,
+            username: this.state.username,
+            color: this.state.color,
+            ip: this.state.ip,
+            judge: this.state.judge
+        })
+        .then(res => {
+            const socket = openSocket(res.data.url);
+            socket.on('connection', () => console.log("hello"));
+            this.showSessionData()
+        })
+        .catch(err => console.log(err.response));
+    }
+    
 
     showSessionData = () => {
         API.checkSessionUrl(this.state.url)
@@ -70,7 +89,12 @@ class Profile extends Component {
                 if (res.data[0].members[i].ip === this.state.ip) {
                     this.props.profileAdded('userName', res.data[0].members[i].name);
                     this.props.profileAdded('userScore', res.data[0].members[i].score);
-                    this.props.profileAdded('userColor', res.data[0].members[i].color)
+                    this.props.profileAdded('userColor', res.data[0].members[i].color);
+                    this.props.profileAdded('userJudge', res.data[0].members[i].judge);
+                }
+
+                if (res.data[0].members[i].judge) {
+                    this.props.profileAdded('currentJudge', res.data[0].members[i].name)
                 }
             }
             

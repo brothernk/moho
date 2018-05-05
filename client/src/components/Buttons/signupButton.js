@@ -2,7 +2,6 @@ import React from "react";
 
 export const SignupBtn = props => (
   <div>
-
     { props.randomword !== "" ?
       <div id = "roomkey"> 
         <i className="fas fa-key" id="key-icon"></i>
@@ -15,7 +14,11 @@ export const SignupBtn = props => (
       <span {...props} id = {props.id} className="btn signup-btn">
       Create Game
       </span>
-    : null }
-    
+    : null }  
   </div>
 )
+
+
+
+
+
