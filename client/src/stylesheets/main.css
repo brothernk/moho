@@ -221,7 +221,7 @@ p {
   position: fixed;
   bottom: 0;
   width: 100%;
-  transition: .25s; }
+  transition: .25s;
   background: #C0C0C0;
   height: 40px; }
 
