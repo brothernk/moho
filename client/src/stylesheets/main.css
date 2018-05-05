@@ -157,6 +157,16 @@ p {
           right: 15px;
           font-size: 20px; }
 
+.gif-component {
+  background-size: cover;
+  max-height: 400px;
+  width: 100%;
+  text-align: center; }
+  .gif-component .gif-preview {
+    height: 200px;
+    object-fit: cover;
+    max-width: 350px; }
+
 .promptSelect-component {
   padding: 15px; }
   .promptSelect-component h4, .promptSelect-component h5 {
@@ -224,7 +234,6 @@ p {
   transition: .25s;
   background: #C0C0C0;
   height: 40px; }
-
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
@@ -247,7 +256,8 @@ p {
       font-size: 25px; }
 
 .expanded {
-  min-height: 25vh; }
+  min-height: 25vh;
+  height: 25vh; }
 
 .not-expanded {
   min-height: 0; }

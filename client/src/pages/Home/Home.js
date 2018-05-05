@@ -166,6 +166,8 @@ class Home extends Component {
                         <BottomNav />
                     </div>
                 : null}
+                {/* Use to test Giphy Search w/o running the game logic */}
+                {/* <GiphySearch /> */}
             </div>
         );
     }

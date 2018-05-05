@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  transition: .25s; }
+  transition: .25s;
   background: #C0C0C0;
   height: 40px; }
   .bottom-nav .content-holder {
@@ -27,7 +27,8 @@
       font-size: 25px; }
 
 .expanded {
-  min-height: 25vh; }
+  min-height: 25vh;
+  height: 25vh; }
 
 .not-expanded {
   min-height: 0; }
