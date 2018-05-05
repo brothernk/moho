@@ -16,6 +16,9 @@ module.exports = {
         const gameSocket = io.of(dbModel.url);
         gameSocket.on('connect', () => {
           console.log(`User connected to room ${dbModel.url}`);
+          socket.on('disconnect', function(){
+            console.log('user disconnected');
+          });
         });
         res.json(dbModel);
       })

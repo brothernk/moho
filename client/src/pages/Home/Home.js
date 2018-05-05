@@ -76,7 +76,7 @@ class Home extends Component {
                 console.log("You entered a valid session!")
 
                 const socket = io(this.state.urlString);
-                console.log(socket);
+                console.log("Socket object:", socket);
 
                 // If no members yet exist in session, user is shown profile page
                 if (res.data[0].members.length === 0 ) {
