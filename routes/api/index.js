@@ -3,9 +3,14 @@ const gifRoutes = require("./gif");
 const sessionRoutes = require("./session");
 const giphyRoutes = require("./giphy");
 
-// Session and Gif routes
-router.use("/gif", gifRoutes);
-router.use("/session", sessionRoutes);
-router.use("/giphy", giphyRoutes);
+const apiRoutes = (io) => {
 
-module.exports = router;
+  // Session and Gif routes
+  router.use("/gif", gifRoutes);
+  router.use("/session", sessionRoutes(io));
+  router.use("/giphy", giphyRoutes);
+
+  return router;
+}
+
+module.exports = apiRoutes;
