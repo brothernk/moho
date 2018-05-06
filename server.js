@@ -17,19 +17,19 @@ app.use(bodyParser.json());
 app.use(express.static("client/build"));
 
 // Add routes, both API and view
-app.use(routes);
+app.use(routes(io));
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gifcategories", function(err) {
   if (err) throw err;
 })
 
-// io.on('connection', function (socket) {
-//   console.log('a user connected');
-//   socket.on('disconnect', function(){
-//     console.log('user disconnected');
-//   });
-// });
+io.on('connection', function (socket) {
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+});
 
 // Start the API server
 server.listen(PORT, function() {

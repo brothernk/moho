@@ -5,9 +5,9 @@
   color: white;
   border-radius: 30px;
   font-size: 25px;
-  float: center;
   position: relative;
   clear: both;
+  display: inline-block;
   margin: 15px;
   padding: 8px;
   width: 220px; }
