@@ -4,7 +4,8 @@
   width: 100%;
   transition: .25s;
   background: #C0C0C0;
-  height: 40px; }
+  height: 40px;
+  min-height: 0; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
