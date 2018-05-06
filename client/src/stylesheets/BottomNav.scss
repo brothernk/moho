@@ -22,6 +22,7 @@ $charcoal: #444444;
   transition: .25s;
   background: $grey;
   height: 40px;
+  min-height: 0;
 
   .content-holder {
     width: 100%;

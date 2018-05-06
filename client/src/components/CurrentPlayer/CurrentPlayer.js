@@ -1,6 +1,6 @@
 import React from "react";
 
-const PlayerList = props => (
+const CurrentPlayer = props => (
   <tr className="player">
     <td><span style={{color:props.userColor}}>
       <i className="fas fa-circle"></i>
@@ -9,4 +9,4 @@ const PlayerList = props => (
   </tr>
 )
 
-export default PlayerList;
+export default CurrentPlayer;

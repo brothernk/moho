@@ -4,9 +4,11 @@ import BottomNav from "../../components/BottomNav/bottomNav";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
 import PlayerList from "../../components/PlayerList/PlayerList";
+import PlayerListHolder from "../../components/PlayerListHolder/PlayerListHolder";
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import { lookup } from "ipdata"
+import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
 
 
 class Home extends Component {
@@ -24,12 +26,14 @@ class Home extends Component {
         BottomNavExpanded: false,
         BottomNavClasses: "bottom-nav",
         userJudge: false, 
-        currentJudge: ""
+        currentJudge: "",
+        PlayerList: "",
+        CurrentPlayer: ""
     }
 
     // check IP address on mount
     componentDidMount = () => {
-        this.checkIp();
+        this.checkIp()
         this.returnCategories()
     }
 
@@ -37,7 +41,7 @@ class Home extends Component {
     checkIp = () => {
         lookup()
         .then((info) => {
-            this.setState({ipAddress: info.ip})
+            this.setState({ipAddress: info.ip}, this.getScores())
             this.setUrl()
         })        
     }
@@ -132,6 +136,41 @@ class Home extends Component {
         }
     };
 
+    getScores = () => {
+        API.getSessions()
+        .then(response => {
+            const currentURL = window.location.pathname.slice(5);
+            console.log(response.data);
+            console.log(currentURL);
+            console.log(this.state.ipAddress);
+            let i;
+            let j;
+            for (i = 0; i < response.data.length; i++) {
+                if (response.data[i].url === currentURL) {
+                    console.log("Match!");
+                    console.log(response.data[i]);
+                    for (j = 0; j < response.data[i].members.length; j++) {
+                        if (response.data[i].members[j].ip === this.state.ipAddress) {
+                            this.setState({
+                                CurrentPlayer: response.data[i].members[j]
+                            });
+                            response.data[i].members.splice(j, 1);
+                        } else {
+                            console.log(response.data[i].members[j].ip + " No player found");
+                        }
+                        console.log(response.data[i].members);
+                    }
+                    this.setState({
+                        PlayerList: response.data[i].members
+                    })
+                } else {
+                    console.log("No match!");
+                }
+            }
+        })
+        .catch(err => console.log(err));
+    }
+
     render() {
         return (
             <div> 
@@ -143,10 +182,24 @@ class Home extends Component {
                     <div>
                 
                         <LoadingScreen url={this.state.urlString} />
-                        <BottomNav expand={() => { this.expandToggle() }} userName={this.state.userName} userScore={this.state.userScore} userColor={this.state.userColor} class={this.state.BottomNavClasses}>
-                            <PlayerList />
+                        <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
+                            <PlayerListHolder>
+                                <CurrentPlayer playerName={this.state.CurrentPlayer.name} playerScore={this.state.CurrentPlayer.score}
+                                        userColor={this.state.CurrentPlayer.color} />
+                                {this.state.PlayerList.map(
+                                    player => (
+                                        <PlayerList
+                                        id={player.id}
+                                        key={player.id}
+                                        playerName={player.name} playerScore={player.score}
+                                        userColor={player.color}
+                                        />
+                                    ))
+                                }
+                            </PlayerListHolder>
+
                         </BottomNav>    
-                
+                    
                     </div>
                 : null}
 
