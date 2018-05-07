@@ -84,6 +84,7 @@ class Profile extends Component {
             console.log(res.data);
             this.props.profileAdded('showProfile', false);
             this.props.profileAdded('showPending', true);
+            let memberArray = [];
 
             for (var i = 0; i < res.data[0].members.length; i ++ ){
                 if (res.data[0].members[i].ip === this.state.ip) {
@@ -93,10 +94,16 @@ class Profile extends Component {
                     this.props.profileAdded('userJudge', res.data[0].members[i].judge);
                 }
 
+                else {
+                    memberArray.push(res.data[0].members[i])
+                }
+
                 if (res.data[0].members[i].judge) {
                     this.props.profileAdded('currentJudge', res.data[0].members[i].name)
                 }
             }
+
+            this.props.profileAdded('playerList', memberArray)
             
         })
     }

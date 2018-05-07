@@ -14,7 +14,7 @@ module.exports = {
       .create(req.body)
       .then(dbModel => {
         const gameSocket = io.of(dbModel.url);
-        gameSocket.on('connect', () => {
+        gameSocket.on('connect', (socket) => {
           console.log(`User connected to room ${dbModel.url}`);
           socket.on('disconnect', function(){
             console.log('user disconnected');
