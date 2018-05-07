@@ -27,8 +27,7 @@ class Home extends Component {
         BottomNavClasses: "bottom-nav",
         userJudge: false, 
         currentJudge: "",
-        PlayerList: "",
-        CurrentPlayer: ""
+        playerList: [],
     }
 
     // check IP address on mount
@@ -41,7 +40,7 @@ class Home extends Component {
     checkIp = () => {
         lookup()
         .then((info) => {
-            this.setState({ipAddress: info.ip}, this.getScores())
+            this.setState({ipAddress: info.ip})
             this.setUrl()
         })        
     }
@@ -139,40 +138,40 @@ class Home extends Component {
         }
     };
 
-    getScores = () => {
-        API.getSessions()
-        .then(response => {
-            const currentURL = window.location.pathname.slice(5);
-            console.log(response.data);
-            console.log(currentURL);
-            console.log(this.state.ipAddress);
-            let i;
-            let j;
-            for (i = 0; i < response.data.length; i++) {
-                if (response.data[i].url === currentURL) {
-                    console.log("Match!");
-                    console.log(response.data[i]);
-                    for (j = 0; j < response.data[i].members.length; j++) {
-                        if (response.data[i].members[j].ip === this.state.ipAddress) {
-                            this.setState({
-                                CurrentPlayer: response.data[i].members[j]
-                            });
-                            response.data[i].members.splice(j, 1);
-                        } else {
-                            console.log(response.data[i].members[j].ip + " No player found");
-                        }
-                        console.log(response.data[i].members);
-                    }
-                    this.setState({
-                        PlayerList: response.data[i].members
-                    })
-                } else {
-                    console.log("No match!");
-                }
-            }
-        })
-        .catch(err => console.log(err));
-    }
+    // getScores = () => {
+    //     API.getSessions()
+    //     .then(response => {
+    //         const currentURL = window.location.pathname.slice(5);
+    //         console.log(response.data);
+    //         console.log(currentURL);
+    //         console.log(this.state.ipAddress);
+    //         let i;
+    //         let j;
+    //         for (i = 0; i < response.data.length; i++) {
+    //             if (response.data[i].url === currentURL) {
+    //                 console.log("Match!");
+    //                 console.log(response.data[i]);
+    //                 for (j = 0; j < response.data[i].members.length; j++) {
+    //                     if (response.data[i].members[j].ip === this.state.ipAddress) {
+    //                         this.setState({
+    //                             CurrentPlayer: response.data[i].members[j]
+    //                         });
+    //                         response.data[i].members.splice(j, 1);
+    //                     } else {
+    //                         console.log(response.data[i].members[j].ip + " No player found");
+    //                     }
+    //                     console.log(response.data[i].members);
+    //                 }
+    //                 this.setState({
+    //                     PlayerList: response.data[i].members
+    //                 })
+    //             } else {
+    //                 console.log("No match!");
+    //             }
+    //         }
+    //     })
+    //     .catch(err => console.log(err));
+    // }
 
     render() {
         return (
@@ -184,12 +183,12 @@ class Home extends Component {
                 { this.state.showPending ?
                     <div>
                 
-                        <LoadingScreen url={this.state.urlString} />
+                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge}  />
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
-                                <CurrentPlayer playerName={this.state.CurrentPlayer.name} playerScore={this.state.CurrentPlayer.score}
-                                        userColor={this.state.CurrentPlayer.color} />
-                                {this.state.PlayerList.map(
+                                <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
+                                        userColor={this.state.userColor} />
+                                {this.state.playerList.map(
                                     player => (
                                         <PlayerList
                                         id={player.id}
