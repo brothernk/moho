@@ -97,7 +97,7 @@ class Home extends Component {
                     // user gets shown profile page. If the ip address already exists, user goes straight to 
                     // home page
                     for (var i = 0; i < res.data[0].members.length; i ++) {
-                        if (res.data[0].members[i].ip === this.state.ipAddress) {
+                        if (res.data[0].members[i].ip === self.state.socketAddress) {
                             console.log("member already exists in session ") 
                             self.setState({showProfile: false})
                             self.setState({showPending: true})
