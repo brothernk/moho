@@ -176,7 +176,7 @@ class Home extends Component {
     render() {
         return (
             <div> 
-                {/* { this.state.showProfile ? 
+                { this.state.showProfile ? 
                     <Profile url={this.state.urlString} ip={this.state.ipAddress} profileAdded={this.componentChange.bind(this)}/>
                 : null}
 
@@ -220,9 +220,9 @@ class Home extends Component {
                         <LoadingScreen />
                         <BottomNav />
                     </div>
-                : null} */}
+                : null}
                 {/* Use to test Giphy Search w/o running the game logic */}
-                <GiphySearch />
+                {/* <GiphySearch /> */}
             </div>
         );
     }
