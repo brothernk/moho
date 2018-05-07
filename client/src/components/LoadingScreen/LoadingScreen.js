@@ -1,35 +1,46 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
 import gif from "./beaker.gif";
 
 class LoadingScreen extends Component {
 
   state = {
-    members: "",
-    url: ""
+    userName: "",
+    userScore: "",
+    userJudge: "",
+    judge: "",
+    members: ""
   }
 
   componentDidMount = () => {
-    this.setState({url: this.props.url}, function(){ 
-      this.checkURL()
+    this.setState({userName: this.props.userName})
+    this.setState({userScore: this.props.userScore})
+    this.setState({userJudge: this.props.userJudge})
+    this.setState({members: this.props.members}, function() {
+      this.checkJudge()
     })
+
   }
 
-  checkURL = () => {
-    API.checkSessionUrl(this.state.url)
-    .then(res => { 
-      let sessionMembers = res.data[0].members
-      this.setState({members: sessionMembers}, function() {
-        console.log(this.state.members)
-      })
-    })
+  checkJudge = () => {
+    if (this.state.userJudge) {
+      this.setState({judge: this.state.userName})
+    }
+
+    else {
+      for (var i = 0; i < this.state.members.length; i ++) {
+
+        if (this.state.members[i].judge) {
+          this.setState({judge: this.state.members[i].name})
+        }
+      }
+    }
   }
 
 
   render() {
     return (
       <div>
-        <p id="judge">Judge: {this.props.judge}</p>
+        <p id="judge">Judge: {this.state.judge}</p>
 
         <img src={gif} alt="" className="loading-gif"/>
 
