@@ -287,3 +287,7 @@ p {
   display: inline-block;
   position: relative;
   clear: both; }
+
+.trex-pic {
+  max-width: 300px;
+  margin: 40px 0px 5px 0px; }

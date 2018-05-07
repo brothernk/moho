@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import gif from "./spin.gif";
+import gif from "./beaker.gif";
 
 class LoadingScreen extends Component {
 
@@ -13,7 +13,6 @@ class LoadingScreen extends Component {
     this.setState({url: this.props.url}, function(){ 
       this.checkURL()
     })
-
   }
 
   checkURL = () => {
