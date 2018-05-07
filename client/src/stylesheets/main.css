@@ -252,9 +252,10 @@ p {
     .bottom-nav .content-holder .home-button {
       position: absolute;
       right: 15px;
-      top: 9px;
+      top: 7px;
       color: grey;
-      font-size: 25px; }
+      font-size: 25px;
+      z-index: 1000; }
 
 .expanded {
   min-height: 25vh;
@@ -292,7 +293,6 @@ p {
 .playerlist-holder {
   width: 100%;
   text-align: left;
-  position: relative;
-  top: 32px; }
+  margin-top: 5px; }
   .playerlist-holder td {
     padding: 5px 15px; }

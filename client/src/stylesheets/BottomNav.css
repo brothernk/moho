@@ -23,9 +23,10 @@
     .bottom-nav .content-holder .home-button {
       position: absolute;
       right: 15px;
-      top: 9px;
+      top: 7px;
       color: grey;
-      font-size: 25px; }
+      font-size: 25px;
+      z-index: 1000; }
 
 .expanded {
   min-height: 25vh;
