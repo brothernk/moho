@@ -163,9 +163,9 @@ p {
   width: 100%;
   text-align: center; }
   .gif-component .gif-preview {
-    height: 200px;
+    height: 400px;
     object-fit: cover;
-    max-width: 350px; }
+    max-width: 450px; }
 
 .promptSelect-component {
   padding: 15px; }
@@ -300,4 +300,3 @@ p {
   margin-top: 5px; }
   .playerlist-holder td {
     padding: 5px 15px; }
-
