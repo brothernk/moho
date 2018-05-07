@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 @import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
-.signup-btn, .login-btn, .enter-btn {
+.signup-btn, .login-btn, .enter-btn, .join-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
@@ -74,7 +74,7 @@ input[type="text"]:focus {
 p {
   margin: 0px; }
 
-.signup-btn, .login-btn, .enter-btn {
+.signup-btn, .login-btn, .enter-btn, .join-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
@@ -192,6 +192,18 @@ p {
     .promptSelect-component .prompt-card i {
       padding-right: 15px; }
 
+.signup-btn, .login-btn, .enter-btn, .join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  margin: 15px;
+  padding: 8px;
+  width: 220px; }
+
 .color-btn {
   border-radius: 50px;
   height: 100px;
@@ -232,6 +244,9 @@ p {
 
 #charcoal-prof {
   background-color: #444444; }
+
+.join-btn {
+  background-color: hotpink; }
 
 .bottom-nav {
   position: fixed;
@@ -286,7 +301,7 @@ p {
   margin: 0 auto;
   margin-top: -20px; }
 
-#current-players {
+#current-players, #no-players {
   font-family: "Montserrat", sans-serif;
   color: white;
   font-size: 200%;

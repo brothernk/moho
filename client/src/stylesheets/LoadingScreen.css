@@ -14,7 +14,7 @@
   margin: 0 auto;
   margin-top: -20px; }
 
-#current-players {
+#current-players, #no-players {
   font-family: "Montserrat", sans-serif;
   color: white;
   font-size: 200%;
