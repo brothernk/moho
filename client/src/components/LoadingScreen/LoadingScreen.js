@@ -59,7 +59,7 @@ class LoadingScreen extends Component {
                 </div>
               </div>
           ) : (
-            <h3>No current players</h3>
+            <h3 id="no-players">No current players</h3>
           )}
         
       </div>

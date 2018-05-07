@@ -39,7 +39,7 @@ $charcoal: #444444;
   margin-top:-20px;
 }
 
-#current-players{
+#current-players, #no-players{
   @include font;
   font-size: 200%;
   margin-top:20px;
@@ -54,3 +54,5 @@ $charcoal: #444444;
   float:left;
   margin: 0px -10px 0px -10px;
 }
+
+
