@@ -16,6 +16,7 @@ class Home extends Component {
     state = {
         urlString: "",
         ipAddress: "",
+        socketAddress: "",
         showProfile: false,
         theme: "",
         showPending: false,
@@ -64,6 +65,8 @@ class Home extends Component {
     // If the URL does not exist in the database, the user is redirected to an error screen
     checkURL = () => {
 
+        const self = this;
+
         API.checkSessionUrl(this.state.urlString)
         .then(res =>{ 
             // If URL does not exist, user gets error screen
@@ -81,28 +84,34 @@ class Home extends Component {
                 const socket = io(this.state.urlString);
                 console.log("Socket object:", socket);
 
-                // If no members yet exist in session, user is shown profile page
-                if (res.data[0].members.length === 0 ) {
-                    console.log("no members yet in session")
-                    this.setState({showProfile: true})
-                }
-                
-                // If users exist but user's ip address is not associated with a session member,
-                // user gets shown profile page. If the ip address already exists, user goes straight to 
-                // home page
-                for (var i = 0; i < res.data[0].members.length; i ++) {
-                    if (res.data[0].members[i].ip === this.state.ipAddress) {
-                        console.log("member already exists in session ") 
-                        this.setState({showProfile: false})
-                        this.setState({showPending: true})
-                        break
+                socket.on('usermade', function(data) {
+                    self.setState({socketAddress: data.userid})
+                    
+                    // If no members yet exist in session, user is shown profile page
+                    if (res.data[0].members.length === 0 ) {
+                        console.log("no members yet in session")
+                        self.setState({showProfile: true})
+                    }
+                    
+                    // If users exist but user's ip address is not associated with a session member,
+                    // user gets shown profile page. If the ip address already exists, user goes straight to 
+                    // home page
+                    for (var i = 0; i < res.data[0].members.length; i ++) {
+                        if (res.data[0].members[i].ip === this.state.ipAddress) {
+                            console.log("member already exists in session ") 
+                            self.setState({showProfile: false})
+                            self.setState({showPending: true})
+                            break
+                        }
+
+                        else {
+                            console.log("member does not yet exist in session")
+                            self.setState({showProfile: true})
+                        }
                     }
 
-                    else {
-                        console.log("member does not yet exist in session")
-                        this.setState({showProfile: true})
-                    }
-                }
+                })
+
             }
         })
         .catch(err => console.log(err.response));
@@ -110,7 +119,6 @@ class Home extends Component {
 
     componentChange = (field, value) => {
         this.setState({[field]: value})
-        console.log(this.state)
     }
 
     returnCategories = () => {
@@ -176,8 +184,9 @@ class Home extends Component {
     render() {
         return (
             <div> 
+
                 { this.state.showProfile ? 
-                    <Profile url={this.state.urlString} ip={this.state.ipAddress} profileAdded={this.componentChange.bind(this)}/>
+                    <Profile url={this.state.urlString} ip={this.state.socketAddress} profileAdded={this.componentChange.bind(this)}/>
                 : null}
 
                 { this.state.showPending ?
