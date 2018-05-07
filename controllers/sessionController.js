@@ -9,6 +9,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   create: (io) => (req, res) => {
     db.Session
       .create(req.body)
@@ -24,12 +25,14 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
+
   findByTitle: function(req, res) {
     db.Session
       .find({"title": req.params.session})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   findByUrl: function(req, res) {
     let url = "/" + req.params.word1 + "/" + req.params.word2 + "/" + req.params.word3 + "/" + req.params.word4 + "/" + req.params.word5 + "/" + req.params.word6
     db.Session
@@ -37,6 +40,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   addMember: function(req, res) {
     let memberObject = {
       name: req.body.username,
@@ -45,6 +49,7 @@ module.exports = {
       judge: req.body.judge,
       score: 0
     }
+    
     db.Session
       .update(
         {"url": req.body.url},
