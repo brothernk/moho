@@ -9,14 +9,16 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  create: (io) => (req, res) => {
     db.Session
       .create(req.body)
       .then(dbModel => {
         const gameSocket = io.of(dbModel.url);
-        console.log("setting up connection")
         gameSocket.on('connect', () => {
-          console.log('user connected.');
+          console.log(`User connected to room ${dbModel.url}`);
+          socket.on('disconnect', function(){
+            console.log('user disconnected');
+          });
         });
         res.json(dbModel);
       })

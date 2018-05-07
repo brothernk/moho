@@ -233,7 +233,8 @@ p {
   width: 100%;
   transition: .25s;
   background: #C0C0C0;
-  height: 40px; }
+  height: 40px;
+  min-height: 0; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
@@ -251,9 +252,10 @@ p {
     .bottom-nav .content-holder .home-button {
       position: absolute;
       right: 15px;
-      top: 9px;
+      top: 7px;
       color: grey;
-      font-size: 25px; }
+      font-size: 25px;
+      z-index: 1000; }
 
 .expanded {
   min-height: 25vh;
@@ -291,3 +293,11 @@ p {
 .trex-pic {
   max-width: 300px;
   margin: 40px 0px 5px 0px; }
+
+.playerlist-holder {
+  width: 100%;
+  text-align: left;
+  margin-top: 5px; }
+  .playerlist-holder td {
+    padding: 5px 15px; }
+

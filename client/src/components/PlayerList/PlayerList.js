@@ -1,9 +1,12 @@
 import React from "react";
 
 const PlayerList = props => (
- <div className="playerlist-holder">
-  <p><i className="fas fa-circle"></i>M{props.playerName}<i className="fas fa-trophy"></i>24{props.playerScore}</p>
- </div> 
+  <tr className="player">
+    <td><span style={{color:props.userColor}}>
+      <i className="fas fa-circle"></i>
+    </span> {props.playerName}</td>
+    <td><i className="fas fa-trophy"></i> {props.playerScore}</td>
+  </tr>
 )
 
 export default PlayerList;

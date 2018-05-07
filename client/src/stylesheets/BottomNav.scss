@@ -22,6 +22,7 @@ $charcoal: #444444;
   transition: .25s;
   background: $grey;
   height: 40px;
+  min-height: 0;
 
   .content-holder {
     width: 100%;
@@ -45,9 +46,10 @@ $charcoal: #444444;
     .home-button {
       position: absolute;
       right: 15px;
-      top: 9px;
+      top: 7px;
       color: grey;
       font-size: 25px;
+      z-index: 1000;
     }
   }
 
