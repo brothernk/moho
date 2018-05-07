@@ -7,7 +7,6 @@ import PlayerList from "../../components/PlayerList/PlayerList";
 import PlayerListHolder from "../../components/PlayerListHolder/PlayerListHolder";
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
-import { lookup } from "ipdata"
 import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
 import io from "socket.io-client";
 
@@ -15,7 +14,6 @@ class Home extends Component {
 
     state = {
         urlString: "",
-        ipAddress: "",
         socketAddress: "",
         showProfile: false,
         theme: "",
@@ -33,17 +31,8 @@ class Home extends Component {
 
     // check IP address on mount
     componentDidMount = () => {
-        this.checkIp()
+        this.setUrl()
         this.returnCategories()
-    }
-
-    // Grab user IP address set state variable, then continue to set URL state variable
-    checkIp = () => {
-        lookup()
-        .then((info) => {
-            this.setState({ipAddress: info.ip})
-            this.setUrl()
-        })        
     }
 
     // Grab current URL and set state variable, then continue to check URL
@@ -99,14 +88,17 @@ class Home extends Component {
                     for (var i = 0; i < res.data[0].members.length; i ++) {
                         if (res.data[0].members[i].ip === self.state.socketAddress) {
                             console.log("member already exists in session ") 
-                            self.setState({showProfile: false})
-                            self.setState({showPending: true})
-                            break
+                            self.updateMembers( function() {
+                                self.setState({showProfile: false})
+                                self.setState({showPending: true})
+                            })
                         }
 
                         else {
                             console.log("member does not yet exist in session")
-                            self.setState({showProfile: true})
+                            self.updateMembers( function() {
+                                self.setState({showProfile: true})
+                            })
                         }
                     }
 
@@ -146,53 +138,53 @@ class Home extends Component {
         }
     };
 
-    // getScores = () => {
-    //     API.getSessions()
-    //     .then(response => {
-    //         const currentURL = window.location.pathname.slice(5);
-    //         console.log(response.data);
-    //         console.log(currentURL);
-    //         console.log(this.state.ipAddress);
-    //         let i;
-    //         let j;
-    //         for (i = 0; i < response.data.length; i++) {
-    //             if (response.data[i].url === currentURL) {
-    //                 console.log("Match!");
-    //                 console.log(response.data[i]);
-    //                 for (j = 0; j < response.data[i].members.length; j++) {
-    //                     if (response.data[i].members[j].ip === this.state.ipAddress) {
-    //                         this.setState({
-    //                             CurrentPlayer: response.data[i].members[j]
-    //                         });
-    //                         response.data[i].members.splice(j, 1);
-    //                     } else {
-    //                         console.log(response.data[i].members[j].ip + " No player found");
-    //                     }
-    //                     console.log(response.data[i].members);
-    //                 }
-    //                 this.setState({
-    //                     PlayerList: response.data[i].members
-    //                 })
-    //             } else {
-    //                 console.log("No match!");
-    //             }
-    //         }
-    //     })
-    //     .catch(err => console.log(err));
-    // }
+    updateMembers = () => {
+        API.checkSessionUrl(this.state.urlString)
+        .then(res =>{ 
+            if (res.data.length > 0) {
+                if (res.data[0].members.length === 0 ) {
+                    const memberArray = []
+                    for (var i = 0; i < res.data[0].members.length; i ++) {
+
+                        if (res.data[0].members[i].ip === this.state.socketAddress) {
+                            this.setState({userName: res.data[0].members[i].name})
+                            this.setState({userScore: res.data[0].members[i].score})
+                            this.setState({userColor: res.data[0].members[i].color})
+                        }
+                        
+                        else {
+                            memberArray.push(res.data[0].members[i])
+                        }
+                    }
+
+                    this.setState({playerList: memberArray}, function() {
+                        console.log("Player list: ")
+                        console.log(this.state.playerList)
+                    })
+                }
+            }
+        })
+
+    }
+
 
     render() {
         return (
             <div> 
 
                 { this.state.showProfile ? 
-                    <Profile url={this.state.urlString} ip={this.state.socketAddress} profileAdded={this.componentChange.bind(this)}/>
+                    <Profile url={this.state.urlString} ip={this.state.socketAddress} members={this.state.playerList} profileAdded={this.componentChange.bind(this)}/>
                 : null}
 
                 { this.state.showPending ?
                     <div>
                 
-                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge}  />
+                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
+                            userName= {this.state.userName}
+                            userColor={this.state.userScore}
+                            userJudge={this.state.userJudge}
+                            members={this.state.playerList}
+                            />
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
