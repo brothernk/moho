@@ -23,6 +23,8 @@
         top: 15px;
         right: 15px;
         font-size: 20px; }
+    .giphy-component .search-holder .search-button:hover {
+      cursor: pointer; }
     .giphy-component .search-holder img {
       width: 100%;
       margin-top: 15px;
@@ -45,6 +47,8 @@
         width: 50px;
         border-radius: 50%;
         display: inline-block; }
+      .giphy-component .search-holder .button-holder .button:hover {
+        cursor: pointer; }
       .giphy-component .search-holder .button-holder .research {
         background: lightgray;
         position: relative; }
@@ -63,3 +67,5 @@
           top: 15px;
           right: 15px;
           font-size: 20px; }
+      .giphy-component .search-holder .button-holder .confirm:hover {
+        cursor: pointer; }

@@ -116,6 +116,8 @@ p {
         top: 15px;
         right: 15px;
         font-size: 20px; }
+    .giphy-component .search-holder .search-button:hover {
+      cursor: pointer; }
     .giphy-component .search-holder img {
       width: 100%;
       margin-top: 15px;
@@ -138,6 +140,8 @@ p {
         width: 50px;
         border-radius: 50%;
         display: inline-block; }
+      .giphy-component .search-holder .button-holder .button:hover {
+        cursor: pointer; }
       .giphy-component .search-holder .button-holder .research {
         background: lightgray;
         position: relative; }
@@ -156,6 +160,8 @@ p {
           top: 15px;
           right: 15px;
           font-size: 20px; }
+      .giphy-component .search-holder .button-holder .confirm:hover {
+        cursor: pointer; }
 
 .gif-component {
   background-size: cover;
@@ -164,7 +170,7 @@ p {
   text-align: center; }
   .gif-component .gif-preview {
     height: 300px;
-    object-fit: fill;
+    object-fit: cover;
     max-width: 442px; }
 
 .promptSelect-component {
