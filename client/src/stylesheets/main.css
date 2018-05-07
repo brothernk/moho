@@ -290,9 +290,14 @@ p {
   position: relative;
   clear: both; }
 
+.trex-pic {
+  max-width: 300px;
+  margin: 40px 0px 5px 0px; }
+
 .playerlist-holder {
   width: 100%;
   text-align: left;
   margin-top: 5px; }
   .playerlist-holder td {
     padding: 5px 15px; }
+

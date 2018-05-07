@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios"
 import { SignupBtn, LoginBtn, EnterBtn } from "../../components/Buttons";
 import { Enter } from "../../components/Enter";
+import Logo from "../../components/Logo/Logo";
 import API from "../../utils/API"
 import mnGen from "mngen"
 
@@ -108,7 +109,8 @@ class Login extends Component {
 
     render() {
         return (
-            <div> 
+            <div>
+                <Logo></Logo>
                 <SignupBtn onClick={this.generateRandomWord} randomword={this.state.randomWord} 
                 showbutton={this.state.showButton.toString()}/>
 
