@@ -1,15 +1,21 @@
+#judge {
+  margin: auto;
+  margin-top: 25px;
+  float: center;
+  width: 200px;
+  padding: 10px;
+  border-radius: 40px; }
+
 .loading-gif {
-  width: 100%;
+  width: 65%;
   padding: 15px;
-  max-width: 400px;
-  display: block;
+  max-width: 350px;
   margin: 0 auto; }
 
 #current-players {
   font-family: "Montserrat", sans-serif;
   color: white;
-  font-size: 30px;
-  text-transform: uppercase;
+  font-size: 200%;
   margin-top: 20px; }
 
 #username {
@@ -19,7 +25,4 @@
 
 #user-icon {
   margin: auto;
-  text-align: center;
-  display: inline-block;
-  position: relative;
-  clear: both; }
+  text-align: center; }
