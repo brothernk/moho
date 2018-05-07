@@ -292,8 +292,8 @@ p {
   font-size: 35px; }
 
 #user-icon {
-  margin: auto;
-  text-align: center; }
+  float: left;
+  margin: 0px -10px 0px -10px; }
 
 .trex-pic {
   max-width: 200px;

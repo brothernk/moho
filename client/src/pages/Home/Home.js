@@ -109,9 +109,7 @@ class Home extends Component {
                             self.setState({showProfile: true})
                         }
                     }
-
                 })
-
             }
         })
         .catch(err => console.log(err.response));
@@ -192,7 +190,7 @@ class Home extends Component {
                 { this.state.showPending ?
                     <div>
                 
-                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge}  />
+                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge}/>
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}

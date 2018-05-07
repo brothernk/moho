@@ -1,3 +1,15 @@
+//Colors ===============================================================
+$background: #31263E;
+$green: #44BBA4;
+$orange: #FF8A5B;
+$grey: #C0C0C0;
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
+
 //Mixins ===============================================================
 @mixin position{
   margin:auto;
@@ -39,5 +51,6 @@
 }
 
 #user-icon{
-  @include position;
+  float:left;
+  margin: 0px -10px 0px -10px;
 }
