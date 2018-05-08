@@ -32,7 +32,7 @@ class Profile extends Component {
     };
 
     //Assign user color and judge
-    enterProfile = event => {
+    setupProfile = event => {
         if (this.state.username === "") {
             this.setState({showError: true})
         }
@@ -82,7 +82,6 @@ class Profile extends Component {
                 self.props.profileAdded('showProfile', false);
                 self.props.profileAdded('showPending', true);
             }
-
             else {
                 self.props.profileAdded('pendingMessage', 'Waiting for game to start');
                 self.props.profileAdded('showProfile', false);
@@ -108,14 +107,14 @@ class Profile extends Component {
                     <div className="enter-color">Pick a Color</div>
                 </div>
                 <div className="setup-color-buttondiv">
-                    <span data="#FFC655" className="yellow-prof btn color-btn" onClick={this.enterProfile}></span>
-                    <span data="#5FACFF" className="blue-prof btn color-btn" onClick={this.enterProfile}></span>
-                    <span data="#FF6161" className="red-prof btn color-btn" onClick={this.enterProfile}></span>
-                    <span data="#D45FFF" className="pink-prof btn color-btn" onClick={this.enterProfile}></span>
-                    <span data="#44BBA4" className="green-prof btn color-btn" onClick={this.enterProfile}></span>
-                    <span data="#FF8A5B" className="orange-prof btn color-btn" onClick={this.enterProfile}></span>
-                    <span data="#9964FF" className="purple-prof btn color-btn" onClick={this.enterProfile}></span>
-                    <span data="#444444" className="charcoal-prof btn color-btn" onClick={this.enterProfile}></span>
+                    <span data="#FFC655" className="yellow-prof btn color-btn" onClick={this.setupProfile}></span>
+                    <span data="#5FACFF" className="blue-prof btn color-btn" onClick={this.setupProfile}></span>
+                    <span data="#FF6161" className="red-prof btn color-btn" onClick={this.setupProfile}></span>
+                    <span data="#D45FFF" className="pink-prof btn color-btn" onClick={this.setupProfile}></span>
+                    <span data="#44BBA4" className="green-prof btn color-btn" onClick={this.setupProfile}></span>
+                    <span data="#FF8A5B" className="orange-prof btn color-btn" onClick={this.setupProfile}></span>
+                    <span data="#9964FF" className="purple-prof btn color-btn" onClick={this.setupProfile}></span>
+                    <span data="#444444" className="charcoal-prof btn color-btn" onClick={this.setupProfile}></span>
                 </div>
 
                 <div onClick={this.addMember} className="complete-profile-btn">

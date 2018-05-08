@@ -1,3 +1,37 @@
+//Dependencies from main.scss ============================================
+//Colors ===============================================================
+$background: #31263E;
+$green: #44BBA4;
+$orange: #FF8A5B;
+$grey: #C0C0C0;
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
+
+//Placeholders ===================================================
+%buttons{
+  @include font;
+  border-radius: 30px;
+  font-size:25px;
+  position: relative;
+  clear:both;
+  display:inline-block;
+  margin: 15px;
+  padding: 8px;
+  width:220px;
+}
+
+%round-buttons{
+  border-radius: 50px;
+  height: 100px;
+  width:100px;
+  margin:10px;
+}
+
+//Profile Page ===========================================================
 .enter-profile{
     font-size:40px;
     margin-top:2%;
@@ -46,61 +80,3 @@
     width:180px;
     background-color: hotpink;
   }
-
-//Dependencies from main.scss ============================================
-//Fonts ==================================================================
-@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
-@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
-
-//Colors ===============================================================
-$background: #31263E;
-$green: #44BBA4;
-$orange: #FF8A5B;
-$grey: #C0C0C0;
-$yellow: #FFC655;
-$blue: #5FACFF;
-$red: #FF6161;
-$pink: #D45FFF;
-$purple: #9964FF;
-$charcoal: #444444;
-
-//Mixins ===============================================================
-@mixin position{
-  margin:auto;
-  text-align: center;
-}
-
-@mixin font{
-  font-family: "Montserrat", sans-serif;
-  color:white;
-}
-
-//Placeholders ===================================================
-%buttons{
-  @include font;
-  border-radius: 30px;
-  font-size:25px;
-  position: relative;
-  clear:both;
-  display:inline-block;
-  margin: 15px;
-  padding: 8px;
-  width:220px;
-}
-
-%round-buttons{
-  border-radius: 50px;
-  height: 100px;
-  width:100px;
-  margin:10px;
-}
-
-%text-entry{
-  @include font;
-  border-radius: 30px;
-  border:none;
-  background-color: lightgrey;
-  color:grey;
-  padding: 8px;
-  font-size: 25px;
-}
