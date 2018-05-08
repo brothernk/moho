@@ -37,7 +37,6 @@ class Home extends Component {
     }
 
     
-
     // check IP address on mount
     componentDidMount = () => {
         this.returnCategories()
@@ -157,12 +156,14 @@ class Home extends Component {
         .catch(err => console.log(err))
     }
 
+    //Select random category after judge chooses theme
     randomTheme = (themeIndex) => {
         this.setState({
             selectedTheme: this.state.theme[themeIndex].categories[Math.floor(Math.random()*this.state.theme[themeIndex].categories.length)]
         })
     }
 
+    //Expand navbar
     expandToggle = () => {
         if (this.state.BottomNavExpanded) {
             console.log("expanded!")
@@ -179,7 +180,6 @@ class Home extends Component {
         }
     };
 
-    
 
     updateMembers = (data) => {
         console.log("update members triggered")
@@ -214,9 +214,7 @@ class Home extends Component {
 
             count ++
             
-        }
-
-        
+        }    
 
     }
 
