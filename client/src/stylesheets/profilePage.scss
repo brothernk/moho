@@ -11,6 +11,11 @@ $purple: #9964FF;
 $charcoal: #444444;
 
 //Placeholders ===================================================
+@mixin font{
+  font-family: "Montserrat", sans-serif;
+  color:white;
+}
+
 %buttons{
   @include font;
   border-radius: 30px;
@@ -49,10 +54,6 @@ $charcoal: #444444;
     box-shadow: 0 0 10px grey;
   }
 
-  .color-btn:focus, .color-btn:active{
-    border:3px solid white;
-  }
-  
   #yellow-prof{
     background-color:$yellow;
   }

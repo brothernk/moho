@@ -23,6 +23,7 @@ $charcoal: #444444;
   background: $grey;
   height: 40px;
   min-height: 0;
+  overflow: scroll;
 
   .content-holder {
     width: 100%;
@@ -52,7 +53,6 @@ $charcoal: #444444;
       z-index: 1000;
     }
   }
-
 }
 
 .expanded {
