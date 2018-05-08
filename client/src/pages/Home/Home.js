@@ -184,8 +184,7 @@ class Home extends Component {
 
                 { this.state.showPending ?
                     <div>
-                
-
+    
                         <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
                             userName= {this.state.userName}
                             userColor={this.state.userScore}
@@ -208,9 +207,7 @@ class Home extends Component {
                                     ))
                                 }
                             </PlayerListHolder>
-
                         </BottomNav>    
-                    
                     </div>
                 : null}
 

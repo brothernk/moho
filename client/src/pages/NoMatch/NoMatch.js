@@ -8,7 +8,7 @@ class Home extends Component {
     render() {
         return (
             <div> 
-                <p>This is not a valid session</p>
+                <p id="not-a-session">This is not a valid session <i class="far fa-frown"></i></p>
             </div>
         );
     }

@@ -115,12 +115,6 @@ class Login extends Component {
                 <SignupBtn onClick={this.generateRandomWord} randomword={this.state.randomWord} 
                 showbutton={this.state.showButton.toString()}/>
 
-                { this.state.showError ? 
-                    <div> 
-                        <p id="session-not-exist">Session does not exist, double check game keyword or create new game</p>
-                    </div>
-                : null }
-
                 { this.state.showResults === false ? 
                     <LoginBtn onClick={this.loginClick} />
                 : null}
@@ -131,6 +125,13 @@ class Login extends Component {
                     <EnterBtn onClick={this.enterGame}/> 
                 </div>
                 : null }
+
+                { this.state.showError ? 
+                    <div> 
+                        <p id="session-not-exist">Session does not exist, double check game keyword or create new game</p>
+                    </div>
+                : null }
+                
             </div>
         );
     }

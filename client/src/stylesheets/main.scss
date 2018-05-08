@@ -62,6 +62,12 @@ body {
   background: $background;
 }
 
+//Error ===========================================================
+#not-a-session{
+  margin-top:25%;
+  font-size:150%;
+}
+
 //Buttons =========================================================
 .signup-btn{
   @extend %buttons;
