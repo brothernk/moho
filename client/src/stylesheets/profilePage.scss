@@ -10,6 +10,19 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
+//Placeholders ===================================================
+%buttons{
+  @include font;
+  border-radius: 30px;
+  font-size:25px;
+  position: relative;
+  clear:both;
+  display:inline-block;
+  margin: 15px;
+  padding: 8px;
+  width:220px;
+}
+
 %round-buttons{
   border-radius: 50px;
   height: 100px;
@@ -17,6 +30,7 @@ $charcoal: #444444;
   margin:10px;
 }
 
+//===================================================================
 .enter-profile{
     font-size:40px;
     margin-top:2%;
@@ -62,4 +76,9 @@ $charcoal: #444444;
   }
   #charcoal-prof{
     background-color:$charcoal;
+  }
+
+  .join-btn{
+    @extend %buttons;
+    background-color: hotpink;
   }

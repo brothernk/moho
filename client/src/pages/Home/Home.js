@@ -7,7 +7,6 @@ import PlayerList from "../../components/PlayerList/PlayerList";
 import PlayerListHolder from "../../components/PlayerListHolder/PlayerListHolder";
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
-import { lookup } from "ipdata"
 import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
 import io from "socket.io-client";
 
@@ -15,7 +14,6 @@ class Home extends Component {
 
     state = {
         urlString: "",
-        ipAddress: "",
         socketAddress: "",
         showProfile: false,
         theme: "",
@@ -29,21 +27,13 @@ class Home extends Component {
         userJudge: false, 
         currentJudge: "",
         playerList: [],
+        socket: ""
     }
 
     // check IP address on mount
     componentDidMount = () => {
-        this.checkIp()
+        this.setUrl()
         this.returnCategories()
-    }
-
-    // Grab user IP address set state variable, then continue to set URL state variable
-    checkIp = () => {
-        lookup()
-        .then((info) => {
-            this.setState({ipAddress: info.ip})
-            this.setUrl()
-        })        
     }
 
     // Grab current URL and set state variable, then continue to check URL
@@ -65,9 +55,9 @@ class Home extends Component {
     // If the URL does not exist in the database, the user is redirected to an error screen
     checkURL = () => {
 
-        const self = this;
+        const self = this
 
-        API.checkSessionUrl(this.state.urlString)
+        API.checkSessionUrl(self.state.urlString)
         .then(res =>{ 
             // If URL does not exist, user gets error screen
             if (res.data.length < 1) {
@@ -81,39 +71,45 @@ class Home extends Component {
                 console.log(res.data)
                 console.log("You entered a valid session!")
 
-                const socket = io(this.state.urlString);
+                const socket = io(self.state.urlString);
                 console.log("Socket object:", socket);
 
-                socket.on('usermade', function(data) {
-                    self.setState({socketAddress: data.userid})
-                    
-                    // If no members yet exist in session, user is shown profile page
-                    if (res.data[0].members.length === 0 ) {
-                        console.log("no members yet in session")
-                        self.setState({showProfile: true})
-                    }
-                    
-                    // If users exist but user's ip address is not associated with a session member,
-                    // user gets shown profile page. If the ip address already exists, user goes straight to 
-                    // home page
-                    for (var i = 0; i < res.data[0].members.length; i ++) {
-                        if (res.data[0].members[i].ip === self.state.socketAddress) {
-                            console.log("member already exists in session ") 
-                            self.setState({showProfile: false})
-                            self.setState({showPending: true})
-                            break
-                        }
+                this.setState({socket: socket}, function() {
 
-                        else {
-                            console.log("member does not yet exist in session")
-                            self.setState({showProfile: true})
-                        }
-                    }
+                    this.state.socket.on('usermade', function(data) {
+                        console.log("usermade socket working")
+                        self.setState({socketAddress: data.userid}, function() {
+
+
+                
+                            // If no members yet exist in session, user is shown profile page
+                            if (res.data[0].members.length === 0 ) {
+                                console.log("no members yet in session")
+                                self.setState({showProfile: true})
+                            }
+                            
+                            // If users exist but user's ip address is not associated with a session member,
+                            // user gets shown profile page. If the ip address already exists, user goes straight to 
+                            // home page
+                
+                            else {
+                                console.log("members exist in session")
+                
+                                self.setState({showProfile: true})
+                
+                            }
+                    
+                        })
+                        
+                        
+                    })
+    
                 })
             }
         })
         .catch(err => console.log(err.response));
     };
+
 
     componentChange = (field, value) => {
         this.setState({[field]: value})
@@ -144,53 +140,58 @@ class Home extends Component {
         }
     };
 
-    // getScores = () => {
-    //     API.getSessions()
-    //     .then(response => {
-    //         const currentURL = window.location.pathname.slice(5);
-    //         console.log(response.data);
-    //         console.log(currentURL);
-    //         console.log(this.state.ipAddress);
-    //         let i;
-    //         let j;
-    //         for (i = 0; i < response.data.length; i++) {
-    //             if (response.data[i].url === currentURL) {
-    //                 console.log("Match!");
-    //                 console.log(response.data[i]);
-    //                 for (j = 0; j < response.data[i].members.length; j++) {
-    //                     if (response.data[i].members[j].ip === this.state.ipAddress) {
-    //                         this.setState({
-    //                             CurrentPlayer: response.data[i].members[j]
-    //                         });
-    //                         response.data[i].members.splice(j, 1);
-    //                     } else {
-    //                         console.log(response.data[i].members[j].ip + " No player found");
-    //                     }
-    //                     console.log(response.data[i].members);
-    //                 }
-    //                 this.setState({
-    //                     PlayerList: response.data[i].members
-    //                 })
-    //             } else {
-    //                 console.log("No match!");
-    //             }
-    //         }
-    //     })
-    //     .catch(err => console.log(err));
-    // }
+    
+
+    updateMembers = (data) => {
+        console.log(data.model[0].members)
+
+        const memberArray = []
+
+        for (var i = 0; i < data.model[0].members.length; i ++) {
+
+            if (data.model[0].members[i].ip === this.state.socketAddress) {
+                this.setState({userName: data.model[0].members[i].name})
+                this.setState({userScore: data.model[0].members[i].score})
+                this.setState({userColor: data.model[0].members[i].color})
+                this.setState({userJudge: data.model[0].members[i].judge})
+            }
+            
+            else {
+                memberArray.push(data.model[0].members[i])
+            }
+
+            if (data.model[0].members[i].judge) {
+                this.setState({currentJudge: data.model[0].members[i].name})
+            }
+            
+        }
+
+        this.setState({playerList: memberArray}, function() {
+            console.log("Player list: ")
+            console.log(this.state.playerList)
+        })
+
+    }
+
 
     render() {
         return (
             <div> 
 
                 { this.state.showProfile ? 
-                    <Profile url={this.state.urlString} ip={this.state.socketAddress} profileAdded={this.componentChange.bind(this)}/>
+                    <Profile url={this.state.urlString} ip={this.state.socketAddress} memberArray={this.state.playerList} socket={this.state.socket} userAdded={this.updateMembers} profileAdded={this.componentChange.bind(this)}/>
                 : null}
 
                 { this.state.showPending ?
                     <div>
+    
+                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
+                            userName= {this.state.userName}
+                            userColor={this.state.userScore}
+                            userJudge={this.state.userJudge}
+                            members={this.state.playerList}
+                            />
 
-                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge}/>
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}

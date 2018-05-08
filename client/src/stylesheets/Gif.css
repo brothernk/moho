@@ -5,5 +5,5 @@
   text-align: center; }
   .gif-component .gif-preview {
     height: 300px;
-    object-fit: cover;
+    object-fit: fill;
     max-width: 442px; }

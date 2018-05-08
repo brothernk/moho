@@ -1,35 +1,50 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
 import gif from "./beaker.gif";
 
 class LoadingScreen extends Component {
 
   state = {
-    members: "",
-    url: ""
+    userName: "",
+    userScore: "",
+    userJudge: "",
+    judge: "",
+    members: ""
   }
 
   componentDidMount = () => {
-    this.setState({url: this.props.url}, function(){ 
-      this.checkURL()
+    this.setState({userName: this.props.userName})
+    this.setState({userScore: this.props.userScore})
+    this.setState({userJudge: this.props.userJudge})
+    this.setState({members: this.props.members}, function() {
+      this.checkJudge()
     })
+
   }
 
-  checkURL = () => {
-    API.checkSessionUrl(this.state.url)
-    .then(res => { 
-      let sessionMembers = res.data[0].members
-      this.setState({members: sessionMembers}, function() {
-        console.log(this.state.members)
-      })
-    })
+  checkJudge = () => {
+    if (this.state.userJudge) {
+      this.setState({judge: this.state.userName})
+    }
+
+    else {
+      for (var i = 0; i < this.state.members.length; i ++) {
+
+        if (this.state.members[i].judge) {
+          this.setState({judge: this.state.members[i].name})
+        }
+      }
+    }
   }
 
 
   render() {
     return (
+
+      <div className="loading-screen-holder">
+        {/* style={{color:props.userColor}} */}
+        <p className="judge">Judge: {this.props.judge}</p>
+        <p className="judge-start">Start</p>
       <div>
-        <p id="judge">Judge: {this.props.judge}</p>
 
         <img src={gif} alt="" className="loading-gif"/>
 
@@ -38,7 +53,7 @@ class LoadingScreen extends Component {
                 <h1 id="current-players"> Current Players </h1>
                 <div className="current-players-div">
                   {this.state.members.map(member => (
-                    <div key={member.ip}>
+                    <div className="player-bubble" key={member.ip}>
                       <span className="fa-stack fa-3x" id="user-icon">
                         <i className="fas fa-circle" style={{color:member.color}}></i>
                         <strong className="fa-stack-1x" id="username">{member.name.charAt(0)}</strong>
@@ -48,10 +63,11 @@ class LoadingScreen extends Component {
                 </div>
               </div>
           ) : (
-            <h3>No current players</h3>
+            <h3 id="no-players">No current players</h3>
           )}
         
       </div>
+    </div>
   
     )
   }

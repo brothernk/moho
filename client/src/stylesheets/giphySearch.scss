@@ -67,10 +67,6 @@ $charcoal: #444444;
         font-size: 20px;
       }
     }
-
-    .search-button:hover{
-      cursor: pointer;
-    }
   
     img {
       width: 100%;
@@ -103,10 +99,6 @@ $charcoal: #444444;
         border-radius: 50%;
         display: inline-block;
       }
-
-      .button:hover{
-        cursor: pointer;
-      }
     
       .research {
         background: lightgray;
@@ -132,10 +124,6 @@ $charcoal: #444444;
           right: 15px;
           font-size: 20px;
         }
-      }
-
-      .confirm:hover{
-        cursor: pointer;
       }
     }
   }
