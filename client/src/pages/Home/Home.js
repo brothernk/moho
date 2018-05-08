@@ -29,9 +29,11 @@ class Home extends Component {
         userJudge: false, 
         currentJudge: "",
         playerList: [],
+        selectedTheme: "",
+        themeIndex: "",
         showWinner: false,
         winner: "",
-        socket: "",
+        socket: ""
     }
 
     
@@ -155,6 +157,12 @@ class Home extends Component {
         .catch(err => console.log(err))
     }
 
+    randomTheme = (themeIndex) => {
+        this.setState({
+            selectedTheme: this.state.theme[themeIndex].categories[Math.floor(Math.random()*this.state.theme[themeIndex].categories.length)]
+        })
+    }
+
     expandToggle = () => {
         if (this.state.BottomNavExpanded) {
             console.log("expanded!")
@@ -222,8 +230,7 @@ class Home extends Component {
 
                 { this.state.showPending ?
                     <div>
-                        
-    
+
                         <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
                             userName= {this.state.userName}
                             userColor={this.state.userColor}
@@ -231,7 +238,6 @@ class Home extends Component {
                             userJudge={this.state.userJudge}
                             members={this.state.playerList}
                             />
-
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
@@ -254,17 +260,17 @@ class Home extends Component {
                 { this.state.showHome ?
                     <div> 
                         <GiphySearch />
-                        {this.state.theme.map(
-                            prompt => (
-                                <PromptSelect
-                                id={prompt.id}
-                                key={prompt.id}
-                                icon={prompt.icon}
-                                theme={prompt.theme}
-                                color={prompt.color}
-                                />
-                            ))
-                        }
+
+                        {this.state.theme.map(prompt => (
+                            <PromptSelect
+                            key={prompt.index}
+                            index={prompt.index}
+                            icon={prompt.icon}
+                            theme={prompt.theme}
+                            color={prompt.color}
+                            selectedTheme={() => {this.randomTheme(prompt.index)}} />
+                        ))}
+                
                         <LoadingScreen />
                         <BottomNav />
                     </div>

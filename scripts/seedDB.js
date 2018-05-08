@@ -14,6 +14,7 @@ mongoose.Promise = global.Promise;
 const gifCategories = [
 	{
 		icon: "fas fa-exclamation-triangle",
+		index: 0,
 		color: "#44BBA4",
 		theme: ["Natural Disasters"],
 		categories: ["Meteor", "Avalanche", "Drought", "Earthquake", "Extinction", "Flood", "Geomagnetic Storms", "Ghost Towns", 
@@ -21,6 +22,7 @@ const gifCategories = [
 	},
 	{
 		icon: "fab fa-themeisle",
+		index: 1,
 		color: "#FF8A5B",
 		theme: ["Pirates"],
 		categories: ["Jack Sparrow", "Eye Patch", "Peg Legged", "Ahoy Matey", "Walk The Plank", "Treasure Chest", 
@@ -29,6 +31,7 @@ const gifCategories = [
 	},
 	{
 		icon: "fab fa-earlybirds",
+		index: 2,
 		color: "#444444",
 		theme: ["Animals"],
 		categories: ["Cats", "Dogs", "Horses", "Pigs", "Chickens", "Tigers", "Bears", "Kangaroo", "Lions", "Meercats",
@@ -40,6 +43,7 @@ const gifCategories = [
 	},
 	{
 		icon: "fas fa-mars-double",
+		index: 3,
 		color: "#FFC655",
 		theme: ["Bromance"],
 		categories: ["Joe Biden and Barack Obama", "Matthew Mcconaughey and Jared Leto", "Mike Corbett and Michael Belsito",
@@ -53,6 +57,7 @@ const gifCategories = [
 	},
 	{
 		icon: "fas fa-baseball-ball",
+		index: 4,
 		color: "#5FACFF",
 		theme: ["Sports"],
 		categories: ["Football", "Archery", "Badminton", "Baseball", "Softball", "Basketball", "Volleyball", "Boxing",
@@ -64,6 +69,7 @@ const gifCategories = [
 	},
 	{
 		icon: "fas fa-gamepad",
+		index: 5,
 		color: "#FF6161",
 		theme: ["90s"],
 		categories: [ "As If!", "Valley Girl", "Wassup", "Getting Jiggy", "Psyche", "Tupac", "Biggie Smalls", "Big Poppa", 
@@ -78,6 +84,7 @@ const gifCategories = [
 	},
 	{
 		icon: "fas fa-pills",
+		index: 6,
 		color: "#D45FFF",
 		theme: ["80s"],
 		categories: ["Dallas", "M*A*S*H", "Who Shot JR?", "Video Killed the Radio Star", "MTV", "Prince", "Purple Rain", "Madonna",
@@ -89,6 +96,7 @@ const gifCategories = [
 	},
 	{
 		icon: "fab fa-bitcoin",
+		index: 7,
 		color: "#9964FF",
 		theme: ["2000s"],
 		categories: ["Steve Jobs", "Donald Trump", "Harry Potter", "Britney Spears Meltdown", "Chris Crocker", "Britney Spears and Justin Timberlake",
@@ -102,6 +110,7 @@ const gifCategories = [
 	},
 	{
 		icon: "fas fa-snowflake",
+		index: 8,
 		color: "#802152",
 		theme: ["Minnesota"],
 		categories: ["Twins", "Vikings", "Wild", "Lynx", "Gophers", "Maroon and Gold", "10,000 Lakes", "Minnesnowta", "Lake Life", "Cabin Life",

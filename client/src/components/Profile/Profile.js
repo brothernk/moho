@@ -123,8 +123,8 @@ class Profile extends Component {
                     <span id="purple-prof" data="#9964FF" className="btn color-btn"></span>
                     <span id="charcoal-prof" data="#444444" className="btn color-btn"></span>
                 </div>
-                <div className="complete-profile-btn">
-                    <span className="btn join-btn" onClick={this.enterProfile}>Join Game</span>
+                <div onClick={this.enterProfile} className="complete-profile-btn">
+                    <span className="btn join-btn">Join Game</span>
                 </div>
 
         </div>
