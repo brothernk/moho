@@ -177,7 +177,6 @@ class Home extends Component {
 
     }
 
-
     render() {
         return (
             <div> 
@@ -188,13 +187,26 @@ class Home extends Component {
 
                 { this.state.showPending ?
                     <div>
+                        
     
-                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
+                        {/* <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
                             userName= {this.state.userName}
                             userColor={this.state.userScore}
                             userJudge={this.state.userJudge}
                             members={this.state.playerList}
-                            />
+                            /> */}
+
+                            {this.state.theme.map(
+                            prompt => (
+                                <PromptSelect
+                                id={prompt.id}
+                                key={prompt.id}
+                                icon={prompt.icon}
+                                theme={prompt.theme}
+                                color={prompt.color}
+                                />
+                            ))
+                        }
 
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
@@ -218,15 +230,17 @@ class Home extends Component {
                 { this.state.showHome ?
                     <div> 
                         <GiphySearch />
-                        {this.state.theme.map(prompt => (
-                            <PromptSelect
-                            id={prompt.id}
-                            key={prompt.id}
-                            icon={prompt.icon}
-                            theme={prompt.theme}
-                            color={prompt.color}
-                            />
-                        ))}
+                        {this.state.theme.map(
+                            prompt => (
+                                <PromptSelect
+                                id={prompt.id}
+                                key={prompt.id}
+                                icon={prompt.icon}
+                                theme={prompt.theme}
+                                color={prompt.color}
+                                />
+                            ))
+                        }
                         <LoadingScreen />
                         <BottomNav />
                     </div>
