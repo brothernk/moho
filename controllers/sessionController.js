@@ -26,6 +26,7 @@ module.exports = {
             .find({"url": dbModel.url})
               .then(dbModel => {
                 console.log('socket added triggered')
+                socket.broadcast.emit('useraddedsuccessfully', {model: dbModel})
                 socket.emit('useraddedsuccessfully', {model: dbModel})
               })
           })
