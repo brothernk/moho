@@ -1,3 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+.join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  margin: 15px;
+  padding: 8px;
+  width: 220px; }
+
 .color-btn {
   border-radius: 50px;
   height: 100px;
@@ -14,9 +28,6 @@
 
 .color-btn:hover {
   box-shadow: 0 0 10px grey; }
-
-.color-btn:active {
-  border: 3px solid white; }
 
 #yellow-prof {
   background-color: #FFC655; }
@@ -41,3 +52,25 @@
 
 #charcoal-prof {
   background-color: #444444; }
+
+.join-btn {
+  width: 180px;
+  background-color: hotpink; }
+
+.join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  margin: 15px;
+  padding: 8px;
+  width: 220px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px; }

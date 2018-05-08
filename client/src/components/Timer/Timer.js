@@ -13,13 +13,4 @@ class Timer extends React.Component {
       setTimeout()
     }
   }
-
-//  const countdown = () => {
-
-//   }
-//   render () {
-//     return (
-
-//     );
-//   }
 }

@@ -17,8 +17,3 @@ export const SignupBtn = props => (
     : null }  
   </div>
 )
-
-
-
-
-

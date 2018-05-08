@@ -121,7 +121,6 @@ const gifCategories = [
 		"Mystery Science Theater 3000", "Judy Garland", "Jesse Ventura", "Biking", "Minnesota Nice", "Hotdish", "Fargo", "Grumpy Old Men", "Mary Tyler Moore", "The Mighty Ducks", "Great Minnesota Get Together",
 		"Winter Carnival", "Renassaince Festival", "WE Fest", "Detroit Lakes"]
 	}
-	
 ];
 
 db.Gif

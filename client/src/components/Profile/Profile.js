@@ -87,17 +87,13 @@ class Profile extends Component {
                 self.props.profileAdded('pendingMessage', 'Waiting for game to start');
                 self.props.profileAdded('showProfile', false);
                 self.props.profileAdded('showPending', true);
-            }
-            
+            }  
         })
-        
-
     }
 
     render() {
         return (
             <div>
-
                 { this.state.showError ?
                         <div>
                             <p id="username-error">Please enter a username</p>
@@ -126,7 +122,6 @@ class Profile extends Component {
                     <span className="btn join-btn">Join Game</span>
 
                 </div>
-
              </div>
         )
     }

@@ -8,4 +8,3 @@ export const LoginBtn = props => (
 )
 
 export default LoginBtn;
-

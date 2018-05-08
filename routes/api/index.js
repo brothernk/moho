@@ -5,7 +5,7 @@ const giphyRoutes = require("./giphy");
 
 const apiRoutes = (io) => {
 
-  // Session and Gif routes
+  //Session and Gif routes
   router.use("/gif", gifRoutes);
   router.use("/session", sessionRoutes(io));
   router.use("/giphy", giphyRoutes);
