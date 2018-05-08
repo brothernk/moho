@@ -189,7 +189,7 @@ class Home extends Component {
 
                 { this.state.showPending ?
                     <div>
-                
+
                         <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge}/>
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
@@ -206,9 +206,7 @@ class Home extends Component {
                                     ))
                                 }
                             </PlayerListHolder>
-
                         </BottomNav>    
-                    
                     </div>
                 : null}
 

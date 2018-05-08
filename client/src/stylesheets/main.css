@@ -35,6 +35,10 @@ body {
   color: white;
   background: #31263E; }
 
+#not-a-session {
+  margin-top: 25%;
+  font-size: 150%; }
+
 .signup-btn {
   background: #FF8A5B; }
 
@@ -208,6 +212,9 @@ p {
 
 .color-btn:hover {
   box-shadow: 0 0 10px grey; }
+
+.color-btn:active {
+  border: 3px solid white; }
 
 #yellow-prof {
   background-color: #FFC655; }
