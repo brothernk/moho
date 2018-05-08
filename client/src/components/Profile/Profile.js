@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import openSocket from "socket.io-client";
+
+
 
 class Profile extends Component {
 
@@ -19,7 +20,7 @@ class Profile extends Component {
         console.log(this.props)
         this.setState({url: this.props.url})
         this.setState({ip: this.props.ip})
-        this.setState({memberArray: this.props.members}, function() {
+        this.setState({memberArray: this.props.memberArray}, function() {
             console.log(this.state)
         })
 
@@ -43,35 +44,23 @@ class Profile extends Component {
             let profileColor = divTarget.getAttribute('data')
             this.setState({color:profileColor}, function(){
 
-                if (this.state.memberArray.length === 0) {
-                    this.setState({judge: true}, function() {
-                        this.addMember()
-                    })
-                }
+                API.checkSessionUrl(this.state.url)
+                .then(res => {
 
-                else {
-                    this.setState({judge: false}, function() {
-                        this.addMember()
-                    })
-                }
+                    if (res.data[0].members.length === 0) {
 
-                // API.checkSessionUrl(this.state.url)
-                // .then(res => {
+                        this.setState({judge: true}, function() {
+                            this.addMember()
+                        })
+                    }
 
-                //     if (res.data[0].members.length === 0) {
+                    else {
 
-                //         this.setState({judge: true}, function() {
-                //             this.addMember()
-                //         })
-                //     }
-
-                //     else {
-
-                //         this.setState({judge: false}, function() {
-                //             this.addMember()
-                //         })
-                //     }
-                // })
+                        this.setState({judge: false}, function() {
+                            this.addMember()
+                        })
+                    }
+                })
             })
         }
     }
@@ -85,8 +74,6 @@ class Profile extends Component {
             judge: this.state.judge
         })
         .then(res => {
-            const socket = openSocket(res.data.url);
-            socket.on('connection', () => console.log("hello"));
             this.showSessionData()
         })
         .catch(err => console.log(err.response));
@@ -95,36 +82,18 @@ class Profile extends Component {
     showSessionData = () => {
 
         console.log("member data added")
-        this.props.profileAdded('showProfile', false);
-        this.props.profileAdded('showPending', true);
 
-        // API.checkSessionUrl(this.state.url)
-        // .then(res =>{ 
-        //     console.log(res.data);
-        //     this.props.profileAdded('showProfile', false);
-        //     this.props.profileAdded('showPending', true);
-        //     let memberArray = [];
+        const self = this
 
-        //     for (var i = 0; i < res.data[0].members.length; i ++ ){
-        //         if (res.data[0].members[i].ip === this.state.ip) {
-        //             this.props.profileAdded('userName', res.data[0].members[i].name);
-        //             this.props.profileAdded('userScore', res.data[0].members[i].score);
-        //             this.props.profileAdded('userColor', res.data[0].members[i].color);
-        //             this.props.profileAdded('userJudge', res.data[0].members[i].judge);
-        //         }
+        self.props.socket.emit('useradded')
 
-        //         else {
-        //             memberArray.push(res.data[0].members[i])
-        //         }
-
-        //         if (res.data[0].members[i].judge) {
-        //             this.props.profileAdded('currentJudge', res.data[0].members[i].name)
-        //         }
-        //     }
-
-        //     this.props.profileAdded('playerList', memberArray)
-            
-        // })
+        self.props.socket.on('useraddedsuccessfully', function(data) {
+            console.log("USER ADDED")
+            self.props.userAdded(data)
+            self.props.profileAdded('showProfile', false);
+            self.props.profileAdded('showPending', true);
+        })
+        
     }
 
     render() {
