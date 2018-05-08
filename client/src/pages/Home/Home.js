@@ -17,10 +17,7 @@ class Home extends Component {
     state = {
         urlString: "",
         socketAddress: "",
-        showProfile: false,
         theme: "",
-        showPending: false,
-        showHome: false, 
         userName: "",
         userScore: "",
         userColor: "",
@@ -31,9 +28,15 @@ class Home extends Component {
         playerList: [],
         selectedTheme: "",
         themeIndex: "",
-        showWinner: false,
         winner: "",
-        socket: ""
+        socket: "",
+        pendingMessage: "",
+        // Variables to prompt showing React components
+        showProfile: false,
+        showPending: false, 
+        showJudgeCategory: false,
+        showGiphySearch: false,
+        showWinner: false
     }
 
     
@@ -55,15 +58,22 @@ class Home extends Component {
                 console.log('socket added functioning')
             })
 
-            // console.log('socket added')
-            // setInterval( function() {
-            //     self.state.socket.on("useraddedsuccessfully", function(data) {
-            //         console.log(data)
-            //         self.updateMembers(data)
-            //         console.log('socket added functioning')
-            //     })
-            //     }, 3000
-            // )
+            self.state.socket.on("startgame", function(){
+
+                if (self.state.userJudge) {
+                    self.setState({showPending: false})
+                    self.setState({showJudgeCategory: true})
+                }
+
+                else {
+                    let judge = self.state.currentJudge
+                    let message = judge + " choosing category..."
+                    self.setState({pendingMessage: message}, function() {
+                        console.log(self.state.pendingMessage)
+                    })
+                }
+            })
+
         }
     
     }
@@ -231,13 +241,14 @@ class Home extends Component {
                 { this.state.showPending ?
                     <div>
 
-                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
+                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} socket={this.state.socket}
+                            message= {this.state.pendingMessage}
                             userName= {this.state.userName}
                             userColor={this.state.userColor}
                             userScore={this.state.userScore}
                             userJudge={this.state.userJudge}
                             members={this.state.playerList}
-                            />
+                        />
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
@@ -257,10 +268,8 @@ class Home extends Component {
                     </div>
                 : null}
 
-                { this.state.showHome ?
-                    <div> 
-                        <GiphySearch />
-
+                { this.state.showJudgeCategory ?
+                    <div>
                         {this.state.theme.map(prompt => (
                             <PromptSelect
                             key={prompt.index}
@@ -271,7 +280,15 @@ class Home extends Component {
                             selectedTheme={() => {this.randomTheme(prompt.index)}} />
                         ))}
                 
-                        <LoadingScreen />
+                        <BottomNav />
+                    </div>
+                
+                : null }
+
+                { this.state.showGiphySearch ?
+                    <div> 
+                        <GiphySearch />
+
                         <BottomNav />
                     </div>
                 : null}

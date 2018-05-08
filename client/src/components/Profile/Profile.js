@@ -90,8 +90,19 @@ class Profile extends Component {
         self.props.socket.on('useraddedsuccessfully', function(data) {
             console.log("USER ADDED")
             self.props.userAdded(data)
-            self.props.profileAdded('showProfile', false);
-            self.props.profileAdded('showPending', true);
+
+            if (self.state.judge) {
+                self.props.profileAdded('pendingMessage', 'Click start game when ready to play');
+                self.props.profileAdded('showProfile', false);
+                self.props.profileAdded('showPending', true);
+            }
+
+            else {
+                self.props.profileAdded('pendingMessage', 'Waiting for game to start');
+                self.props.profileAdded('showProfile', false);
+                self.props.profileAdded('showPending', true);
+            }
+            
         })
         
     }
@@ -123,8 +134,8 @@ class Profile extends Component {
                     <span id="purple-prof" data="#9964FF" className="btn color-btn"></span>
                     <span id="charcoal-prof" data="#444444" className="btn color-btn"></span>
                 </div>
-                <div onClick={this.enterProfile} className="complete-profile-btn">
-                    <span className="btn join-btn">Join Game</span>
+                <div className="complete-profile-btn">
+                    <span className="btn join-btn" onClick={this.enterProfile}>Join Game</span>
                 </div>
 
         </div>

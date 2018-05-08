@@ -8,6 +8,7 @@ class LoadingScreen extends Component {
     userScore: "",
     userColor: "",
     userJudge: "",
+    pendingMessage: "",
     judge: "",
     members: ""
   }
@@ -17,6 +18,7 @@ class LoadingScreen extends Component {
     this.setState({userScore: this.props.userScore})
     this.setState({userJudge: this.props.userJudge})
     this.setState({userColor: this.props.userColor})
+    this.setState({pendingMessage: this.props.message})
     this.setState({members: this.props.members}, function() {
       this.checkJudge()
     })
@@ -31,6 +33,9 @@ class LoadingScreen extends Component {
       })
     }
 
+    if (this.props.message !== this.state.pendingMessage) {
+      this.setState({pendingMessage: this.props.message})
+    }
   }
 
   checkJudge = () => {
@@ -49,6 +54,13 @@ class LoadingScreen extends Component {
     }
   }
 
+  startGame = () => {
+    console.log('start game button clicked')
+    const self = this
+    self.props.socket.emit('startgame')
+
+  }
+
 
   render() {
     return (
@@ -56,10 +68,12 @@ class LoadingScreen extends Component {
       <div className="loading-screen-holder">
         {/* style={{color:props.userColor}} */}
         { this.state.userJudge ? 
-          <p className="judge-start">Start</p>
+          <p className="judge-start" onClick={this.startGame}>Start</p>
         : null}
-        <p className="judge-start">Start</p>
+
       <div>
+
+        <p>{this.state.pendingMessage}</p>
 
         <img src={gif} alt="" className="loading-gif"/>
 

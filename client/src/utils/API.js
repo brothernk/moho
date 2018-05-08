@@ -7,6 +7,9 @@ export default {
     saveSession: function(sessionData) {
         return axios.post("/api/session", sessionData)
     },
+    deleteSessions: function() {
+        return axios.delete("/api/session")
+    },
     checkSessionTitle: function(sessionTitle) {
         return axios.get("/api/session/title/" + sessionTitle);
     },

@@ -71,6 +71,15 @@ class Login extends Component {
         .catch(err => console.log(err.response));
     }
 
+    deleteSavedSessions = () => {
+        API.deleteSessions()
+        .then(res => {
+            console.log(res.data)
+            this.loadSavedSessions()
+        })
+        .catch(err => console.log(err.response));
+    }
+
     loginClick = () => {
         this.setState({showResults: true});
     }
@@ -131,6 +140,8 @@ class Login extends Component {
                         <p id="session-not-exist">Session does not exist, double check game keyword or create new game</p>
                     </div>
                 : null }
+
+                {/* <button onClick={this.deleteSavedSessions}>Delete Sessions</button> */}
                 
             </div>
         );

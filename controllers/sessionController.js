@@ -13,6 +13,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  deleteAll: function(req, res) {
+    db.Session
+      .remove()
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   create: (io) => (req, res) => {
     db.Session
       .create(req.body)
@@ -29,6 +36,11 @@ module.exports = {
                 socket.broadcast.emit('useraddedsuccessfully', {model: dbModel})
                 socket.emit('useraddedsuccessfully', {model: dbModel})
               })
+          })
+          socket.on('startgame', function() {
+            console.log('start game button triggered')
+            socket.emit('startgame')
+            socket.broadcast.emit('startgame')
           })
           socket.on('disconnect', function(){
             console.log('user disconnected');
