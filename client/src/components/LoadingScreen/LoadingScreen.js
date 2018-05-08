@@ -55,10 +55,10 @@ class LoadingScreen extends Component {
 
       <div className="loading-screen-holder">
         {/* style={{color:props.userColor}} */}
+        <p className="judge">Judge: {this.props.judge}</p>
         { this.state.userJudge ? 
           <p className="judge-start">Start</p>
         : null}
-        <p className="judge-start">Start</p>
       <div>
 
         <img src={gif} alt="" className="loading-gif"/>
