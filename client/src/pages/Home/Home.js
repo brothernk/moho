@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import { endSessBtn, nextRndBtn } from "../../components/Buttons";
 import BottomNav from "../../components/BottomNav/bottomNav";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
@@ -8,6 +9,7 @@ import PlayerListHolder from "../../components/PlayerListHolder/PlayerListHolder
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
+import WinnerPage from "../../components/WinnerPage/WinnerPage";
 import io from "socket.io-client";
 
 class Home extends Component {
@@ -27,8 +29,9 @@ class Home extends Component {
         userJudge: false, 
         currentJudge: "",
         playerList: [],
+        showWinner: false,
+        winner: "",
         socket: "",
-        timeout: true,
     }
 
     
@@ -209,7 +212,6 @@ class Home extends Component {
 
     }
 
-
     render() {
         return (
             <div> 
@@ -220,6 +222,7 @@ class Home extends Component {
 
                 { this.state.showPending ?
                     <div>
+                        
     
                         <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
                             userName= {this.state.userName}
@@ -251,21 +254,38 @@ class Home extends Component {
                 { this.state.showHome ?
                     <div> 
                         <GiphySearch />
-                        {this.state.theme.map(prompt => (
-                            <PromptSelect
-                            id={prompt.id}
-                            key={prompt.id}
-                            icon={prompt.icon}
-                            theme={prompt.theme}
-                            color={prompt.color}
-                            />
-                        ))}
+                        {this.state.theme.map(
+                            prompt => (
+                                <PromptSelect
+                                id={prompt.id}
+                                key={prompt.id}
+                                icon={prompt.icon}
+                                theme={prompt.theme}
+                                color={prompt.color}
+                                />
+                            ))
+                        }
                         <LoadingScreen />
                         <BottomNav />
                     </div>
                 : null}
                 {/* Use to test Giphy Search w/o running the game logic */}
-                {/* <GiphySearch /> */}
+                <GiphySearch /> 
+                { this.state.showWinner ?   
+                    <div> 
+                        <WinnerPage />
+                        {this.state.theme.map(winner => (
+                            <WinnerPage
+                            id={winner.id}
+                            key={winner.id}
+                            icon={winner.icon}
+                            theme={winner.theme}
+                            color={winner.color}
+                            />
+                        ))}
+                        <BottomNav />
+                    </div>
+                : null}
             </div>
         );
     }
