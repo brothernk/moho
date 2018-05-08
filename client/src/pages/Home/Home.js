@@ -189,24 +189,12 @@ class Home extends Component {
                     <div>
                         
     
-                        {/* <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
+                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
                             userName= {this.state.userName}
                             userColor={this.state.userScore}
                             userJudge={this.state.userJudge}
                             members={this.state.playerList}
-                            /> */}
-
-                            {this.state.theme.map(
-                            prompt => (
-                                <PromptSelect
-                                id={prompt.id}
-                                key={prompt.id}
-                                icon={prompt.icon}
-                                theme={prompt.theme}
-                                color={prompt.color}
-                                />
-                            ))
-                        }
+                            />
 
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
