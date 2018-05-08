@@ -27,7 +27,9 @@ class Home extends Component {
         userJudge: false, 
         currentJudge: "",
         playerList: [],
-        socket: ""
+        socket: "",
+        selectedTheme: "",
+        themeIndex: ""
     }
 
     // check IP address on mount
@@ -124,6 +126,12 @@ class Home extends Component {
         .catch(err => console.log(err))
     }
 
+    randomTheme = (themeIndex) => {
+        this.setState({
+            selectedTheme: this.state.theme[themeIndex].categories[Math.floor(Math.random()*this.state.theme[themeIndex].categories.length)]
+        })
+    }
+
     expandToggle = () => {
         if (this.state.BottomNavExpanded) {
             console.log("expanded!")
@@ -185,13 +193,22 @@ class Home extends Component {
                 { this.state.showPending ?
                     <div>
                 
-
-                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
+                        {/* <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
                             userName= {this.state.userName}
                             userColor={this.state.userScore}
                             userJudge={this.state.userJudge}
                             members={this.state.playerList}
-                            />
+                            /> */}
+
+                            {this.state.theme.map(prompt => (
+                            <PromptSelect
+                            key={prompt.index}
+                            index={prompt.index}
+                            icon={prompt.icon}
+                            theme={prompt.theme}
+                            color={prompt.color}
+                            selectedTheme={() => {this.randomTheme(prompt.index)}} />
+                        ))}
 
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
@@ -216,7 +233,7 @@ class Home extends Component {
 
                 { this.state.showHome ?
                     <div> 
-                        <GiphySearch />
+                        {/* <GiphySearch /> */}
                         {this.state.theme.map(prompt => (
                             <PromptSelect
                             id={prompt.id}
@@ -226,7 +243,7 @@ class Home extends Component {
                             color={prompt.color}
                             />
                         ))}
-                        <LoadingScreen />
+                        {/* <LoadingScreen /> */}
                         <BottomNav />
                     </div>
                 : null}
