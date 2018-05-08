@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gifcategories",
   if (err) throw err;
 })
 
+//Socket.io Connection
 io.on('connection', function (socket) {
   console.log('a user connected');
   socket.on('disconnect', function(){
