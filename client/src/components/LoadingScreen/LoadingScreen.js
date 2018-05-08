@@ -39,8 +39,12 @@ class LoadingScreen extends Component {
 
   render() {
     return (
+
+      <div className="loading-screen-holder">
+        {/* style={{color:props.userColor}} */}
+        <p className="judge">Judge: {this.props.judge}</p>
+        <p className="judge-start">Start</p>
       <div>
-        <p id="judge">Judge: {this.state.judge}</p>
 
         <img src={gif} alt="" className="loading-gif"/>
 
@@ -49,7 +53,7 @@ class LoadingScreen extends Component {
                 <h1 id="current-players"> Current Players </h1>
                 <div className="current-players-div">
                   {this.state.members.map(member => (
-                    <div key={member.ip}>
+                    <div className="player-bubble" key={member.ip}>
                       <span className="fa-stack fa-3x" id="user-icon">
                         <i className="fas fa-circle" style={{color:member.color}}></i>
                         <strong className="fa-stack-1x" id="username">{member.name.charAt(0)}</strong>
@@ -63,6 +67,7 @@ class LoadingScreen extends Component {
           )}
         
       </div>
+    </div>
   
     )
   }
