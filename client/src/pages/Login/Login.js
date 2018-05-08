@@ -31,7 +31,6 @@ class Login extends Component {
         this.setState({randomWord: word}, function() {
             this.generateRandomURL();
         })
-
     }
 
     generateRandomURL = () => {
@@ -98,7 +97,6 @@ class Login extends Component {
                 console.log("Not found")
                 this.setState({showError: true})
             }
-
             else {
                 let url = res.data[0].url
                 let newurl = "/game" + url
@@ -120,8 +118,7 @@ class Login extends Component {
         return (
             <div>
                 <Logo></Logo>
-                
-                <SignupBtn onClick={this.generateRandomWord} randomword={this.state.randomWord}
+                <SignupBtn onClick={this.generateRandomWord} randomword={this.state.randomWord} 
                 showbutton={this.state.showButton.toString()}/>
 
                 { this.state.showResults === false ? 

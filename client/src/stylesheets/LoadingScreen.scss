@@ -1,28 +1,4 @@
-//Colors ===============================================================
-$background: #31263E;
-$green: #44BBA4;
-$orange: #FF8A5B;
-$grey: #C0C0C0;
-$yellow: #FFC655;
-$blue: #5FACFF;
-$red: #FF6161;
-$pink: #D45FFF;
-$purple: #9964FF;
-$charcoal: #444444;
-
-//Mixins ===============================================================
-@mixin position{
-  margin:auto;
-  text-align: center;
-}
-
-@mixin font{
-  font-family: "Montserrat", sans-serif;
-  color:white;
-}
-
 .loading-screen-holder {
-  // position: relative;
   min-height: 25px;
   width: 100%;
   padding: 15px;
@@ -33,7 +9,6 @@ $charcoal: #444444;
   width:150px;
   padding: 10px;
   border-radius: 40px;
-  // background-color:$grey;
   position: absolute;
   top: 10px;
   left: 15px;
@@ -73,10 +48,69 @@ $charcoal: #444444;
   width: 100%;
   padding: 15px;
   text-align: center;
-
+  margin-top:-25px;
 }
 
 .player-bubble {
   display: inline-block;
   z-index: 100;
+  margin:0px -10px 0px -10px;
+}
+
+//Dependencies from main.scss ============================================
+//Fonts ==================================================================
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+
+//Colors ===============================================================
+$background: #31263E;
+$green: #44BBA4;
+$orange: #FF8A5B;
+$grey: #C0C0C0;
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
+
+//Mixins ===============================================================
+@mixin position{
+  margin:auto;
+  text-align: center;
+}
+
+@mixin font{
+  font-family: "Montserrat", sans-serif;
+  color:white;
+}
+
+//Placeholders ===================================================
+%buttons{
+  @include font;
+  border-radius: 30px;
+  font-size:25px;
+  position: relative;
+  clear:both;
+  display:inline-block;
+  margin: 15px;
+  padding: 8px;
+  width:220px;
+}
+
+%round-buttons{
+  border-radius: 50px;
+  height: 100px;
+  width:100px;
+  margin:10px;
+}
+
+%text-entry{
+  @include font;
+  border-radius: 30px;
+  border:none;
+  background-color: lightgrey;
+  color:grey;
+  padding: 8px;
+  font-size: 25px;
 }

@@ -44,8 +44,10 @@
 .current-players-div {
   width: 100%;
   padding: 15px;
-  text-align: center; }
+  text-align: center;
+  margin-top: -25px; }
 
 .player-bubble {
   display: inline-block;
-  z-index: 100; }
+  z-index: 100;
+  margin: 0px -10px 0px -10px; }

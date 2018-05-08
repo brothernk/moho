@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 @import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
 .signup-btn, .login-btn, .enter-btn, .join-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
@@ -78,23 +92,6 @@ input[type="text"]:focus {
 p {
   margin: 0px; }
 
-.signup-btn, .login-btn, .enter-btn, .join-btn {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  font-size: 25px;
-  float: center;
-  position: relative;
-  width: 200px;
-  margin: 15px;
-  padding: 8px; }
-
-.color-btn {
-  border-radius: 50px;
-  height: 100px;
-  width: 100px;
-  margin: 10px; }
-
 .giphy-component {
   padding: 15px; }
   .giphy-component h4, .giphy-component h6 {
@@ -120,6 +117,8 @@ p {
         top: 15px;
         right: 15px;
         font-size: 20px; }
+    .giphy-component .search-holder .search-button:hover {
+      cursor: pointer; }
     .giphy-component .search-holder img {
       width: 100%;
       margin-top: 15px;
@@ -142,6 +141,8 @@ p {
         width: 50px;
         border-radius: 50%;
         display: inline-block; }
+      .giphy-component .search-holder .button-holder .button:hover {
+        cursor: pointer; }
       .giphy-component .search-holder .button-holder .research {
         background: lightgray;
         position: relative; }
@@ -160,6 +161,36 @@ p {
           top: 15px;
           right: 15px;
           font-size: 20px; }
+      .giphy-component .search-holder .button-holder .confirm:hover {
+        cursor: pointer; }
+
+.signup-btn, .login-btn, .enter-btn, .join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  margin: 15px;
+  padding: 8px;
+  width: 220px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px; }
+
+input[type="text"] {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  background-color: lightgrey;
+  color: grey;
+  padding: 8px;
+  font-size: 25px; }
 
 .gif-component {
   background-size: cover;
@@ -167,9 +198,36 @@ p {
   width: 100%;
   text-align: center; }
   .gif-component .gif-preview {
-    height: 300px;
     object-fit: fill;
-    max-width: 442px; }
+    max-width: 400px; }
+
+.signup-btn, .login-btn, .enter-btn, .join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  margin: 15px;
+  padding: 8px;
+  width: 220px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px; }
+
+input[type="text"] {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  background-color: lightgrey;
+  color: grey;
+  padding: 8px;
+  font-size: 25px; }
 
 .promptSelect-component {
   padding: 15px; }
@@ -207,6 +265,16 @@ p {
   height: 100px;
   width: 100px;
   margin: 10px; }
+
+input[type="text"] {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  background-color: lightgrey;
+  color: grey;
+  padding: 8px;
+  font-size: 25px; }
 
 .enter-profile {
   font-size: 40px;
@@ -247,6 +315,34 @@ p {
   width: 180px;
   background-color: hotpink; }
 
+.signup-btn, .login-btn, .enter-btn, .join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  margin: 15px;
+  padding: 8px;
+  width: 220px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px; }
+
+input[type="text"] {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  background-color: lightgrey;
+  color: grey;
+  padding: 8px;
+  font-size: 25px; }
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -264,7 +360,6 @@ p {
       left: 15px;
       top: 4px;
       padding: 4px 9px 4px 9px;
-      background: #FFC655;
       border-radius: 50%; }
     .bottom-nav .content-holder .userScore {
       position: absolute;
@@ -284,6 +379,34 @@ p {
 
 .not-expanded {
   min-height: 0; }
+
+.signup-btn, .login-btn, .enter-btn, .join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  margin: 15px;
+  padding: 8px;
+  width: 220px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px; }
+
+input[type="text"] {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  background-color: lightgrey;
+  color: grey;
+  padding: 8px;
+  font-size: 25px; }
 
 .loading-screen-holder {
   min-height: 25px;
@@ -331,11 +454,41 @@ p {
 .current-players-div {
   width: 100%;
   padding: 15px;
-  text-align: center; }
+  text-align: center;
+  margin-top: -25px; }
 
 .player-bubble {
   display: inline-block;
-  z-index: 100; }
+  z-index: 100;
+  margin: 0px -10px 0px -10px; }
+
+.signup-btn, .login-btn, .enter-btn, .join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  margin: 15px;
+  padding: 8px;
+  width: 220px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px; }
+
+input[type="text"] {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  background-color: lightgrey;
+  color: grey;
+  padding: 8px;
+  font-size: 25px; }
 
 .trex-pic {
   max-width: 200px;
@@ -347,3 +500,31 @@ p {
   margin-top: 5px; }
   .playerlist-holder td {
     padding: 5px 15px; }
+
+.signup-btn, .login-btn, .enter-btn, .join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  margin: 15px;
+  padding: 8px;
+  width: 220px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px; }
+
+input[type="text"] {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  background-color: lightgrey;
+  color: grey;
+  padding: 8px;
+  font-size: 25px; }
