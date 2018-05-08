@@ -276,7 +276,7 @@ class Home extends Component {
                     </div>
                 : null}
                 {/* Use to test Giphy Search w/o running the game logic */}
-                <GiphySearch /> 
+                {/* <GiphySearch />  */}
                 { this.state.showWinner ?   
                     <div> 
                         <WinnerPage />
