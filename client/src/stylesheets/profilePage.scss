@@ -49,7 +49,7 @@ $charcoal: #444444;
     box-shadow: 0 0 10px grey;
   }
 
-  .color-btn:active{
+  .color-btn:focus, .color-btn:active{
     border:3px solid white;
   }
   
@@ -80,5 +80,6 @@ $charcoal: #444444;
 
   .join-btn{
     @extend %buttons;
+    width:180px;
     background-color: hotpink;
   }

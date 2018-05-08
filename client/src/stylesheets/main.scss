@@ -88,7 +88,7 @@ input[type="text"]{
   @include position;
   @extend %text-entry;
   margin-top:20px;
-  width:200px;
+  width:220px;
 }
 
 input[type="text"]:focus{
