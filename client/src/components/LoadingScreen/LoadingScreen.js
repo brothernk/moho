@@ -76,9 +76,6 @@ class LoadingScreen extends Component {
                     
         <p>{this.state.pendingMessage}</p>
 
-        <img src={gif} alt="" className="loading-gif"/>
-                
-
         <div>
           <img src={gif} alt="" className="loading-gif"/>
           {this.state.members.length ? (
