@@ -35,6 +35,10 @@ body {
   color: white;
   background: #31263E; }
 
+#not-a-session {
+  margin-top: 25%;
+  font-size: 150%; }
+
 .signup-btn {
   background: #FF8A5B; }
 
@@ -48,7 +52,7 @@ input[type="text"] {
   margin: auto;
   text-align: center;
   margin-top: 20px;
-  width: 200px; }
+  width: 220px; }
 
 input[type="text"]:focus {
   outline: none; }
@@ -185,6 +189,8 @@ p {
     border-radius: 15px; }
     .promptSelect-component .prompt-card i {
       padding-right: 15px; }
+  .promptSelect-component .promptSelect-component:hover {
+    border: 3px solid white; }
 
 .signup-btn, .login-btn, .enter-btn, .join-btn {
   font-family: "Montserrat", sans-serif;
@@ -215,6 +221,9 @@ p {
 .color-btn:hover {
   box-shadow: 0 0 10px grey; }
 
+.color-btn:focus, .color-btn:active {
+  border: 3px solid white; }
+
 #yellow-prof {
   background-color: #FFC655; }
 
@@ -240,6 +249,7 @@ p {
   background-color: #444444; }
 
 .join-btn {
+  width: 180px;
   background-color: hotpink; }
 
 .bottom-nav {

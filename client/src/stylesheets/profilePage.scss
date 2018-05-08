@@ -48,6 +48,10 @@ $charcoal: #444444;
   .color-btn:hover{
     box-shadow: 0 0 10px grey;
   }
+
+  .color-btn:focus, .color-btn:active{
+    border:3px solid white;
+  }
   
   #yellow-prof{
     background-color:$yellow;
@@ -76,5 +80,6 @@ $charcoal: #444444;
 
   .join-btn{
     @extend %buttons;
+    width:180px;
     background-color: hotpink;
   }

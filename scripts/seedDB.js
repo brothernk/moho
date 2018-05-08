@@ -4,12 +4,12 @@ mongoose.Promise = global.Promise;
 
 //This file empties the gif collections and inserts gifs below
 
-mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/gifcategories", 
-	{
-		useMongoClient: true
-	}
-);
+// mongoose.connect(
+// 	process.env.MONGODB_URI || "mongodb://localhost/gifcategories", 
+// 	{
+// 		useMongoClient: true
+// 	}
+// );
 
 const gifCategories = [
 	{

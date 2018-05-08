@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import { endSessBtn, nextRndBtn } from "../../components/Buttons";
 import BottomNav from "../../components/BottomNav/bottomNav";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
@@ -8,6 +9,7 @@ import PlayerListHolder from "../../components/PlayerListHolder/PlayerListHolder
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
+import WinnerPage from "../../components/WinnerPage/WinnerPage";
 import io from "socket.io-client";
 
 class Home extends Component {
@@ -27,16 +29,45 @@ class Home extends Component {
         userJudge: false, 
         currentJudge: "",
         playerList: [],
-        socket: "",
         selectedTheme: "",
-        themeIndex: ""
+        themeIndex: "",
+        showWinner: false,
+        winner: "",
+        socket: ""
     }
+
+    
 
     // check IP address on mount
     componentDidMount = () => {
-        this.setUrl()
         this.returnCategories()
+        this.setUrl()
     }
+
+    componentDidUpdate = () => {
+
+        if (this.state.socket !== "") {
+            const self = this;
+
+            self.state.socket.on("useraddedsuccessfully", function(data) {
+                console.log(data)
+                self.updateMembers(data)
+                console.log('socket added functioning')
+            })
+
+            // console.log('socket added')
+            // setInterval( function() {
+            //     self.state.socket.on("useraddedsuccessfully", function(data) {
+            //         console.log(data)
+            //         self.updateMembers(data)
+            //         console.log('socket added functioning')
+            //     })
+            //     }, 3000
+            // )
+        }
+    
+    }
+
 
     // Grab current URL and set state variable, then continue to check URL
     setUrl = () => {
@@ -96,7 +127,7 @@ class Home extends Component {
                 
                             else {
                                 console.log("members exist in session")
-                
+            
                                 self.setState({showProfile: true})
                 
                             }
@@ -151,9 +182,11 @@ class Home extends Component {
     
 
     updateMembers = (data) => {
+        console.log("update members triggered")
         console.log(data.model[0].members)
 
         const memberArray = []
+        let count = 1
 
         for (var i = 0; i < data.model[0].members.length; i ++) {
 
@@ -171,16 +204,21 @@ class Home extends Component {
             if (data.model[0].members[i].judge) {
                 this.setState({currentJudge: data.model[0].members[i].name})
             }
+
+            if (count === data.model[0].members.length) {
+                this.setState({playerList: memberArray}, function() {
+                    console.log("Player list: ")
+                    console.log(this.state.playerList)
+                })
+            }
+
+            count ++
             
         }
 
-        this.setState({playerList: memberArray}, function() {
-            console.log("Player list: ")
-            console.log(this.state.playerList)
-        })
+        
 
     }
-
 
     render() {
         return (
@@ -192,10 +230,11 @@ class Home extends Component {
 
                 { this.state.showPending ?
                     <div>
-                
+
                         <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
                             userName= {this.state.userName}
-                            userColor={this.state.userScore}
+                            userColor={this.state.userColor}
+                            userScore={this.state.userScore}
                             userJudge={this.state.userJudge}
                             members={this.state.playerList}
                             />
@@ -214,15 +253,14 @@ class Home extends Component {
                                     ))
                                 }
                             </PlayerListHolder>
-
                         </BottomNav>    
-                    
                     </div>
                 : null}
 
                 { this.state.showHome ?
                     <div> 
                         <GiphySearch />
+
                         {this.state.theme.map(prompt => (
                             <PromptSelect
                             key={prompt.index}
@@ -232,12 +270,28 @@ class Home extends Component {
                             color={prompt.color}
                             selectedTheme={() => {this.randomTheme(prompt.index)}} />
                         ))}
+                
                         <LoadingScreen />
                         <BottomNav />
                     </div>
                 : null}
                 {/* Use to test Giphy Search w/o running the game logic */}
-                {/* <GiphySearch /> */}
+                <GiphySearch /> 
+                { this.state.showWinner ?   
+                    <div> 
+                        <WinnerPage />
+                        {this.state.theme.map(winner => (
+                            <WinnerPage
+                            id={winner.id}
+                            key={winner.id}
+                            icon={winner.icon}
+                            theme={winner.theme}
+                            color={winner.color}
+                            />
+                        ))}
+                        <BottomNav />
+                    </div>
+                : null}
             </div>
         );
     }

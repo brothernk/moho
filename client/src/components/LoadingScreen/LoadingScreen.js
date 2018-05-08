@@ -6,6 +6,7 @@ class LoadingScreen extends Component {
   state = {
     userName: "",
     userScore: "",
+    userColor: "",
     userJudge: "",
     judge: "",
     members: ""
@@ -15,13 +16,25 @@ class LoadingScreen extends Component {
     this.setState({userName: this.props.userName})
     this.setState({userScore: this.props.userScore})
     this.setState({userJudge: this.props.userJudge})
+    this.setState({userColor: this.props.userColor})
     this.setState({members: this.props.members}, function() {
       this.checkJudge()
     })
 
   }
 
+  componentDidUpdate = () => {
+
+    if (this.props.members !== this.state.members) {
+      this.setState({members: this.props.members}, function() {
+        this.checkJudge()
+      })
+    }
+
+  }
+
   checkJudge = () => {
+
     if (this.state.userJudge) {
       this.setState({judge: this.state.userName})
     }
@@ -52,6 +65,12 @@ class LoadingScreen extends Component {
               <div>
                 <h1 id="current-players"> Current Players </h1>
                 <div className="current-players-div">
+                  <div className="player-bubble" key={this.state.userName}>
+                    <span className="fa-stack fa-3x" id="user-icon">
+                      <i className="fas fa-circle" style={{color: this.state.userColor}}></i>
+                      <strong className="fa-stack-1x" id="username">{this.state.userName.charAt(0)}</strong>
+                    </span>
+                  </div>
                   {this.state.members.map(member => (
                     <div className="player-bubble" key={member.ip}>
                       <span className="fa-stack fa-3x" id="user-icon">
