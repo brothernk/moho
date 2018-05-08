@@ -121,7 +121,7 @@ class Login extends Component {
             <div>
                 <Logo></Logo>
                 
-                <SignupBtn onClick={this.generateRandomWord} randomword={this.state.randomWord} 
+                <SignupBtn onClick={this.generateRandomWord} randomword={this.state.randomWord}
                 showbutton={this.state.showButton.toString()}/>
 
                 { this.state.showResults === false ? 

@@ -5,7 +5,8 @@
   transition: .25s;
   background: #C0C0C0;
   height: 40px;
-  min-height: 0; }
+  min-height: 0;
+  overflow: scroll; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
