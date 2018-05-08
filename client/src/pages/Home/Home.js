@@ -31,12 +31,14 @@ class Home extends Component {
         winner: "",
         socket: "",
         pendingMessage: "",
+        profBtnClicked: false,
+        profBtnId: "selected-btn",
         // Variables to prompt showing React components
         showProfile: false,
         showPending: false, 
         showJudgeCategory: false,
         showGiphySearch: false,
-        showWinner: false
+        showWinner: false,
     }
 
     
@@ -72,11 +74,8 @@ class Home extends Component {
                     })
                 }
             })
-
         }
-    
     }
-
 
     // Grab current URL and set state variable, then continue to check URL
     setUrl = () => {
@@ -122,8 +121,6 @@ class Home extends Component {
                         console.log("usermade socket working")
                         self.setState({socketAddress: data.userid}, function() {
 
-
-                
                             // If no members yet exist in session, user is shown profile page
                             if (res.data[0].members.length === 0 ) {
                                 console.log("no members yet in session")
@@ -140,12 +137,8 @@ class Home extends Component {
                                 self.setState({showProfile: true})
                 
                             }
-                    
                         })
-                        
-                        
                     })
-    
                 })
             }
         })
@@ -189,7 +182,6 @@ class Home extends Component {
             })
         }
     };
-
 
     updateMembers = (data) => {
         console.log("update members triggered")

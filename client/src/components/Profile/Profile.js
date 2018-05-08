@@ -112,14 +112,14 @@ class Profile extends Component {
                     <div className="enter-color">Pick a Color</div>
                 </div>
                 <div className="setup-color-buttondiv">
-                    <span id="yellow-prof" data="#FFC655" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="blue-prof" data="#5FACFF" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="red-prof" data="#FF6161" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="pink-prof" data="#D45FFF" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="green-prof" data="#44BBA4" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="orange-prof" data="#FF8A5B" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="purple-prof" data="#9964FF" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="charcoal-prof" data="#444444" className="btn color-btn" onClick={this.enterProfile}></span>
+                    <span data="#FFC655" className="yellow-prof btn color-btn" onClick={this.enterProfile}></span>
+                    <span data="#5FACFF" className="blue-prof btn color-btn" onClick={this.enterProfile}></span>
+                    <span data="#FF6161" className="red-prof btn color-btn" onClick={this.enterProfile}></span>
+                    <span data="#D45FFF" className="pink-prof btn color-btn" onClick={this.enterProfile}></span>
+                    <span data="#44BBA4" className="green-prof btn color-btn" onClick={this.enterProfile}></span>
+                    <span data="#FF8A5B" className="orange-prof btn color-btn" onClick={this.enterProfile}></span>
+                    <span data="#9964FF" className="purple-prof btn color-btn" onClick={this.enterProfile}></span>
+                    <span data="#444444" className="charcoal-prof btn color-btn" onClick={this.enterProfile}></span>
                 </div>
 
                 <div onClick={this.addMember} className="complete-profile-btn">

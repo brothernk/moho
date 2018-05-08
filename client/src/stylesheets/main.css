@@ -189,8 +189,6 @@ p {
     border-radius: 15px; }
     .promptSelect-component .prompt-card i {
       padding-right: 15px; }
-  .promptSelect-component .promptSelect-component:hover {
-    border: 3px solid white; }
 
 .signup-btn, .login-btn, .enter-btn, .join-btn {
   font-family: "Montserrat", sans-serif;
@@ -221,31 +219,28 @@ p {
 .color-btn:hover {
   box-shadow: 0 0 10px grey; }
 
-.color-btn:focus, .color-btn:active {
-  border: 3px solid white; }
-
-#yellow-prof {
+.yellow-prof {
   background-color: #FFC655; }
 
-#blue-prof {
+.blue-prof {
   background-color: #5FACFF; }
 
-#red-prof {
+.red-prof {
   background-color: #FF6161; }
 
-#pink-prof {
+.pink-prof {
   background-color: #D45FFF; }
 
-#green-prof {
+.green-prof {
   background-color: #44BBA4; }
 
-#orange-prof {
+.orange-prof {
   background-color: #FF8A5B; }
 
-#purple-prof {
+.purple-prof {
   background-color: #9964FF; }
 
-#charcoal-prof {
+.charcoal-prof {
   background-color: #444444; }
 
 .join-btn {
@@ -259,7 +254,8 @@ p {
   transition: .25s;
   background: #C0C0C0;
   height: 40px;
-  min-height: 0; }
+  min-height: 0;
+  overflow: scroll; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
@@ -304,10 +300,11 @@ p {
   left: 15px; }
 
 .judge-start {
+  font-family: "Montserrat", sans-serif;
+  color: white;
   width: 75px;
   padding: 10px;
   border-radius: 40px;
-  background-color: #C0C0C0;
   position: absolute;
   top: 10px;
   right: 15px;
