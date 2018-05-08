@@ -31,12 +31,14 @@ class Home extends Component {
         winner: "",
         socket: "",
         pendingMessage: "",
+        profBtnClicked: false,
+        profBtnId: "selected-btn",
         // Variables to prompt showing React components
         showProfile: false,
         showPending: false, 
         showJudgeCategory: false,
         showGiphySearch: false,
-        showWinner: false
+        showWinner: false,
     }
 
     // check IP address on mount
