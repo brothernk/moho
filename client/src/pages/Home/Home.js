@@ -193,23 +193,12 @@ class Home extends Component {
                 { this.state.showPending ?
                     <div>
                 
-                        {/* <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
+                        <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
                             userName= {this.state.userName}
                             userColor={this.state.userScore}
                             userJudge={this.state.userJudge}
                             members={this.state.playerList}
-                            /> */}
-
-                            {this.state.theme.map(prompt => (
-                            <PromptSelect
-                            key={prompt.index}
-                            index={prompt.index}
-                            icon={prompt.icon}
-                            theme={prompt.theme}
-                            color={prompt.color}
-                            selectedTheme={() => {this.randomTheme(prompt.index)}} />
-                        ))}
-
+                            />
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
@@ -233,17 +222,17 @@ class Home extends Component {
 
                 { this.state.showHome ?
                     <div> 
-                        {/* <GiphySearch /> */}
+                        <GiphySearch />
                         {this.state.theme.map(prompt => (
                             <PromptSelect
-                            id={prompt.id}
-                            key={prompt.id}
+                            key={prompt.index}
+                            index={prompt.index}
                             icon={prompt.icon}
                             theme={prompt.theme}
                             color={prompt.color}
-                            />
+                            selectedTheme={() => {this.randomTheme(prompt.index)}} />
                         ))}
-                        {/* <LoadingScreen /> */}
+                        <LoadingScreen />
                         <BottomNav />
                     </div>
                 : null}
