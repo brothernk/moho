@@ -3,6 +3,9 @@ const io = require('socket.io')();
 
 // Defining methods for the sessionController
 module.exports = {
+
+  gameSocket: "",
+
   findAll: function(req, res) {
     db.Session
       .find(req.query)
@@ -14,10 +17,18 @@ module.exports = {
     db.Session
       .create(req.body)
       .then(dbModel => {
-        const gameSocket = io.of(dbModel.url);
+        gameSocket = io.of(dbModel.url);
         gameSocket.on('connect', (socket) => {
           console.log(`User connected to room ${dbModel.url}`);
-          socket.emit('usermade', { userid: socket.client.id})
+          socket.emit('usermade', { userid: socket.client.id});
+          socket.on('useradded', function() {
+            db.Session
+            .find({"url": dbModel.url})
+              .then(dbModel => {
+                console.log('socket added triggered')
+                socket.emit('useraddedsuccessfully', {model: dbModel})
+              })
+          })
           socket.on('disconnect', function(){
             console.log('user disconnected');
           });
@@ -56,7 +67,10 @@ module.exports = {
         {"url": req.body.url},
         { $push: { members: memberObject}}
       )
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel =>   {
+
+        res.json(dbModel)
+      })
       .catch(err => res.status(422).json(err));
   }
 };

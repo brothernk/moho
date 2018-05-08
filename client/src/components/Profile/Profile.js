@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import openSocket from "socket.io-client";
+
+
 
 class Profile extends Component {
 
@@ -11,14 +12,17 @@ class Profile extends Component {
         ip: "",
         judge: false,
         showError: false,
+        memberArray: []
     }
 
     componentDidMount = () => {
 
         console.log(this.props)
-        
         this.setState({url: this.props.url})
         this.setState({ip: this.props.ip})
+        this.setState({memberArray: this.props.memberArray}, function() {
+            console.log(this.state)
+        })
 
     }
 
@@ -70,42 +74,26 @@ class Profile extends Component {
             judge: this.state.judge
         })
         .then(res => {
-            const socket = openSocket(res.data.url);
-            socket.on('connection', () => console.log("hello"));
             this.showSessionData()
         })
         .catch(err => console.log(err.response));
     }
     
-
     showSessionData = () => {
-        API.checkSessionUrl(this.state.url)
-        .then(res =>{ 
-            console.log(res.data);
-            this.props.profileAdded('showProfile', false);
-            this.props.profileAdded('showPending', true);
-            let memberArray = [];
 
-            for (var i = 0; i < res.data[0].members.length; i ++ ){
-                if (res.data[0].members[i].ip === this.state.ip) {
-                    this.props.profileAdded('userName', res.data[0].members[i].name);
-                    this.props.profileAdded('userScore', res.data[0].members[i].score);
-                    this.props.profileAdded('userColor', res.data[0].members[i].color);
-                    this.props.profileAdded('userJudge', res.data[0].members[i].judge);
-                }
+        console.log("member data added")
 
-                else {
-                    memberArray.push(res.data[0].members[i])
-                }
+        const self = this
 
-                if (res.data[0].members[i].judge) {
-                    this.props.profileAdded('currentJudge', res.data[0].members[i].name)
-                }
-            }
+        self.props.socket.emit('useradded')
 
-            this.props.profileAdded('playerList', memberArray)
-            
+        self.props.socket.on('useraddedsuccessfully', function(data) {
+            console.log("USER ADDED")
+            self.props.userAdded(data)
+            self.props.profileAdded('showProfile', false);
+            self.props.profileAdded('showPending', true);
         })
+        
     }
 
     render() {
@@ -114,7 +102,7 @@ class Profile extends Component {
 
                 { this.state.showError ?
                         <div>
-                            <p>Please enter a username</p>
+                            <p id="username-error">Please enter a username</p>
                         </div>
                 : null }
 
@@ -126,14 +114,17 @@ class Profile extends Component {
                     <div className="enter-color">Pick a Color</div>
                 </div>
                 <div className="setup-color-buttondiv">
-                    <span id="yellow-prof" data="#FFC655" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="blue-prof" data="#5FACFF" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="red-prof" data="#FF6161" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="pink-prof" data="#D45FFF" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="green-prof" data="#44BBA4" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="orange-prof" data="#FF8A5B" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="purple-prof" data="#9964FF" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="charcoal-prof" data="#444444" className="btn color-btn" onClick={this.enterProfile}></span>
+                    <span id="yellow-prof" data="#FFC655" className="btn color-btn"></span>
+                    <span id="blue-prof" data="#5FACFF" className="btn color-btn"></span>
+                    <span id="red-prof" data="#FF6161" className="btn color-btn"></span>
+                    <span id="pink-prof" data="#D45FFF" className="btn color-btn"></span>
+                    <span id="green-prof" data="#44BBA4" className="btn color-btn"></span>
+                    <span id="orange-prof" data="#FF8A5B" className="btn color-btn"></span>
+                    <span id="purple-prof" data="#9964FF" className="btn color-btn"></span>
+                    <span id="charcoal-prof" data="#444444" className="btn color-btn"></span>
+                </div>
+                <div className="complete-profile-btn">
+                    <span className="btn join-btn" onClick={this.enterProfile}>Join Game</span>
                 </div>
 
         </div>
