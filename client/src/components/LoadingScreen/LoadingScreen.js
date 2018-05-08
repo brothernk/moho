@@ -47,17 +47,19 @@ class LoadingScreen extends Component {
         {this.state.members.length ? (
               <div>
                 <h1 id="current-players"> Current Players </h1>
-                {this.state.members.map(member => (
-                  <div key={member.ip}>
-                    <span className="fa-stack fa-3x" id="user-icon">
-                      <i className="fas fa-circle" style={{color:member.color}}></i>
-                      <strong className="fa-stack-1x" id="username">{member.name.charAt(0)}</strong>
-                    </span>
-                  </div>
-                ))}
+                <div className="current-players-div">
+                  {this.state.members.map(member => (
+                    <div key={member.ip}>
+                      <span className="fa-stack fa-3x" id="user-icon">
+                        <i className="fas fa-circle" style={{color:member.color}}></i>
+                        <strong className="fa-stack-1x" id="username">{member.name.charAt(0)}</strong>
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
           ) : (
-            <h3>No current players</h3>
+            <h3 id="no-players">No current players</h3>
           )}
         
       </div>

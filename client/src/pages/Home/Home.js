@@ -105,8 +105,6 @@ class Home extends Component {
                     })
     
                 })
-
-                
             }
         })
         .catch(err => console.log(err.response));
@@ -187,12 +185,14 @@ class Home extends Component {
                 { this.state.showPending ?
                     <div>
                 
+
                         <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} 
                             userName= {this.state.userName}
                             userColor={this.state.userScore}
                             userJudge={this.state.userJudge}
                             members={this.state.playerList}
                             />
+
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}

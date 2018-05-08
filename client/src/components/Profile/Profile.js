@@ -79,7 +79,6 @@ class Profile extends Component {
         .catch(err => console.log(err.response));
     }
     
-
     showSessionData = () => {
 
         console.log("member data added")
@@ -103,7 +102,7 @@ class Profile extends Component {
 
                 { this.state.showError ?
                         <div>
-                            <p>Please enter a username</p>
+                            <p id="username-error">Please enter a username</p>
                         </div>
                 : null }
 
@@ -115,14 +114,17 @@ class Profile extends Component {
                     <div className="enter-color">Pick a Color</div>
                 </div>
                 <div className="setup-color-buttondiv">
-                    <span id="yellow-prof" data="#FFC655" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="blue-prof" data="#5FACFF" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="red-prof" data="#FF6161" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="pink-prof" data="#D45FFF" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="green-prof" data="#44BBA4" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="orange-prof" data="#FF8A5B" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="purple-prof" data="#9964FF" className="btn color-btn" onClick={this.enterProfile}></span>
-                    <span id="charcoal-prof" data="#444444" className="btn color-btn" onClick={this.enterProfile}></span>
+                    <span id="yellow-prof" data="#FFC655" className="btn color-btn"></span>
+                    <span id="blue-prof" data="#5FACFF" className="btn color-btn"></span>
+                    <span id="red-prof" data="#FF6161" className="btn color-btn"></span>
+                    <span id="pink-prof" data="#D45FFF" className="btn color-btn"></span>
+                    <span id="green-prof" data="#44BBA4" className="btn color-btn"></span>
+                    <span id="orange-prof" data="#FF8A5B" className="btn color-btn"></span>
+                    <span id="purple-prof" data="#9964FF" className="btn color-btn"></span>
+                    <span id="charcoal-prof" data="#444444" className="btn color-btn"></span>
+                </div>
+                <div className="complete-profile-btn">
+                    <span className="btn join-btn" onClick={this.enterProfile}>Join Game</span>
                 </div>
 
         </div>
