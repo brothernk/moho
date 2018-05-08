@@ -5,7 +5,8 @@ const sessionRoutes = (io) => {
   // Matches with "/api/session"
   router.route("/")
     .get(sessionController.findAll)
-    .post(sessionController.create(io));
+    .post(sessionController.create(io))
+    .delete(sessionController.deleteAll)
 
   // Matches with /api/session/title/sessiontitle
   router.route("/title/:session")
