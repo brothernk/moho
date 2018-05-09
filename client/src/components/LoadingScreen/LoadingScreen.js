@@ -8,11 +8,14 @@ class LoadingScreen extends Component {
     userScore: "",
     userColor: "",
     userJudge: "",
+    keyword: "",
     // Players logged in, Players this round
     pendingMessage: "",
     pendingPlayerHeader: "",
     judge: "",
-    members: ""
+    members: "",
+    // Show keyword on first loading screen
+    showKeyword: false
   }
 
   componentDidMount = () => {
@@ -20,11 +23,17 @@ class LoadingScreen extends Component {
     this.setState({userScore: this.props.userScore})
     this.setState({userJudge: this.props.userJudge})
     this.setState({userColor: this.props.userColor})
-    this.setState({pendingMessage: this.props.pendingMessage})
+    this.setState({keyword: this.props.keyword})
+    this.setState({pendingMessage: this.props.pendingMessage}, function() {
+      if ((this.state.pendingMessage) === "Waiting for game to start" || "Click start game when ready to play") {
+        this.setState({showKeyword: true})
+      }
+    })
     this.setState({pendingPlayerHeader: this.props.pendingPlayerHeader})
     this.setState({members: this.props.members}, function() {
       this.checkJudge()
     })
+
   }
 
   componentDidUpdate = () => {
@@ -71,6 +80,14 @@ class LoadingScreen extends Component {
       
         <p className="judge">Judge: {this.props.judge}</p>
 
+        { this.state.showKeyword ? 
+          <div id = "roomkey"> 
+          <i className="fas fa-key" id="key-icon"></i>
+          <p>Your room key is</p>
+          <p id="random-word">{this.state.keyword}</p>
+          </div>
+        : null }
+        
         <div className="pull-themes-btn">
             <span className="btn">
             { this.state.userJudge ? 
@@ -88,13 +105,6 @@ class LoadingScreen extends Component {
             <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>
               
               <div className="current-players-div">
-
-                  {/* <div className="player-bubble" key={this.state.userName}>
-                    <span className="fa-stack fa-3x" id="user-icon">
-                      <i className="fas fa-circle" style={{color: this.state.userColor}}></i>
-                      <strong className="fa-stack-1x" id="username">{this.state.userName.charAt(0)}</strong>
-                    </span>
-                  </div> */}
                   
                   {this.state.members.length ? (
                         <div style={{display: "inline-block"}}>

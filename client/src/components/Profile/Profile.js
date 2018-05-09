@@ -92,6 +92,7 @@ class Profile extends Component {
                 self.props.profileAdded('showPending', true);
             }  
         })
+    
     }
 
     render() {
