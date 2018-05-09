@@ -2,7 +2,7 @@
 @import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 @import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
-.signup-btn, .login-btn, .enter-btn, .join-btn {
+.signup-btn, .login-btn, .enter-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
@@ -154,12 +154,11 @@ p {
 
 .gif-component {
   background-size: cover;
-  max-height: 400px;
-  width: 100%;
   text-align: center; }
   .gif-component .gif-preview {
     object-fit: fill;
-    max-width: 400px; }
+    max-height: 450px;
+    max-width: 450px; }
 
 .promptSelect-component {
   padding: 15px; }
@@ -180,18 +179,6 @@ p {
     .promptSelect-component .prompt-card i {
       padding-right: 15px; }
 
-.signup-btn, .login-btn, .enter-btn, .join-btn {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  font-size: 25px;
-  position: relative;
-  clear: both;
-  display: inline-block;
-  margin: 15px;
-  padding: 8px;
-  width: 220px; }
-
 .color-btn {
   border-radius: 50px;
   height: 100px;
@@ -207,10 +194,10 @@ p {
   margin: 50px 0px 15px 0px; }
 
 .color-btn:hover {
-  box-shadow: 0 0 10px grey; }
+  box-shadow: 0 0 2px 5px grey; }
 
 #selected {
-  box-shadow: 0 0 10px grey; }
+  box-shadow: 0 0 1px 6px grey; }
 
 .yellow-prof {
   background-color: #FFC655; }
@@ -237,8 +224,14 @@ p {
   background-color: #444444; }
 
 .join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  padding: 8px;
+  background-color: hotpink;
   width: 180px;
-  background-color: hotpink; }
+  margin-top: 10px; }
 
 .bottom-nav {
   position: fixed;
@@ -277,7 +270,7 @@ p {
 .not-expanded {
   min-height: 0; }
 
-.signup-btn, .login-btn, .enter-btn, .join-btn {
+.signup-btn, .login-btn, .enter-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
@@ -311,23 +304,40 @@ input[type="text"] {
   padding: 15px;
   margin-top: 30px; }
 
+#loading-pg-roomkey {
+  margin: auto;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #FF8A5B;
+  width: 130px;
+  top: 10px;
+  right: 15px;
+  padding: 10px;
+  position: absolute; }
+  #loading-pg-roomkey #random-word {
+    font-size: 20px; }
+  #loading-pg-roomkey #key-icon {
+    transform: rotate(45deg);
+    font-size: 20px; }
+
 .judge {
   width: 150px;
   padding: 10px;
   border-radius: 40px;
   position: absolute;
   top: 10px;
-  left: 15px; }
+  left: 15px;
+  background-color: #C0C0C0; }
 
 .judge-start {
   font-family: "Montserrat", sans-serif;
   color: white;
-  width: 75px;
+  width: 150px;
   padding: 10px;
   border-radius: 40px;
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 70px;
+  left: 15px;
   background: #44BBA4; }
 
 .loading-gif {
@@ -341,7 +351,7 @@ input[type="text"] {
   font-family: "Montserrat", sans-serif;
   color: white;
   font-size: 200%;
-  margin-top: 20px; }
+  margin-top: 15px; }
 
 #username {
   font-family: "Montserrat", sans-serif;

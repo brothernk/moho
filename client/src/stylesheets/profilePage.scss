@@ -11,24 +11,13 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
+//Mixins ===============================================================
 @mixin font{
   font-family: "Montserrat", sans-serif;
   color:white;
 }
 
 //Placeholders ===================================================
-%buttons{
-  @include font;
-  border-radius: 30px;
-  font-size:25px;
-  position: relative;
-  clear:both;
-  display:inline-block;
-  margin: 15px;
-  padding: 8px;
-  width:220px;
-}
-
 %round-buttons{
   border-radius: 50px;
   height: 100px;
@@ -52,11 +41,11 @@ $charcoal: #444444;
   }
 
   .color-btn:hover{
-    box-shadow: 0 0 10px grey;
+    box-shadow: 0 0 2px 5px grey;
   }
 
   #selected{
-    box-shadow: 0 0 10px grey;
+    box-shadow: 0 0 1px 6px grey;
   }
 
   .yellow-prof{
@@ -85,7 +74,11 @@ $charcoal: #444444;
   }
 
   .join-btn{
-    @extend %buttons;
-    width:180px;
+    @include font;
+    border-radius: 30px;
+    font-size:25px;
+    padding: 8px;
     background-color: hotpink;
+    width:180px;
+    margin-top:10px;
   }

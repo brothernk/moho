@@ -325,8 +325,8 @@ class Home extends Component {
                     </div>
                 : null}
                 {/* Use to test Giphy Search w/o running the game logic */}
-                <GiphySearch /> 
-                { this.state.showWinner ?   
+                {/* <GiphySearch />  */}
+                {/* { this.state.showWinner ?   
                     <div> 
                         <WinnerPage />
                         {this.state.theme.map(winner => (
@@ -340,7 +340,7 @@ class Home extends Component {
                         ))}
                         <BottomNav />
                     </div>
-                : null}
+                : null} */}
             </div>
         );
     }
