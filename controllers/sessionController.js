@@ -50,6 +50,12 @@ module.exports = {
 
           })
 
+          socket.on('categorytheme selected', function(data){
+            console.log('category and theme selected')
+            socket.broadcast.emit('categorytheme selected player', {model: data})
+            socket.emit('categorytheme selected judge', {model: data})
+          })
+
           socket.on('disconnect', function(){
             console.log('user disconnected');
           });

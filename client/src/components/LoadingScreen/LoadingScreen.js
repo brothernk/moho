@@ -8,14 +8,17 @@ class LoadingScreen extends Component {
     userScore: "",
     userColor: "",
     userJudge: "",
-    keyword: "",
     // Players logged in, Players this round
     pendingMessage: "",
     pendingPlayerHeader: "",
     judge: "",
     members: "",
     // Show keyword on first loading screen
-    showKeyword: false
+    showKeyword: false,
+    // Show theme and category on all other loading screens
+    showTheme: false,
+    category: "",
+    theme: ""
   }
 
   componentDidMount = () => {
@@ -23,11 +26,14 @@ class LoadingScreen extends Component {
     this.setState({userScore: this.props.userScore})
     this.setState({userJudge: this.props.userJudge})
     this.setState({userColor: this.props.userColor})
-    this.setState({keyword: this.props.keyword})
+    
+    if (this.props.theme && this.props.category) {
+      this.setState({category: this.props.category})
+      this.setState({theme: this.props.theme})
+    }
+
     this.setState({pendingMessage: this.props.pendingMessage}, function() {
-      if ((this.state.pendingMessage) === "Waiting for game to start" || "Click start game when ready to play") {
-        this.setState({showKeyword: true})
-      }
+      this.checkMessage()
     })
     this.setState({pendingPlayerHeader: this.props.pendingPlayerHeader})
     this.setState({members: this.props.members}, function() {
@@ -44,12 +50,40 @@ class LoadingScreen extends Component {
     }
 
     if (this.props.pendingMessage !== this.state.pendingMessage) {
-      this.setState({pendingMessage: this.props.pendingMessage})
+      this.setState({pendingMessage: this.props.pendingMessage}, function() {
+        this.checkMessage()
+      })
     }
 
     if (this.props.pendingPlayerHeader !== this.state.pendingPlayerHeader) {
       this.setState({pendingPlayerHeader: this.props.pendingPlayerHeader})
     }
+
+    if (this.props.theme !== this.state.theme) {
+      this.setState({theme: this.props.theme})
+    }
+
+    if (this.props.category !== this.state.category) {
+      this.setState({category: this.props.category})
+    }
+
+  }
+
+  checkMessage = () => {
+    console.log("CHECK MESSAGE LOADING SCREEN")
+
+    console.log(this.state.pendingMessage)
+
+    if (this.state.pendingMessage === "Players choosing gifs") {
+      this.setState({showKeyword: false})
+      this.setState({showTheme: true})
+    }
+
+    else if (this.state.pendingMessage === "Waiting for game to start" || this.state.pendingMessage === "Click start game when ready to play") {
+      this.setState({showKeyword: true})
+      this.setState({showTheme: false})
+    }
+
 
   }
 
@@ -77,29 +111,40 @@ class LoadingScreen extends Component {
 
       <div className="loading-screen-holder">
         {/* style={{color:props.userColor}} */}
+        { this.state.showKeyword ? 
+
+          <div>
+
+            <div id = "loading-pg-roomkey"> 
+              <i className="fas fa-key" id="key-icon"></i>
+              <p id="random-word">{this.props.keyword}</p>
+            </div>
+
+            <div className="pull-themes-btn">
+              <span className="btn">
+              { this.state.userJudge ? 
+                <p className="judge-start" onClick={this.startGame}>Start</p>
+              : null}
+              </span>
+            </div>
+
+          </div>
+
+        : null }
+
+        { this.state.showTheme ? 
+          <div id = "roomkey"> 
+            <p>{this.state.theme}</p>
+            <p>{this.state.category}</p>
+          </div>
+        : null }
       
         <p className="judge">Judge: {this.props.judge}</p>
 
-        { this.state.showKeyword ? 
-          <div id = "roomkey"> 
-          <i className="fas fa-key" id="key-icon"></i>
-          <p>Your room key is</p>
-          <p id="random-word">{this.state.keyword}</p>
-          </div>
-        : null }
-        
-        <div className="pull-themes-btn">
-            <span className="btn">
-            { this.state.userJudge ? 
-              <p className="judge-start" onClick={this.startGame}>Start</p>
-            : null}
-            </span>
-        </div>
                     
-        <p>{this.state.pendingMessage}</p>
-
         <div>
           <img src={gif} alt="" className="loading-gif"/>
+          <p className="waiting-msg">{this.state.pendingMessage}</p>
 
           <div>
             <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>
