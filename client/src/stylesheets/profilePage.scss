@@ -11,6 +11,11 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
+@mixin font{
+  font-family: "Montserrat", sans-serif;
+  color:white;
+}
+
 //Placeholders ===================================================
 %buttons{
   @include font;
@@ -47,6 +52,10 @@ $charcoal: #444444;
   }
 
   .color-btn:hover{
+    box-shadow: 0 0 10px grey;
+  }
+
+  #selected{
     box-shadow: 0 0 10px grey;
   }
 

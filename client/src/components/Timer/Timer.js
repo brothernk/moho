@@ -3,13 +3,13 @@ import React from "react";
 class Timer extends React.Component {
 
   state = {
-    number: 20
+    number: "",
   }
 
   countdown = () => {
     timeleft = this.state.number;
 
-    for (i=0;i>-1;i++) {
+    for (i=this.state.number;i>0;i--) {
       setTimeout()
     }
   }

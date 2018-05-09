@@ -11,8 +11,7 @@ class Profile extends Component {
         ip: "",
         judge: false,
         showError: false,
-        memberArray: [],
-        clicked:false
+        memberArray: []
     }
 
     componentDidMount = () => {
@@ -34,25 +33,28 @@ class Profile extends Component {
 
     //Assign user color and judge
     setupProfile = event => {
-        if (this.state.username === "") {
-            this.setState({showError: true})
-        }
-        else {
-            let divTarget = event.target
-            let profileColor = divTarget.getAttribute('data')
-            this.setState({color:profileColor}, function(){
-                API.checkSessionUrl(this.state.url)
-                .then(res => {
-                    if (res.data[0].members.length === 0) {
-                        this.setState({judge: true})
-                    }
+        const self = this;
+        let divTarget = event.target
+        let profileColor = divTarget.getAttribute('data')
+        this.setState({color:profileColor}, function(){
+            self.onClickIdHandler()
+            API.checkSessionUrl(this.state.url)
+            .then(res => {
+                if (res.data[0].members.length === 0) {
+                    this.setState({judge: true})
+                }
 
-                    else {
-                        this.setState({judge: false})
-                    }
-                })
+                else {
+                    this.setState({judge: false})
+                }
             })
-        }
+        })
+        
+        // if (this.state.username === "") {
+        //     this.setState({showError: true})
+        // }
+        // else {
+        // }
     }
 
     //Update user to loading screen
@@ -95,14 +97,27 @@ class Profile extends Component {
     
     }
 
+    onClickIdHandler = () => {
+        let btns = document.getElementsByClassName("color-btn");
+
+        for (let i=0;i<btns.length;i++) {
+            if(btns[i].getAttribute('data') === this.state.color) {
+                btns[i].setAttribute('id', 'selected')
+            }
+            else {
+                btns[i].removeAttribute('id')
+            }
+        }
+    }  
+
     render() {
         return (
             <div>
-                { this.state.showError ?
+                {/* { this.state.showError ?
                         <div>
                             <p id="username-error">Please enter a username</p>
                         </div>
-                : null }
+                : null } */}
 
                 <div className="setup-profile">
                     <div className="enter-profile">Setup Your Profile</div>
