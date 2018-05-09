@@ -249,12 +249,18 @@ p {
     height: 100px;
     width: 100px;
     margin: 10px; }
-  .pick-a-color, .complete-profile-btn {
-    padding-top: 65px; } }
+  .pick-a-color {
+    padding-top: 65px; }
+  .complete-profile-btn {
+    padding-top: 35px; } }
 
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
   .setup-color-buttondiv {
-    padding: 20px 200px 20px 200px; } }
+    padding: 20px 200px 20px 200px; }
+  .pick-a-color {
+    padding-top: 25px; }
+  .complete-profile-btn {
+    padding-top: 15px; } }
 
 @media only screen and (min-height: 750px) {
   .setup-color-buttondiv {
@@ -346,7 +352,7 @@ p {
 .judge {
   width: 150px;
   padding: 10px;
-  border-radius: 40px;
+  border-radius: 20px;
   position: absolute;
   top: 10px;
   left: 15px;
@@ -355,12 +361,12 @@ p {
 .judge-start {
   font-family: "Montserrat", sans-serif;
   color: white;
-  width: 150px;
+  width: 130px;
   padding: 10px;
   border-radius: 40px;
   position: absolute;
-  top: 70px;
-  left: 15px;
+  top: 80px;
+  right: 15px;
   background: #44BBA4; }
 
 .loading-gif {
@@ -368,7 +374,7 @@ p {
   padding: 15px;
   max-width: 350px;
   margin: 0 auto;
-  margin-top: -20px; }
+  margin-top: 100px; }
 
 #current-players, #no-players {
   font-family: "Montserrat", sans-serif;
@@ -383,7 +389,7 @@ p {
 
 .current-players-div {
   width: 100%;
-  padding: 15px;
+  padding-top: 15px;
   text-align: center;
   margin-top: -25px; }
 
@@ -391,6 +397,10 @@ p {
   display: inline-block;
   z-index: 100;
   margin: 0px -10px 0px -10px; }
+
+@media only screen and (min-width: 600px) {
+  .loading-gif {
+    margin-top: -50px; } }
 
 .playerlist-holder {
   width: 100%;
