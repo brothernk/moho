@@ -64,12 +64,18 @@
     height: 100px;
     width: 100px;
     margin: 10px; }
-  .pick-a-color, .complete-profile-btn {
-    padding-top: 65px; } }
+  .pick-a-color {
+    padding-top: 65px; }
+  .complete-profile-btn {
+    padding-top: 35px; } }
 
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
   .setup-color-buttondiv {
-    padding: 20px 200px 20px 200px; } }
+    padding: 20px 200px 20px 200px; }
+  .pick-a-color {
+    padding-top: 25px; }
+  .complete-profile-btn {
+    padding-top: 15px; } }
 
 @media only screen and (min-height: 750px) {
   .setup-color-buttondiv {

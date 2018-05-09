@@ -126,11 +126,9 @@ class LoadingScreen extends Component {
     return (
 
       <div className="loading-screen-holder">
-        {/* style={{color:props.userColor}} */}
         { this.state.showKeyword ? 
 
           <div>
-
             <div id = "loading-pg-roomkey"> 
               <i className="fas fa-key" id="key-icon"></i>
               <p id="random-word">{this.props.keyword}</p>
@@ -143,7 +141,6 @@ class LoadingScreen extends Component {
               : null}
               </span>
             </div>
-
           </div>
 
         : null }
@@ -163,19 +160,14 @@ class LoadingScreen extends Component {
           </div>
         : null}
 
-
-      
         <p className="judge">Judge: {this.props.judge}</p>
       
         <div>
           <img src={gif} alt="" className="loading-gif"/>
           <p className="waiting-msg">{this.state.pendingMessage}</p>
-
           <div>
             <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>
-              
               <div className="current-players-div">
-                  
                   {this.state.members.length ? (
                         <div style={{display: "inline-block"}}>
                             {this.state.members.map(member => (
@@ -187,11 +179,11 @@ class LoadingScreen extends Component {
                               </div>
                             ))}
                         </div>
-                    ) : null} 
-                </div>
+                  ) : null} 
+              </div>
           </div>
+        </div>
       </div>
-    </div>
     )
   }
 }
