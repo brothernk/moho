@@ -1,15 +1,3 @@
-.join-btn {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  font-size: 25px;
-  position: relative;
-  clear: both;
-  display: inline-block;
-  margin: 15px;
-  padding: 8px;
-  width: 220px; }
-
 .color-btn {
   border-radius: 50px;
   height: 100px;
@@ -25,10 +13,10 @@
   margin: 50px 0px 15px 0px; }
 
 .color-btn:hover {
-  box-shadow: 0 0 10px grey; }
+  box-shadow: 0 0 2px 5px grey; }
 
 #selected {
-  box-shadow: 0 0 10px grey; }
+  box-shadow: 0 0 1px 6px grey; }
 
 .yellow-prof {
   background-color: #FFC655; }
@@ -55,5 +43,11 @@
   background-color: #444444; }
 
 .join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  padding: 8px;
+  background-color: hotpink;
   width: 180px;
-  background-color: hotpink; }
+  margin-top: 10px; }

@@ -23,7 +23,6 @@ class Profile extends Component {
         })
     }
 
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -49,27 +48,26 @@ class Profile extends Component {
                 }
             })
         })
-        
-        // if (this.state.username === "") {
-        //     this.setState({showError: true})
-        // }
-        // else {
-        // }
     }
 
     //Update user to loading screen
     addMember = () => {
-        API.addSessionMember({
-            url: this.state.url,
-            username: this.state.username,
-            color: this.state.color,
-            ip: this.state.ip,
-            judge: this.state.judge
-        })
-        .then(res => {
-            this.showSessionData()
-        })
-        .catch(err => console.log(err.response));
+        if (this.state.username === "") {
+            this.setState({showError: true})
+        }
+        else {
+            API.addSessionMember({
+                url: this.state.url,
+                username: this.state.username,
+                color: this.state.color,
+                ip: this.state.ip,
+                judge: this.state.judge
+            })
+            .then(res => {
+                this.showSessionData()
+            })
+            .catch(err => console.log(err.response));
+        }
     }
     
     showSessionData = () => {
@@ -77,7 +75,6 @@ class Profile extends Component {
         const self = this
         self.props.socket.emit('useradded')
 
-    
         self.props.socket.on('useraddedsuccessfullyself', function(data) {
             console.log("YOU ARE ADDED")
             self.props.profileAdded('pendingPlayerHeader', 'Players logged in')
@@ -94,7 +91,6 @@ class Profile extends Component {
                 self.props.profileAdded('showPending', true);
             }  
         })
-    
     }
 
     onClickIdHandler = () => {
@@ -113,19 +109,12 @@ class Profile extends Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
+
                 { this.state.showError ?
-                    <div>
-                        <p id="username-error">Please enter a username</p>
-                    </div>
-                : null }
-=======
-                {/* { this.state.showError ?
                         <div>
                             <p id="username-error">Please enter a username</p>
                         </div>
-                : null } */}
->>>>>>> c4a0d84612546d7083988948173b6da1d86f08b0
+                : null }
 
                 <div className="setup-profile">
                     <div className="enter-profile">Setup Your Profile</div>

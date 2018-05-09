@@ -77,29 +77,26 @@ class LoadingScreen extends Component {
 
       <div className="loading-screen-holder">
         {/* style={{color:props.userColor}} */}
-      
-        <p className="judge">Judge: {this.props.judge}</p>
-
         { this.state.showKeyword ? 
-          <div id = "roomkey"> 
+          <div id = "loading-pg-roomkey"> 
           <i className="fas fa-key" id="key-icon"></i>
-          <p>Your room key is</p>
           <p id="random-word">{this.state.keyword}</p>
           </div>
         : null }
+      
+        <p className="judge">Judge: {this.props.judge}</p>
         
         <div className="pull-themes-btn">
             <span className="btn">
             { this.state.userJudge ? 
-              <p className="judge-start" onClick={this.startGame}>Start</p>
+              <p className="judge-start" onClick={this.startGame}>Start Game</p>
             : null}
             </span>
         </div>
                     
-        <p>{this.state.pendingMessage}</p>
-
         <div>
           <img src={gif} alt="" className="loading-gif"/>
+          <p className="waiting-msg">{this.state.pendingMessage}</p>
 
           <div>
             <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>
