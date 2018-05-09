@@ -50,11 +50,6 @@ class Profile extends Component {
             })
         })
         
-        // if (this.state.username === "") {
-        //     this.setState({showError: true})
-        // }
-        // else {
-        // }
     }
 
     //Update user to loading screen

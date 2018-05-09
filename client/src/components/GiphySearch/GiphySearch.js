@@ -48,8 +48,8 @@ class GiphySearch extends Component {
   render() {
       return (
           <div className="giphy-component"> 
-              <h6>Player's Prompt</h6>
-              <h4>Placeholder Prompt</h4>
+              <h6>{this.props.theme}</h6>
+              <h4>{this.props.category}</h4>
               <div className="search-holder">
                 <input name="giphySearchBar" onChange={this.searchTerm} type="text" />
                 <div onClick={this.callGIPHY} className="search-button">

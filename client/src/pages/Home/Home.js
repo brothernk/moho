@@ -18,7 +18,6 @@ class Home extends Component {
         urlString: "",
         keyword: "",
         socketAddress: "",
-        theme: "",
         userName: "",
         userScore: "",
         userColor: "",
@@ -28,8 +27,12 @@ class Home extends Component {
         userJudge: false, 
         currentJudge: "",
         playerList: [],
-        selectedTheme: "",
+
+        // All themes
         themeIndex: "",
+        selectedTheme: "",
+        selectedCategory: "",
+
         winner: "",
         socket: "",
         pendingMessage: "",
@@ -63,25 +66,40 @@ class Home extends Component {
 
         self.state.socket.on("startgameplayer", function(data){
             console.log("PLAYER GAME STARTED")
-
             self.setState({pendingPlayerHeader: "Players in round"}, function() {
                 self.updateMembers(data)
-
                 let judge = self.state.currentJudge
                 let message = judge + " choosing category..."
                 self.setState({pendingMessage: message})
 
-            })
-
-            
+            })       
 
         })
 
         self.state.socket.on("startgamejudge", function(data) {
             console.log("JUDGE GAME STARTED")
-
             self.setState({showPending: false})
             self.setState({showJudgeCategory: true})
+        })
+
+        self.state.socket.on("categorytheme selected player", function(data) {
+            console.log("JUDGE SELECTED GAME")
+            self.setState({selectedTheme: data.model.theme})
+            self.setState({selectedCategory: data.model.category}, function() {
+                self.setState({showPending: false})
+                self.setState({showGiphySearch: true})
+            })
+        })
+
+        self.state.socket.on("categorytheme selected judge", function(data) {
+            console.log("YOU SELECTED GAME")
+            self.setState({selectedTheme: data.model.theme})
+            self.setState({selectedCategory: data.model.category})
+            self.setState({pendingMessage: "Players choosing gifs"})
+            self.setState({pendingPlayerHeader: "Players done with challenge"}, function() {
+                self.setState({showJudgeCategory: false})
+                self.setState({showPending: true})
+            })
         })
 
     }
@@ -162,16 +180,9 @@ class Home extends Component {
         .then(response => {
             console.log("CATEGORY RESPONSE")
             console.log(response.data);
-            this.setState({theme: response.data});
+            this.setState({themeIndex: response.data});
         })
         .catch(err => console.log(err))
-    }
-
-    //Select random category after judge chooses theme
-    randomTheme = (themeIndex) => {
-        this.setState({
-            selectedTheme: this.state.theme[themeIndex].categories[Math.floor(Math.random()*this.state.theme[themeIndex].categories.length)]
-        })
     }
 
     //Expand navbar
@@ -259,6 +270,8 @@ class Home extends Component {
                             userScore={this.state.userScore}
                             userJudge={this.state.userJudge}
                             members={this.state.playerList}
+                            category={this.state.selectedCategory}
+                            theme={this.state.selectedTheme}
                         />
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
@@ -282,19 +295,20 @@ class Home extends Component {
 
                 {this.state.showJudgeCategory ?
                     <div>
-                        {this.state.theme.map(prompt => (
+                        {this.state.themeIndex.map(prompt => (
                             <PromptSelect
                             key={prompt.index}
                             index={prompt.index}
                             icon={prompt.icon}
                             theme={prompt.theme}
                             color={prompt.color}
-                            selectedTheme={() => {this.randomTheme(prompt.index)}} />
+                            categories={prompt.categories}
+                            socket={this.state.socket} />
                         ))}
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
-                                        userColor={this.state.userColor} />
+                                userColor={this.state.userColor} />
                                 {this.state.BottomNavPlayerList.map(
                                     player => (
                                         <PlayerList
@@ -313,10 +327,26 @@ class Home extends Component {
 
                 { this.state.showGiphySearch ?
                     <div> 
-                        <GiphySearch />
-                        <BottomNav />
+                        <GiphySearch theme={this.state.selectedTheme} category={this.state.selectedCategory}/>
+                        <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
+                            <PlayerListHolder>
+                                <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
+                                userColor={this.state.userColor} />
+                                {this.state.BottomNavPlayerList.map(
+                                    player => (
+                                        <PlayerList
+                                        key={player.ip}
+                                        id={player.ip}
+                                        playerName={player.name} playerScore={player.score}
+                                        userColor={player.color}
+                                        />
+                                    ))
+                                }
+                            </PlayerListHolder>
+                        </BottomNav> 
                     </div>
                 : null}
+
                 {/* Use to test Giphy Search w/o running the game logic */}
                 {/* <GiphySearch />  */}
                 { this.state.showWinner ?   
