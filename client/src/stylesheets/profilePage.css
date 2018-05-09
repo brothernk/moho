@@ -27,6 +27,9 @@
 .color-btn:hover {
   box-shadow: 0 0 10px grey; }
 
+#selected {
+  box-shadow: 0 0 10px grey; }
+
 .yellow-prof {
   background-color: #FFC655; }
 
