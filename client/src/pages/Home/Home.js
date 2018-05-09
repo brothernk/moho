@@ -11,6 +11,7 @@ import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
 import WinnerPage from "../../components/WinnerPage/WinnerPage";
 import io from "socket.io-client";
+import Timer from "../../components/Timer/Timer";
 
 class Home extends Component {
 
@@ -45,6 +46,7 @@ class Home extends Component {
         showJudgeCategory: false,
         showGiphySearch: false,
         showWinner: false,
+        outOfTime: false
     }
 
     // check IP address on mount
@@ -202,6 +204,10 @@ class Home extends Component {
         }
     };
 
+    endTimer = () => {
+
+    }
+
     updateMembers = (data) => {
         console.log("update members triggered")
         console.log(data.model[0].members)
@@ -273,6 +279,7 @@ class Home extends Component {
                             category={this.state.selectedCategory}
                             theme={this.state.selectedTheme}
                         />
+                        <Timer outOfTime={this.componentChange.bind(this)} />
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
@@ -349,7 +356,7 @@ class Home extends Component {
 
                 {/* Use to test Giphy Search w/o running the game logic */}
                 {/* <GiphySearch />  */}
-                { this.state.showWinner ?   
+                {/* { this.state.showWinner ?   
                     <div> 
                         <WinnerPage />
                         {this.state.theme.map(winner => (
@@ -363,7 +370,7 @@ class Home extends Component {
                         ))}
                         <BottomNav />
                     </div>
-                : null}
+                : null} */}
             </div>
         );
     }

@@ -111,15 +111,12 @@ class LoadingScreen extends Component {
 
       <div className="loading-screen-holder">
         {/* style={{color:props.userColor}} */}
-      
-        <p className="judge">Judge: {this.props.judge}</p>
-
         { this.state.showKeyword ? 
+
           <div>
 
-            <div id = "roomkey"> 
+            <div id = "loading-pg-roomkey"> 
               <i className="fas fa-key" id="key-icon"></i>
-              <p>Your room key is</p>
               <p id="random-word">{this.props.keyword}</p>
             </div>
 
@@ -141,12 +138,13 @@ class LoadingScreen extends Component {
             <p>{this.state.category}</p>
           </div>
         : null }
-        
-                    
-        <p>{this.state.pendingMessage}</p>
+      
+        <p className="judge">Judge: {this.props.judge}</p>
 
+                    
         <div>
           <img src={gif} alt="" className="loading-gif"/>
+          <p className="waiting-msg">{this.state.pendingMessage}</p>
 
           <div>
             <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>
