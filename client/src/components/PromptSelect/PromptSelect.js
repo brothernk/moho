@@ -1,12 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
 
-const PromptSelect = props => (
-    <div onClick={props.selectedTheme} className="promptSelect-component"> 
-        {/* Will need to use a map function to pull out the categories and assign the proper fa icon. Will also need to assign a random color */}
-        <div style={{background:props.color}} className="prompt-card">
-        <h5><i className={props.icon}></i>{props.theme}</h5>
-        </div>
-    </div>
-  );
+class PromptSelect extends Component {
+
+    state = {
+        theme: "",
+        category: ""
+    }
+
+    selectedTheme = (event) => {
+
+        let divTarget = event.target
+        let theme = divTarget.getAttribute('id')
+        let categoryString = divTarget.getAttribute('data')
+        let categoryArray = categoryString.split(',')
+        let selectedCategory = categoryArray[Math.floor(Math.random() * categoryArray.length)]
+
+        let selectedObject = {
+            "theme": theme,
+            "category": selectedCategory
+        }
+        
+        this.props.socket.emit('categorytheme selected', selectedObject)
+
+    }
+
+    render() {
+        return (
+            <div onClick={this.selectedTheme} className="promptSelect-component"> 
+                    <h5 style={{background:this.props.color}} className="prompt-card" id={this.props.theme} data={this.props.categories}>
+                        <i className={this.props.icon}></i>{this.props.theme}
+                    </h5>
+            </div>
+        )
+    }
+}
+
 
 export default PromptSelect;

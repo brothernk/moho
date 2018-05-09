@@ -48,6 +48,7 @@ class Profile extends Component {
                 }
             })
         })
+
     }
 
     //Update user to loading screen
