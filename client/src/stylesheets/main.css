@@ -154,12 +154,11 @@ p {
 
 .gif-component {
   background-size: cover;
-  max-height: 400px;
-  width: 100%;
   text-align: center; }
   .gif-component .gif-preview {
     object-fit: fill;
-    max-width: 400px; }
+    max-height: 450px;
+    max-width: 450px; }
 
 .promptSelect-component {
   padding: 15px; }

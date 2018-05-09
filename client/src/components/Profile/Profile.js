@@ -11,8 +11,7 @@ class Profile extends Component {
         ip: "",
         judge: false,
         showError: false,
-        memberArray: [],
-        clicked:false
+        memberArray: []
     }
 
     componentDidMount = () => {
@@ -94,18 +93,20 @@ class Profile extends Component {
         return (
             <div>
                 { this.state.showError ?
-                        <div>
-                            <p id="username-error">Please enter a username</p>
-                        </div>
+                    <div>
+                        <p id="username-error">Please enter a username</p>
+                    </div>
                 : null }
 
                 <div className="setup-profile">
                     <div className="enter-profile">Setup Your Profile</div>
                     <input type="text" placeholder="Enter Name" name="username" value={this.state.username} onChange={this.handleInputChange}/>
                 </div>
+
                 <div className="setup-color">
                     <div className="enter-color">Pick a Color</div>
                 </div>
+                
                 <div className="setup-color-buttondiv">
                     <span data="#FFC655" className="yellow-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#5FACFF" className="blue-prof btn color-btn" onClick={this.setupProfile}></span>
@@ -119,7 +120,6 @@ class Profile extends Component {
 
                 <div onClick={this.addMember} className="complete-profile-btn">
                     <span className="btn join-btn">Join Game</span>
-
                 </div>
              </div>
         )
