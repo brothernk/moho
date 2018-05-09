@@ -22,6 +22,7 @@ class Timer extends React.Component {
             });
       } else {
         this.props.outOfTime("outOfTime", true)
+        this.props.outOfTime("showTimer", false)
       }
       }, 1000)
   }

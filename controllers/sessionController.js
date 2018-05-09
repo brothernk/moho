@@ -51,9 +51,73 @@ module.exports = {
           })
 
           socket.on('categorytheme selected', function(data){
-            console.log('category and theme selected')
-            socket.broadcast.emit('categorytheme selected player', {model: data})
-            socket.emit('categorytheme selected judge', {model: data})
+            db.Session
+            .find({"url": dbModel.url})
+              .then(dbModel => {
+
+                let returnObject = {
+                  category: data.category,
+                  theme: data.theme
+                }
+
+                for (var i = 0; i < dbModel[0].members.length; i ++ ) {
+                  if (dbModel[0].members[i].judge) {
+                    returnObject["member"] = dbModel[0].members[i]
+                    console.log('category and theme selected')
+                    socket.broadcast.emit('categorytheme selected player', {model: returnObject})
+                    socket.emit('categorytheme selected judge', {model: returnObject})
+                    break
+                  } 
+                }
+              })
+            
+          })
+
+          socket.on('playeroutoftime', function(data) {
+            console.log(data)
+            console.log(data.socket + ' user ran out of time')
+            db.Session
+              .find({"url": dbModel.url})
+              .then(dbModel => {
+
+                let returnObject = {
+                  gif: data.gif
+                }
+
+                for (var i = 0; i < dbModel[0].members.length; i ++ ) {
+                  if (dbModel[0].members[i].ip === data.socket) {
+                    returnObject["member"] = dbModel[0].members[i]
+                    socket.emit('playeroutoftimereturned', {model: returnObject})
+                    socket.broadcast.emit('playeroutoftimereturned', {model: returnObject})
+                    break
+                  }
+                }
+              
+              })
+          })
+
+          socket.on('playergifchosen', function(data) {
+            console.log(data)
+            console.log(data.socket + ' chose image')
+            db.Session
+              .find({"url": dbModel.url})
+              .then(dbModel => {
+ 
+                let returnObject = {
+                  gif: data.gif
+                }
+
+                for (var i = 0; i < dbModel[0].members.length; i ++ ) {
+                  if (dbModel[0].members[i].ip === data.socket) {
+                    returnObject["member"] = dbModel[0].members[i]
+                    console.log(returnObject)
+                    socket.emit('playerchosenreturned', {model: returnObject})
+                    socket.broadcast.emit('playerchosenreturned', {model: returnObject})
+                    break
+                  }
+                }
+              
+              })
           })
 
           socket.on('disconnect', function(){

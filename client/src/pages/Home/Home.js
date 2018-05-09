@@ -16,20 +16,30 @@ import Timer from "../../components/Timer/Timer";
 class Home extends Component {
 
     state = {
+        // User information
         urlString: "",
         keyword: "",
         socketAddress: "",
         userName: "",
         userScore: "",
         userColor: "",
+    
+        // All players except user
         BottomNavPlayerList: [],
         BottomNavExpanded: false,
         BottomNavClasses: "bottom-nav",
         userJudge: false, 
         currentJudge: "",
+
+        // If on opening screen, includes all players. Otherwise includes players that are not the judge
+        // from updateMembers function
+        // During play round, includes first only judge, then whatever players are done choosing their gifs
         playerList: [],
 
-        // All themes
+        // List that keeps track of all players
+        allPlayers: [],
+
+        // Theme and Categories
         themeIndex: "",
         selectedTheme: "",
         selectedCategory: "",
@@ -40,12 +50,17 @@ class Home extends Component {
         pendingPlayerHeader: "",
         profBtnClicked: false,
         profBtnId: "selected-btn",
+
+        gifsReturned: [],
+
         // Variables to prompt showing React components
         showProfile: false,
         showPending: false, 
         showJudgeCategory: false,
         showGiphySearch: false,
+        showJudgeChoices: false,
         showWinner: false,
+        showTimer: false,
         outOfTime: false
     }
 
@@ -87,8 +102,12 @@ class Home extends Component {
         self.state.socket.on("categorytheme selected player", function(data) {
             console.log("JUDGE SELECTED GAME")
             self.setState({selectedTheme: data.model.theme})
+            let newArray = []
+            newArray.push(data.model.member)
+            self.setState({playerList: newArray})
             self.setState({selectedCategory: data.model.category}, function() {
                 self.setState({showPending: false})
+                self.setState({showTimer: true})
                 self.setState({showGiphySearch: true})
             })
         })
@@ -97,10 +116,69 @@ class Home extends Component {
             console.log("YOU SELECTED GAME")
             self.setState({selectedTheme: data.model.theme})
             self.setState({selectedCategory: data.model.category})
+            self.setState({playerList: data.model.member})
             self.setState({pendingMessage: "Players choosing gifs"})
             self.setState({pendingPlayerHeader: "Players done with challenge"}, function() {
-                self.setState({showJudgeCategory: false})
-                self.setState({showPending: true})
+                let newArray = []
+                newArray.push(data.model.member)
+                self.setState({playerList: newArray}, function() {
+                    self.setState({showTimer: true})
+                    self.setState({showJudgeCategory: false})
+                    self.setState({showPending: true})
+                }) 
+            }) 
+        })
+
+        self.state.socket.on('playeroutoftimereturned', function(data) {
+
+            let gifArray = []
+            for (var i = 0; i < self.state.gifsReturned.length; i ++ ) {
+                gifArray.push(self.state.gifsReturned[i])
+            }
+            let newGifObject = {
+                gif: data.model.gif,
+                member: data.model.member
+            }
+            gifArray.push(newGifObject)
+            self.setState({gifsReturned: gifArray})
+
+            let playerArray = []
+            for (var i = 0; i < self.state.playerList.length; i ++ ) {
+                playerArray.push(self.state.playerList[i])
+            }
+            playerArray.push(data.model.member)
+            self.setState({playerList: playerArray}, function() {
+                if (self.state.playerList.length === self.state.allPlayers.length) {
+                    self.setState({showJudgeChoices: true})
+                }
+            })
+
+
+        })
+
+        self.state.socket.on('playerchosenreturned', function(data) {
+            let gifArray = []
+            for (var i = 0; i < self.state.gifsReturned.length; i ++ ) {
+                gifArray.push(self.state.gifsReturned[i])
+            }
+            let newGifObject = {
+                gif: data.model.gif,
+                member: data.model.member
+            }
+            gifArray.push(newGifObject)
+            self.setState({gifsReturned: gifArray}, function() {
+                console.log(self.state.gifsReturned)
+            })
+
+            let playerArray = []
+            for (var i = 0; i < self.state.playerList.length; i ++ ) {
+                playerArray.push(self.state.playerList[i])
+            }
+            playerArray.push(data.model.member)
+            self.setState({playerList: playerArray}, function() {
+                if (self.state.playerList.length === self.state.allPlayers.length) {
+                    self.setState({showJudgeChoices: true})
+                }
             })
         })
 
@@ -214,9 +292,12 @@ class Home extends Component {
 
         const bottomNavArray = []
         const playerList = []
+        const totalPlayerList = []
         let count = 1
 
         for (var i = 0; i < data.model[0].members.length; i ++) {
+
+            totalPlayerList.push(data.model[0].members[i])
 
             if (data.model[0].members[i].ip === this.state.socketAddress) {
                 this.setState({userName: data.model[0].members[i].name})
@@ -246,9 +327,12 @@ class Home extends Component {
             }
 
             if (count === data.model[0].members.length) {
+                this.setState({allPlayers: totalPlayerList})
                 this.setState({playerList: playerList})
                 this.setState({BottomNavPlayerList: bottomNavArray})
             }
+
+
 
             count ++
             
@@ -278,8 +362,13 @@ class Home extends Component {
                             members={this.state.playerList}
                             category={this.state.selectedCategory}
                             theme={this.state.selectedTheme}
+                            showChoices={this.state.showJudgeChoices}
                         />
-                        <Timer outOfTime={this.componentChange.bind(this)} />
+
+                        { this.state.showTimer ? 
+                            <Timer outOfTime={this.componentChange.bind(this)} />
+                        : null}
+                        
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
@@ -334,7 +423,14 @@ class Home extends Component {
 
                 { this.state.showGiphySearch ?
                     <div> 
-                        <GiphySearch theme={this.state.selectedTheme} category={this.state.selectedCategory}/>
+                        <GiphySearch theme={this.state.selectedTheme} category={this.state.selectedCategory} socket={this.state.socket} 
+                        userSocket={this.state.socketAddress} 
+                        timer={this.state.outOfTime} outOfTime={this.componentChange.bind(this)}/>
+
+                        { this.state.showTimer ? 
+                            <Timer outOfTime={this.componentChange.bind(this)} />
+                        : null}
+
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}

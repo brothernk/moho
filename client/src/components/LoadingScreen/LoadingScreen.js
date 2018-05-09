@@ -18,7 +18,9 @@ class LoadingScreen extends Component {
     // Show theme and category on all other loading screens
     showTheme: false,
     category: "",
-    theme: ""
+    theme: "",
+    // Show judge start button or judge reveal button
+    showChoices: false
   }
 
   componentDidMount = () => {
@@ -26,6 +28,7 @@ class LoadingScreen extends Component {
     this.setState({userScore: this.props.userScore})
     this.setState({userJudge: this.props.userJudge})
     this.setState({userColor: this.props.userColor})
+    this.setState({showChoices: this.props.showChoices})
     
     if (this.props.theme && this.props.category) {
       this.setState({category: this.props.category})
@@ -43,8 +46,11 @@ class LoadingScreen extends Component {
   }
 
   componentDidUpdate = () => {
+
     if (this.props.members !== this.state.members) {
       this.setState({members: this.props.members}, function() {
+        console.log("NEWLOADINGMEMBERS")
+        console.log(this.state.members)
         this.checkJudge()
       })
     }
@@ -67,6 +73,10 @@ class LoadingScreen extends Component {
       this.setState({category: this.props.category})
     }
 
+    if (this.props.showChoices !== this.state.showChoices) {
+      this.setState({showChoices: this.props.showChoices})
+    }
+
   }
 
   checkMessage = () => {
@@ -84,26 +94,32 @@ class LoadingScreen extends Component {
       this.setState({showTheme: false})
     }
 
+    else if (this.state.pendingPlayerHeader === "Players in round") {
+      this.setState({showKeyword: false})
+      this.setState({showTheme: false})
+    }
+
 
   }
 
   checkJudge = () => {
-    if (this.state.userJudge) {
-      this.setState({judge: this.state.userName})
-    }
-    else {
+  
       for (var i = 0; i < this.state.members.length; i ++) {
         if (this.state.members[i].judge) {
           this.setState({judge: this.state.members[i].name})
         }
       }
-    }
+
   }
 
   startGame = () => {
     console.log('start game button clicked')
     const self = this
     self.props.socket.emit('startgame')
+  }
+  
+  showGifs = () => {
+    console.log('show gifs button clicked')
   }
 
   render() {
@@ -138,6 +154,16 @@ class LoadingScreen extends Component {
             <p>{this.state.category}</p>
           </div>
         : null }
+
+        { this.state.userJudge ? 
+          <div>
+            { this.state.showChoices ? 
+              <p className="judge-start" onClick={this.showGifs}>Show Gifs</p>
+            : null}
+          </div>
+        : null}
+
+
       
         <p className="judge">Judge: {this.props.judge}</p>
 
