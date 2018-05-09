@@ -117,13 +117,13 @@ class Profile extends Component {
                         </div>
                 : null }
 
-                <div className="setup-profile">
-                    <div className="enter-profile">Setup Your Profile</div>
-                    <input type="text" placeholder="Enter Name" name="username" value={this.state.username} onChange={this.handleInputChange}/>
+                <div>
+                    <div className="setup-profile">Setup Your Profile</div>
+                    <input id="enter-name" type="text" placeholder="Enter Name" name="username" value={this.state.username} onChange={this.handleInputChange}/>
                 </div>
 
-                <div className="setup-color">
-                    <div className="enter-color">Pick a Color</div>
+                <div>
+                    <div className="pick-a-color">Pick a Color</div>
                 </div>
                 
                 <div className="setup-color-buttondiv">

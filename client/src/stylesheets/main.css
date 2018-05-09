@@ -1,24 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 @import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
-@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
 .signup-btn, .login-btn, .enter-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
   font-size: 25px;
-  position: relative;
-  clear: both;
-  display: inline-block;
-  margin: 15px;
+  margin: 10px;
   padding: 8px;
   width: 220px; }
 
 .color-btn {
   border-radius: 50px;
-  height: 100px;
-  width: 100px;
-  margin: 10px; }
+  height: 70px;
+  width: 70px;
+  margin: 8px; }
 
 input[type="text"] {
   font-family: "Montserrat", sans-serif;
@@ -36,6 +31,10 @@ body {
   font-family: "Montserrat", sans-serif;
   color: white;
   background: #31263E; }
+
+.trex-pic {
+  max-width: 250px;
+  margin: 75px 0px 100px 0px; }
 
 #not-a-session {
   margin-top: 25%;
@@ -185,18 +184,33 @@ p {
       padding-right: 15px; }
 
 .color-btn {
-  border-radius: 50px;
-  height: 100px;
-  width: 100px;
-  margin: 10px; }
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  margin: 8px; }
 
-.enter-profile {
-  font-size: 40px;
-  margin-top: 2%; }
+.setup-profile {
+  font-size: 30px;
+  padding-top: 25px; }
 
-.enter-color {
+.pick-a-color {
   font-size: 20px;
-  margin: 50px 0px 15px 0px; }
+  padding-top: 40px; }
+
+.complete-profile-btn {
+  padding: 15px 15px 0px 15px; }
+
+.join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  background-color: #44BBA4;
+  border-radius: 30px;
+  font-size: 25px;
+  padding: 8px;
+  width: 180px; }
+
+.setup-color-buttondiv {
+  padding: 20px; }
 
 .color-btn:hover {
   box-shadow: 0 0 2px 5px grey; }
@@ -228,15 +242,48 @@ p {
 .charcoal-prof {
   background-color: #444444; }
 
-.join-btn {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  font-size: 25px;
-  padding: 8px;
-  background-color: hotpink;
-  width: 180px;
-  margin-top: 10px; }
+@media only screen and (min-width: 600px) {
+  .setup-profile {
+    font-size: 40px; }
+  .color-btn {
+    height: 100px;
+    width: 100px;
+    margin: 10px; }
+  .pick-a-color, .complete-profile-btn {
+    padding-top: 65px; } }
+
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+  .setup-color-buttondiv {
+    padding: 20px 200px 20px 200px; } }
+
+@media only screen and (min-height: 750px) {
+  .setup-color-buttondiv {
+    padding: 15px 50px 15px 50px; }
+  .color-btn {
+    height: 90px;
+    width: 90px;
+    margin: 9px; }
+  .pick-a-color, .complete-profile-btn {
+    padding-top: 35px; } }
+
+@media only screen and (max-width: 360px) {
+  .color-btn {
+    height: 70px;
+    width: 70px;
+    margin: 7px; }
+  .setup-profile {
+    font-size: 25px; }
+  #enter-name {
+    font-size: 20px;
+    width: 200px; }
+  .pick-a-color, .complete-profile-btn {
+    padding-top: 15px;
+    font-size: 15px; }
+  .join-btn {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    font-size: 20px;
+    width: 160px; } }
 
 .bottom-nav {
   position: fixed;
@@ -273,34 +320,6 @@ p {
 
 .not-expanded {
   min-height: 0; }
-
-.signup-btn, .login-btn, .enter-btn {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  font-size: 25px;
-  position: relative;
-  clear: both;
-  display: inline-block;
-  margin: 15px;
-  padding: 8px;
-  width: 220px; }
-
-.color-btn {
-  border-radius: 50px;
-  height: 100px;
-  width: 100px;
-  margin: 10px; }
-
-input[type="text"] {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  border: none;
-  background-color: lightgrey;
-  color: grey;
-  padding: 8px;
-  font-size: 25px; }
 
 .loading-screen-holder {
   min-height: 25px;
@@ -372,10 +391,6 @@ input[type="text"] {
   display: inline-block;
   z-index: 100;
   margin: 0px -10px 0px -10px; }
-
-.trex-pic {
-  max-width: 200px;
-  margin: 40px 0px 5px 0px; }
 
 .playerlist-holder {
   width: 100%;

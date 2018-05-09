@@ -30,19 +30,16 @@ $charcoal: #444444;
   @include font;
   border-radius: 30px;
   font-size:25px;
-  position: relative;
-  clear:both;
-  display:inline-block;
-  margin: 15px;
+  margin: 10px;
   padding: 8px;
   width:220px;
 }
 
 %round-buttons{
   border-radius: 50px;
-  height: 100px;
-  width:100px;
-  margin:10px;
+  height: 70px;
+  width:70px;
+  margin:8px;
 }
 
 %text-entry{
@@ -60,6 +57,12 @@ body {
   @include position;
   @include font;
   background: $background;
+}
+
+//Logo ==============================================================
+.trex-pic{
+  max-width: 250px;
+  margin:75px 0px 100px 0px;
 }
 
 //Error Message ===========================================================
@@ -142,12 +145,6 @@ p{
 
 //Loading Sceen ======================================================
 @import "LoadingScreen.scss";
-
-//Logo ==============================================================
-.trex-pic{
-  max-width: 200px;
-  margin:40px 0px 5px 0px;
-}
 
 //PlayerList Holder ======================================================
 @import "PlayerListHolder.scss";

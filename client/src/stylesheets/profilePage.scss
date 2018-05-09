@@ -17,68 +17,137 @@ $charcoal: #444444;
   color:white;
 }
 
-//Placeholders ===================================================
+//Placeholders =======================================================
 %round-buttons{
-  border-radius: 50px;
-  height: 100px;
-  width:100px;
-  margin:10px;
+  border-radius: 50%;
+  height: 80px;
+  width:80px;
+  margin:8px;
 }
 
-//Profile Page ===========================================================
-.enter-profile{
+//Mobile Setup =======================================================
+.setup-profile{
+  font-size:30px;
+  padding-top:25px;
+}
+  
+.pick-a-color{
+  font-size:20px;
+  padding-top: 40px;
+}
+
+.complete-profile-btn{
+  padding:15px 15px 0px 15px;
+}
+
+.join-btn{
+  @include font;
+  background-color: $green;
+  border-radius: 30px;
+  font-size:25px;
+  padding: 8px;
+  width:180px;
+}
+
+//Color Buttons
+.setup-color-buttondiv{
+  padding: 20px;
+}
+  
+.color-btn{
+  @extend %round-buttons;
+}
+
+.color-btn:hover{
+  box-shadow: 0 0 2px 5px grey;
+}
+
+#selected{
+  box-shadow: 0 0 1px 6px grey;
+}
+
+.yellow-prof{
+  background-color:$yellow;
+} .blue-prof{
+  background-color:$blue;
+} .red-prof{
+  background-color:$red;
+} .pink-prof{
+  background-color:$pink;
+} .green-prof{
+  background-color:$green;
+} .orange-prof{
+  background-color:$orange;
+} .purple-prof{
+  background-color:$purple;
+} .charcoal-prof{
+  background-color:$charcoal;
+}
+
+//Desktop ===========================================================
+@media only screen and (min-width: 600px) {
+  .setup-profile{
     font-size:40px;
-    margin-top:2%;
   }
-  
-  .enter-color{
+
+  %round-buttons{
+    height: 100px;
+    width:100px;
+    margin:10px;
+  }
+
+  .pick-a-color, .complete-profile-btn{
+    padding-top: 65px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+  .setup-color-buttondiv{
+    padding: 20px 200px 20px 200px;
+  }
+}
+
+//Tall Mobile Height > 750 ===========================================
+@media only screen and (min-height: 750px) {
+  .setup-color-buttondiv{
+    padding: 15px 50px 15px 50px;
+  }
+
+  %round-buttons{
+    height: 90px;
+    width:90px;
+    margin:9px;
+  }
+
+  .pick-a-color, .complete-profile-btn{
+    padding-top: 35px;
+  }
+}
+
+//Small Mobile Width < 360 ==========================================
+@media only screen and (max-width: 360px) {
+  %round-buttons{
+    height: 70px;
+    width:70px;
+    margin:7px;
+  }
+
+  .setup-profile{
+    font-size:25px;
+  }
+
+  #enter-name{
     font-size:20px;
-    margin:50px 0px 15px 0px;
-  }
-  
-  .color-btn{
-    @extend %round-buttons;
+    width:200px;
   }
 
-  .color-btn:hover{
-    box-shadow: 0 0 2px 5px grey;
+  .pick-a-color, .complete-profile-btn{
+    padding-top: 15px;
+    font-size:15px;
   }
-
-  #selected{
-    box-shadow: 0 0 1px 6px grey;
-  }
-
-  .yellow-prof{
-    background-color:$yellow;
-  }
-  .blue-prof{
-    background-color:$blue;
-  }
-  .red-prof{
-    background-color:$red;
-  }
-  .pink-prof{
-    background-color:$pink;
-  }
-  .green-prof{
-    background-color:$green;
-  }
-  .orange-prof{
-    background-color:$orange;
-  }
-  .purple-prof{
-    background-color:$purple;
-  }
-  .charcoal-prof{
-    background-color:$charcoal;
-  }
-
   .join-btn{
     @include font;
-    border-radius: 30px;
-    font-size:25px;
-    padding: 8px;
-    background-color: hotpink;
-    width:180px;
-    margin-top:10px;
+    font-size:20px;
+    width:160px;
   }
+}

@@ -140,8 +140,7 @@ class LoadingScreen extends Component {
         : null }
       
         <p className="judge">Judge: {this.props.judge}</p>
-
-                    
+      
         <div>
           <img src={gif} alt="" className="loading-gif"/>
           <p className="waiting-msg">{this.state.pendingMessage}</p>
