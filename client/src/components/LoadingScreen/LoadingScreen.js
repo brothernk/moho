@@ -8,7 +8,9 @@ class LoadingScreen extends Component {
     userScore: "",
     userColor: "",
     userJudge: "",
+    // Players logged in, Players this round
     pendingMessage: "",
+    pendingPlayerHeader: "",
     judge: "",
     members: ""
   }
@@ -18,7 +20,8 @@ class LoadingScreen extends Component {
     this.setState({userScore: this.props.userScore})
     this.setState({userJudge: this.props.userJudge})
     this.setState({userColor: this.props.userColor})
-    this.setState({pendingMessage: this.props.message})
+    this.setState({pendingMessage: this.props.pendingMessage})
+    this.setState({pendingPlayerHeader: this.props.pendingPlayerHeader})
     this.setState({members: this.props.members}, function() {
       this.checkJudge()
     })
@@ -30,9 +33,15 @@ class LoadingScreen extends Component {
         this.checkJudge()
       })
     }
-    if (this.props.message !== this.state.pendingMessage) {
-      this.setState({pendingMessage: this.props.message})
+
+    if (this.props.pendingMessage !== this.state.pendingMessage) {
+      this.setState({pendingMessage: this.props.pendingMessage})
     }
+
+    if (this.props.pendingPlayerHeader !== this.state.pendingPlayerHeader) {
+      this.setState({pendingPlayerHeader: this.props.pendingPlayerHeader})
+    }
+
   }
 
   checkJudge = () => {
@@ -74,31 +83,35 @@ class LoadingScreen extends Component {
 
         <div>
           <img src={gif} alt="" className="loading-gif"/>
-          {this.state.members.length ? (
-                <div>
-                  <h1 id="current-players"> Current Players </h1>
-                  <div className="current-players-div">
-                    <div className="player-bubble" key={this.state.userName}>
-                      <span className="fa-stack fa-3x" id="user-icon">
-                        <i className="fas fa-circle" style={{color: this.state.userColor}}></i>
-                        <strong className="fa-stack-1x" id="username">{this.state.userName.charAt(0)}</strong>
-                      </span>
-                    </div>
-                    {this.state.members.map(member => (
-                      <div className="player-bubble" key={member.ip}>
-                        <span className="fa-stack fa-3x" id="user-icon">
-                          <i className="fas fa-circle" style={{color:member.color}}></i>
-                          <strong className="fa-stack-1x" id="username">{member.name.charAt(0)}</strong>
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+
+          <div>
+            <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>
+              
+              <div className="current-players-div">
+
+                  {/* <div className="player-bubble" key={this.state.userName}>
+                    <span className="fa-stack fa-3x" id="user-icon">
+                      <i className="fas fa-circle" style={{color: this.state.userColor}}></i>
+                      <strong className="fa-stack-1x" id="username">{this.state.userName.charAt(0)}</strong>
+                    </span>
+                  </div> */}
+                  
+                  {this.state.members.length ? (
+                        <div style={{display: "inline-block"}}>
+                            {this.state.members.map(member => (
+                              <div className="player-bubble" key={member.ip}>
+                                <span className="fa-stack fa-3x" id="user-icon">
+                                  <i className="fas fa-circle" style={{color:member.color}}></i>
+                                  <strong className="fa-stack-1x" id="username">{member.name.charAt(0)}</strong>
+                                </span>
+                              </div>
+                            ))}
+                        </div>
+                    ) : null} 
                 </div>
-            ) : (
-              <h3 id="no-players">No current players</h3>
-            )}
-        </div>
+          </div>
       </div>
+    </div>
     )
   }
 }

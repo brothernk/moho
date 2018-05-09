@@ -24,6 +24,7 @@ class Profile extends Component {
         })
     }
 
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -73,17 +74,20 @@ class Profile extends Component {
         console.log("member data added")
         const self = this
         self.props.socket.emit('useradded')
-        self.props.socket.on('useraddedsuccessfully', function(data) {
-            console.log("USER ADDED")
+
+    
+        self.props.socket.on('useraddedsuccessfullyself', function(data) {
+            console.log("YOU ARE ADDED")
+            self.props.profileAdded('pendingPlayerHeader', 'Players logged in')
             self.props.userAdded(data)
 
             if (self.state.judge) {
-                self.props.profileAdded('pendingMessage', 'Click start game when ready to play');
+                self.props.profileAdded('pendingMessage', 'Click start game when ready to play')
                 self.props.profileAdded('showProfile', false);
                 self.props.profileAdded('showPending', true);
             }
             else {
-                self.props.profileAdded('pendingMessage', 'Waiting for game to start');
+                self.props.profileAdded('pendingMessage', 'Waiting for game to start')
                 self.props.profileAdded('showProfile', false);
                 self.props.profileAdded('showPending', true);
             }  
