@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Gif from "../Gif/Gif";
-import Slider from "react-image-slider";
 
 class GifReveal extends Component {
   state = {
@@ -18,7 +17,7 @@ class GifReveal extends Component {
         <h4>{this.props.category}</h4>
           
         <Slider images={gif_array} isInfinite delay={5000}>
-          {gif_array.map((image, key) => <div key={key}><img src={url} /></div>)}
+          {gif_array.map((url, user) => <div key={key}><img src={url} /></div>)}
         </Slider>
       </div>
     )
