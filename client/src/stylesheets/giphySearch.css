@@ -1,5 +1,6 @@
 .giphy-component {
-  padding: 15px; }
+  padding: 15px;
+  margin-bottom: 40px; }
   .giphy-component h4, .giphy-component h6 {
     font-family: "Montserrat", sans-serif;
     color: white; }

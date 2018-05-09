@@ -259,7 +259,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div> 
+            <div className="home-container"> 
 
                 { this.state.showProfile ? 
                     <Profile url={this.state.urlString} ip={this.state.socketAddress} memberArray={this.state.playerList} socket={this.state.socket} userAdded={this.updateMembers} profileAdded={this.componentChange.bind(this)}/>
@@ -356,7 +356,9 @@ class Home extends Component {
 
                 {/* Use to test Giphy Search w/o running the game logic */}
                 {/* <GiphySearch />  */}
+
                 {/* { this.state.showWinner ?   
+                
                     <div> 
                         <WinnerPage />
                         {this.state.theme.map(winner => (

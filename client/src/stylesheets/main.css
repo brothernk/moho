@@ -68,7 +68,8 @@ input[type="text"]:focus {
   text-align: center;
   border-radius: 30px;
   background-color: #FF8A5B;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   margin-top: 50px;
   font-size: 14px;
   padding: 10px; }
@@ -80,8 +81,12 @@ input[type="text"]:focus {
 p {
   margin: 0px; }
 
+.home-container {
+  padding-bottom: 50px; }
+
 .giphy-component {
-  padding: 15px; }
+  padding: 15px;
+  margin-bottom: 40px; }
   .giphy-component h4, .giphy-component h6 {
     font-family: "Montserrat", sans-serif;
     color: white; }
@@ -237,11 +242,11 @@ p {
   position: fixed;
   bottom: 0;
   width: 100%;
-  transition: .25s;
+  transition: .5s;
   background: #C0C0C0;
   height: 40px;
   min-height: 0;
-  overflow: scroll; }
+  z-index: 1000; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
@@ -264,8 +269,7 @@ p {
       z-index: 1000; }
 
 .expanded {
-  min-height: 25vh;
-  height: 25vh; }
+  min-height: 50vh; }
 
 .not-expanded {
   min-height: 0; }
