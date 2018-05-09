@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { endSessBtn, nextRndBtn } from "../../components/Buttons";
 import BottomNav from "../../components/BottomNav/bottomNav";
-import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
+import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
+import io from "socket.io-client";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import PlayerList from "../../components/PlayerList/PlayerList";
 import PlayerListHolder from "../../components/PlayerListHolder/PlayerListHolder";
 import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
-import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
-import WinnerPage from "../../components/WinnerPage/WinnerPage";
-import io from "socket.io-client";
 import Timer from "../../components/Timer/Timer";
+import WinnerPage from "../../components/WinnerPage/WinnerPage";
 
 class Home extends Component {
 
