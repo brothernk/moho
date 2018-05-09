@@ -5,7 +5,8 @@
   transition: .25s;
   background: #C0C0C0;
   height: 40px;
-  min-height: 0; }
+  min-height: 0;
+  overflow: scroll; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
@@ -14,7 +15,6 @@
       left: 15px;
       top: 4px;
       padding: 4px 9px 4px 9px;
-      background: #FFC655;
       border-radius: 50%; }
     .bottom-nav .content-holder .userScore {
       position: absolute;

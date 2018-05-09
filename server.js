@@ -1,3 +1,4 @@
+//Dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -7,24 +8,25 @@ const server = require('http').Server(app)
 const io = require('socket.io')();
 io.listen(server);
 
+//Port
 const PORT = process.env.PORT || 3001;
 
-// Configure body parser for AJAX requests
+//Body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Serve up static assets
+//Static assets
 app.use(express.static("client/build"));
 
-// Add routes, both API and view
+//Routing, both API and view
 app.use(routes(io));
 
-// Connect to the Mongo DB
+//Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gifcategories", function(err) {
   if (err) throw err;
 })
 
-//Socket.io Connection
+//Socket.io
 io.on('connection', function (socket) {
   console.log('a user connected');
   socket.on('disconnect', function(){

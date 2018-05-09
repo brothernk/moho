@@ -57,13 +57,11 @@ class LoadingScreen extends Component {
     }
   }
 
-
   startGame = () => {
     console.log('start game button clicked')
     const self = this
     self.props.socket.emit('startgame')
   }
-
 
   render() {
     return (
@@ -76,7 +74,7 @@ class LoadingScreen extends Component {
         <div className="pull-themes-btn">
             <span className="btn">
             { this.state.userJudge ? 
-              < p className="judge-start" onClick={this.startGame}>Start</p>
+              <p className="judge-start" onClick={this.startGame}>Start</p>
             : null}
             </span>
         </div>

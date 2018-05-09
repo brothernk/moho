@@ -1,7 +1,7 @@
 const db = require("../models");
 const io = require('socket.io')();
 
-// Defining methods for the sessionController
+//Defining methods for the sessionController
 module.exports = {
 
   gameSocket: "",

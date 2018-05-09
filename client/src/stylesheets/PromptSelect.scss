@@ -1,3 +1,4 @@
+//Dependencies from main.scss ============================================
 //Colors ===============================================================
 $background: #31263E;
 $green: #44BBA4;
@@ -10,11 +11,13 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
+//Mixins ===============================================================
 @mixin font{
   font-family: "Montserrat", sans-serif;
   color:white;
 }
 
+//Prompt Select ===================================================
 .promptSelect-component {
   padding: 15px;
 

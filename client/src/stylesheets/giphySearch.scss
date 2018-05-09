@@ -1,3 +1,4 @@
+//Dependencies from main.scss ============================================
 //Colors ===============================================================
 $background: #31263E;
 $green: #44BBA4;
@@ -10,30 +11,13 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
+//Mixins ===============================================================
 @mixin font{
   font-family: "Montserrat", sans-serif;
   color:white;
 }
 
-//Placeholders ===================================================
-%buttons{
-  @include font;
-  border-radius: 30px;
-  font-size:25px;
-  float:center;
-  position: relative;
-  width:200px;
-  margin: 15px;
-  padding: 8px;
-}
-
-%round-buttons{
-  border-radius: 50px;
-  height: 100px;
-  width:100px;
-  margin:10px;
-}
-
+//Giphy Search ===================================================
 .giphy-component {
   padding: 15px;
   
@@ -67,6 +51,10 @@ $charcoal: #444444;
         font-size: 20px;
       }
     }
+
+    .search-button:hover{
+      cursor: pointer;
+    }
   
     img {
       width: 100%;
@@ -75,7 +63,6 @@ $charcoal: #444444;
     }
   
     .button-holder {
-  
       width: 100%;
       text-align: right;
       padding-top: 20px;
@@ -98,6 +85,10 @@ $charcoal: #444444;
         width: 50px;
         border-radius: 50%;
         display: inline-block;
+      }
+
+      .button:hover{
+        cursor: pointer;
       }
     
       .research {
@@ -124,6 +115,9 @@ $charcoal: #444444;
           right: 15px;
           font-size: 20px;
         }
+      }
+      .confirm:hover{
+        cursor: pointer;
       }
     }
   }

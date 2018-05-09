@@ -1,3 +1,4 @@
+//Dependencies from main.scss ============================================
 //Colors ===============================================================
 $background: #31263E;
 $green: #44BBA4;
@@ -10,11 +11,7 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
-@mixin font{
-  font-family: "Montserrat", sans-serif;
-  color:white;
-}
-
+//Bottom Nav ===================================================
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -34,7 +31,6 @@ $charcoal: #444444;
       left: 15px;
       top: 4px;
       padding: 4px 9px 4px 9px;
-      background: $yellow;
       border-radius: 50%;
     }
 

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 @import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
 .signup-btn, .login-btn, .enter-btn, .join-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
@@ -78,23 +80,6 @@ input[type="text"]:focus {
 p {
   margin: 0px; }
 
-.signup-btn, .login-btn, .enter-btn, .join-btn {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  font-size: 25px;
-  float: center;
-  position: relative;
-  width: 200px;
-  margin: 15px;
-  padding: 8px; }
-
-.color-btn {
-  border-radius: 50px;
-  height: 100px;
-  width: 100px;
-  margin: 10px; }
-
 .giphy-component {
   padding: 15px; }
   .giphy-component h4, .giphy-component h6 {
@@ -120,6 +105,8 @@ p {
         top: 15px;
         right: 15px;
         font-size: 20px; }
+    .giphy-component .search-holder .search-button:hover {
+      cursor: pointer; }
     .giphy-component .search-holder img {
       width: 100%;
       margin-top: 15px;
@@ -142,6 +129,8 @@ p {
         width: 50px;
         border-radius: 50%;
         display: inline-block; }
+      .giphy-component .search-holder .button-holder .button:hover {
+        cursor: pointer; }
       .giphy-component .search-holder .button-holder .research {
         background: lightgray;
         position: relative; }
@@ -160,6 +149,8 @@ p {
           top: 15px;
           right: 15px;
           font-size: 20px; }
+      .giphy-component .search-holder .button-holder .confirm:hover {
+        cursor: pointer; }
 
 .gif-component {
   background-size: cover;
@@ -167,9 +158,8 @@ p {
   width: 100%;
   text-align: center; }
   .gif-component .gif-preview {
-    height: 300px;
     object-fit: fill;
-    max-width: 442px; }
+    max-width: 400px; }
 
 .promptSelect-component {
   padding: 15px; }
@@ -189,8 +179,6 @@ p {
     border-radius: 15px; }
     .promptSelect-component .prompt-card i {
       padding-right: 15px; }
-  .promptSelect-component .promptSelect-component:hover {
-    border: 3px solid white; }
 
 .signup-btn, .login-btn, .enter-btn, .join-btn {
   font-family: "Montserrat", sans-serif;
@@ -221,31 +209,28 @@ p {
 .color-btn:hover {
   box-shadow: 0 0 10px grey; }
 
-.color-btn:focus, .color-btn:active {
-  border: 3px solid white; }
-
-#yellow-prof {
+.yellow-prof {
   background-color: #FFC655; }
 
-#blue-prof {
+.blue-prof {
   background-color: #5FACFF; }
 
-#red-prof {
+.red-prof {
   background-color: #FF6161; }
 
-#pink-prof {
+.pink-prof {
   background-color: #D45FFF; }
 
-#green-prof {
+.green-prof {
   background-color: #44BBA4; }
 
-#orange-prof {
+.orange-prof {
   background-color: #FF8A5B; }
 
-#purple-prof {
+.purple-prof {
   background-color: #9964FF; }
 
-#charcoal-prof {
+.charcoal-prof {
   background-color: #444444; }
 
 .join-btn {
@@ -259,7 +244,8 @@ p {
   transition: .25s;
   background: #C0C0C0;
   height: 40px;
-  min-height: 0; }
+  min-height: 0;
+  overflow: scroll; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
@@ -268,7 +254,6 @@ p {
       left: 15px;
       top: 4px;
       padding: 4px 9px 4px 9px;
-      background: #FFC655;
       border-radius: 50%; }
     .bottom-nav .content-holder .userScore {
       position: absolute;
@@ -289,6 +274,34 @@ p {
 .not-expanded {
   min-height: 0; }
 
+.signup-btn, .login-btn, .enter-btn, .join-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  margin: 15px;
+  padding: 8px;
+  width: 220px; }
+
+.color-btn {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px; }
+
+input[type="text"] {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  background-color: lightgrey;
+  color: grey;
+  padding: 8px;
+  font-size: 25px; }
+
 .loading-screen-holder {
   min-height: 25px;
   width: 100%;
@@ -304,10 +317,11 @@ p {
   left: 15px; }
 
 .judge-start {
+  font-family: "Montserrat", sans-serif;
+  color: white;
   width: 75px;
   padding: 10px;
   border-radius: 40px;
-  background-color: #C0C0C0;
   position: absolute;
   top: 10px;
   right: 15px;
@@ -334,11 +348,13 @@ p {
 .current-players-div {
   width: 100%;
   padding: 15px;
-  text-align: center; }
+  text-align: center;
+  margin-top: -25px; }
 
 .player-bubble {
   display: inline-block;
-  z-index: 100; }
+  z-index: 100;
+  margin: 0px -10px 0px -10px; }
 
 .trex-pic {
   max-width: 200px;

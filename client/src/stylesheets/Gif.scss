@@ -1,3 +1,4 @@
+//Gif Component ===================================================
 .gif-component {
   background-size: cover;
   max-height: 400px;
@@ -5,8 +6,7 @@
   text-align: center;
 
   .gif-preview {
-    height: 300px;
     object-fit: fill;
-    max-width: 442px;
+    max-width: 400px;
   }
 }

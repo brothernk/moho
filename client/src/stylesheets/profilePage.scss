@@ -1,3 +1,4 @@
+//Dependencies from main.scss ============================================
 //Colors ===============================================================
 $background: #31263E;
 $green: #44BBA4;
@@ -11,11 +12,6 @@ $purple: #9964FF;
 $charcoal: #444444;
 
 //Placeholders ===================================================
-@mixin font{
-  font-family: "Montserrat", sans-serif;
-  color:white;
-}
-
 %buttons{
   @include font;
   border-radius: 30px;
@@ -35,7 +31,7 @@ $charcoal: #444444;
   margin:10px;
 }
 
-//===================================================================
+//Profile Page ===========================================================
 .enter-profile{
     font-size:40px;
     margin-top:2%;
@@ -54,28 +50,28 @@ $charcoal: #444444;
     box-shadow: 0 0 10px grey;
   }
 
-  #yellow-prof{
+  .yellow-prof{
     background-color:$yellow;
   }
-  #blue-prof{
+  .blue-prof{
     background-color:$blue;
   }
-  #red-prof{
+  .red-prof{
     background-color:$red;
   }
-  #pink-prof{
+  .pink-prof{
     background-color:$pink;
   }
-  #green-prof{
+  .green-prof{
     background-color:$green;
   }
-  #orange-prof{
+  .orange-prof{
     background-color:$orange;
   }
-  #purple-prof{
+  .purple-prof{
     background-color:$purple;
   }
-  #charcoal-prof{
+  .charcoal-prof{
     background-color:$charcoal;
   }
 
