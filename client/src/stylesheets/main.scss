@@ -105,7 +105,8 @@ input[type="text"]:focus{
  @include position;
  border-radius: 30px;
  background-color: $orange;
- width:300px;
+ width: 100%;
+ max-width: 300px;
  margin-top:50px;
  font-size:14px;
  padding:10px;
@@ -118,6 +119,10 @@ input[type="text"]:focus{
 
 p{
   margin:0px;
+}
+
+.home-container {
+  padding-bottom: 50px;
 }
 
 // GIPHY Search Screen =============================================

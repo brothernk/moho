@@ -2,11 +2,11 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  transition: .25s;
+  transition: .5s;
   background: #C0C0C0;
   height: 40px;
   min-height: 0;
-  overflow: scroll; }
+  z-index: 1000; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
@@ -29,8 +29,7 @@
       z-index: 1000; }
 
 .expanded {
-  min-height: 25vh;
-  height: 25vh; }
+  min-height: 50vh; }
 
 .not-expanded {
   min-height: 0; }
