@@ -21,6 +21,8 @@ class Home extends Component {
         userName: "",
         userScore: "",
         userColor: "",
+
+        BottomNavPlayerList: [],
         BottomNavExpanded: false,
         BottomNavClasses: "bottom-nav",
         userJudge: false, 
@@ -31,50 +33,59 @@ class Home extends Component {
         winner: "",
         socket: "",
         pendingMessage: "",
+        pendingPlayerHeader: "",
         // Variables to prompt showing React components
         showProfile: false,
         showPending: false, 
         showJudgeCategory: false,
         showGiphySearch: false,
-        showWinner: false
+        showWinner: false,
+        // Variables to limit socket
+        useraddedsuccesfully: 0,
+        startgame: 0
     }
 
     
     // check IP address on mount
     componentDidMount = () => {
+
         this.returnCategories()
         this.setUrl()
+
     }
 
-    componentDidUpdate = () => {
+    configureSocket = (socket) => {
+        const self = this;
 
-        if (this.state.socket !== "") {
-            const self = this;
+        self.state.socket.on("useraddedsuccessfullyother", function(data) {
+            console.log("NEW USER ADDED")
+            self.updateMembers(data)
 
-            self.state.socket.on("useraddedsuccessfully", function(data) {
-                console.log(data)
+        })
+
+        self.state.socket.on("startgameplayer", function(data){
+            console.log("PLAYER GAME STARTED")
+
+            self.setState({pendingPlayerHeader: "Players in round"}, function() {
                 self.updateMembers(data)
-                console.log('socket added functioning')
+
+                let judge = self.state.currentJudge
+                let message = judge + " choosing category..."
+                self.setState({pendingMessage: message})
+
             })
 
-            self.state.socket.on("startgame", function(){
+            
 
-                if (self.state.userJudge) {
-                    self.setState({showPending: false})
-                    self.setState({showJudgeCategory: true})
-                }
+        })
 
-                else {
-                    let judge = self.state.currentJudge
-                    let message = judge + " choosing category..."
-                    self.setState({pendingMessage: message}, function() {
-                        console.log(self.state.pendingMessage)
-                    })
-                }
-            })
+        self.state.socket.on("startgamejudge", function(data) {
+            console.log("JUDGE GAME STARTED")
 
-        }
-    
+            self.setState({showPending: false})
+            self.setState({showJudgeCategory: true})
+        })
+
     }
 
 
@@ -116,7 +127,10 @@ class Home extends Component {
                 const socket = io(self.state.urlString);
                 console.log("Socket object:", socket);
 
+
                 this.setState({socket: socket}, function() {
+
+                    this.configureSocket(this.state.socket)
 
                     this.state.socket.on('usermade', function(data) {
                         console.log("usermade socket working")
@@ -160,8 +174,9 @@ class Home extends Component {
     returnCategories = () => {
         API.getCategories()
         .then(response => {
-          console.log(response.data);
-          this.setState({theme: response.data});
+            console.log("CATEGORY RESPONSE")
+            console.log(response.data);
+            this.setState({theme: response.data});
         })
         .catch(err => console.log(err))
     }
@@ -195,7 +210,8 @@ class Home extends Component {
         console.log("update members triggered")
         console.log(data.model[0].members)
 
-        const memberArray = []
+        const bottomNavArray = []
+        const playerList = []
         let count = 1
 
         for (var i = 0; i < data.model[0].members.length; i ++) {
@@ -208,7 +224,19 @@ class Home extends Component {
             }
             
             else {
-                memberArray.push(data.model[0].members[i])
+                bottomNavArray.push(data.model[0].members[i])
+            }
+
+            if (this.state.pendingPlayerHeader === "Players logged in") {
+                playerList.push(data.model[0].members[i])
+            }
+
+            else {
+
+                if (data.model[0].members[i].judge === false) {
+                    playerList.push(data.model[0].members[i])
+                }
+
             }
 
             if (data.model[0].members[i].judge) {
@@ -216,15 +244,14 @@ class Home extends Component {
             }
 
             if (count === data.model[0].members.length) {
-                this.setState({playerList: memberArray}, function() {
-                    console.log("Player list: ")
-                    console.log(this.state.playerList)
-                })
+                this.setState({playerList: playerList})
+                this.setState({BottomNavPlayerList: bottomNavArray})
             }
 
             count ++
             
-        }    
+        } 
+    
 
     }
 
@@ -240,7 +267,8 @@ class Home extends Component {
                     <div>
 
                         <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} socket={this.state.socket}
-                            message= {this.state.pendingMessage}
+                            pendingMessage= {this.state.pendingMessage}
+                            pendingPlayerHeader = {this.state.pendingPlayerHeader}
                             userName= {this.state.userName}
                             userColor={this.state.userColor}
                             userScore={this.state.userScore}
@@ -251,12 +279,13 @@ class Home extends Component {
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
                                         userColor={this.state.userColor} />
-                                {this.state.playerList.map(
+                                {this.state.BottomNavPlayerList.map(
                                     player => (
                                         <PlayerList
-                                        id={player.id}
-                                        key={player.id}
-                                        playerName={player.name} playerScore={player.score}
+                                        key={player.ip}
+                                        id={player.ip}
+                                        playerName={player.name} 
+                                        playerScore={player.score}
                                         userColor={player.color}
                                         />
                                     ))
@@ -277,8 +306,22 @@ class Home extends Component {
                             color={prompt.color}
                             selectedTheme={() => {this.randomTheme(prompt.index)}} />
                         ))}
-                
-                        <BottomNav />
+                        <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
+                            <PlayerListHolder>
+                                <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
+                                        userColor={this.state.userColor} />
+                                {this.state.BottomNavPlayerList.map(
+                                    player => (
+                                        <PlayerList
+                                        key={player.ip}
+                                        id={player.ip}
+                                        playerName={player.name} playerScore={player.score}
+                                        userColor={player.color}
+                                        />
+                                    ))
+                                }
+                            </PlayerListHolder>
+                        </BottomNav> 
                     </div>
                 
                 : null }
@@ -286,7 +329,6 @@ class Home extends Component {
                 { this.state.showGiphySearch ?
                     <div> 
                         <GiphySearch />
-
                         <BottomNav />
                     </div>
                 : null}
