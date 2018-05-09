@@ -11,7 +11,10 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
+<<<<<<< HEAD
 //Mixins ===============================================================
+=======
+>>>>>>> c4a0d84612546d7083988948173b6da1d86f08b0
 @mixin font{
   font-family: "Montserrat", sans-serif;
   color:white;
@@ -53,6 +56,10 @@ $charcoal: #444444;
   }
 
   .color-btn:hover{
+    box-shadow: 0 0 10px grey;
+  }
+
+  #selected{
     box-shadow: 0 0 10px grey;
   }
 
