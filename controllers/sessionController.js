@@ -28,20 +28,28 @@ module.exports = {
         gameSocket.on('connect', (socket) => {
           console.log(`User connected to room ${dbModel.url}`);
           socket.emit('usermade', { userid: socket.client.id});
+
           socket.on('useradded', function() {
             db.Session
             .find({"url": dbModel.url})
               .then(dbModel => {
                 console.log('socket added triggered')
-                socket.broadcast.emit('useraddedsuccessfully', {model: dbModel})
-                socket.emit('useraddedsuccessfully', {model: dbModel})
+                socket.broadcast.emit('useraddedsuccessfullyother', {model: dbModel})
+                socket.emit('useraddedsuccessfullyself', {model: dbModel})
               })
           })
+
           socket.on('startgame', function() {
-            console.log('start game button triggered')
-            socket.emit('startgame')
-            socket.broadcast.emit('startgame')
+            db.Session
+            .find({"url": dbModel.url})
+              .then(dbModel => {
+                console.log('start game button triggered')
+                socket.emit('startgamejudge', {model: dbModel})
+                socket.broadcast.emit('startgameplayer', {model: dbModel})
+              })
+
           })
+
           socket.on('disconnect', function(){
             console.log('user disconnected');
           });
