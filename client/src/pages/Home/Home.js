@@ -16,12 +16,12 @@ class Home extends Component {
 
     state = {
         urlString: "",
+        keyword: "",
         socketAddress: "",
         theme: "",
         userName: "",
         userScore: "",
         userColor: "",
-
         BottomNavPlayerList: [],
         BottomNavExpanded: false,
         BottomNavClasses: "bottom-nav",
@@ -36,7 +36,6 @@ class Home extends Component {
         pendingPlayerHeader: "",
         profBtnClicked: false,
         profBtnId: "selected-btn",
-      
         // Variables to prompt showing React components
         showProfile: false,
         showPending: false, 
@@ -118,11 +117,13 @@ class Home extends Component {
 
             //URl exists
             else {
+                console.log("SESSION DATA")
                 console.log(res.data)
                 console.log("You entered a valid session!")
                 const socket = io(self.state.urlString);
                 console.log("Socket object:", socket);
 
+                this.setState({keyword: res.data[0].title})
 
                 this.setState({socket: socket}, function() {
 
@@ -196,7 +197,6 @@ class Home extends Component {
 
         const bottomNavArray = []
         const playerList = []
-
         let count = 1
 
         for (var i = 0; i < data.model[0].members.length; i ++) {
@@ -237,6 +237,7 @@ class Home extends Component {
             
         } 
     
+
     }
 
     render() {
@@ -250,6 +251,7 @@ class Home extends Component {
                 { this.state.showPending ?
                     <div>
                         <LoadingScreen url={this.state.urlString} judge={this.state.currentJudge} socket={this.state.socket}
+                            keyword = {this.state.keyword}
                             pendingMessage= {this.state.pendingMessage}
                             pendingPlayerHeader = {this.state.pendingPlayerHeader}
                             userName= {this.state.userName}
@@ -289,7 +291,6 @@ class Home extends Component {
                             color={prompt.color}
                             selectedTheme={() => {this.randomTheme(prompt.index)}} />
                         ))}
-
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
@@ -306,15 +307,14 @@ class Home extends Component {
                                 }
                             </PlayerListHolder>
                         </BottomNav> 
-
                     </div>
                 
                 : null }
 
                 { this.state.showGiphySearch ?
                     <div> 
-                        <GiphySearch/>
-                        <BottomNav/>
+                        <GiphySearch />
+                        <BottomNav />
                     </div>
                 : null}
                 {/* Use to test Giphy Search w/o running the game logic */}
