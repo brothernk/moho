@@ -7,17 +7,35 @@ class GiphySearch extends Component {
   state = {
       searchTerm: "",
       image_url: "",
-      confirm: false
+      defaultGif: "https://media.giphy.com/media/6GY01XQBkf3lS/giphy.gif"
   }
 
   componentDidMount = () => {
       console.log("Mounted");
   }
+
+  componentDidUpdate = () => {
+
+    if (this.props.timer) {
+
+        let gifObject = {
+            socket: this.props.userSocket,
+            gif: this.state.defaultGif
+        }
+
+        this.props.socket.emit('playeroutoftime', gifObject)
+        this.props.outOfTime("pendingMessage", "Players choosing gifs")
+        this.props.outOfTime("pendingPlayerHeader", "Players done with challenge")
+        this.props.outOfTime("showGiphySearch", false)
+        this.props.outOfTime("showPending", true)
+
+    }
+
+  }
   
   callGIPHY = () => {
       API.getGIF(this.state.searchTerm)
       .then(response => {
-          console.log(response.data.data);
           this.setState({
             image_url: response.data.data.image_url
         });
@@ -40,9 +58,20 @@ class GiphySearch extends Component {
   }
 
   confirmSelection = () => {
-      this.setState({
-          confirm: true
-      });
+
+    let gifObject = {
+        socket: this.props.userSocket,
+        gif: this.state.image_url
+    }
+
+    this.props.socket.emit('playergifchosen', gifObject)
+    this.props.outOfTime("pendingMessage", "Players choosing gifs")
+    this.props.outOfTime("pendingPlayerHeader", "Players done with challenge")
+    this.props.outOfTime("outOfTime", false)
+    this.props.outOfTime("showTimer", false)
+    this.props.outOfTime("showGiphySearch", false)
+    this.props.outOfTime("showPending", true)
+
   }
 
   render() {
