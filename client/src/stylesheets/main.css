@@ -1,5 +1,28 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 @import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
+h1, h2, h3, h4, h5, h6, p {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-weight: 700; }
+
+.winning-gif-prompt {
+  padding: 15px 25px 0px 25px; }
+
+.winner-page-recap {
+  padding: 45px 25px 10px 25px; }
+
+.winning-gif-holder {
+  width: 100%;
+  padding: 25px; }
+
+.winning-gif {
+  max-width: 100%;
+  border-radius: 15px;
+  max-height: 250px;
+  display: block;
+  margin: 0 auto;
+  border: 7px solid gold; }
+
 .signup-btn, .login-btn, .enter-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
