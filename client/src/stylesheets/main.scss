@@ -60,11 +60,10 @@ body {
 }
 
 //Logo ==============================================================
-.trex-pic{
-  max-width: 250px;
+.logo {
+  max-width: 700px;
+  width: 100%;
   padding: 25px;
-  margin-top:50px;
-}
 
 //Error Message ===========================================================
 #not-a-session{
@@ -75,12 +74,12 @@ body {
 //Buttons =========================================================
 .signup-btn{
   @extend %buttons;
-  background:$orange;
+  background:$red;
 }
 
 .login-btn, .enter-btn{
   @extend %buttons;
-  background: $green;
+  background: $pink;
 }
 
 .signup-btn:hover, .login-btn:hover, .enter-btn:hover{
@@ -108,7 +107,7 @@ input[type="text"]:focus{
 #roomkey{
  @include position;
  border-radius: 30px;
- background-color: $orange;
+ background-color: $red;
  width: 100%;
  max-width: 300px;
  margin-top:50px;
