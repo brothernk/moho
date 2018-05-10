@@ -36,7 +36,7 @@ class GifReveal extends Component {
 
         <div className="gif-reveal-div">
           {this.state.gifsReturned.map(gif => (
-              <img onClick={this.selectWinner} src={gif.gif} data-user={gif.member.ip}/>
+              <Gif onClick={this.selectWinner} src={gif.gif} data-user={gif.member.ip}/>
           ))
           }
         </div>
