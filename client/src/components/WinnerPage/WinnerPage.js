@@ -49,7 +49,7 @@ class WinnerPage extends Component {
         <div className="pull-themes-btn">
           <span className="btn">
           { this.state.userJudge ? 
-            <p className="judge-start" onClick={this.startGame}>Start Next Round!</p>
+            <p className="next-round-btn" onClick={this.startGame}>Next Round</p>
           : null}
           </span>
         </div>

@@ -94,7 +94,7 @@ class GifReveal extends Component {
       <div className="gif-reveal-component">
 
         { this.state.showJudgeInstructions ? 
-          <h1>Pick the winning gif!</h1>
+          <h2 className="judge-instructions">Pick the winning .gif!</h2>
         : null}
 
         <h6>{this.props.theme}</h6>

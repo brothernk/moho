@@ -18,7 +18,7 @@
   left: 15px;
   background-color: #C0C0C0; }
 
-.judge-start, .show-gifs-btn {
+.judge-start, .show-gifs-btn, .next-round-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
   padding: 10px 25px;
@@ -29,7 +29,7 @@
   background: #D45FFF;
   font-size: 16px; }
 
-.show-gifs-btn {
+.show-gifs-btn, .next-round-btn {
   top: 10px; }
 
 .judge-start:hover, .show-gifs-btn:hover {

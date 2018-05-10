@@ -6,6 +6,10 @@
     max-height: 240px;
     max-width: 100%; }
 
+.gif-reveal-component .judge-instructions {
+  font-family: "Montserrat", sans-serif;
+  color: white; }
+
 .gif-reveal-component h4, .gif-reveal-component h6 {
   font-family: "Montserrat", sans-serif;
   color: white; }

@@ -47,7 +47,7 @@ $charcoal: #444444;
   background-color: $grey;
 }
 
-.judge-start, .show-gifs-btn {
+.judge-start, .show-gifs-btn, .next-round-btn{
   @include font;
   padding: 10px 25px;
   border-radius: 40px;
@@ -58,7 +58,7 @@ $charcoal: #444444;
   font-size: 16px;
 }
 
-.show-gifs-btn{
+.show-gifs-btn, .next-round-btn{
   top:10px;
 }
 
