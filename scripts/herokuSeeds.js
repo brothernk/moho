@@ -3,7 +3,7 @@ const db = require("../models");
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
-	"mongodb://mikelsito:Makhi2007@ds211440.mlab.com:11440/heroku_g9pw6kgv"
+	"mongodb://mikelsito:Makhi2007@ds119650.mlab.com:19650/heroku_wwc9gmr7"
 );
 
 const gifCategories = [
