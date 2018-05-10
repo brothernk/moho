@@ -50,6 +50,12 @@ module.exports = {
 
           })
 
+          socket.on('startnextround', function() {
+            console.log('start next round button triggered')
+            socket.emit('startnextroundjudge')
+            socket.broadcast.emit('startnextroundplayer')
+          })
+
           socket.on('categorytheme selected', function(data){
             db.Session
             .find({"url": dbModel.url})
