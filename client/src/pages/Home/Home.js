@@ -104,6 +104,7 @@ class Home extends Component {
             console.log("PLAYER GAME STARTED")
             self.setState({gifsReturned: []})
             self.setState({outOfTime: false})
+            self.setState({playerList: []})
             self.setState({pendingPlayerHeader: "Players in round"}, function() {
                 let judge = self.state.currentJudge
                 let message = judge + " choosing category..."
@@ -117,6 +118,7 @@ class Home extends Component {
         self.state.socket.on("startnextroundjudge", function() {
             console.log("JUDGE GAME STARTED")
             self.setState({gifsReturned: []})
+            self.setState({playerList: []})
             self.setState({outOfTime: false})
             self.setState({showWinner: false})
             self.setState({showJudgeCategory: true})
