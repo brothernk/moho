@@ -129,28 +129,36 @@ module.exports = {
                     {$inc: { "members.$.score": 1} })
             .then(dbModel => {
               socket.emit('winnerinfojudge', data)
-              self.state.socket.broadcast.emit('winnerinfoplayer', data)
+              socket.broadcast.emit('winnerinfoplayer', data)
             })
             .catch(err => res.status(422).json(err));
           }),
 
           socket.on('choosenewjudge', function(data) {
             console.log('choose change judge activated')
-            let newip = (data.newjudge.ip).toString()
-            let oldip = (data.oldjudge.ip).toString()
+            let newip = (data.ip).toString()
             db.Session
             .update({url: dbModel.url, "members.ip": newip },
                     {$set: {  "members.$.judge": true}})
             .then(dbModel => {
               console.log('new judge updated')
-              db.Session
+              socket.emit('newjudgeupdated')
+            })
+            .catch(err => res.status(422).json(err));
+          })
+
+          socket.on('changeoldjudge', function(data) {
+            console.log('change old judge activated')
+            let oldip = (data.ip).toString()
+            db.Session
               .update({url: dbModel.url, "members.ip": oldip },
                       {$set: {  "members.$.judge": false}})
               .then(dbModel => {
-                socket.emit('newjudgeupdated')
+                console.log(dbModel)
+                console.log('old judge updated')
+                socket.emit('oldjudgeupdated')
               })
-            })
-            .catch(err => res.status(422).json(err));
+              .catch(err => res.status(422).json(err));
           })
 
           socket.on('newgame', function() {
@@ -158,14 +166,14 @@ module.exports = {
             .find({"url": dbModel.url})
               .then(dbModel => {
                 console.log('new game triggered')
-                socket.emit('newgame', {model: dbModel})
-                socket.broadcast.emit('newgame', {model: dbModel})
+                socket.emit('newgamejudge', {model: dbModel})
+                socket.broadcast.emit('newgameplayer', {model: dbModel})
               })
           })
 
           socket.on('revealgifs', function() {
-            socket.emit('revealgifs')
-            socket.broadcast.emit('revealgifs')
+            socket.emit('revealgifsjudge')
+            socket.broadcast.emit('revealgifsplayer')
           }),
 
           socket.on('disconnect', function(){

@@ -31,6 +31,7 @@ class Home extends Component {
         BottomNavClasses: "bottom-nav",
         userJudge: false, 
         currentJudge: "",
+        oldJudge: "",
 
         // If on opening screen, includes all players. Otherwise includes players that are not the judge
         // from updateMembers function
@@ -206,30 +207,46 @@ class Home extends Component {
                 }
             }
             
+            self.setState({oldJudge: oldJudge})
+
             let randomJudge = allPlayerArray[Math.floor(Math.random() * allPlayerArray.length)]
 
-            let judgeObject = {
-                newjudge: randomJudge,
-                oldjudge: oldJudge
-            }
-
-            self.state.socket.emit('choosenewjudge', judgeObject)
+            self.state.socket.emit('choosenewjudge', randomJudge)
         })
+
+
 
         self.state.socket.on('winnerinfoplayer', function(data) {
             self.setState({winner: data})
         })
 
-        self.state.socket.on('revealgifs', function() {
+        self.state.socket.on('revealgifsjudge', function() {
+            self.setState({showPending: false})
+            self.setState({showGifReveal: true})
+        })
+
+        self.state.socket.on('revealgifsplayer', function() {
             self.setState({showPending: false})
             self.setState({showGifReveal: true})
         })
 
         self.state.socket.on('newjudgeupdated', function() {
+            let oldjudge = self.state.oldJudge
+            self.state.socket.emit('changeoldjudge', oldjudge)
+        })
+
+        self.state.socket.on('oldjudgeupdated', function() {
             self.state.socket.emit('newgame')
         })
 
-        self.state.socket.on('newgame', function(data) {
+        self.state.socket.on('newgamejudge', function(data) {
+            self.updateMembers(data, function() {
+                self.setState({showGifReveal: false})
+                self.setState({showWinner: true})
+            })
+        })
+
+        self.state.socket.on('newgameplayer', function(data) {
             self.updateMembers(data, function() {
                 self.setState({showGifReveal: false})
                 self.setState({showWinner: true})
@@ -483,13 +500,8 @@ class Home extends Component {
                         <GiphySearch theme={this.state.selectedTheme} category={this.state.selectedCategory} socket={this.state.socket} 
                         userSocket={this.state.socketAddress} 
                         timer={this.state.outOfTime} outOfTime={this.componentChange.bind(this)} >
-                        <Timer outOfTime={this.componentChange.bind(this)} />
-                        </GiphySearch>
-
-                        {/* Is this needed? */}
-                        {/* { this.state.showTimer ? 
                             <Timer outOfTime={this.componentChange.bind(this)} />
-                        : null} */}
+                        </GiphySearch>
 
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
@@ -519,10 +531,29 @@ class Home extends Component {
                 : null}
 
                 { this.state.showWinner ? 
-                    <WinnerPage
-                        winner={this.state.winner} theme={this.state.selectedTheme} category={this.state.selectedCategory} 
-                        judge={this.state.currentJudge} userJudge={this.state.userJudge}
-                    />
+                    <div>
+                        <WinnerPage
+                            winner={this.state.winner} theme={this.state.selectedTheme} category={this.state.selectedCategory} 
+                            judge={this.state.currentJudge} userJudge={this.state.userJudge}
+                        />
+
+                        <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
+                            <PlayerListHolder>
+                                <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}
+                                userColor={this.state.userColor} />
+                                {this.state.BottomNavPlayerList.map(
+                                    player => (
+                                        <PlayerList
+                                        key={player.ip}
+                                        id={player.ip}
+                                        playerName={player.name} playerScore={player.score}
+                                        userColor={player.color}
+                                        />
+                                    ))
+                                }
+                            </PlayerListHolder>
+                        </BottomNav> 
+                    </div>
                 : null}
 
                 {/* Use to test Giphy Search w/o running the game logic */}
