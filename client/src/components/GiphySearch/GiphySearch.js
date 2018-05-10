@@ -85,7 +85,7 @@ class GiphySearch extends Component {
                     <i className="fas fa-search"></i>
                 </div>
                 <Gif src={this.state.image_url}/>
-                {/* <img src={this.state.image_url} alt="" className="gif-preview"/> */}
+
                 <div className="button-holder">
                     <div className="timer-placeholder">
                         <i className="fas fa-stopwatch"></i>
