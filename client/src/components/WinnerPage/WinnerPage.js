@@ -10,18 +10,14 @@ class WinnerPage extends Component {
 
 	componentDidMount = () => {
     console.log("mounted");
-
     console.log(this.props)
-
     this.setState({gif: this.props.winner.gif})
     this.setState({winner: this.props.winner.member.name})
     this.setState({judge: this.props.judge})
-    this.setState({userJudge: this.props.userJudge})
-    
+    this.setState({userJudge: this.props.userJudge})  
   }
   
   componentDidUpdate = () => {
-
     if (this.props.winner.member.name !== this.state.winner) {
       this.setState({winner: this.props.winner.member.name})
     }
@@ -63,11 +59,11 @@ class WinnerPage extends Component {
         <h6>{this.props.theme}</h6>
         <h4>{this.props.category}</h4>
 
-				<h1>Winner: {this.state.winner}!!!</h1>
-
         <div>
           <img src={this.state.gif} alt=""/>
         </div>
+
+        <h1>Winner: {this.state.winner}!!!</h1>
 
       </div>
 			);
