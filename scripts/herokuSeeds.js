@@ -25,7 +25,7 @@ const gifCategories = [
 		index: 2,
 		color: "#FF6161",
 		theme: ["In #Pop-Culture"],
-		categories: ["Kanye waiting in line", "Kanye talking to himself in the mirror", "Shaq trying to use the play-place at McDonalds", "ALl of the Kardashians trying to fix a flat tire"]
+		categories: ["Kanye waiting in line", "Kanye talking to himself in the mirror", "Shaq trying to use the play-place at McDonalds", "All of the Kardashians trying to fix a flat tire"]
   },
   {
 		icon: "fab fa-fort-awesome-alt",

@@ -120,6 +120,54 @@ module.exports = {
               })
           })
 
+          socket.on('winnersocket', function(data) {
+            console.log('winner socket activated')
+            let ip = (data.member.ip).toString()  
+
+            db.Session
+            .update({url: dbModel.url, "members.ip": ip },
+                    {$inc: { "members.$.score": 1} })
+            .then(dbModel => {
+              socket.emit('winnerinfojudge', data)
+              self.state.socket.broadcast.emit('winnerinfoplayer', data)
+            })
+            .catch(err => res.status(422).json(err));
+          }),
+
+          socket.on('choosenewjudge', function(data) {
+            console.log('choose change judge activated')
+            let newip = (data.newjudge.ip).toString()
+            let oldip = (data.oldjudge.ip).toString()
+            db.Session
+            .update({url: dbModel.url, "members.ip": newip },
+                    {$set: {  "members.$.judge": true}})
+            .then(dbModel => {
+              console.log('new judge updated')
+              db.Session
+              .update({url: dbModel.url, "members.ip": oldip },
+                      {$set: {  "members.$.judge": false}})
+              .then(dbModel => {
+                socket.emit('newjudgeupdated')
+              })
+            })
+            .catch(err => res.status(422).json(err));
+          })
+
+          socket.on('newgame', function() {
+            db.Session
+            .find({"url": dbModel.url})
+              .then(dbModel => {
+                console.log('new game triggered')
+                socket.emit('newgame', {model: dbModel})
+                socket.broadcast.emit('newgame', {model: dbModel})
+              })
+          })
+
+          socket.on('revealgifs', function() {
+            socket.emit('revealgifs')
+            socket.broadcast.emit('revealgifs')
+          }),
+
           socket.on('disconnect', function(){
             console.log('user disconnected');
           });
@@ -159,7 +207,6 @@ module.exports = {
         { $push: { members: memberObject}}
       )
       .then(dbModel =>   {
-
         res.json(dbModel)
       })
       .catch(err => res.status(422).json(err));

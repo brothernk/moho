@@ -1,8 +1,8 @@
 import React from "react";
 
 const Gif = props => (
-  <div className="gif-component" onClick={props.selectWinner}>
-    <img src={props.src} alt={props.alt} className="gif-preview" data-user={props.user}/>
+  <div className="gif-component" onClick={props.onClick} key={props.user}>
+    <img src={props.src} className="gif-preview" data={props.user}/>
   </div>
 )
 

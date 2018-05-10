@@ -119,6 +119,8 @@ class LoadingScreen extends Component {
   
   showGifs = () => {
     console.log('show gifs button clicked')
+    const self = this
+    self.props.socket.emit('revealgifs')
   }
 
   render() {

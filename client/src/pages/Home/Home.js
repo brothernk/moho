@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import { endSessBtn, nextRndBtn } from "../../components/Buttons";
 import BottomNav from "../../components/BottomNav/bottomNav";
 import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
+import GifReveal from "../../components/GifReveal/GifReveal";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
 import io from "socket.io-client";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
@@ -57,6 +58,7 @@ class Home extends Component {
         showProfile: false,
         showPending: false, 
         showJudgeCategory: false,
+        showGifReveal: false,
         showGiphySearch: false,
         showJudgeChoices: false,
         showWinner: false,
@@ -143,12 +145,14 @@ class Home extends Component {
             self.setState({gifsReturned: gifArray})
 
             let playerArray = []
-            for (var i = 0; i < self.state.playerList.length; i ++ ) {
-                playerArray.push(self.state.playerList[i])
+            for (var j = 0; j < self.state.playerList.length; j ++ ) {
+                playerArray.push(self.state.playerList[j])
             }
             playerArray.push(data.model.member)
             self.setState({playerList: playerArray}, function() {
                 if (self.state.playerList.length === self.state.allPlayers.length) {
+                    self.setState({outOfTime: true})
+                    self.setState({showTimer: false})
                     self.setState({showJudgeChoices: true})
                 }
             })
@@ -171,15 +175,61 @@ class Home extends Component {
             })
 
             let playerArray = []
-            for (var i = 0; i < self.state.playerList.length; i ++ ) {
-                playerArray.push(self.state.playerList[i])
+            for (var j = 0; j < self.state.playerList.length; j ++ ) {
+                playerArray.push(self.state.playerList[j])
             }
             playerArray.push(data.model.member)
             self.setState({playerList: playerArray}, function() {
                 if (self.state.playerList.length === self.state.allPlayers.length) {
+                    self.setState({outOfTime: true})
+                    self.setState({showTimer: false})
                     self.setState({showJudgeChoices: true})
                 }
             })
+        })
+
+        self.state.socket.on('winnerinfojudge', function(data) {
+            self.setState({winner: data})
+
+            let allPlayerArray = []
+            let oldJudge = ""
+
+            for (var i = 0; i < self.state.allPlayers.length; i ++ ) {
+                if (self.state.allPlayers[i].judge === false) {
+                    allPlayerArray.push(self.state.allPlayers[i])
+                }
+
+                else {
+                    oldJudge = self.state.allPlayers[i]
+                }
+            }
+            
+            let randomJudge = allPlayerArray[Math.floor(Math.random() * allPlayerArray.length)]
+
+            let judgeObject = {
+                newjudge: randomJudge,
+                oldjudge: oldJudge
+            }
+
+            self.state.socket.emit('choosenewjudge', judgeObject)
+        })
+
+        self.state.socket.on('winnerinfoplayer', function(data) {
+            self.setState({winner: data})
+        })
+
+        self.state.socket.on('revealgifs', function() {
+            self.setState({showPending: false})
+            self.setState({showGifReveal: true})
+        })
+
+        self.state.socket.on('newjudgeupdated', function() {
+            self.state.socket.emit('newgame')
+        })
+
+        self.state.socket.on('newgame', function(data) {
+            self.updateMembers(data)
+            self.setState({showGifReveal: false})
         })
 
     }
@@ -452,6 +502,20 @@ class Home extends Component {
                             </PlayerListHolder>
                         </BottomNav> 
                     </div>
+                : null}
+
+                { this.state.showGifReveal ? 
+                    <GifReveal
+                        theme={this.state.selectedTheme} category={this.state.selectedCategory} gifsReturned={this.state.gifsReturned} 
+                        users={this.state.allPlayers} userSocket = {this.state.socketAddress}
+                        socket={this.state.socket}
+                    />
+                : null}
+
+                { this.state.showWinner ? 
+                    <WinnerPage
+                        winner={this.state.winner} theme={this.state.selectedTheme} category={this.state.selectedCategory} 
+                    />
                 : null}
 
                 {/* Use to test Giphy Search w/o running the game logic */}
