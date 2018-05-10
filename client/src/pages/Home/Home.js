@@ -151,6 +151,8 @@ class Home extends Component {
             playerArray.push(data.model.member)
             self.setState({playerList: playerArray}, function() {
                 if (self.state.playerList.length === self.state.allPlayers.length) {
+                    self.setState({outOfTime: true})
+                    self.setState({showTimer: false})
                     self.setState({showJudgeChoices: true})
                 }
             })
@@ -179,14 +181,55 @@ class Home extends Component {
             playerArray.push(data.model.member)
             self.setState({playerList: playerArray}, function() {
                 if (self.state.playerList.length === self.state.allPlayers.length) {
+                    self.setState({outOfTime: true})
+                    self.setState({showTimer: false})
                     self.setState({showJudgeChoices: true})
                 }
             })
         })
 
+        self.state.socket.on('winnerinfojudge', function(data) {
+            self.setState({winner: data})
+
+            let allPlayerArray = []
+            let oldJudge = ""
+
+            for (var i = 0; i < self.state.allPlayers.length; i ++ ) {
+                if (self.state.allPlayers[i].judge === false) {
+                    allPlayerArray.push(self.state.allPlayers[i])
+                }
+
+                else {
+                    oldJudge = self.state.allPlayers[i]
+                }
+            }
+            
+            let randomJudge = allPlayerArray[Math.floor(Math.random() * allPlayerArray.length)]
+
+            let judgeObject = {
+                newjudge: randomJudge,
+                oldjudge: oldJudge
+            }
+
+            self.state.socket.emit('choosenewjudge', judgeObject)
+        })
+
+        self.state.socket.on('winnerinfoplayer', function(data) {
+            self.setState({winner: data})
+        })
+
         self.state.socket.on('revealgifs', function() {
             self.setState({showPending: false})
             self.setState({showGifReveal: true})
+        })
+
+        self.state.socket.on('newjudgeupdated', function() {
+            self.state.socket.emit('newgame')
+        })
+
+        self.state.socket.on('newgame', function(data) {
+            self.updateMembers(data)
+            self.setState({showGifReveal: false})
         })
 
     }
@@ -459,7 +502,9 @@ class Home extends Component {
 
                 { this.state.showGifReveal ? 
                     <GifReveal
-                        theme={this.state.selectedTheme} category={this.state.selectedCategory} gifsReturned={this.state.gifsReturned}
+                        theme={this.state.selectedTheme} category={this.state.selectedCategory} gifsReturned={this.state.gifsReturned} 
+                        users={this.state.allPlayers} userSocket = {this.state.socketAddress}
+                        socket={this.state.socket}
                     />
                 : null}
 

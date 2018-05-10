@@ -84,7 +84,7 @@ class GiphySearch extends Component {
                 <div onClick={this.callGIPHY} className="search-button">
                     <i className="fas fa-search"></i>
                 </div>
-                <Gif src={this.state.image_url} alt="" />
+                <Gif src={this.state.image_url}/>
                 {/* <img src={this.state.image_url} alt="" className="gif-preview"/> */}
                 <div className="button-holder">
                     <div className="timer-placeholder">
