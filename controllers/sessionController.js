@@ -120,6 +120,11 @@ module.exports = {
               })
           })
 
+          socket.on('revealgifs', function() {
+            socket.emit('revealgifs')
+            socket.broadcast.emit('revealgifs')
+          })
+
           socket.on('disconnect', function(){
             console.log('user disconnected');
           });

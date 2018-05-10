@@ -145,8 +145,8 @@ class Home extends Component {
             self.setState({gifsReturned: gifArray})
 
             let playerArray = []
-            for (var i = 0; i < self.state.playerList.length; i ++ ) {
-                playerArray.push(self.state.playerList[i])
+            for (var j = 0; j < self.state.playerList.length; j ++ ) {
+                playerArray.push(self.state.playerList[j])
             }
             playerArray.push(data.model.member)
             self.setState({playerList: playerArray}, function() {
@@ -173,8 +173,8 @@ class Home extends Component {
             })
 
             let playerArray = []
-            for (var i = 0; i < self.state.playerList.length; i ++ ) {
-                playerArray.push(self.state.playerList[i])
+            for (var j = 0; j < self.state.playerList.length; j ++ ) {
+                playerArray.push(self.state.playerList[j])
             }
             playerArray.push(data.model.member)
             self.setState({playerList: playerArray}, function() {
@@ -182,6 +182,11 @@ class Home extends Component {
                     self.setState({showJudgeChoices: true})
                 }
             })
+        })
+
+        self.state.socket.on('revealgifs', function() {
+            self.setState({showPending: false})
+            self.setState({showGifReveal: true})
         })
 
     }

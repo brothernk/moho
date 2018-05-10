@@ -4,11 +4,12 @@ import ReactSwipe from "react-swipe";
 
 class GifReveal extends Component {
   state = {
-    gifsReturned: ""
+    gifsReturned: []
   }
 
   componentDidMount = () => {
     console.log("Mounted")
+    console.log(this.props.gifsReturned)
     this.setState({gifsReturned: this.props.gifsReturned})
   }
 
@@ -19,12 +20,12 @@ class GifReveal extends Component {
   }
 
   selectWinner = () => {
-    if (user === judge) {
-      "slected"
-    }
-    else {
-      "too bad"
-    }
+    // if (user === judge) {
+    //   "slected"
+    // }
+    // else {
+    //   "too bad"
+    // }
   }
 
   render() {
@@ -35,7 +36,7 @@ class GifReveal extends Component {
 
         <ReactSwipe key={this.state.gifsReturned.length} className="carousel" swipeOptions={{continous: false}}>
           {this.state.gifsReturned.map(gif => (
-            <Gif onClick={this.selectWinner} src={this.state.gifsReturned.url} data-user={this.state.gifsReturned.member.ip}/>
+            <Gif onClick={this.selectWinner} src={gif.gif} data-user={gif.member.ip}/>
           ))
           }
         </ReactSwipe>
