@@ -5,6 +5,7 @@ class WinnerPage extends Component {
     judge: "",
     gif: "",
     winner: "",
+    winnerColor: "",
     userJudge: ""
   }
 
@@ -13,6 +14,7 @@ class WinnerPage extends Component {
     console.log(this.props)
     this.setState({gif: this.props.winner.gif})
     this.setState({winner: this.props.winner.member.name})
+    this.setState({winnerColor: this.props.winner.member.color})
     this.setState({judge: this.props.judge})
     this.setState({userJudge: this.props.userJudge})  
   }
@@ -20,6 +22,10 @@ class WinnerPage extends Component {
   componentDidUpdate = () => {
     if (this.props.winner.member.name !== this.state.winner) {
       this.setState({winner: this.props.winner.member.name})
+    }
+
+    if (this.props.winner.member.color !== this.state.winnerColor) {
+      this.setState({winnerColor: this.props.winner.member.color})
     }
 
     if (this.props.winner.gif !== this.state.gif) {
@@ -56,15 +62,15 @@ class WinnerPage extends Component {
 
         <p className="judge">Judge: {this.state.judge}</p>
 
-        <h6>{this.props.theme}</h6>
+        <h6 className="winner-page-recap">{this.props.theme}</h6>
         <h4>{this.props.category}</h4>
 
-        <div>
-          <img src={this.state.gif} alt=""/>
+        <div className="winning-gif-holder">
+          <img className="winning-gif" src={this.state.gif} alt=""/>
         </div>
 
-        <h1>Winner: {this.state.winner}!!!</h1>
-
+        <h1>Winner:</h1>
+        <h3>{this.state.winner}!!!</h3>    
       </div>
 			);
 	}
