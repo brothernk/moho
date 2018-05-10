@@ -36,7 +36,9 @@ class GifReveal extends Component {
 
         <ReactSwipe key={this.state.gifsReturned.length} className="carousel" swipeOptions={{continous: false}}>
           {this.state.gifsReturned.map(gif => (
-            <Gif onClick={this.selectWinner} src={gif.gif} data-user={gif.member.ip}/>
+            <div>
+              <img onClick={this.selectWinner} src={gif.gif} data-user={gif.member.ip}/>
+            </div>
           ))
           }
         </ReactSwipe>
