@@ -12,4 +12,4 @@ A judge is selected out of the player pool, and once everyone is in the room, th
 
 ## Our site is live at https://truethat.app/
 
-![Imgur](https://i.imgur.com/rYXcrzL.png)
+![Imgur](https://i.imgur.com/SQIWjhw.png)
