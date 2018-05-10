@@ -9,3 +9,24 @@
     max-width: 100%;
   }
 }
+
+//Gif Reveal Page ====================================================
+.gif-reveal-component{
+  h4, h6{
+    @include font;
+  }
+
+  h4{
+    padding:15px;
+  }
+
+  h6{
+    padding-top:15px;
+  }
+
+  .gif-reveal-div{
+    @include position;
+    max-width: 400px;
+    width:90%;
+  }
+}

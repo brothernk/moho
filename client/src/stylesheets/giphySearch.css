@@ -26,7 +26,8 @@
         right: 15px;
         font-size: 20px; }
     .giphy-component .search-holder .search-button:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      background: #ff7842; }
     .giphy-component .search-holder img {
       width: 100%;
       margin-top: 15px;
@@ -70,4 +71,5 @@
           right: 15px;
           font-size: 20px; }
       .giphy-component .search-holder .button-holder .confirm:hover {
-        cursor: pointer; }
+        cursor: pointer;
+        background: #3da894; }
