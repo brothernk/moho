@@ -3,7 +3,7 @@ import React from "react";
 class Timer extends React.Component {
 
   state = {
-    timeRemaining: 20
+    timeRemaining: 45
   }
 
   componentDidMount = () => {
@@ -11,7 +11,7 @@ class Timer extends React.Component {
   }
 
   countdown = () => {
-    this.state.timeRemaining = 20;
+    this.state.timeRemaining = 45;
     let number = this.state.timeRemaining;
     let i;
     setInterval(() => {

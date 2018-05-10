@@ -40,13 +40,23 @@ $charcoal: #444444;
   padding:15px 15px 0px 15px;
 }
 
+.join {
+  background-color: $green;
+  color: #fff;
+}
+
+.cantJoin {
+  background-color: $grey;
+  color: grey !important;
+}
+
 .join-btn{
   @include font;
-  background-color: $green;
   border-radius: 30px;
   font-size:25px;
-  padding: 8px;
+  padding: 10px 25px;
   width:180px;
+  transition: .25s;
 }
 
 //Color Buttons

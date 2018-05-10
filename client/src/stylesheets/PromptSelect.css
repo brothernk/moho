@@ -9,10 +9,10 @@
   .promptSelect-component .prompt-card {
     text-align: left;
     width: 95%;
+    max-width: 400px;
     display: block;
     margin: 0 auto;
-    background: #FF6161;
-    padding: 15px 20px 10px 20px;
+    padding: 15px 10px;
     border-radius: 15px; }
     .promptSelect-component .prompt-card i {
       padding-right: 15px; }

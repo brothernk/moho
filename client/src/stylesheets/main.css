@@ -35,17 +35,21 @@ body {
 .logo {
   max-width: 700px;
   width: 100%;
-  padding: 25px; }
+  padding: 25px 25px 10px 25px; }
 
 #not-a-session {
   margin-top: 25%;
   font-size: 150%; }
 
 .signup-btn {
-  background: #FF6161; }
+  background: #FF6161;
+  width: 70%;
+  max-width: 250px; }
 
 .login-btn, .enter-btn {
-  background: #D45FFF; }
+  background: #D45FFF;
+  width: 70%;
+  max-width: 250px; }
 
 .signup-btn:hover, .login-btn:hover, .enter-btn:hover {
   background-color: grey; }
@@ -54,7 +58,8 @@ input[type="text"] {
   margin: auto;
   text-align: center;
   margin-top: 20px;
-  width: 220px; }
+  width: 70%;
+  max-width: 250px; }
 
 input[type="text"]:focus {
   outline: none; }
@@ -68,11 +73,10 @@ input[type="text"]:focus {
   text-align: center;
   border-radius: 30px;
   background-color: #FF6161;
-  width: 100%;
+  width: 80%;
   max-width: 300px;
-  margin-top: 50px;
   font-size: 14px;
-  padding: 10px; }
+  padding: 10px 25px; }
 
 #random-word {
   margin-top: -10px;
@@ -84,17 +88,9 @@ p {
 .home-container {
   padding-bottom: 50px; }
 
-@media only screen and (max-width: 360px) {
-  .trex-pic {
-    max-width: 200px;
-    padding: 25px;
-    margin-top: 50px; }
-  #roomkey {
-    max-width: 240px; }
-  .signup-btn, .login-btn, .enter-btn {
-    width: 200px; }
-  input[type="text"] {
-    width: 200px; } }
+.prompt-title {
+  font-size: 27px;
+  padding-top: 15px; }
 
 .giphy-component {
   padding: 15px;
@@ -107,7 +103,8 @@ p {
     max-width: 450px;
     margin: 0 auto; }
     .giphy-component .search-holder input[type="text"] {
-      width: calc(100% - 65px); }
+      width: calc(100% - 65px);
+      max-width: none; }
     .giphy-component .search-holder .search-button {
       width: 50px;
       height: 50px;
@@ -174,8 +171,8 @@ p {
   text-align: center; }
   .gif-component .gif-preview {
     object-fit: fill;
-    max-height: 450px;
-    max-width: 450px; }
+    max-height: 240px;
+    max-width: 100%; }
 
 .promptSelect-component {
   padding: 15px; }
@@ -188,10 +185,10 @@ p {
   .promptSelect-component .prompt-card {
     text-align: left;
     width: 95%;
+    max-width: 400px;
     display: block;
     margin: 0 auto;
-    background: #FF6161;
-    padding: 15px 20px 10px 20px;
+    padding: 15px 10px;
     border-radius: 15px; }
     .promptSelect-component .prompt-card i {
       padding-right: 15px; }
@@ -213,14 +210,22 @@ p {
 .complete-profile-btn {
   padding: 15px 15px 0px 15px; }
 
+.join {
+  background-color: #44BBA4;
+  color: #fff; }
+
+.cantJoin {
+  background-color: #C0C0C0;
+  color: grey !important; }
+
 .join-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
-  background-color: #44BBA4;
   border-radius: 30px;
   font-size: 25px;
-  padding: 8px;
-  width: 180px; }
+  padding: 10px 25px;
+  width: 180px;
+  transition: .25s; }
 
 .setup-color-buttondiv {
   padding: 20px; }
@@ -346,31 +351,44 @@ p {
   padding: 15px;
   margin-top: 30px; }
 
+.fa-stack {
+  display: inline-block;
+  height: 1.4em;
+  line-height: 1.5em;
+  position: relative;
+  vertical-align: middle;
+  width: 2em; }
+
 #loading-pg-roomkey {
   margin: auto;
   text-align: center;
   border-radius: 20px;
-  background-color: #FF8A5B;
-  width: 130px;
+  background-color: #FF6161;
   top: 10px;
   right: 15px;
-  padding: 10px;
+  padding: 17px 25px 7px 25px;
   position: absolute; }
   #loading-pg-roomkey #random-word {
     font-size: 20px; }
   #loading-pg-roomkey #key-icon {
-    transform: rotate(45deg);
+    transform: rotate(15deg);
     font-size: 20px; }
 
 #theme-prompt {
-  background-color: #FF8A5B;
+  background-color: #FF6161;
   border-radius: 20px;
   padding: 10px;
-  margin: 10px 0px -80px 0px; }
+  margin: 10px auto 0px auto;
+  width: 100%;
+  max-width: 400px;
+  display: block; }
+
+#theme-prompt-theme {
+  font-size: 21px;
+  color: #cc4040; }
 
 .judge {
-  width: 150px;
-  padding: 10px;
+  padding: 10px 25px;
   border-radius: 20px;
   position: absolute;
   top: 10px;
@@ -380,25 +398,24 @@ p {
 .judge-start {
   font-family: "Montserrat", sans-serif;
   color: white;
-  width: 130px;
-  padding: 10px;
+  padding: 10px 25px;
   border-radius: 40px;
   position: absolute;
-  top: 80px;
+  top: 65px;
   right: 15px;
-  background: #44BBA4; }
+  background: #D45FFF;
+  font-size: 16px; }
 
 .loading-gif {
   padding: 15px;
   max-width: 200px;
-  margin: 0 auto;
-  margin-top: 100px; }
+  margin: 25px auto; }
 
 #current-players, #no-players {
   font-family: "Montserrat", sans-serif;
   color: white;
-  font-size: 200%;
-  margin-top: 15px; }
+  font-size: 175%;
+  margin: 5px 0px 20px 0px; }
 
 #username {
   font-family: "Montserrat", sans-serif;
