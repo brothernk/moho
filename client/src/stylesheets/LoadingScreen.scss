@@ -50,6 +50,13 @@ $charcoal: #444444;
     }
  }
 
+ #theme-prompt{
+  background-color: $orange;
+  border-radius:20px;
+  padding: 10px;
+  margin:10px 0px -80px 0px;
+ }
+
 .judge{
   width:150px;
   padding: 10px;
@@ -72,9 +79,8 @@ $charcoal: #444444;
 }
 
 .loading-gif {
-  width: 65%;
   padding: 15px;
-  max-width: 350px;
+  max-width: 200px;
   margin: 0 auto;
   margin-top:100px;
 }
@@ -105,7 +111,5 @@ $charcoal: #444444;
 
 //Desktop ===========================================================
 @media only screen and (min-width: 600px) {
-  .loading-gif {
-    margin-top:-50px;
-  }
+ 
 }

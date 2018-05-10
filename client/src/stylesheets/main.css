@@ -84,6 +84,18 @@ p {
 .home-container {
   padding-bottom: 50px; }
 
+@media only screen and (max-width: 360px) {
+  .trex-pic {
+    max-width: 200px;
+    padding: 25px;
+    margin-top: 50px; }
+  #roomkey {
+    max-width: 240px; }
+  .signup-btn, .login-btn, .enter-btn {
+    width: 200px; }
+  input[type="text"] {
+    width: 200px; } }
+
 .giphy-component {
   padding: 15px;
   margin-bottom: 40px; }
@@ -186,9 +198,9 @@ p {
 
 .color-btn {
   border-radius: 50%;
-  height: 80px;
-  width: 80px;
-  margin: 8px; }
+  height: 70px;
+  width: 70px;
+  margin: 7px; }
 
 .setup-profile {
   font-size: 30px;
@@ -267,17 +279,17 @@ p {
   .setup-color-buttondiv {
     padding: 15px 50px 15px 50px; }
   .color-btn {
-    height: 90px;
-    width: 90px;
-    margin: 9px; }
+    height: 80px;
+    width: 80px;
+    margin: 8px; }
   .pick-a-color, .complete-profile-btn {
     padding-top: 35px; } }
 
 @media only screen and (max-width: 360px) {
   .color-btn {
-    height: 70px;
-    width: 70px;
-    margin: 7px; }
+    height: 60px;
+    width: 60px;
+    margin: 6px; }
   .setup-profile {
     font-size: 25px; }
   #enter-name {
@@ -350,6 +362,12 @@ p {
     transform: rotate(45deg);
     font-size: 20px; }
 
+#theme-prompt {
+  background-color: #FF8A5B;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0px -80px 0px; }
+
 .judge {
   width: 150px;
   padding: 10px;
@@ -371,9 +389,8 @@ p {
   background: #44BBA4; }
 
 .loading-gif {
-  width: 65%;
   padding: 15px;
-  max-width: 350px;
+  max-width: 200px;
   margin: 0 auto;
   margin-top: 100px; }
 
@@ -398,10 +415,6 @@ p {
   display: inline-block;
   z-index: 100;
   margin: 0px -10px 0px -10px; }
-
-@media only screen and (min-width: 600px) {
-  .loading-gif {
-    margin-top: -50px; } }
 
 .playerlist-holder {
   width: 100%;

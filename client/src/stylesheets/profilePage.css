@@ -1,8 +1,8 @@
 .color-btn {
   border-radius: 50%;
-  height: 80px;
-  width: 80px;
-  margin: 8px; }
+  height: 70px;
+  width: 70px;
+  margin: 7px; }
 
 .setup-profile {
   font-size: 30px;
@@ -81,17 +81,17 @@
   .setup-color-buttondiv {
     padding: 15px 50px 15px 50px; }
   .color-btn {
-    height: 90px;
-    width: 90px;
-    margin: 9px; }
+    height: 80px;
+    width: 80px;
+    margin: 8px; }
   .pick-a-color, .complete-profile-btn {
     padding-top: 35px; } }
 
 @media only screen and (max-width: 360px) {
   .color-btn {
-    height: 70px;
-    width: 70px;
-    margin: 7px; }
+    height: 60px;
+    width: 60px;
+    margin: 6px; }
   .setup-profile {
     font-size: 25px; }
   #enter-name {

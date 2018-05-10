@@ -64,7 +64,6 @@ body {
   max-width: 700px;
   width: 100%;
   padding: 25px;
-}
 
 //Error Message ===========================================================
 #not-a-session{
@@ -127,6 +126,27 @@ p{
 
 .home-container {
   padding-bottom: 50px;
+}
+
+//Small Mobile Logo===========================================================
+@media only screen and (max-width: 360px) {
+  .trex-pic{
+    max-width: 200px;
+    padding: 25px;
+    margin-top:50px;
+  }
+
+  #roomkey{
+    max-width: 240px;
+   }
+
+   %buttons{
+    width:200px;
+  }
+  
+  input[type="text"]{
+    width:200px;
+  }
 }
 
 // GIPHY Search Screen =============================================
