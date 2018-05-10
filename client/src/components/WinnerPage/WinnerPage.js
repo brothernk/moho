@@ -40,6 +40,12 @@ class WinnerPage extends Component {
     }
   }
 
+  startGame = () => {
+    const self = this
+    self.props.socket.emit('startnextround')
+
+  }
+
   // Users color is this.state.winner.member.color
 
 	render() {

@@ -92,15 +92,34 @@ class Home extends Component {
                     let message = judge + " choosing category..."
                     self.setState({pendingMessage: message})
                 })
-    
-
             })       
-
         })
 
         self.state.socket.on("startgamejudge", function(data) {
             console.log("JUDGE GAME STARTED")
             self.setState({showPending: false})
+            self.setState({showJudgeCategory: true})
+        })
+
+        self.state.socket.on("startnextroundplayer", function() {
+            console.log("PLAYER GAME STARTED")
+            self.setState({gifsReturned: []})
+            self.setState({outOfTime: false})
+            self.setState({pendingPlayerHeader: "Players in round"}, function() {
+                let judge = self.state.currentJudge
+                let message = judge + " choosing category..."
+                self.setState({pendingMessage: message}, function() {
+                    self.setState({showWinner: false})
+                    self.setState({showPending: true})
+                })
+            })
+        })
+
+        self.state.socket.on("startnextroundjudge", function() {
+            console.log("JUDGE GAME STARTED")
+            self.setState({gifsReturned: []})
+            self.setState({outOfTime: false})
+            self.setState({showWinner: false})
             self.setState({showJudgeCategory: true})
         })
 
@@ -535,6 +554,7 @@ class Home extends Component {
                         <WinnerPage
                             winner={this.state.winner} theme={this.state.selectedTheme} category={this.state.selectedCategory} 
                             judge={this.state.currentJudge} userJudge={this.state.userJudge}
+                            socket={this.state.socket}
                         />
 
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
@@ -556,25 +576,6 @@ class Home extends Component {
                     </div>
                 : null}
 
-                {/* Use to test Giphy Search w/o running the game logic */}
-                {/* <GiphySearch />  */}
-
-                {/* { this.state.showWinner ?   
-                
-                    <div> 
-                        <WinnerPage />
-                        {this.state.theme.map(winner => (
-                            <WinnerPage
-                            id={winner.id}
-                            key={winner.id}
-                            icon={winner.icon}
-                            theme={winner.theme}
-                            color={winner.color}
-                            />
-                        ))}
-                        <BottomNav />
-                    </div>
-                : null} */}
             </div>
         );
     }
