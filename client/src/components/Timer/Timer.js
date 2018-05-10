@@ -3,7 +3,7 @@ import React from "react";
 class Timer extends React.Component {
 
   state = {
-    timeRemaining: 45
+    timeRemaining: 0
   }
 
   componentDidMount = () => {
@@ -11,20 +11,21 @@ class Timer extends React.Component {
   }
 
   countdown = () => {
-    this.state.timeRemaining = 45;
-    let number = this.state.timeRemaining;
-    let i;
-    setInterval(() => {
-      if (this.state.timeRemaining > 0) {
-        number--;
-        this.setState({
-              timeRemaining: number
-            });
-      } else {
-        this.props.outOfTime("outOfTime", true)
-        this.props.outOfTime("showTimer", false)
-      }
-      }, 1000)
+    this.setState({timeRemaining: 45}, function() {
+      let number = this.state.timeRemaining;
+      setInterval(() => {
+        if (this.state.timeRemaining > 0) {
+          number--;
+          this.setState({
+                timeRemaining: number
+              });
+        } else {
+          this.props.outOfTime("outOfTime", true)
+          this.props.outOfTime("showTimer", false)
+        }
+        }, 1000)
+    })
+    
   }
 
 render() {
