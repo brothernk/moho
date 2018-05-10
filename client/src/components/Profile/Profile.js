@@ -79,7 +79,7 @@ class Profile extends Component {
         self.props.socket.on('useraddedsuccessfullyself', function(data) {
             console.log("YOU ARE ADDED")
             self.props.profileAdded('pendingPlayerHeader', 'Players logged in')
-            self.props.userAdded(data)
+            self.props.userAdded(data, function() {console.log('useradded')})
 
             if (self.state.judge) {
                 self.props.profileAdded('pendingMessage', 'Click start game when ready to play')

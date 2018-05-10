@@ -79,17 +79,19 @@ class Home extends Component {
 
         self.state.socket.on("useraddedsuccessfullyother", function(data) {
             console.log("NEW USER ADDED")
-            self.updateMembers(data)
+            self.updateMembers(data, function(){console.log('member added')})
 
         })
 
         self.state.socket.on("startgameplayer", function(data){
             console.log("PLAYER GAME STARTED")
             self.setState({pendingPlayerHeader: "Players in round"}, function() {
-                self.updateMembers(data)
-                let judge = self.state.currentJudge
-                let message = judge + " choosing category..."
-                self.setState({pendingMessage: message})
+                self.updateMembers(data, function() {
+                    let judge = self.state.currentJudge
+                    let message = judge + " choosing category..."
+                    self.setState({pendingMessage: message})
+                })
+    
 
             })       
 
@@ -228,8 +230,10 @@ class Home extends Component {
         })
 
         self.state.socket.on('newgame', function(data) {
-            self.updateMembers(data)
-            self.setState({showGifReveal: false})
+            self.updateMembers(data, function() {
+                self.setState({showGifReveal: false})
+                self.setState({showWinner: true})
+            })
         })
 
     }
@@ -336,7 +340,7 @@ class Home extends Component {
 
     }
 
-    updateMembers = (data) => {
+    updateMembers = (data, callback) => {
         console.log("update members triggered")
         console.log(data.model[0].members)
 
@@ -386,7 +390,9 @@ class Home extends Component {
 
             count ++
             
-        } 
+        }
+        
+        callback()
     
 
     }
@@ -511,6 +517,7 @@ class Home extends Component {
                 { this.state.showWinner ? 
                     <WinnerPage
                         winner={this.state.winner} theme={this.state.selectedTheme} category={this.state.selectedCategory} 
+                        judge={this.state.currentJudge} userJudge={this.state.userJudge}
                     />
                 : null}
 
