@@ -1,11 +1,8 @@
 .promptSelect-component {
-  padding: 15px; }
-  .promptSelect-component h4, .promptSelect-component h5 {
+  padding: 10px; }
+  .promptSelect-component h5 {
     font-family: "Montserrat", sans-serif;
     color: white; }
-  .promptSelect-component h4 {
-    text-transform: uppercase;
-    margin-bottom: 25px; }
   .promptSelect-component .prompt-card {
     text-align: left;
     width: 95%;
@@ -16,3 +13,5 @@
     border-radius: 15px; }
     .promptSelect-component .prompt-card i {
       padding-right: 15px; }
+  .promptSelect-component .prompt-card:hover {
+    cursor: pointer; }

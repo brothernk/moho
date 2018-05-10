@@ -21,7 +21,6 @@ class PromptSelect extends Component {
         }
         
         this.props.socket.emit('categorytheme selected', selectedObject)
-
     }
 
     render() {
@@ -34,6 +33,5 @@ class PromptSelect extends Component {
         )
     }
 }
-
 
 export default PromptSelect;
