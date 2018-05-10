@@ -146,7 +146,7 @@ class LoadingScreen extends Component {
         : null }
 
         { this.state.showTheme ? 
-          <div id = "roomkey"> 
+          <div id = "theme-prompt"> 
             <p>{this.state.theme}</p>
             <p>{this.state.category}</p>
           </div>
