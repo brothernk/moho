@@ -27,7 +27,7 @@ class Login extends Component {
         this.setState({showButton: false})
 
         var word = mnGen.word()
-
+        
         this.setState({randomWord: word}, function() {
             this.generateRandomURL();
         })

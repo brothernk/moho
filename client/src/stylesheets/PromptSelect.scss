@@ -19,15 +19,10 @@ $charcoal: #444444;
 
 //Prompt Select ===================================================
 .promptSelect-component {
-  padding: 15px;
+  padding: 10px;
 
-  h4, h5{
+  h5{
     @include font;
-  }
-
-  h4{
-    text-transform: uppercase;
-    margin-bottom: 25px;
   }
   
   .prompt-card {
@@ -42,5 +37,9 @@ $charcoal: #444444;
     i {
       padding-right: 15px;
     }
+  }
+
+  .prompt-card:hover {
+    cursor: pointer;
   }
 }

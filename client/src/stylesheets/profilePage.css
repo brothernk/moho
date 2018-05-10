@@ -6,11 +6,11 @@
 
 .setup-profile {
   font-size: 30px;
-  padding-top: 25px; }
+  padding-top: 15px; }
 
 .pick-a-color {
   font-size: 20px;
-  padding-top: 40px; }
+  padding: 20px 15px 0px 15px; }
 
 .complete-profile-btn {
   padding: 15px 15px 0px 15px; }
@@ -18,6 +18,9 @@
 .join {
   background-color: #44BBA4;
   color: #fff; }
+
+.join:hover {
+  cursor: pointer; }
 
 .cantJoin {
   background-color: #C0C0C0;
@@ -33,7 +36,7 @@
   transition: .25s; }
 
 .setup-color-buttondiv {
-  padding: 20px; }
+  padding: 15px 20px; }
 
 .color-btn:hover {
   box-shadow: 0 0 2px 5px grey; }
@@ -93,7 +96,7 @@
     width: 80px;
     margin: 8px; }
   .pick-a-color, .complete-profile-btn {
-    padding-top: 35px; } }
+    padding-top: 20px; } }
 
 @media only screen and (max-width: 360px) {
   .color-btn {
@@ -106,7 +109,7 @@
     font-size: 20px;
     width: 200px; }
   .pick-a-color, .complete-profile-btn {
-    padding-top: 15px;
+    padding-top: 10px;
     font-size: 15px; }
   .join-btn {
     font-family: "Montserrat", sans-serif;
