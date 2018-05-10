@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import { endSessBtn, nextRndBtn } from "../../components/Buttons";
 import BottomNav from "../../components/BottomNav/bottomNav";
 import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
+import GifReveal from "../../components/GifReveal/GifReveal";
 import GiphySearch from "../../components/GiphySearch/GiphySearch";
 import io from "socket.io-client";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
@@ -57,6 +58,7 @@ class Home extends Component {
         showProfile: false,
         showPending: false, 
         showJudgeCategory: false,
+        showGifReveal: false,
         showGiphySearch: false,
         showJudgeChoices: false,
         showWinner: false,
@@ -448,6 +450,12 @@ class Home extends Component {
                             </PlayerListHolder>
                         </BottomNav> 
                     </div>
+                : null}
+
+                { this.state.showGifReveal ? 
+                    <GifReveal
+                        theme={this.state.selectedTheme} category={this.state.selectedCategory} gifsReturned={this.state.gifsReturned}
+                    />
                 : null}
 
                 {/* Use to test Giphy Search w/o running the game logic */}
