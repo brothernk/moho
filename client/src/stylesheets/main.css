@@ -32,19 +32,20 @@ body {
   color: white;
   background: #31263E; }
 
-.trex-pic {
-  max-width: 250px;
-  margin: 75px 0px 100px 0px; }
+.logo {
+  max-width: 700px;
+  width: 100%;
+  padding: 25px; }
 
 #not-a-session {
   margin-top: 25%;
   font-size: 150%; }
 
 .signup-btn {
-  background: #FF8A5B; }
+  background: #FF6161; }
 
 .login-btn, .enter-btn {
-  background: #44BBA4; }
+  background: #D45FFF; }
 
 .signup-btn:hover, .login-btn:hover, .enter-btn:hover {
   background-color: grey; }
@@ -66,7 +67,7 @@ input[type="text"]:focus {
   margin: auto;
   text-align: center;
   border-radius: 30px;
-  background-color: #FF8A5B;
+  background-color: #FF6161;
   width: 100%;
   max-width: 300px;
   margin-top: 50px;
