@@ -61,6 +61,8 @@
           top: 15px;
           right: 15px;
           font-size: 20px; }
+      .giphy-component .search-holder .button-holder .research:hover {
+        background: black; }
       .giphy-component .search-holder .button-holder .confirm {
         background: #44BBA4;
         position: relative;

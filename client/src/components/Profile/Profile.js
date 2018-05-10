@@ -115,13 +115,6 @@ class Profile extends Component {
     render() {
         return (
             <div>
-
-                { this.state.showError ?
-                        <div>
-                            <p id="username-error">Please enter a username and choose a color</p>
-                        </div>
-                : null }
-
                 <div>
                     <div className="setup-profile">Setup Your Profile</div>
                     <input id="enter-name" type="text" placeholder="Enter Name" name="username" value={this.state.username} onChange={this.handleInputChange}/>
@@ -145,6 +138,13 @@ class Profile extends Component {
                 <div onClick={this.addMember} className="complete-profile-btn">
                     <span className={this.state.joinClasses}>Join Game</span>
                 </div>
+
+                { this.state.showError ?
+                        <div>
+                            <p id="username-error">Please enter a username and choose a color</p>
+                        </div>
+                : null }
+                
              </div>
         )
     }

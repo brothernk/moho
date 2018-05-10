@@ -1,3 +1,14 @@
+//Mixins ===============================================================
+@mixin position{
+  margin:auto;
+  text-align: center;
+}
+
+@mixin font{
+  font-family: "Montserrat", sans-serif;
+  color:white;
+}
+
 //Gif Component ===================================================
 .gif-component {
   background-size: cover;
@@ -17,7 +28,7 @@
   }
 
   h4{
-    padding:15px;
+    padding:10px 15px;
   }
 
   h6{
@@ -28,5 +39,16 @@
     @include position;
     max-width: 400px;
     width:90%;
+    
+    .gif-component{
+        .gif-preview{
+          border-radius:25px;
+          padding:10px;
+       }
+       .gif-preview:hover{
+         cursor: pointer;
+         background: #4a3b5c;
+       }
+    }
   }
 }

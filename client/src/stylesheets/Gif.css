@@ -5,3 +5,25 @@
     object-fit: fill;
     max-height: 240px;
     max-width: 100%; }
+
+.gif-reveal-component h4, .gif-reveal-component h6 {
+  font-family: "Montserrat", sans-serif;
+  color: white; }
+
+.gif-reveal-component h4 {
+  padding: 10px 15px; }
+
+.gif-reveal-component h6 {
+  padding-top: 15px; }
+
+.gif-reveal-component .gif-reveal-div {
+  margin: auto;
+  text-align: center;
+  max-width: 400px;
+  width: 90%; }
+  .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
+    border-radius: 25px;
+    padding: 10px; }
+  .gif-reveal-component .gif-reveal-div .gif-component .gif-preview:hover {
+    cursor: pointer;
+    background: #4a3b5c; }
