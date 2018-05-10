@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
 
 class WinnerPage extends Component {
   state = {
@@ -43,7 +42,6 @@ class WinnerPage extends Component {
   startGame = () => {
     const self = this
     self.props.socket.emit('startnextround')
-
   }
 
   // Users color is this.state.winner.member.color
@@ -68,7 +66,7 @@ class WinnerPage extends Component {
 				<h1>Winner: {this.state.winner}!!!</h1>
 
         <div>
-          <img src={this.state.gif} />
+          <img src={this.state.gif} alt=""/>
         </div>
 
       </div>

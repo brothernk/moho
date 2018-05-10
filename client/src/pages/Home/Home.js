@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { endSessBtn, nextRndBtn } from "../../components/Buttons";
 import BottomNav from "../../components/BottomNav/bottomNav";
 import CurrentPlayer from "../../components/CurrentPlayer/CurrentPlayer";
 import GifReveal from "../../components/GifReveal/GifReveal";
