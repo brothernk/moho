@@ -34,13 +34,16 @@ class GiphySearch extends Component {
   }
   
   callGIPHY = () => {
-      API.getGIF(this.state.searchTerm)
-      .then(response => {
-          this.setState({
-            image_url: response.data.data.image_url
-        });
-      })
-      .catch(err => console.log(err))
+    
+    this.setState({image_url: "https://media.giphy.com/media/l4FGIO2vCfJkakBtC/giphy.gif"})
+
+    API.getGIF(this.state.searchTerm)
+    .then(response => {
+        this.setState({
+        image_url: response.data.data.image_url
+    });
+    })
+    .catch(err => console.log(err))
   }
 
   handleInputChange = event => {
