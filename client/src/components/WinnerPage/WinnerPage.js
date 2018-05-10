@@ -1,47 +1,41 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 
-const WinnerPage = props => (
-  <div className="winnerScreen-component">
-    <h2>Winner!</h2>
-  </div>
-)
+class WinnerPage extends Component {
+  state = {
+    judge: "",
+    winner: [],
+  }
 
-// class WinnerPage extends Component {
-// 	state = {
-// 		members: "",
-// 		color: "",
-// 		judge: false,
-// 	}
+	componentDidMount = () => {
+		console.log("mounted");
+	}
 
-// 	componentDidMount = () => {
-// 		console.log("mounted");
-// 	}
+  // Users color is this.state.winner.member.color
 
-// 	handleInputChange = event => {
-//         const { name, value } = event.target;
-//         this.setState({
-//             [name]: value
-//         });
-//     };
+	render() {
+		return (
+			<div className="winnerScreen-component">
+        {/* Button to start next round */}
+        <div className="pull-themes-btn">
+          <span className="btn">
+          { this.state.userJudge ? 
+            <p className="judge-start" onClick={this.startGame}>Start Next Round!</p>
+          : null}
+          </span>
+        </div>
 
-//   checkURL = () => {
-//     API.checkSessionUrl(this.state.url)
-//     .then(res => { 
-//       let sessionMembers = res.data[0].members
-//       this.setState({members: sessionMembers}, function() {
-//         console.log(this.state.members)
-//       });
-//     });
-//   }
+				<h1>Winner: {this.state.winner.member.name}!!!</h1>
 
-// 	render() {
-// 		return (
-// 			<div className="winnerScreen-component">
-// 				<h2>Winner!</h2>
-//       </div>
-// 			);
-// 	}
-// }
+        <div>
+          <img src={this.state.winner.gif} />
+        </div>
+
+        <h6>{this.props.theme}</h6>
+        <h4>{this.props.category}</h4>
+      </div>
+			);
+	}
+}
 
 export default WinnerPage;
