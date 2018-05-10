@@ -26,8 +26,8 @@ class Login extends Component {
         this.setState({showError: false})
         this.setState({showButton: false})
 
-        var word = mnGen.word()
-        
+        var word = (mnGen.word()).toLowerCase()
+
         this.setState({randomWord: word}, function() {
             this.generateRandomURL();
         })
@@ -90,7 +90,9 @@ class Login extends Component {
     }
 
     enterGame = () => {
-        API.checkSessionTitle(this.state.enteredWord)
+
+        let newWord = (this.state.enteredWord).toLowerCase()
+        API.checkSessionTitle(newWord)
         .then(res =>{
             console.log(res.data)
             if (res.data.length < 1) {

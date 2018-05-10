@@ -79,8 +79,6 @@ class GifReveal extends Component {
         <h6>{this.props.theme}</h6>
         <h4>{this.props.category}</h4>
 
-        <p className="judge">Judge: {this.state.judge}</p>
-
         <div className="gif-reveal-div">
           {this.state.gifsReturned.map(gif => (
               <Gif onClick={this.selectWinner} src={gif.gif} user={gif.member.ip}/>
