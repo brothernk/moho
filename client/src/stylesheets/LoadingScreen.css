@@ -4,41 +4,13 @@
   padding: 15px;
   margin-top: 30px; }
 
-.fa-stack {
-  display: inline-block;
-  height: 1.4em;
-  line-height: 1.5em;
-  position: relative;
-  vertical-align: middle;
-  width: 2em; }
-
 #loading-pg-roomkey {
-  margin: auto;
-  text-align: center;
+  padding: 10px 25px;
   border-radius: 20px;
-  background-color: #FF6161;
+  position: absolute;
   top: 10px;
   right: 15px;
-  padding: 17px 25px 7px 25px;
-  position: absolute; }
-  #loading-pg-roomkey #random-word {
-    font-size: 20px; }
-  #loading-pg-roomkey #key-icon {
-    transform: rotate(15deg);
-    font-size: 20px; }
-
-#theme-prompt {
-  background-color: #FF6161;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 10px auto 0px auto;
-  width: 100%;
-  max-width: 400px;
-  display: block; }
-
-#theme-prompt-theme {
-  font-size: 21px;
-  color: #cc4040; }
+  background-color: #FF6161; }
 
 .judge {
   padding: 10px 25px;
@@ -85,3 +57,24 @@
   display: inline-block;
   z-index: 100;
   margin: 0px -10px 0px -10px; }
+
+.fa-stack {
+  display: inline-block;
+  height: 1.4em;
+  line-height: 1.5em;
+  position: relative;
+  vertical-align: middle;
+  width: 2em; }
+
+#theme-prompt {
+  background-color: #FF6161;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px auto 0px auto;
+  width: 100%;
+  max-width: 400px;
+  display: block; }
+
+#theme-prompt-theme {
+  font-size: 21px;
+  color: #cc4040; }

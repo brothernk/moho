@@ -41,11 +41,9 @@ class LoadingScreen extends Component {
     this.setState({members: this.props.members}, function() {
       this.checkJudge()
     })
-
   }
 
   componentDidUpdate = () => {
-
     if (this.props.members !== this.state.members) {
       this.setState({members: this.props.members}, function() {
         console.log("NEWLOADINGMEMBERS")
@@ -75,7 +73,6 @@ class LoadingScreen extends Component {
     if (this.props.showChoices !== this.state.showChoices) {
       this.setState({showChoices: this.props.showChoices})
     }
-
   }
 
   checkMessage = () => {
@@ -97,18 +94,14 @@ class LoadingScreen extends Component {
       this.setState({showKeyword: false})
       this.setState({showTheme: false})
     }
-
-
   }
 
   checkJudge = () => {
-  
       for (var i = 0; i < this.state.members.length; i ++) {
         if (this.state.members[i].judge) {
           this.setState({judge: this.state.members[i].name})
         }
       }
-
   }
 
   startGame = () => {
@@ -131,7 +124,7 @@ class LoadingScreen extends Component {
 
           <div>
             <div id="loading-pg-roomkey"> 
-              <p id="random-word"><i className="fas fa-key" id="key-icon"></i> {this.props.keyword}</p>
+              <p><i className="fas fa-key"></i> {this.props.keyword}</p>
             </div>
 
             <div className="pull-themes-btn">

@@ -58,6 +58,9 @@ class Profile extends Component {
         if (this.state.username === "") {
             this.setState({showError: true})
         }
+        else if (this.state.color === "") {
+            this.setState({showError: true})
+        }
         else {
             API.addSessionMember({
                 url: this.state.url,
@@ -115,7 +118,7 @@ class Profile extends Component {
 
                 { this.state.showError ?
                         <div>
-                            <p id="username-error">Please enter a username</p>
+                            <p id="username-error">Please enter a username and choose a color</p>
                         </div>
                 : null }
 

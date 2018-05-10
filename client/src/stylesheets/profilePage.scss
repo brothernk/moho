@@ -28,12 +28,12 @@ $charcoal: #444444;
 //Mobile Setup =======================================================
 .setup-profile{
   font-size:30px;
-  padding-top:25px;
+  padding-top:15px;
 }
   
 .pick-a-color{
   font-size:20px;
-  padding-top: 40px;
+  padding:20px 15px 0px 15px;
 }
 
 .complete-profile-btn{
@@ -43,6 +43,10 @@ $charcoal: #444444;
 .join {
   background-color: $green;
   color: #fff;
+}
+
+.join:hover{
+  cursor: pointer;
 }
 
 .cantJoin {
@@ -61,7 +65,7 @@ $charcoal: #444444;
 
 //Color Buttons
 .setup-color-buttondiv{
-  padding: 20px;
+  padding: 15px 20px;
 }
   
 .color-btn{
@@ -142,7 +146,7 @@ $charcoal: #444444;
   }
 
   .pick-a-color, .complete-profile-btn{
-    padding-top: 35px;
+    padding-top: 20px;
   }
 }
 
@@ -164,7 +168,7 @@ $charcoal: #444444;
   }
 
   .pick-a-color, .complete-profile-btn{
-    padding-top: 15px;
+    padding-top: 10px;
     font-size:15px;
   }
   .join-btn{
