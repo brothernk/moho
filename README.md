@@ -8,7 +8,7 @@ True That! utilizes Socket.io, React, MongoDB, and Node.js/Express.js to bring y
 
 ![Imgur](https://i.imgur.com/EYl1IVk.jpg)
 
-A judge is selected out of the player pool, and once everyone is in the room, the judge is able to officially start the game. The timer starts when the judge picks a theme for the round, and a prompt is then randomly generated from our prompt database! The players each have 60 seconds to query the Giphy API for a gif that they think the judge will love, and submit it for further examination. At the end of the search session, the gifs are anonymously revealed for all to see! The judge picks their favorite gif for the prompt, and a winner is chosen! Points are divvied accordingly, and new round is started with a new judge.
+A judge is selected out of the player pool, and once everyone is in the room, the judge is able to officially start the game. The timer starts when the judge picks a theme for the round, and a prompt is then randomly generated from our prompt database! The players each have 45 seconds to query the Giphy API for a gif that they think the judge will love, and submit it for further examination. At the end of the search session, the gifs are anonymously revealed for all to see! The judge picks their favorite gif for the prompt, and a winner is chosen! Points are divvied accordingly, and new round is started with a new judge.
 
 ## Our site is live at https://truethat.app/
 
