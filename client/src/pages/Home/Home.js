@@ -508,6 +508,12 @@ class Home extends Component {
                     />
                 : null}
 
+                { this.state.showWinner ? 
+                    <WinnerPage
+                        winner={this.state.winner} theme={this.state.selectedTheme} category={this.state.selectedCategory} 
+                    />
+                : null}
+
                 {/* Use to test Giphy Search w/o running the game logic */}
                 {/* <GiphySearch />  */}
 
