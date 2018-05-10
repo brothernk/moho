@@ -1,4 +1,4 @@
-[Imgur](https://i.imgur.com/1jGo96l.png)
+![Imgur](https://i.imgur.com/1jGo96l.png)
 
 True That! is an app designed to unite the fun of playing games with friends with fresh modern technology. Following in the footsteps of popular games such as Heads Up!, our drive was to create a real-time game that requires very little set up, and no personal information to play! 
 
