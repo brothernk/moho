@@ -153,7 +153,7 @@ class LoadingScreen extends Component {
           </div>
         : null}
 
-        <p className="judge"><i class="fas fa-gavel"></i> {this.props.judge}</p>
+        <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
       
         <div>
           <img src="https://media.giphy.com/media/3op2XKLw67aLrvKikC/giphy.gif" alt="" className="loading-gif"/>
