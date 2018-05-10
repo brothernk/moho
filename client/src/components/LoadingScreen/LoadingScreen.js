@@ -148,9 +148,9 @@ class LoadingScreen extends Component {
         : null }
 
         { this.state.showTheme ? 
-          <div id = "theme-prompt"> 
-            <p>{this.state.theme}</p>
-            <p>{this.state.category}</p>
+          <div> 
+            <h6>{this.props.theme}</h6>
+            <h4>{this.props.category}</h4>
           </div>
         : null }
 
