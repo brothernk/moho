@@ -441,6 +441,7 @@ class Home extends Component {
 
                 {this.state.showJudgeCategory ?
                     <div>
+                        <p className="prompt-title">Select a Theme</p>
                         {this.state.themeIndex.map(prompt => (
                             <PromptSelect
                             key={prompt.index}
@@ -475,11 +476,14 @@ class Home extends Component {
                     <div> 
                         <GiphySearch theme={this.state.selectedTheme} category={this.state.selectedCategory} socket={this.state.socket} 
                         userSocket={this.state.socketAddress} 
-                        timer={this.state.outOfTime} outOfTime={this.componentChange.bind(this)}/>
+                        timer={this.state.outOfTime} outOfTime={this.componentChange.bind(this)} >
+                        <Timer outOfTime={this.componentChange.bind(this)} />
+                        </GiphySearch>
 
-                        { this.state.showTimer ? 
+                        {/* Is this needed? */}
+                        {/* { this.state.showTimer ? 
                             <Timer outOfTime={this.componentChange.bind(this)} />
-                        : null}
+                        : null} */}
 
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>

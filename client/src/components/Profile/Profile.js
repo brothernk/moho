@@ -11,7 +11,8 @@ class Profile extends Component {
         ip: "",
         judge: false,
         showError: false,
-        memberArray: []
+        memberArray: [],
+        joinClasses: "join-btn cantJoin"
     }
 
     componentDidMount = () => {
@@ -40,12 +41,13 @@ class Profile extends Component {
             API.checkSessionUrl(this.state.url)
             .then(res => {
                 if (res.data[0].members.length === 0) {
-                    this.setState({judge: true})
+                    this.setState({judge: true});
                 }
 
                 else {
                     this.setState({judge: false})
                 }
+                this.setState({joinClasses: "join-btn join"})
             })
         })
 
@@ -138,7 +140,7 @@ class Profile extends Component {
                 </div>
 
                 <div onClick={this.addMember} className="complete-profile-btn">
-                    <span className="btn join-btn">Join Game</span>
+                    <span className={this.state.joinClasses}>Join Game</span>
                 </div>
              </div>
         )

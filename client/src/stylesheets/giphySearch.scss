@@ -33,6 +33,7 @@ $charcoal: #444444;
   
     input[type="text"] {
       width: calc(100% - 65px);
+      max-width: none;
     }
   
     .search-button {

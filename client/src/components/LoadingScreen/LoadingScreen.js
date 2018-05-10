@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import gif from "./beaker.gif";
 
 class LoadingScreen extends Component {
 
@@ -131,9 +130,8 @@ class LoadingScreen extends Component {
         { this.state.showKeyword ? 
 
           <div>
-            <div id = "loading-pg-roomkey"> 
-              <i className="fas fa-key" id="key-icon"></i>
-              <p id="random-word">{this.props.keyword}</p>
+            <div id="loading-pg-roomkey"> 
+              <p id="random-word"><i className="fas fa-key" id="key-icon"></i> {this.props.keyword}</p>
             </div>
 
             <div className="pull-themes-btn">
@@ -148,9 +146,9 @@ class LoadingScreen extends Component {
         : null }
 
         { this.state.showTheme ? 
-          <div> 
-            <h6>{this.props.theme}</h6>
-            <h4>{this.props.category}</h4>
+          <div id = "theme-prompt"> 
+            <p id="theme-prompt-theme">{this.state.theme}</p>
+            <p>{this.state.category}</p>
           </div>
         : null }
 
@@ -162,10 +160,10 @@ class LoadingScreen extends Component {
           </div>
         : null}
 
-        <p className="judge">Judge: {this.props.judge}</p>
+        <p className="judge"><i class="fas fa-gavel"></i> {this.props.judge}</p>
       
         <div>
-          <img src={gif} alt="" className="loading-gif"/>
+          <img src="https://media.giphy.com/media/3op2XKLw67aLrvKikC/giphy.gif" alt="" className="loading-gif"/>
           <p className="waiting-msg">{this.state.pendingMessage}</p>
           <div>
             <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>

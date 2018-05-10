@@ -30,14 +30,22 @@ $charcoal: #444444;
   margin-top: 30px;
 }
 
+.fa-stack {
+    display: inline-block;
+    height: 1.4em;
+    line-height: 1.5em;
+    position: relative;
+    vertical-align: middle;
+    width: 2em;
+}
+
 #loading-pg-roomkey{
   @include position;
   border-radius: 20px;
-  background-color: $orange;
-  width:130px;
+  background-color: $red;
   top:10px;
   right:15px;
-  padding:10px;
+  padding: 17px 25px 7px 25px;
   position: absolute;
 
     #random-word{
@@ -45,21 +53,28 @@ $charcoal: #444444;
     }
 
     #key-icon{
-      transform: rotate(45deg);
+      transform: rotate(15deg);
       font-size: 20px;
     }
  }
 
  #theme-prompt{
-  background-color: $orange;
+  background-color: $red;
   border-radius:20px;
   padding: 10px;
-  margin:10px 0px -80px 0px;
+  margin:10px auto 0px auto;
+  width: 100%;
+  max-width: 400px;
+  display: block;
+ }
+
+ #theme-prompt-theme {
+   font-size: 21px;
+   color: #cc4040;
  }
 
 .judge{
-  width:150px;
-  padding: 10px;
+  padding: 10px 25px;
   border-radius: 20px;
   position: absolute;
   top: 10px;
@@ -69,26 +84,25 @@ $charcoal: #444444;
 
 .judge-start {
   @include font;
-  width: 130px;
-  padding: 10px;
+  padding: 10px 25px;
   border-radius: 40px;
   position: absolute;
-  top: 80px;
+  top: 65px;
   right: 15px;
-  background: $green;
+  background: $pink;
+  font-size: 16px;
 }
 
 .loading-gif {
   padding: 15px;
   max-width: 200px;
-  margin: 0 auto;
-  margin-top:100px;
+  margin: 25px auto;
 }
 
 #current-players, #no-players{
   @include font;
-  font-size: 200%;
-  margin-top:15px;
+  font-size: 175%;
+  margin: 5px 0px 20px 0px;
 }
 
 #username{

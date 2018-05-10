@@ -15,14 +15,22 @@
 .complete-profile-btn {
   padding: 15px 15px 0px 15px; }
 
+.join {
+  background-color: #44BBA4;
+  color: #fff; }
+
+.cantJoin {
+  background-color: #C0C0C0;
+  color: grey !important; }
+
 .join-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
-  background-color: #44BBA4;
   border-radius: 30px;
   font-size: 25px;
-  padding: 8px;
-  width: 180px; }
+  padding: 10px 25px;
+  width: 180px;
+  transition: .25s; }
 
 .setup-color-buttondiv {
   padding: 20px; }

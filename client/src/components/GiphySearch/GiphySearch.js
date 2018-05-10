@@ -6,7 +6,7 @@ class GiphySearch extends Component {
 
   state = {
       searchTerm: "",
-      image_url: "",
+      image_url: "http://via.placeholder.com/500x240/31263E/31263E",
       defaultGif: "https://media.giphy.com/media/6GY01XQBkf3lS/giphy.gif"
   }
 
@@ -89,7 +89,7 @@ class GiphySearch extends Component {
                 <div className="button-holder">
                     <div className="timer-placeholder">
                         <i className="fas fa-stopwatch"></i>
-                        <span className="timer">10</span>
+                        <span className="timer">{this.props.children}</span>
                     </div>
                     <div className="button research" onClick={this.callGIPHY}>
                         <i className="fas fa-redo"></i>
