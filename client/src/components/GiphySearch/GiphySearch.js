@@ -40,8 +40,8 @@ class GiphySearch extends Component {
     API.getGIF(this.state.searchTerm)
     .then(response => {
         this.setState({
-        image_url: response.data.data.image_url
-    });
+            image_url: response.data.original.url
+        });
     })
     .catch(err => console.log(err))
   }

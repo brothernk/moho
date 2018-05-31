@@ -7,10 +7,9 @@ router.get("/", function(req, res){
   const newSearchTerm = searchTerm.substring(2);
   console.log(newSearchTerm);
   console.log("================================")
-  axios.get("https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=" + newSearchTerm)
+  axios.get("https://api.giphy.com/v1/gifs/translate?api_key=dc6zaTOxFJmzC&s=" + newSearchTerm)
   .then(function(response){
-    // console.log(response.data);
-    res.send(response.data)
+    res.send(response.data.data.images)
   })
   .catch(function (error) {
     console.log(error);
