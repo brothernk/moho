@@ -124,7 +124,9 @@ class LoadingScreen extends Component {
             <p className="category-prompt">{this.state.category}</p>
           </div>
         : null }
-        
+
+        <div className="logo-holder"><img src="https://i.imgur.com/oQ0rcI1.png" alt="" className="small-logo"/></div>
+
         <div>
           {/* <img src="https://media.giphy.com/media/3op2XKLw67aLrvKikC/giphy.gif" alt="" className="loading-gif"/> */}
           <p className="waiting-msg">{this.state.pendingMessage}</p>
@@ -149,6 +151,8 @@ class LoadingScreen extends Component {
 
         { this.state.showKeyword ? 
           <div className="pull-themes-btn">
+
+          <div className="game-instructions" id="game-start-instructions">?</div>
 
           <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
 

@@ -107,6 +107,41 @@ p{
   padding-top: 15px;
 }
 
+//General Instructions. See individual components for specifics ======
+.game-instructions {
+  position: absolute;
+  top:20px;
+  right:20px;
+  border-radius: 50%;
+  background-color:#5a5164;
+  width:30px;
+  height:30px;
+  padding:4px;
+  color:#837c8b;
+}
+
+.game-instructions:hover {
+  cursor: pointer;
+  background-color: white;
+  transition: .25s;
+}
+
+//Theme and Category Prompt ========================================
+.theme-and-category {
+  background-color: $pink;
+  border-radius:20px;
+  padding: 10px; 
+  margin:0 auto;
+  width: 100%;
+  max-width: 400px;
+}
+
+.theme-prompt {
+  font-size: 21px;
+  color: #8923af;
+}
+
+
 // Button Components =============================================
 @import "../components/Buttons/buttons.scss";
 
@@ -136,3 +171,6 @@ p{
 
 //Winner Page ======================================================
 @import "../components/WinnerPage/winnerPage.scss";
+
+//Mobile and Desktop Responsive ======================================
+@import "responsive.scss";

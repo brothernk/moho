@@ -1,9 +1,3 @@
-#partial-logo {
-  padding-top: 60px;
-  width: 40%;
-  height: 40%;
-  margin-bottom: -10px; }
-
 .winnerScreen-component {
   padding: 20px; }
 
@@ -27,3 +21,7 @@ h3 {
 .winner-name {
   font-size: 30px;
   letter-spacing: 1px; }
+
+#winner-pg-prompt {
+  margin-top: 50px;
+  max-width: 400px; }
