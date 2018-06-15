@@ -42,18 +42,7 @@ $charcoal: #444444;
   background-color: $red;
 }
 
-.logo-holder {
-  padding:120px 0 30px 0;
-}
-
-.small-logo {
-  width: 130px;
-  height: 130px;
-  margin:0 auto;
-}
-
 //Loading screen buttons ==============================================================
-
 .judge-start, .show-gifs-btn, .next-round-btn{
   @include font;
   font-size:20px;
@@ -75,6 +64,9 @@ $charcoal: #444444;
 }
 
 //Loading Screen Text =================================================================
+.waiting-msg {
+  padding-top:20px;
+}
 #current-players, #no-players{
   @include font;
   font-size: 165%;
@@ -110,7 +102,7 @@ $charcoal: #444444;
 
 //Theme and Category Prompt ===========================================================
 #loading-pg-prompt {
-  margin-bottom:-100px;
+  // margin-bottom:-100px;
 }
 
 //Loading Screen Timer ================================================================

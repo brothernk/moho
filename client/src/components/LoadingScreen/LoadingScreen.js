@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MiniLogo from "../../components/Logo/MiniLogo";
 
 class LoadingScreen extends Component {
 
@@ -18,6 +19,8 @@ class LoadingScreen extends Component {
     showTheme: false,
     category: "",
     theme: "",
+    // Show mini logo on specific loading screens
+    showMiniLogo: false,
     // Show judge start button or judge reveal button
     showChoices: false
   }
@@ -82,16 +85,19 @@ class LoadingScreen extends Component {
     if (this.state.pendingMessage === "Players choosing gifs") {
       this.setState({showKeyword: false})
       this.setState({showTheme: true})
+      this.setState({showMiniLogo:false})
     }
 
     if (this.state.pendingMessage === "Waiting for game to start" || this.state.pendingMessage === "Click start game when ready to play") {
       this.setState({showKeyword: true})
       this.setState({showTheme: false})
+      this.setState({showMiniLogo:true})
     }
 
     else if (this.state.pendingPlayerHeader === "Players in round") {
       this.setState({showKeyword: false})
       this.setState({showTheme: false})
+      this.setState({showMiniLogo:true})
     }
   }
 
@@ -125,10 +131,11 @@ class LoadingScreen extends Component {
           </div>
         : null }
 
-        <div className="logo-holder"><img src="https://i.imgur.com/oQ0rcI1.png" alt="" className="small-logo"/></div>
+        { this.state.showMiniLogo ?
+          <MiniLogo></MiniLogo>
+        : null }
 
         <div>
-          {/* <img src="https://media.giphy.com/media/3op2XKLw67aLrvKikC/giphy.gif" alt="" className="loading-gif"/> */}
           <p className="waiting-msg">{this.state.pendingMessage}</p>
           <div>
             <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>
@@ -152,13 +159,11 @@ class LoadingScreen extends Component {
         { this.state.showKeyword ? 
           <div className="pull-themes-btn">
 
-          <div className="game-instructions" id="game-start-instructions">?</div>
-
           <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
-
           <div id="loading-pg-roomkey"> 
                 <p><i className="fas fa-key"></i> {this.props.keyword}</p>
           </div>
+          <div className="game-instructions" id="game-start-instructions">?</div>
 
             <span className="btn">
               { this.state.userJudge ? 
