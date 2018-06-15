@@ -76,7 +76,6 @@ class LoadingScreen extends Component {
   }
 
   checkMessage = () => {
-    console.log("CHECK MESSAGE LOADING SCREEN")
 
     console.log(this.state.pendingMessage)
 
@@ -85,7 +84,7 @@ class LoadingScreen extends Component {
       this.setState({showTheme: true})
     }
 
-    else if (this.state.pendingMessage === "Waiting for game to start" || this.state.pendingMessage === "Click start game when ready to play") {
+    if (this.state.pendingMessage === "Waiting for game to start" || this.state.pendingMessage === "Click start game when ready to play") {
       this.setState({showKeyword: true})
       this.setState({showTheme: false})
     }
@@ -105,13 +104,11 @@ class LoadingScreen extends Component {
   }
 
   startGame = () => {
-    console.log('start game button clicked')
     const self = this
     self.props.socket.emit('startgame')
   }
   
   showGifs = () => {
-    console.log('show gifs button clicked')
     const self = this
     self.props.socket.emit('revealgifs')
   }
@@ -120,43 +117,16 @@ class LoadingScreen extends Component {
     return (
 
       <div className="loading-screen-holder">
-        { this.state.showKeyword ? 
-
-          <div>
-            <div id="loading-pg-roomkey"> 
-              <p><i className="fas fa-key"></i> {this.props.keyword}</p>
-            </div>
-
-            <div className="pull-themes-btn">
-              <span className="btn">
-              { this.state.userJudge ? 
-                <p className="judge-start" onClick={this.startGame}>Start</p>
-              : null}
-              </span>
-            </div>
-          </div>
-
-        : null }
-
-        { this.state.showTheme ? 
-          <div id = "theme-prompt"> 
-            <p id="theme-prompt-theme">{this.state.theme}</p>
-            <p>{this.state.category}</p>
-          </div>
-        : null }
-
-        { this.state.userJudge ? 
-          <div>
-            { this.state.showChoices ? 
-              <p className="show-gifs-btn" onClick={this.showGifs}>Show Gifs</p>
-            : null}
-          </div>
-        : null}
-
-        <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
       
+        { this.state.showTheme ? 
+          <div className="theme-and-category" id="loading-pg-prompt"> 
+            <p className="theme-prompt">{this.state.theme}</p>
+            <p className="category-prompt">{this.state.category}</p>
+          </div>
+        : null }
+        
         <div>
-          <img src="https://media.giphy.com/media/3op2XKLw67aLrvKikC/giphy.gif" alt="" className="loading-gif"/>
+          {/* <img src="https://media.giphy.com/media/3op2XKLw67aLrvKikC/giphy.gif" alt="" className="loading-gif"/> */}
           <p className="waiting-msg">{this.state.pendingMessage}</p>
           <div>
             <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>
@@ -176,6 +146,32 @@ class LoadingScreen extends Component {
               </div>
           </div>
         </div>
+
+        { this.state.showKeyword ? 
+          <div className="pull-themes-btn">
+
+          <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
+
+          <div id="loading-pg-roomkey"> 
+                <p><i className="fas fa-key"></i> {this.props.keyword}</p>
+          </div>
+
+            <span className="btn">
+              { this.state.userJudge ? 
+                <p className="judge-start" onClick={this.startGame}>Start Game</p>
+              : null}
+            </span>
+          </div>
+        : null }
+
+        { this.state.userJudge ? 
+          <div>
+            { this.state.showChoices ? 
+              <p className="show-gifs-btn" onClick={this.showGifs}>Show Gifs</p>
+            : null}
+          </div>
+        : null}
+      
       </div>
     )
   }

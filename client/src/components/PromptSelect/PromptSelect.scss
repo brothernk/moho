@@ -41,5 +41,28 @@ $charcoal: #444444;
 
   .prompt-card:hover {
     cursor: pointer;
+    transform:scale(.99);
   }
 }
+
+// .current-players-div {
+//   width: 100%;
+//   padding-top: 15px;
+//   text-align: center;
+//   margin-top:-25px;
+// }
+
+// .player-bubble {
+//   display: inline-block;
+//   z-index: 100;
+//   margin:0px -10px 0px -10px;
+// }
+
+// .fa-stack {
+//   display: inline-block;
+//   height: 1.4em;
+//   line-height: 1.5em;
+//   position: relative;
+//   vertical-align: middle;
+//   width: 2em;
+// }

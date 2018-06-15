@@ -28,9 +28,7 @@ class GiphySearch extends Component {
         this.props.outOfTime("pendingPlayerHeader", "Players done with challenge")
         this.props.outOfTime("showGiphySearch", false)
         this.props.outOfTime("showPending", true)
-
     }
-
   }
   
   callGIPHY = () => {
@@ -61,7 +59,6 @@ class GiphySearch extends Component {
   }
 
   confirmSelection = () => {
-
     let gifObject = {
         socket: this.props.userSocket,
         gif: this.state.image_url
@@ -74,7 +71,6 @@ class GiphySearch extends Component {
     this.props.outOfTime("showTimer", false)
     this.props.outOfTime("showGiphySearch", false)
     this.props.outOfTime("showPending", true)
-
   }
 
   render() {
@@ -91,7 +87,6 @@ class GiphySearch extends Component {
 
                 <div className="button-holder">
                     <div className="timer-placeholder">
-                        <i className="fas fa-stopwatch"></i>
                         <span className="timer">{this.props.children}</span>
                     </div>
                     <div className="button research" onClick={this.callGIPHY}>

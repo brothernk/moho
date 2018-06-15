@@ -10,30 +10,32 @@
 
 .pick-a-color {
   font-size: 20px;
-  padding: 20px 15px 0px 15px; }
+  padding-top: 20px; }
 
 .complete-profile-btn {
-  padding: 15px 15px 0px 15px; }
-
-.join {
-  background-color: #44BBA4;
-  color: #fff; }
-
-.join:hover {
-  cursor: pointer; }
-
-.cantJoin {
-  background-color: #C0C0C0;
-  color: grey !important; }
+  padding: 20px; }
 
 .join-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
   font-size: 25px;
-  padding: 10px 25px;
-  width: 180px;
+  padding: 12px 30px;
+  max-width: 200px;
+  width: 80%;
   transition: .25s; }
+
+.join, .join:focus, .join:active {
+  background-color: #44BBA4; }
+
+.join:hover {
+  cursor: pointer;
+  background: #3a9785;
+  transform: scale(0.99); }
+
+.cantJoin {
+  background-color: #C0C0C0;
+  color: grey !important; }
 
 .setup-color-buttondiv {
   padding: 15px 20px; }

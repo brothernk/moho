@@ -11,11 +11,11 @@ io.listen(server);
 //Port
 const PORT = process.env.PORT || 3001;
 
-//Body-parser
+//Body Parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//Static assets
+//Static Assets
 app.use(express.static("client/build"));
 
 //Routing, both API and view

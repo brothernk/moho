@@ -11,25 +11,15 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
-//Mixins ===============================================================
-@mixin font{
-  font-family: "Montserrat", sans-serif;
-  color:white;
-}
-
 //Giphy Search ===================================================
 .giphy-component {
   padding: 15px;
   margin-bottom: 40px;
-  
-  h4, h6 {
-    @include font;
-  }
-  
+
   .search-holder{
     width: 100%;
     max-width: 450px;
-    margin: 0 auto;
+    margin:0 auto;
   
     input[type="text"] {
       width: calc(100% - 65px);
@@ -56,11 +46,12 @@ $charcoal: #444444;
 
     .search-button:hover{
       cursor: pointer;
-      background: #ff7842;
+      background: #e57c51;
     }
   
     img {
       width: 100%;
+      max-height: 250px;
       margin-top: 15px;
       border-radius: 15px;
     }
@@ -125,7 +116,7 @@ $charcoal: #444444;
       }
       .confirm:hover{
         cursor: pointer;
-        background:#3da894;
+        background:#3da893;
       }
     }
   }

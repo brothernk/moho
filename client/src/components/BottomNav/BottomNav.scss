@@ -1,5 +1,4 @@
-//Dependencies from main.scss ============================================
-//Colors ===============================================================
+//Dependencies =================================================
 $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
@@ -21,6 +20,7 @@ $charcoal: #444444;
   height: 40px;
   min-height: 0;
   z-index: 1000;
+  cursor: pointer;
 
   .content-holder {
     width: 100%;
@@ -36,7 +36,7 @@ $charcoal: #444444;
 
     .userScore {
       position: absolute;
-      left: 60px;
+      right: 10px;
       top: 11px;
     }
 

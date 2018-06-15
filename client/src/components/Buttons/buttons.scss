@@ -1,0 +1,40 @@
+//Dependencies ======================================================
+$background: #31263E;
+$green: #44BBA4;
+$orange: #FF8A5B;
+$grey: #C0C0C0;
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
+
+@mixin font{
+  font-family:"Montserrat", sans-serif;
+  color:white;
+}
+
+//Buttons =========================================================
+.btn {
+  @include font;
+  border-radius: 30px;
+  font-size:25px;
+  margin: 10px;
+  padding: 8px;
+  width: 70%;
+  max-width: 250px;
+}
+  
+.btn:hover{
+  transform:scale(.99);
+}
+  
+.signup-btn {background-color: $red;}
+.signup-btn:hover{background-color:#cc4d4d;}
+  
+.login-btn {background-color: $pink;}
+.login-btn:hover{background-color:#a94ccc;}
+  
+.enter-btn {background-color: $yellow;}
+.enter-btn:hover {background-color: #e5b24c;}
