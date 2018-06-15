@@ -70,6 +70,34 @@ p {
   font-size: 27px;
   padding-top: 15px; }
 
+.game-instructions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  background-color: #5a5164;
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  color: #837c8b; }
+
+.game-instructions:hover {
+  cursor: pointer;
+  background-color: white;
+  transition: .25s; }
+
+.theme-and-category {
+  background-color: #D45FFF;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px; }
+
+.theme-prompt {
+  font-size: 21px;
+  color: #8923af; }
+
 .btn {
   font-family: "Montserrat", sans-serif;
   color: white;
@@ -102,9 +130,9 @@ p {
   background-color: #e5b24c; }
 
 .back-btn {
-  background-color: #44BBA4;
   max-width: 150px;
-  margin: 15px; }
+  margin: 15px;
+  background-color: #44BBA4; }
 
 .back-btn:hover {
   background-color: #369583; }
@@ -284,6 +312,179 @@ p {
 .charcoal-prof {
   background-color: #444444; }
 
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: .5s;
+  background: #C0C0C0;
+  height: 40px;
+  min-height: 0;
+  z-index: 1000;
+  cursor: pointer; }
+  .bottom-nav .content-holder {
+    width: 100%;
+    position: relative; }
+    .bottom-nav .content-holder .user-initial {
+      position: absolute;
+      left: 15px;
+      top: 4px;
+      padding: 4px 9px 4px 9px;
+      border-radius: 50%; }
+    .bottom-nav .content-holder .userScore {
+      position: absolute;
+      right: 10px;
+      top: 11px; }
+    .bottom-nav .content-holder .home-button {
+      position: absolute;
+      right: 15px;
+      top: 7px;
+      color: grey;
+      font-size: 25px;
+      z-index: 1000; }
+
+.expanded {
+  min-height: 50vh; }
+
+.not-expanded {
+  min-height: 0; }
+
+.loading-screen-holder {
+  padding: 20px; }
+
+.judge, #loading-pg-roomkey {
+  padding: 10px 25px;
+  border-radius: 20px;
+  position: absolute;
+  min-width: 120px; }
+
+.judge {
+  top: 20px;
+  background-color: #C0C0C0; }
+
+#loading-pg-roomkey {
+  top: 75px;
+  background-color: #FF6161; }
+
+.logo-holder {
+  padding: 120px 0 30px 0; }
+
+.small-logo {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto; }
+
+.judge-start, .show-gifs-btn, .next-round-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 40px;
+  background: #D45FFF;
+  width: 155px;
+  margin: 10px auto; }
+
+.judge-start:hover, .show-gifs-btn:hover {
+  cursor: pointer;
+  background: #c533fb;
+  transform: scale(0.99); }
+
+.judge-start:focus, .judge-start:active, .show-gifs-btn:focus, .show-gifs-btn:active {
+  background: #D45FFF; }
+
+#current-players, #no-players {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-size: 165%;
+  padding: 10px; }
+
+#username {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-size: 35px; }
+
+.current-players-div {
+  width: 100%;
+  text-align: center;
+  padding: 10px; }
+
+.player-bubble {
+  display: inline-block;
+  z-index: 100;
+  margin: 0 -12px; }
+
+.fa-stack {
+  display: inline-block;
+  height: 1.4em;
+  line-height: 1.5em;
+  position: relative;
+  vertical-align: middle;
+  width: 2em; }
+
+#loading-pg-prompt {
+  margin-bottom: -100px; }
+
+#timer-icon {
+  font-size: 40px; }
+
+.loading-screen-timer {
+  padding-left: 10px;
+  font-size: 40px; }
+
+.playerlist-holder {
+  width: 100%;
+  text-align: left;
+  margin-top: 5px; }
+  .playerlist-holder td {
+    padding: 5px 15px; }
+
+.gif-reveal-component {
+  padding: 20px; }
+  .gif-reveal-component .pick-winner-instruction {
+    font-size: 25px;
+    padding-bottom: 10px; }
+  .gif-reveal-component .gif-reveal-div {
+    margin: 0px auto;
+    padding: 10px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 25px; }
+    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
+      border-radius: 25px;
+      padding: 10px; }
+    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview:hover {
+      cursor: pointer;
+      background: #4a3b5c;
+      transition: .25s; }
+
+.winnerScreen-component {
+  padding: 20px; }
+
+.winning-gif-holder {
+  width: 100%;
+  padding: 10px 0; }
+
+.winning-gif {
+  max-width: 100%;
+  border-radius: 15px;
+  max-height: 250px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  border: 7px solid gold; }
+
+h3 {
+  font-size: 18px;
+  letter-spacing: 1px; }
+
+.winner-name {
+  font-size: 30px;
+  letter-spacing: 1px; }
+
+#winner-pg-prompt {
+  margin-top: 50px;
+  max-width: 400px; }
+
 @media only screen and (min-width: 600px) {
   .setup-profile {
     font-size: 40px; }
@@ -332,191 +533,3 @@ p {
     color: white;
     font-size: 20px;
     width: 160px; } }
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  transition: .5s;
-  background: #C0C0C0;
-  height: 40px;
-  min-height: 0;
-  z-index: 1000;
-  cursor: pointer; }
-  .bottom-nav .content-holder {
-    width: 100%;
-    position: relative; }
-    .bottom-nav .content-holder .user-initial {
-      position: absolute;
-      left: 15px;
-      top: 4px;
-      padding: 4px 9px 4px 9px;
-      border-radius: 50%; }
-    .bottom-nav .content-holder .userScore {
-      position: absolute;
-      right: 10px;
-      top: 11px; }
-    .bottom-nav .content-holder .home-button {
-      position: absolute;
-      right: 15px;
-      top: 7px;
-      color: grey;
-      font-size: 25px;
-      z-index: 1000; }
-
-.expanded {
-  min-height: 50vh; }
-
-.not-expanded {
-  min-height: 0; }
-
-.loading-screen-holder {
-  display: flex;
-  flex-direction: column;
-  padding: 20px; }
-
-.judge, #loading-pg-roomkey {
-  padding: 10px 25px;
-  border-radius: 20px;
-  position: absolute;
-  left: 15px; }
-
-.judge {
-  top: 10px;
-  background-color: #C0C0C0; }
-
-#loading-pg-roomkey {
-  top: 65px;
-  background-color: #FF6161; }
-
-.judge-start, .show-gifs-btn, .next-round-btn {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  font-size: 20px;
-  padding: 10px;
-  border-radius: 40px;
-  background: #D45FFF;
-  width: 155px;
-  margin: 10px auto; }
-
-.judge-start:hover, .show-gifs-btn:hover {
-  cursor: pointer;
-  background: #c533fb;
-  transform: scale(0.99); }
-
-.judge-start:focus, .judge-start:active, .show-gifs-btn:focus, .show-gifs-btn:active {
-  background: #D45FFF; }
-
-.waiting-msg {
-  padding-top: 125px; }
-
-#current-players, #no-players {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  font-size: 165%;
-  padding: 10px; }
-
-#username {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  font-size: 35px; }
-
-.current-players-div {
-  width: 100%;
-  text-align: center;
-  padding: 10px; }
-
-.player-bubble {
-  display: inline-block;
-  z-index: 100;
-  margin: 0 -12px; }
-
-.fa-stack {
-  display: inline-block;
-  height: 1.4em;
-  line-height: 1.5em;
-  position: relative;
-  vertical-align: middle;
-  width: 2em; }
-
-.theme-and-category {
-  background-color: #D45FFF;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 400px; }
-
-#loading-pg-prompt {
-  margin-bottom: -100px; }
-
-#winner-pg-prompt {
-  margin-top: 50px;
-  max-width: 400px; }
-
-.theme-prompt {
-  font-size: 21px;
-  color: #8923af; }
-
-#timer-icon {
-  font-size: 40px; }
-
-.loading-screen-timer {
-  padding-left: 10px;
-  font-size: 40px; }
-
-.playerlist-holder {
-  width: 100%;
-  text-align: left;
-  margin-top: 5px; }
-  .playerlist-holder td {
-    padding: 5px 15px; }
-
-.gif-reveal-component {
-  padding: 20px; }
-  .gif-reveal-component .pick-winner-instruction {
-    font-size: 25px;
-    padding-bottom: 10px; }
-  .gif-reveal-component .gif-reveal-div {
-    margin: 0px auto;
-    padding: 10px;
-    max-width: 400px;
-    width: 100%;
-    border-radius: 25px; }
-    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
-      border-radius: 25px;
-      padding: 10px; }
-    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview:hover {
-      cursor: pointer;
-      background: #4a3b5c;
-      transition: .25s; }
-
-#partial-logo {
-  padding-top: 60px;
-  width: 40%;
-  height: 40%;
-  margin-bottom: -10px; }
-
-.winnerScreen-component {
-  padding: 20px; }
-
-.winning-gif-holder {
-  width: 100%;
-  padding: 10px 0; }
-
-.winning-gif {
-  max-width: 100%;
-  border-radius: 15px;
-  max-height: 250px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 40px;
-  border: 7px solid gold; }
-
-h3 {
-  font-size: 18px;
-  letter-spacing: 1px; }
-
-.winner-name {
-  font-size: 30px;
-  letter-spacing: 1px; }

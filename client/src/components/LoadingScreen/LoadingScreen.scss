@@ -1,5 +1,4 @@
-//Dependencies from main.scss ============================================
-//Colors ===============================================================
+//Dependencies =========================================================
 $background: #31263E;
 $green: #44BBA4;
 $orange: #FF8A5B;
@@ -11,7 +10,6 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
-//Mixins ===============================================================
 @mixin position{
   margin:auto;
   text-align: center;
@@ -24,8 +22,6 @@ $charcoal: #444444;
 
 //Loading Screen ===================================================
 .loading-screen-holder {
-  display: flex;
-  flex-direction: column;
   padding:20px;
 }
 
@@ -33,18 +29,30 @@ $charcoal: #444444;
   padding: 10px 25px;
   border-radius: 20px;
   position: absolute;
-  left:15px;
+  min-width:120px;
  }
 
 .judge{
-  top:10px;
+  top:20px;
   background-color: $grey;
 }
 
 #loading-pg-roomkey{
-  top:65px;
+  top:75px;
   background-color: $red;
 }
+
+.logo-holder {
+  padding:120px 0 30px 0;
+}
+
+.small-logo {
+  width: 130px;
+  height: 130px;
+  margin:0 auto;
+}
+
+//Loading screen buttons ==============================================================
 
 .judge-start, .show-gifs-btn, .next-round-btn{
   @include font;
@@ -66,22 +74,14 @@ $charcoal: #444444;
   background: $pink;
 }
 
-.waiting-msg {
-  padding-top:125px;
-}
-
-// .loading-gif {
-//   padding: 15px;
-//   max-width: 200px;
-//   margin: 25px auto;
-// }
-
+//Loading Screen Text =================================================================
 #current-players, #no-players{
   @include font;
   font-size: 165%;
   padding:10px;
 }
 
+//User Icons =========================================================================
 #username{
   @include font;
   font-size: 35px;
@@ -108,29 +108,12 @@ $charcoal: #444444;
   width: 2em;
 }
 
-.theme-and-category {
-  background-color: $pink;
-  border-radius:20px;
-  padding: 10px; 
-  margin:0 auto;
-  width: 100%;
-  max-width: 400px;
-}
-
+//Theme and Category Prompt ===========================================================
 #loading-pg-prompt {
   margin-bottom:-100px;
 }
 
-#winner-pg-prompt{
-  margin-top:50px;
-  max-width: 400px;
-}
-
-.theme-prompt {
-  font-size: 21px;
-  color: #8923af;
-}
-
+//Loading Screen Timer ================================================================
 #timer-icon {
   font-size:40px;
 }

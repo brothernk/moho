@@ -1,11 +1,4 @@
-//Gif Reveal
-#partial-logo {
-  padding-top:60px; 
-  width:40%;
-  height:40%;
-  margin-bottom: -10px;
-}
-
+//Gif Reveal ================================================
 .winnerScreen-component {
   padding:20px;
 }
@@ -25,7 +18,7 @@
     border: 7px solid gold;
 }
 
-h3{
+h3{ //"True, that" Header
     font-size:18px;
     letter-spacing: 1px;
 }
@@ -33,4 +26,10 @@ h3{
 .winner-name {
   font-size:30px;
   letter-spacing: 1px;
+}
+
+//Theme and Category Prompt ================================
+#winner-pg-prompt{
+  margin-top:50px;
+  max-width: 400px;
 }
