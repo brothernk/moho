@@ -1,9 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 
-export const BackBtn = props => (
-  <span {...props} id = {props.id} className="btn back-btn">
-    Home
-  </span>
-)
+class BackBtn extends Component {
+
+  backFunction = () => {
+    console.log("button has been clicked")
+    window.location.href = "/"
+  }
+
+  render() {
+    return(
+      <span className="btn back-btn" onClick = {this.backFunction}>
+        Home
+      </span>
+    )
+  }
+
+}
 
 export default BackBtn;

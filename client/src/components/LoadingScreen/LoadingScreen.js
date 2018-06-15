@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MiniLogo from "../../components/Logo/MiniLogo";
+import Modal from "../../components/Modal/Modal";
 
 class LoadingScreen extends Component {
 
@@ -158,6 +159,26 @@ class LoadingScreen extends Component {
 
         { this.state.showKeyword ? 
           <div className="pull-themes-btn">
+
+          { this.state.userJudge ? 
+            <Modal 
+              className="game-instructions" 
+              id="game-start-instructions" 
+              text="?"
+              modalTitle="What Now?"
+              modalInstructions= 
+                  "You are the judge this round! Wait until all your friends join the game room, then click 'Start Game'."
+              ></Modal>
+          : 
+            <Modal 
+              className="game-instructions" 
+              id="game-start-instructions" 
+              text="?"
+              modalTitle="What Now?"
+              modalInstructions= 
+                  "You are a player this round! The judge will start the game once everyone joins"
+            ></Modal>
+          }
 
           <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
           <div id="loading-pg-roomkey"> 
