@@ -46,12 +46,19 @@ class WinnerPage extends Component {
     self.props.socket.emit('startnextround')
   }
 
-  // Users color is this.state.winner.member.color
-
 	render() {
 		return (
 			<div className="winnerScreen-component">
-        {/* Button to start next round */}
+
+        <p className="judge">Judge: {this.state.judge}</p>
+
+        <div className="winning-gif-holder">
+          <img className="winning-gif" src={this.state.gif} alt=""/>
+        </div>
+
+        <h3>True that, </h3>
+        <h1 className="winner-name">{this.state.winner}!</h1>
+
         <div className="pull-themes-btn">
           <span className="btn">
           { this.state.userJudge ? 
@@ -60,17 +67,6 @@ class WinnerPage extends Component {
           </span>
         </div>
 
-        <p className="judge">Judge: {this.state.judge}</p>
-
-        <h6 className="winner-page-recap">{this.props.theme}</h6>
-        <h4>{this.props.category}</h4>
-
-        <div className="winning-gif-holder">
-          <img className="winning-gif" src={this.state.gif} alt=""/>
-        </div>
-
-        <h1>Winner:</h1>
-        <h3>{this.state.winner}!!!</h3>    
       </div>
 			);
 	}

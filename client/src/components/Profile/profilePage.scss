@@ -11,13 +11,11 @@ $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
 
-//Mixins ===============================================================
 @mixin font{
   font-family: "Montserrat", sans-serif;
   color:white;
 }
 
-//Placeholders =======================================================
 %round-buttons{
   border-radius: 50%;
   height: 70px;
@@ -33,34 +31,36 @@ $charcoal: #444444;
   
 .pick-a-color{
   font-size:20px;
-  padding:20px 15px 0px 15px;
+  padding-top:20px;
 }
 
-.complete-profile-btn{
-  padding:15px 15px 0px 15px;
-}
-
-.join {
-  background-color: $green;
-  color: #fff;
-}
-
-.join:hover{
-  cursor: pointer;
-}
-
-.cantJoin {
-  background-color: $grey;
-  color: grey !important;
+.complete-profile-btn {
+  padding:20px;
 }
 
 .join-btn{
   @include font;
   border-radius: 30px;
   font-size:25px;
-  padding: 10px 25px;
-  width:180px;
+  padding: 12px 30px;
+  max-width: 200px;
+  width:80%;
   transition: .25s;
+}
+
+.join, .join:focus, .join:active {
+  background-color: $green;
+}
+
+.join:hover{
+  cursor: pointer;
+  background: #3a9785;
+  transform: scale(.99);
+}
+
+.cantJoin {
+  background-color: $grey;
+  color: grey !important;
 }
 
 //Color Buttons
@@ -80,23 +80,14 @@ $charcoal: #444444;
   box-shadow: 0 0 1px 6px grey;
 }
 
-.yellow-prof{
-  background-color:$yellow;
-} .blue-prof{
-  background-color:$blue;
-} .red-prof{
-  background-color:$red;
-} .pink-prof{
-  background-color:$pink;
-} .green-prof{
-  background-color:$green;
-} .orange-prof{
-  background-color:$orange;
-} .purple-prof{
-  background-color:$purple;
-} .charcoal-prof{
-  background-color:$charcoal;
-}
+.yellow-prof{background-color:$yellow;} 
+.blue-prof{background-color:$blue;} 
+.red-prof{background-color:$red;} 
+.pink-prof{background-color:$pink;} 
+.green-prof{background-color:$green;} 
+.orange-prof{background-color:$orange;} 
+.purple-prof{background-color:$purple;} 
+.charcoal-prof{background-color:$charcoal;}
 
 //Desktop ===========================================================
 @media only screen and (min-width: 600px) {

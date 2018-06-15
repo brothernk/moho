@@ -1,0 +1,29 @@
+//Gif Reveal Page ====================================================
+.gif-reveal-component{
+  padding:20px;
+
+  .pick-winner-instruction {
+    font-size:25px;
+    padding-bottom:10px;
+  }
+
+  .gif-reveal-div {
+    margin:0px auto;
+    padding:10px;
+    max-width: 400px;
+    width:100%;
+    border-radius:25px;
+    
+    .gif-component{
+        .gif-preview{
+          border-radius:25px;
+          padding: 10px;
+       }
+       .gif-preview:hover{
+         cursor: pointer;
+         background: #4a3b5c;
+         transition: .25s;
+       }
+    }
+  }
+}

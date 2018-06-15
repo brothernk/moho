@@ -1,58 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 @import url("https://use.fontawesome.com/releases/v5.0.10/css/all.css");
-h1, h2, h3, h4, h5, h6, p {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  font-weight: 700; }
-
-.winning-gif-prompt {
-  padding: 15px 25px 0px 25px; }
-
-.winner-page-recap {
-  padding: 45px 25px 10px 25px; }
-
-.winning-gif-holder {
-  width: 100%;
-  padding: 25px; }
-
-.winning-gif {
-  max-width: 100%;
-  border-radius: 15px;
-  max-height: 250px;
-  display: block;
-  margin: 0 auto;
-  border: 7px solid gold; }
-
-.signup-btn, .login-btn, .enter-btn {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  font-size: 25px;
-  margin: 10px;
-  padding: 8px;
-  width: 220px; }
-
-.color-btn {
-  border-radius: 50px;
-  height: 70px;
-  width: 70px;
-  margin: 8px; }
-
-input[type="text"] {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  border: none;
-  background-color: lightgrey;
-  color: grey;
-  padding: 8px;
-  font-size: 25px; }
-
 body {
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   color: white;
+  font-weight: 700;
   background: #31263E; }
 
 .logo {
@@ -70,22 +23,18 @@ body {
 #username-error {
   padding: 30px 40px 0px 40px; }
 
-.signup-btn {
-  background: #FF6161;
-  width: 70%;
-  max-width: 250px; }
-
-.login-btn, .enter-btn {
-  background: #D45FFF;
-  width: 70%;
-  max-width: 250px; }
-
-.signup-btn:hover, .login-btn:hover, .enter-btn:hover {
-  background-color: grey; }
-
 input[type="text"] {
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  background-color: lightgrey;
+  color: grey;
+  padding: 8px;
+  font-size: 25px;
   margin-top: 20px;
   width: 70%;
   max-width: 250px; }
@@ -98,7 +47,7 @@ input[type="text"]:focus {
   font-size: 40px; }
 
 #roomkey {
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
   border-radius: 30px;
   background-color: #FF6161;
@@ -121,12 +70,40 @@ p {
   font-size: 27px;
   padding-top: 15px; }
 
+.btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border-radius: 30px;
+  font-size: 25px;
+  margin: 10px;
+  padding: 8px;
+  width: 70%;
+  max-width: 250px; }
+
+.btn:hover {
+  transform: scale(0.99); }
+
+.signup-btn {
+  background-color: #FF6161; }
+
+.signup-btn:hover {
+  background-color: #cc4d4d; }
+
+.login-btn {
+  background-color: #D45FFF; }
+
+.login-btn:hover {
+  background-color: #a94ccc; }
+
+.enter-btn {
+  background-color: #FFC655; }
+
+.enter-btn:hover {
+  background-color: #e5b24c; }
+
 .giphy-component {
   padding: 15px;
   margin-bottom: 40px; }
-  .giphy-component h4, .giphy-component h6 {
-    font-family: "Montserrat", sans-serif;
-    color: white; }
   .giphy-component .search-holder {
     width: 100%;
     max-width: 450px;
@@ -150,9 +127,10 @@ p {
         font-size: 20px; }
     .giphy-component .search-holder .search-button:hover {
       cursor: pointer;
-      background: #ff7842; }
+      background: #e57c51; }
     .giphy-component .search-holder img {
       width: 100%;
+      max-height: 250px;
       margin-top: 15px;
       border-radius: 15px; }
     .giphy-component .search-holder .button-holder {
@@ -197,41 +175,15 @@ p {
           font-size: 20px; }
       .giphy-component .search-holder .button-holder .confirm:hover {
         cursor: pointer;
-        background: #3da894; }
+        background: #3da893; }
 
 .gif-component {
   background-size: cover;
   text-align: center; }
   .gif-component .gif-preview {
     object-fit: fill;
-    max-height: 240px;
+    max-height: 300px;
     max-width: 100%; }
-
-.gif-reveal-component .judge-instructions {
-  font-family: "Montserrat", sans-serif;
-  color: white; }
-
-.gif-reveal-component h4, .gif-reveal-component h6 {
-  font-family: "Montserrat", sans-serif;
-  color: white; }
-
-.gif-reveal-component h4 {
-  padding: 10px 15px; }
-
-.gif-reveal-component h6 {
-  padding-top: 15px; }
-
-.gif-reveal-component .gif-reveal-div {
-  margin: auto;
-  text-align: center;
-  max-width: 400px;
-  width: 90%; }
-  .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
-    border-radius: 25px;
-    padding: 10px; }
-  .gif-reveal-component .gif-reveal-div .gif-component .gif-preview:hover {
-    cursor: pointer;
-    background: #4a3b5c; }
 
 .promptSelect-component {
   padding: 10px; }
@@ -249,7 +201,8 @@ p {
     .promptSelect-component .prompt-card i {
       padding-right: 15px; }
   .promptSelect-component .prompt-card:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    transform: scale(0.99); }
 
 .color-btn {
   border-radius: 50%;
@@ -263,30 +216,32 @@ p {
 
 .pick-a-color {
   font-size: 20px;
-  padding: 20px 15px 0px 15px; }
+  padding-top: 20px; }
 
 .complete-profile-btn {
-  padding: 15px 15px 0px 15px; }
-
-.join {
-  background-color: #44BBA4;
-  color: #fff; }
-
-.join:hover {
-  cursor: pointer; }
-
-.cantJoin {
-  background-color: #C0C0C0;
-  color: grey !important; }
+  padding: 20px; }
 
 .join-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
   font-size: 25px;
-  padding: 10px 25px;
-  width: 180px;
+  padding: 12px 30px;
+  max-width: 200px;
+  width: 80%;
   transition: .25s; }
+
+.join, .join:focus, .join:active {
+  background-color: #44BBA4; }
+
+.join:hover {
+  cursor: pointer;
+  background: #3a9785;
+  transform: scale(0.99); }
+
+.cantJoin {
+  background-color: #C0C0C0;
+  color: grey !important; }
 
 .setup-color-buttondiv {
   padding: 15px 20px; }
@@ -378,7 +333,8 @@ p {
   background: #C0C0C0;
   height: 40px;
   min-height: 0;
-  z-index: 1000; }
+  z-index: 1000;
+  cursor: pointer; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
@@ -390,7 +346,7 @@ p {
       border-radius: 50%; }
     .bottom-nav .content-holder .userScore {
       position: absolute;
-      left: 60px;
+      right: 10px;
       top: 11px; }
     .bottom-nav .content-holder .home-button {
       position: absolute;
@@ -407,53 +363,50 @@ p {
   min-height: 0; }
 
 .loading-screen-holder {
-  min-height: 25px;
-  width: 100%;
-  padding: 15px;
-  margin-top: 30px; }
+  display: flex;
+  flex-direction: column;
+  padding: 20px; }
 
-#loading-pg-roomkey, .judge {
+.judge, #loading-pg-roomkey {
   padding: 10px 25px;
   border-radius: 20px;
   position: absolute;
-  top: 10px; }
-
-#loading-pg-roomkey {
-  right: 15px;
-  background-color: #FF6161; }
+  left: 15px; }
 
 .judge {
-  left: 15px;
+  top: 10px;
   background-color: #C0C0C0; }
+
+#loading-pg-roomkey {
+  top: 65px;
+  background-color: #FF6161; }
 
 .judge-start, .show-gifs-btn, .next-round-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
-  padding: 10px 25px;
+  font-size: 20px;
+  padding: 10px;
   border-radius: 40px;
-  position: absolute;
-  top: 65px;
-  right: 15px;
   background: #D45FFF;
-  font-size: 16px; }
-
-.show-gifs-btn, .next-round-btn {
-  top: 10px; }
+  width: 155px;
+  margin: 10px auto; }
 
 .judge-start:hover, .show-gifs-btn:hover {
   cursor: pointer;
-  background: #c533fb; }
+  background: #c533fb;
+  transform: scale(0.99); }
 
-.loading-gif {
-  padding: 15px;
-  max-width: 200px;
-  margin: 25px auto; }
+.judge-start:focus, .judge-start:active, .show-gifs-btn:focus, .show-gifs-btn:active {
+  background: #D45FFF; }
+
+.waiting-msg {
+  padding-top: 125px; }
 
 #current-players, #no-players {
   font-family: "Montserrat", sans-serif;
   color: white;
-  font-size: 175%;
-  margin: 5px 0px 20px 0px; }
+  font-size: 165%;
+  padding: 10px; }
 
 #username {
   font-family: "Montserrat", sans-serif;
@@ -462,14 +415,13 @@ p {
 
 .current-players-div {
   width: 100%;
-  padding-top: 15px;
   text-align: center;
-  margin-top: -25px; }
+  padding: 10px; }
 
 .player-bubble {
   display: inline-block;
   z-index: 100;
-  margin: 0px -10px 0px -10px; }
+  margin: 0 -12px; }
 
 .fa-stack {
   display: inline-block;
@@ -479,18 +431,31 @@ p {
   vertical-align: middle;
   width: 2em; }
 
-#theme-prompt {
-  background-color: #FF6161;
+.theme-and-category {
+  background-color: #D45FFF;
   border-radius: 20px;
   padding: 10px;
-  margin: 20px auto 0px auto;
+  margin: 0 auto;
   width: 100%;
-  max-width: 400px;
-  display: block; }
+  max-width: 400px; }
 
-#theme-prompt-theme {
+#loading-pg-prompt {
+  margin-bottom: -100px; }
+
+#winner-pg-prompt {
+  margin-top: 50px;
+  max-width: 400px; }
+
+.theme-prompt {
   font-size: 21px;
-  color: #cc4040; }
+  color: #8923af; }
+
+#timer-icon {
+  font-size: 40px; }
+
+.loading-screen-timer {
+  padding-left: 10px;
+  font-size: 40px; }
 
 .playerlist-holder {
   width: 100%;
@@ -498,3 +463,52 @@ p {
   margin-top: 5px; }
   .playerlist-holder td {
     padding: 5px 15px; }
+
+.gif-reveal-component {
+  padding: 20px; }
+  .gif-reveal-component .pick-winner-instruction {
+    font-size: 25px;
+    padding-bottom: 10px; }
+  .gif-reveal-component .gif-reveal-div {
+    margin: 0px auto;
+    padding: 10px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 25px; }
+    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
+      border-radius: 25px;
+      padding: 10px; }
+    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview:hover {
+      cursor: pointer;
+      background: #4a3b5c;
+      transition: .25s; }
+
+#partial-logo {
+  padding-top: 60px;
+  width: 40%;
+  height: 40%;
+  margin-bottom: -10px; }
+
+.winnerScreen-component {
+  padding: 20px; }
+
+.winning-gif-holder {
+  width: 100%;
+  padding: 10px 0; }
+
+.winning-gif {
+  max-width: 100%;
+  border-radius: 15px;
+  max-height: 250px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  border: 7px solid gold; }
+
+h3 {
+  font-size: 18px;
+  letter-spacing: 1px; }
+
+.winner-name {
+  font-size: 30px;
+  letter-spacing: 1px; }

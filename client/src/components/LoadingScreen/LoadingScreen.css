@@ -1,0 +1,94 @@
+.loading-screen-holder {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; }
+
+.judge, #loading-pg-roomkey {
+  padding: 10px 25px;
+  border-radius: 20px;
+  position: absolute;
+  left: 15px; }
+
+.judge {
+  top: 10px;
+  background-color: #C0C0C0; }
+
+#loading-pg-roomkey {
+  top: 65px;
+  background-color: #FF6161; }
+
+.judge-start, .show-gifs-btn, .next-round-btn {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 40px;
+  background: #D45FFF;
+  width: 155px;
+  margin: 10px auto; }
+
+.judge-start:hover, .show-gifs-btn:hover {
+  cursor: pointer;
+  background: #c533fb;
+  transform: scale(0.99); }
+
+.judge-start:focus, .judge-start:active, .show-gifs-btn:focus, .show-gifs-btn:active {
+  background: #D45FFF; }
+
+.waiting-msg {
+  padding-top: 125px; }
+
+#current-players, #no-players {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-size: 165%;
+  padding: 10px; }
+
+#username {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-size: 35px; }
+
+.current-players-div {
+  width: 100%;
+  text-align: center;
+  padding: 10px; }
+
+.player-bubble {
+  display: inline-block;
+  z-index: 100;
+  margin: 0 -12px; }
+
+.fa-stack {
+  display: inline-block;
+  height: 1.4em;
+  line-height: 1.5em;
+  position: relative;
+  vertical-align: middle;
+  width: 2em; }
+
+.theme-and-category {
+  background-color: #D45FFF;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px; }
+
+#loading-pg-prompt {
+  margin-bottom: -100px; }
+
+#winner-pg-prompt {
+  margin-top: 50px;
+  max-width: 400px; }
+
+.theme-prompt {
+  font-size: 21px;
+  color: #8923af; }
+
+#timer-icon {
+  font-size: 40px; }
+
+.loading-screen-timer {
+  padding-left: 10px;
+  font-size: 40px; }

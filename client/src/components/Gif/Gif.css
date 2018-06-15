@@ -1,0 +1,7 @@
+.gif-component {
+  background-size: cover;
+  text-align: center; }
+  .gif-component .gif-preview {
+    object-fit: fill;
+    max-height: 300px;
+    max-width: 100%; }

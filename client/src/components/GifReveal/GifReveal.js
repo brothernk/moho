@@ -32,11 +32,8 @@ class GifReveal extends Component {
           this.setState({judge: this.state.users[i].name})
           break
         }
-  
       }
-    })
-
-    
+    }) 
   }
 
   componentDidUpdate = () => {
@@ -94,11 +91,13 @@ class GifReveal extends Component {
       <div className="gif-reveal-component">
 
         { this.state.showJudgeInstructions ? 
-          <h1 className="winning-gif-prompt">Pick the winning gif!</h1>
+          <h1 className="pick-winner-instruction">Pick the winning GIF</h1>
         : null}
 
-        <h6>{this.props.theme}</h6>
-        <h4>{this.props.category}</h4>
+        <div className="theme-and-category" id="gif-reveal-prompt"> 
+            <p className="theme-prompt">{this.props.theme}</p>
+            <p className="category-prompt">{this.props.category}</p>
+        </div>
 
         <div className="gif-reveal-div">
           {this.state.gifsReturnedShuffle.map(gif => (

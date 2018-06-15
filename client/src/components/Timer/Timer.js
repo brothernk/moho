@@ -11,7 +11,7 @@ class Timer extends React.Component {
   }
 
   countdown = () => {
-    this.setState({timeRemaining: 45}, function() {
+    this.setState({timeRemaining: 45000}, function() {
       let number = this.state.timeRemaining;
       setInterval(() => {
         if (this.state.timeRemaining > 0) {
@@ -30,7 +30,10 @@ class Timer extends React.Component {
 
 render() {
   return (
-    <span>{this.state.timeRemaining}</span>
+    <div>
+      <i id="timer-icon" className="fas fa-stopwatch"></i>
+      <span className="loading-screen-timer">{this.state.timeRemaining}</span>
+    </div>
     )
   }
 }

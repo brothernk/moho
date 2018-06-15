@@ -68,19 +68,15 @@ class Home extends Component {
 
     // check IP address on mount
     componentDidMount = () => {
-
         this.returnCategories()
         this.setUrl()
-
     }
 
     configureSocket = (socket) => {
         const self = this;
 
         self.state.socket.on("useraddedsuccessfullyother", function(data) {
-            console.log("NEW USER ADDED")
-            self.updateMembers(data, function(){console.log('member added')})
-
+            self.updateMembers(data, function(){console.log('Member added')})
         })
 
         self.state.socket.on("startgameplayer", function(data){
@@ -177,8 +173,6 @@ class Home extends Component {
                     self.setState({showJudgeChoices: true})
                 }
             })
-
-
         })
 
         self.state.socket.on('playerchosenreturned', function(data) {
@@ -233,7 +227,6 @@ class Home extends Component {
         })
 
 
-
         self.state.socket.on('winnerinfoplayer', function(data) {
             self.setState({winner: data})
         })
@@ -270,7 +263,6 @@ class Home extends Component {
                 self.setState({showWinner: true})
             })
         })
-
     }
 
     // Grab current URL and set state variable, then continue to check URL
@@ -322,14 +314,14 @@ class Home extends Component {
 
                             //No members in session
                             if (res.data[0].members.length === 0 ) {
-                                console.log("no members yet in session")
+                                console.log("No members yet in session")
                                 self.setState({showProfile: true})
                             }
                             // If users exist but user's ip address is not associated with a session member,
                             // user gets shown profile page. If the ip address already exists, user goes straight to 
                             // home page
                             else {
-                                console.log("members exist in session")
+                                console.log("Members exist in session")
                                 self.setState({showProfile: true})
                             }
                         })    
@@ -357,22 +349,19 @@ class Home extends Component {
     //Expand navbar
     expandToggle = () => {
         if (this.state.BottomNavExpanded) {
-            console.log("expanded!")
             this.setState({
                 BottomNavClasses: "bottom-nav not-expanded",
                 BottomNavExpanded: false
             })
         } else {
-            console.log("Not expanded :/");
             this.setState({
                 BottomNavClasses: "bottom-nav expanded",
                 BottomNavExpanded: true
             })
         }
     };
-
+    
     endTimer = () => {
-
     }
 
     updateMembers = (data, callback) => {
@@ -421,15 +410,9 @@ class Home extends Component {
                 this.setState({BottomNavPlayerList: bottomNavArray})
             }
 
-
-
-            count ++
-            
+            count ++ 
         }
-        
         callback()
-    
-
     }
 
     render() {
@@ -510,7 +493,6 @@ class Home extends Component {
                             </PlayerListHolder>
                         </BottomNav> 
                     </div>
-                
                 : null }
 
                 { this.state.showGiphySearch ?

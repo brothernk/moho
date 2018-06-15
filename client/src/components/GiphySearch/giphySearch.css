@@ -1,9 +1,6 @@
 .giphy-component {
   padding: 15px;
   margin-bottom: 40px; }
-  .giphy-component h4, .giphy-component h6 {
-    font-family: "Montserrat", sans-serif;
-    color: white; }
   .giphy-component .search-holder {
     width: 100%;
     max-width: 450px;
@@ -27,9 +24,10 @@
         font-size: 20px; }
     .giphy-component .search-holder .search-button:hover {
       cursor: pointer;
-      background: #ff7842; }
+      background: #e57c51; }
     .giphy-component .search-holder img {
       width: 100%;
+      max-height: 250px;
       margin-top: 15px;
       border-radius: 15px; }
     .giphy-component .search-holder .button-holder {
@@ -74,4 +72,4 @@
           font-size: 20px; }
       .giphy-component .search-holder .button-holder .confirm:hover {
         cursor: pointer;
-        background: #3da894; }
+        background: #3da893; }

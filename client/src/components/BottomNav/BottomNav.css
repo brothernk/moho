@@ -6,7 +6,8 @@
   background: #C0C0C0;
   height: 40px;
   min-height: 0;
-  z-index: 1000; }
+  z-index: 1000;
+  cursor: pointer; }
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
@@ -18,7 +19,7 @@
       border-radius: 50%; }
     .bottom-nav .content-holder .userScore {
       position: absolute;
-      left: 60px;
+      right: 10px;
       top: 11px; }
     .bottom-nav .content-holder .home-button {
       position: absolute;

@@ -1,0 +1,36 @@
+//Gif Reveal
+#partial-logo {
+  padding-top:60px; 
+  width:40%;
+  height:40%;
+  margin-bottom: -10px;
+}
+
+.winnerScreen-component {
+  padding:20px;
+}
+
+.winning-gif-holder {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.winning-gif {
+    max-width: 100%;
+    border-radius: 15px;
+    max-height: 250px;
+    display: block;
+    margin: 0 auto;
+    margin-top:40px;
+    border: 7px solid gold;
+}
+
+h3{
+    font-size:18px;
+    letter-spacing: 1px;
+}
+
+.winner-name {
+  font-size:30px;
+  letter-spacing: 1px;
+}
