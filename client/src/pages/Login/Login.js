@@ -140,6 +140,8 @@ class Login extends Component {
                     </div>
                 : null }
 
+                <div className="game-instructions" id="general-game-instructions">How to Play</div>
+
                 {/* <button onClick={this.deleteSavedSessions}>Delete Sessions</button> */}
                 
             </div>
