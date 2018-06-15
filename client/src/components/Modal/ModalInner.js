@@ -6,14 +6,10 @@ class ModalInner extends Component {
     state = {
         modal:  {
             position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            zIndex: '9999',
-            background: '#fff',
-            color: 'black',
-            padding: '20px',
-            'border-radius': '20px'
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex:"9999",
         },
         background: {
             position: 'absolute',
@@ -22,9 +18,7 @@ class ModalInner extends Component {
             top: '0px',
             left: '0px',
             zIndex: '9998',
-            background: 'rgba(0, 0, 0, 0.3)'
         }
-    
     }
 
 
@@ -32,12 +26,14 @@ class ModalInner extends Component {
         return (
             <div>
                 {this.props.isOpen ?  
-                    <div style={this.state.background}>
-                        <div style={this.state.modal}>
-                            <h1>{this.props.title}</h1>
-                            <p>{this.props.p1}</p>
-                            <p>{this.props.p2}</p>
-                            <p>{this.props.p3}</p>
+                    <div className="modal-background" style={this.state.background}>
+                        <div className="modal-style" style={this.state.modal}>
+                            <h1 className="modal-title">{this.props.title}</h1>
+                            <div className="modal-text">
+                                <p className="modal-p">{this.props.p1}</p>
+                                <p className="modal-p">{this.props.p2}</p>
+                                <p className="modal-p">{this.props.p3}</p>
+                            </div>
                             <ModalButton onClick={this.props.onClose}></ModalButton>
                         </div>
                     </div>
