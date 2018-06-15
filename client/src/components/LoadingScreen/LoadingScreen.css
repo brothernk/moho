@@ -1,21 +1,27 @@
 .loading-screen-holder {
-  display: flex;
-  flex-direction: column;
   padding: 20px; }
 
 .judge, #loading-pg-roomkey {
   padding: 10px 25px;
   border-radius: 20px;
   position: absolute;
-  left: 15px; }
+  min-width: 120px; }
 
 .judge {
-  top: 10px;
+  top: 20px;
   background-color: #C0C0C0; }
 
 #loading-pg-roomkey {
-  top: 65px;
+  top: 75px;
   background-color: #FF6161; }
+
+.logo-holder {
+  padding: 120px 0 30px 0; }
+
+.small-logo {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto; }
 
 .judge-start, .show-gifs-btn, .next-round-btn {
   font-family: "Montserrat", sans-serif;
@@ -34,9 +40,6 @@
 
 .judge-start:focus, .judge-start:active, .show-gifs-btn:focus, .show-gifs-btn:active {
   background: #D45FFF; }
-
-.waiting-msg {
-  padding-top: 125px; }
 
 #current-players, #no-players {
   font-family: "Montserrat", sans-serif;
@@ -67,24 +70,8 @@
   vertical-align: middle;
   width: 2em; }
 
-.theme-and-category {
-  background-color: #D45FFF;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 400px; }
-
 #loading-pg-prompt {
   margin-bottom: -100px; }
-
-#winner-pg-prompt {
-  margin-top: 50px;
-  max-width: 400px; }
-
-.theme-prompt {
-  font-size: 21px;
-  color: #8923af; }
 
 #timer-icon {
   font-size: 40px; }

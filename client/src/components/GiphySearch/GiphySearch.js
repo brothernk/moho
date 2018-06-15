@@ -75,7 +75,8 @@ class GiphySearch extends Component {
 
   render() {
       return (
-          <div className="giphy-component"> 
+          <div className="giphy-component">    
+            <div className="game-instructions" id="giphy-search-instructions">?</div>
               <h6>{this.props.theme}</h6>
               <h4>{this.props.category}</h4>
               <div className="search-holder">
