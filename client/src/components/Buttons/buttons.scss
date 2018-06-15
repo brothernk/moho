@@ -38,3 +38,10 @@ $charcoal: #444444;
   
 .enter-btn {background-color: $yellow;}
 .enter-btn:hover {background-color: #e5b24c;}
+
+.back-btn {
+  background-color: $green;
+  max-width:150px;
+  margin:15px;
+}
+.back-btn:hover {background-color: #369583;}

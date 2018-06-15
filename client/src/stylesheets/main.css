@@ -14,8 +14,8 @@ body {
   padding: 25px 25px 10px 25px; }
 
 #not-a-session {
-  margin-top: 25%;
-  font-size: 150%; }
+  padding: 50px;
+  font-size: 120%; }
 
 #session-not-exist {
   padding: 30px; }
@@ -100,6 +100,14 @@ p {
 
 .enter-btn:hover {
   background-color: #e5b24c; }
+
+.back-btn {
+  background-color: #44BBA4;
+  max-width: 150px;
+  margin: 15px; }
+
+.back-btn:hover {
+  background-color: #369583; }
 
 .giphy-component {
   padding: 15px;
