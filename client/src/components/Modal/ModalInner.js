@@ -35,7 +35,9 @@ class ModalInner extends Component {
                     <div style={this.state.background}>
                         <div style={this.state.modal}>
                             <h1>{this.props.title}</h1>
-                            <p>{this.props.text}</p>
+                            <p>{this.props.p1}</p>
+                            <p>{this.props.p2}</p>
+                            <p>{this.props.p3}</p>
                             <ModalButton onClick={this.props.onClose}></ModalButton>
                         </div>
                     </div>

@@ -160,8 +160,10 @@ class LoadingScreen extends Component {
               id="game-start-instructions" 
               text="?"
               modalTitle="What Now?"
-              modalInstructions= 
-                  "You are the judge this round! Wait until all your friends join the game room, then click 'Start Game'."
+              modalInstructions1= 
+                  "You are the judge this round!"
+              modalInstructions2= "Wait until all your friends join the game room, then click 'Start Game'."
+              modalInstructions3=""
               ></Modal>
           : 
             <Modal 
@@ -169,8 +171,10 @@ class LoadingScreen extends Component {
               id="game-start-instructions" 
               text="?"
               modalTitle="What Now?"
-              modalInstructions= 
-                  "You are a player this round! The judge will start the game once everyone joins"
+              modalInstructions1= 
+                  "You are a player this round!"
+              modalInstructions2 ="The judge will start the game once everyone joins."
+              modalInstructions3=""
             ></Modal>
           }
           
