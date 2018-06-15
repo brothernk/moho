@@ -22,7 +22,7 @@ class Modal extends Component {
         <div className={this.props.className} id={this.props.id} onClick={this.openModal}>{this.props.text}</div>
 
         <ModalInner isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}
-          title={this.props.modalTitle} text={this.props.modalInstructions}>
+          title={this.props.modalTitle} p1={this.props.modalInstructions1} p2={this.props.modalInstructions2} p3={this.props.modalInstructions3}>
         </ModalInner>
       </div>
 

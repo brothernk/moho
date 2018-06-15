@@ -146,8 +146,10 @@ class Login extends Component {
                     id="general-game-instructions" 
                     text="How to Play"
                     modalTitle="How to Play"
-                    modalInstructions= 
-                        "If you are starting a new game with friends, click 'Create Game' to generate a unique room key. Click 'Join Game' and enter your room key to start playing. Share your room key with your friends to all play together!" 
+                    modalInstructions1= 
+                        "If you are starting a new game with friends, click 'Create Game' to generate a unique room key." 
+                    modalInstructions2="Click 'Join Game' and enter your room key to start playing. "
+                    modalInstructions3="Share your room key with your friends to all play together!"
                 ></Modal>
 
                 {/* <button onClick={this.deleteSavedSessions}>Delete Sessions</button> */}

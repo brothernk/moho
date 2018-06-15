@@ -82,7 +82,9 @@ class GiphySearch extends Component {
                 id="giphy-search-instructions"
                 text="?"
                 modalTitle="What Now?"
-                modalInstructions="Try to find the perfect gif by entering a search parameter into the search bar. Click on the magnifying glass to search. You will be returned one gif at a time. If you like the gif, click the check mark button. If you want to shuffle, click the reload button. If you want to search a different parameter, use the search bar! Just be sure to choose a gif before the time runs out!"
+                modalInstructions1="Try to find the perfect gif by entering a search parameter into the search bar. Click on the magnifying glass to search. You will be returned one gif at a time. If you like the gif, click the check mark button. If you want to shuffle, click the reload button."
+                modalInstructions2="If you want to search a different parameter, just use the search bar again."
+                modalInstructions3= "Just be sure to choose a gif before the time runs out!"
             >
             </Modal>
 
