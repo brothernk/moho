@@ -188,7 +188,6 @@ class LoadingScreen extends Component {
           <div id="loading-pg-roomkey"> 
                 <p><i className="fas fa-key"></i> {this.props.keyword}</p>
           </div>
-          {/* <div className="game-instructions" id="game-start-instructions">?</div> */}
 
           <span className="btn">
             { this.state.userJudge ? 
