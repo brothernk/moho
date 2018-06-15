@@ -4,7 +4,7 @@ const io = require('socket.io')();
 //Defining methods for the sessionController
 module.exports = {
 
-  gameSocket: "",
+  // gameSocket: "",
 
   findAll: function(req, res) {
     db.Session

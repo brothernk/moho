@@ -11,7 +11,7 @@ class Timer extends React.Component {
   }
 
   countdown = () => {
-    this.setState({timeRemaining: 45000}, function() {
+    this.setState({timeRemaining: 45}, function() {
       let number = this.state.timeRemaining;
       setInterval(() => {
         if (this.state.timeRemaining > 0) {

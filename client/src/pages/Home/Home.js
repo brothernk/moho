@@ -49,9 +49,6 @@ class Home extends Component {
         socket: "",
         pendingMessage: "",
         pendingPlayerHeader: "",
-        profBtnClicked: false,
-        profBtnId: "selected-btn",
-
         gifsReturned: [],
 
         // Variables to prompt showing React components
@@ -115,6 +112,7 @@ class Home extends Component {
         })
 
         self.state.socket.on("categorytheme selected player", function(data) {
+
             self.setState({selectedTheme: data.model.theme})
             let newArray = []
             newArray.push(data.model.member)
@@ -127,6 +125,10 @@ class Home extends Component {
         })
 
         self.state.socket.on("categorytheme selected judge", function(data) {
+
+            console.log("YOU SELECTED GAME")
+            self.setState({showJudgeChoices: false})
+
             self.setState({selectedTheme: data.model.theme})
             self.setState({selectedCategory: data.model.category})
             self.setState({playerList: data.model.member})
@@ -135,7 +137,7 @@ class Home extends Component {
                 let newArray = []
                 newArray.push(data.model.member)
                 self.setState({playerList: newArray}, function() {
-                    self.setState({showTimer: true})
+                    self.setState({showTimer: true}) 
                     self.setState({showJudgeCategory: false})
                     self.setState({showPending: true})
                 }) 
@@ -166,6 +168,7 @@ class Home extends Component {
                     self.setState({showTimer: false})
                     self.setState({showJudgeChoices: true})
                 }
+
             })
         })
 
