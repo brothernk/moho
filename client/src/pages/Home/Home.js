@@ -77,7 +77,6 @@ class Home extends Component {
         })
 
         self.state.socket.on("startgameplayer", function(data){
-            console.log("PLAYER GAME STARTED")
             self.setState({pendingPlayerHeader: "Players in round"}, function() {
                 self.updateMembers(data, function() {
                     let judge = self.state.currentJudge
@@ -88,13 +87,11 @@ class Home extends Component {
         })
 
         self.state.socket.on("startgamejudge", function(data) {
-            console.log("JUDGE GAME STARTED")
             self.setState({showPending: false})
             self.setState({showJudgeCategory: true})
         })
 
         self.state.socket.on("startnextroundplayer", function() {
-            console.log("PLAYER GAME STARTED")
             self.setState({gifsReturned: []})
             self.setState({outOfTime: false})
             self.setState({pendingPlayerHeader: "Players in round"}, function() {
@@ -108,7 +105,6 @@ class Home extends Component {
         })
 
         self.state.socket.on("startnextroundjudge", function() {
-            console.log("JUDGE GAME STARTED")
             self.setState({gifsReturned: []})
             self.setState({outOfTime: false})
             self.setState({showWinner: false})
@@ -116,8 +112,7 @@ class Home extends Component {
         })
 
         self.state.socket.on("categorytheme selected player", function(data) {
-            console.log("JUDGE SELECTED GAME")
-            console.log(data.model.member)
+
             self.setState({selectedTheme: data.model.theme})
             let newArray = []
             newArray.push(data.model.member)
@@ -130,8 +125,10 @@ class Home extends Component {
         })
 
         self.state.socket.on("categorytheme selected judge", function(data) {
+
             console.log("YOU SELECTED GAME")
             self.setState({showJudgeChoices: false})
+
             self.setState({selectedTheme: data.model.theme})
             self.setState({selectedCategory: data.model.category})
             self.setState({playerList: data.model.member})
