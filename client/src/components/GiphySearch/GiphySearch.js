@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Gif from "../Gif/Gif";
+import Modal from "../Modal/Modal";
 
 class GiphySearch extends Component {
 
@@ -76,7 +77,15 @@ class GiphySearch extends Component {
   render() {
       return (
           <div className="giphy-component">    
-            <div className="game-instructions" id="giphy-search-instructions">?</div>
+            <Modal
+                className="game-instructions"
+                id="giphy-search-instructions"
+                text="?"
+                modalTitle="What Now?"
+                modalInstructions="Try to find the perfect gif by entering a search parameter into the search bar. Click on the magnifying glass to search. You will be returned one gif at a time. If you like the gif, click the check mark button. If you want to shuffle, click the reload button. If you want to search a different parameter, use the search bar! Just be sure to choose a gif before the time runs out!"
+            >
+            </Modal>
+
               <h6>{this.props.theme}</h6>
               <h4>{this.props.category}</h4>
               <div className="search-holder">

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ModalTest from "./ModalTest";
+import ModalInner from "./ModalInner";
 
 class Modal extends Component {
 
@@ -19,13 +19,11 @@ class Modal extends Component {
   render() {
     return (
       <div>
-        <span className="btn enter-btn" onClick={this.openModal}>
-          Enter Game
-        </span>
+        <div className={this.props.className} id={this.props.id} onClick={this.openModal}>{this.props.text}</div>
 
-        <ModalTest isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}
-          title="Modal Title" text="Modal text">
-        </ModalTest>
+        <ModalInner isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}
+          title={this.props.modalTitle} text={this.props.modalInstructions}>
+        </ModalInner>
       </div>
 
     )
