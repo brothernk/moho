@@ -8,11 +8,6 @@ body {
   font-weight: 700;
   background: #31263E; }
 
-.logo {
-  max-width: 700px;
-  width: 100%;
-  padding: 25px 25px 10px 25px; }
-
 #not-a-session {
   padding: 50px;
   font-size: 120%; }
@@ -96,7 +91,7 @@ p {
   letter-spacing: .5px; }
 
 #general-game-instructions:hover {
-  cursor: pointer;
+  cursor: help;
   color: white;
   transition: .25s; }
 
@@ -150,6 +145,19 @@ p {
 
 .back-btn:hover {
   background-color: #369583; }
+
+.logo {
+  max-width: 700px;
+  width: 100%;
+  padding: 25px 25px 10px 25px; }
+
+.mini-logo-holder {
+  padding: 120px 0 30px 0; }
+
+.mini-logo {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto; }
 
 .giphy-component {
   padding: 15px;
@@ -380,14 +388,6 @@ p {
   top: 75px;
   background-color: #FF6161; }
 
-.logo-holder {
-  padding: 120px 0 30px 0; }
-
-.small-logo {
-  width: 130px;
-  height: 130px;
-  margin: 0 auto; }
-
 .judge-start, .show-gifs-btn, .next-round-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
@@ -405,6 +405,9 @@ p {
 
 .judge-start:focus, .judge-start:active, .show-gifs-btn:focus, .show-gifs-btn:active {
   background: #D45FFF; }
+
+.waiting-msg {
+  padding-top: 20px; }
 
 #current-players, #no-players {
   font-family: "Montserrat", sans-serif;
@@ -434,9 +437,6 @@ p {
   position: relative;
   vertical-align: middle;
   width: 2em; }
-
-#loading-pg-prompt {
-  margin-bottom: -100px; }
 
 #timer-icon {
   font-size: 40px; }

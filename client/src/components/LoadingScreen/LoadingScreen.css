@@ -15,14 +15,6 @@
   top: 75px;
   background-color: #FF6161; }
 
-.logo-holder {
-  padding: 120px 0 30px 0; }
-
-.small-logo {
-  width: 130px;
-  height: 130px;
-  margin: 0 auto; }
-
 .judge-start, .show-gifs-btn, .next-round-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
@@ -40,6 +32,9 @@
 
 .judge-start:focus, .judge-start:active, .show-gifs-btn:focus, .show-gifs-btn:active {
   background: #D45FFF; }
+
+.waiting-msg {
+  padding-top: 20px; }
 
 #current-players, #no-players {
   font-family: "Montserrat", sans-serif;
@@ -69,9 +64,6 @@
   position: relative;
   vertical-align: middle;
   width: 2em; }
-
-#loading-pg-prompt {
-  margin-bottom: -100px; }
 
 #timer-icon {
   font-size: 40px; }
