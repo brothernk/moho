@@ -1,5 +1,5 @@
 //Desktop ===========================================================
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 650px) {
     .setup-profile{
       font-size:40px;
     }
@@ -17,6 +17,16 @@
     .complete-profile-btn{
       padding-top:35px;
     }
+
+    .mini-logo-holder {
+      padding:30px 0;
+    }
+
+    .mini-logo {
+      width: 230px;
+      height: 230px;
+      margin:0 auto;
+  }
   }
   
   @media only screen and (min-width: 600px) and (max-width: 1000px) {

@@ -50,7 +50,6 @@ class LoadingScreen extends Component {
   componentDidUpdate = () => {
     if (this.props.members !== this.state.members) {
       this.setState({members: this.props.members}, function() {
-        console.log("NEWLOADINGMEMBERS")
         console.log(this.state.members)
         this.checkJudge()
       })
@@ -80,8 +79,6 @@ class LoadingScreen extends Component {
   }
 
   checkMessage = () => {
-
-    console.log(this.state.pendingMessage)
 
     if (this.state.pendingMessage === "Players choosing gifs") {
       this.setState({showKeyword: false})
@@ -166,10 +163,8 @@ class LoadingScreen extends Component {
               id="game-start-instructions" 
               text="?"
               modalTitle="What Now?"
-              modalInstructions1= 
-                  "You are the judge this round!"
-              modalInstructions2= "Wait until all your friends join the game room, then click 'Start Game'."
-              modalInstructions3=""
+              modalInstructions= 
+                  "You are the judge this round! Wait until all your friends join the game room, then click 'Start Game'."
               ></Modal>
           : 
             <Modal 
@@ -177,10 +172,8 @@ class LoadingScreen extends Component {
               id="game-start-instructions" 
               text="?"
               modalTitle="What Now?"
-              modalInstructions1= 
-                  "You are a player this round!"
-              modalInstructions2 ="The judge will start the game once everyone joins."
-              modalInstructions3=""
+              modalInstructions= 
+                  "You are a player this round! The judge will start the game once everyone joins"
             ></Modal>
           }
 
