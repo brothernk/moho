@@ -499,7 +499,7 @@ h3 {
   margin-top: 50px;
   max-width: 400px; }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 650px) {
   .setup-profile {
     font-size: 40px; }
   .color-btn {
@@ -509,7 +509,13 @@ h3 {
   .pick-a-color {
     padding-top: 65px; }
   .complete-profile-btn {
-    padding-top: 35px; } }
+    padding-top: 35px; }
+  .mini-logo-holder {
+    padding: 30px 0; }
+  .mini-logo {
+    width: 230px;
+    height: 230px;
+    margin: 0 auto; } }
 
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
   .setup-color-buttondiv {
