@@ -5,7 +5,7 @@ import { Enter } from "../../components/Enter";
 import Logo from "../../components/Logo/Logo";
 import API from "../../utils/API";
 import mnGen from "mngen";
-
+import Modal from "../../components/Modal/Modal";
 
 class Login extends Component {
 
@@ -141,7 +141,14 @@ class Login extends Component {
                     </div>
                 : null }
 
-                <div className="game-instructions" id="general-game-instructions">How to Play</div>
+                <Modal 
+                    className="game-instructions" 
+                    id="general-game-instructions" 
+                    text="How to Play"
+                    modalTitle="How to Play"
+                    modalInstructions= 
+                        "If you are starting a new game with friends, click 'Create Game' to generate a unique room key. Click 'Join Game' and enter your room key to start playing. Share your room key with your friends to all play together!" 
+                ></Modal>
 
                 {/* <button onClick={this.deleteSavedSessions}>Delete Sessions</button> */}
                 

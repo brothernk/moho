@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ModalButton from "../Buttons/modalButton";
 
-class ModalTest extends Component {
+class ModalInner extends Component {
 
     state = {
         modal:  {
@@ -46,4 +46,4 @@ class ModalTest extends Component {
     
 }
 
-export default ModalTest;
+export default ModalInner;
