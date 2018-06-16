@@ -12,8 +12,22 @@ $charcoal: #444444;
 
 //Giphy Search ===================================================
 .giphy-component {
-  padding: 15px;
-  margin-bottom: 40px;
+  padding: 10px 20px;
+
+  #giphy-search-instructions {
+    top:15px;
+  }
+
+  #giphy-search-prompt {
+    max-width: 450px;
+    width:100%;
+    margin-top:55px;
+    background-color: $green;
+  }
+
+  #giphy-theme-prompt {
+    color:#2a7566;
+  }
 
   .search-holder{
     width: 100%;

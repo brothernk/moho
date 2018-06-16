@@ -17,74 +17,106 @@ $charcoal: #444444;
 
 %round-buttons{
   border-radius: 50%;
-  height: 70px;
+  height:70px;
   width:70px;
   margin:7px;
 }
 
 //Profile Page ====================================================================
-.setup-profile { //"Setup Profile" Header
-  font-size:30px;
-  padding-top:15px;
-}
+.profile-pg-component {
+  padding:15px 0;
+
+  .setup-profile { //"Setup Profile" Header
+    font-size:25px;
+    padding-bottom: 15px;
+  }
+
+  #enter-name {
+    margin:0;
+  }
+   
+  //Join/Can't Join Button Page =======================================================
+  .complete-profile-btn {
+    padding:20px;
+  }
+
+  .join-btn{
+    @include font;
+    border-radius: 30px;
+    font-size:25px;
+    padding: 12px 30px;
+    max-width: 200px;
+    width:80%;
+    transition: .25s;
+  }
+
+  .join, .join:focus, .join:active {
+    background-color: $green;
+  }
+
+  .join:hover{
+    cursor: pointer;
+    background: #3a9785;
+    transform: scale(.99);
+  }
+
+  .cantJoin {
+    background-color: $grey;
+    color: grey !important;
+  }
+
+  //Color Buttons ==================================================================
+  .setup-color-buttondiv{
+    max-width: 300px;
+    margin:0 auto;
+    padding-bottom: 15px;
+
+    .pick-a-color{ //Pick Color Text ===============================================
+      padding:30px 0 15px 0;
+      font-size:18px;
+      overflow: hidden;
+    }
   
-.pick-a-color{
-  font-size:20px;
-  padding-top:20px;
-}
+    .pick-a-color:before, .pick-a-color:after {
+      background-color:white;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      position: relative;
+      vertical-align: middle;
+      width: 15%;
+    }
+     
+    .pick-a-color:before {
+      right: 0.5em;
+      margin-left: -50%;
+    }
+    
+    .pick-a-color:after {
+      left: 0.5em;
+      margin-right: -50%;
+    }
+    
+    .color-btn{ //Choose Color Buttons ===============================================
+      @extend %round-buttons;
+    }
 
-//Join/Can't Join Button Page =======================================================
-.complete-profile-btn {
-  padding:20px;
-}
+    .color-btn:hover{
+      box-shadow: 0 0 2px 5px grey;
+    }
 
-.join-btn{
-  @include font;
-  border-radius: 30px;
-  font-size:25px;
-  padding: 12px 30px;
-  max-width: 200px;
-  width:80%;
-  transition: .25s;
-}
+    #selected{
+      box-shadow: 0 0 1px 6px grey;
+    }
 
-.join, .join:focus, .join:active {
-  background-color: $green;
+    .yellow-prof{background-color:$yellow;} 
+    .blue-prof{background-color:$blue;} 
+    .red-prof{background-color:$red;} 
+    .pink-prof{background-color:$pink;} 
+    .green-prof{background-color:$green;} 
+    .orange-prof{background-color:$orange;} 
+    .purple-prof{background-color:$purple;} 
+    .charcoal-prof{background-color:$charcoal;}
+    .grey-prof{background-color:$grey;}
+  }
 }
-
-.join:hover{
-  cursor: pointer;
-  background: #3a9785;
-  transform: scale(.99);
-}
-
-.cantJoin {
-  background-color: $grey;
-  color: grey !important;
-}
-
-//Color Buttons ==================================================================
-.setup-color-buttondiv{
-  padding: 15px 20px;
-}
-  
-.color-btn{
-  @extend %round-buttons;
-}
-
-.color-btn:hover{
-  box-shadow: 0 0 2px 5px grey;
-}
-
-#selected{
-  box-shadow: 0 0 1px 6px grey;
-}
-
-.yellow-prof{background-color:$yellow;} 
-.blue-prof{background-color:$blue;} 
-.red-prof{background-color:$red;} 
-.pink-prof{background-color:$pink;} 
-.green-prof{background-color:$green;} 
-.orange-prof{background-color:$orange;} 
-.purple-prof{background-color:$purple;} 
-.charcoal-prof{background-color:$charcoal;}

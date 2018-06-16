@@ -10,8 +10,6 @@ class WinnerPage extends Component {
   }
 
 	componentDidMount = () => {
-    console.log("mounted");
-    console.log(this.props)
     this.setState({gif: this.props.winner.gif})
     this.setState({winner: this.props.winner.member.name})
     this.setState({winnerColor: this.props.winner.member.color})
@@ -50,22 +48,28 @@ class WinnerPage extends Component {
 		return (
 			<div className="winnerScreen-component">
 
-        <p className="judge">Judge: {this.state.judge}</p>
+        <img className="true-that-text" src="https://i.imgur.com/zhbLaMZ.png" alt="True That!"/>
+
+        <div className="theme-and-category" id="winner-pg-prompt"> 
+            <p className="theme-prompt" id="winner-pg-theme">{this.props.theme}</p>
+            <p className="category-prompt" id="winner-pg-category">{this.props.category}</p>
+        </div>
 
         <div className="winning-gif-holder">
           <img className="winning-gif" src={this.state.gif} alt=""/>
         </div>
 
-        <h3>True that, </h3>
-        <h1 className="winner-name">{this.state.winner}!</h1>
+        <h1 className="winner-name">{this.state.winner} wins!</h1>
 
-        <div className="pull-themes-btn">
+        {/* <div className="pull-themes-btn"> */}
           <span className="btn">
           { this.state.userJudge ? 
             <p className="next-round-btn" onClick={this.startGame}>Next Round</p>
           : null}
           </span>
-        </div>
+        {/* </div> */}
+
+        {/* <p className="judge" id="winner-pg-judge"><i className="fas fa-gavel"></i> {this.state.judge}</p> */}
 
       </div>
 			);

@@ -1,0 +1,29 @@
+@media only screen and (min-width: 650px) {
+  .mini-logo-holder {
+    padding: 30px 0; }
+  .mini-logo {
+    width: 230px;
+    height: 230px;
+    margin: 0 auto; } }
+
+@media only screen and (min-width: 1080px) {
+  .profile-pg-component .setup-profile {
+    font-size: 30px; }
+  .profile-pg-component #enter-name {
+    max-width: 300px; }
+  .profile-pg-component .setup-color-buttondiv {
+    padding: 40px 0 80px 0;
+    max-width: 1080px; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color {
+      font-size: 20px; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
+      display: none; } }
+
+@media only screen and (min-width: 650px) and (max-width: 1079px) {
+  .profile-pg-component {
+    padding-top: 50px; }
+    .profile-pg-component .setup-color-buttondiv {
+      padding: 40px 0;
+      max-width: 450px; }
+      .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
+        width: 27%; } }

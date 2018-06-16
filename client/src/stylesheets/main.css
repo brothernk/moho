@@ -67,7 +67,7 @@ p {
 
 .game-instructions {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 20px;
   border-radius: 50%;
   background-color: #5a5164;
@@ -104,8 +104,10 @@ p {
   max-width: 400px; }
 
 .theme-prompt {
-  font-size: 21px;
   color: #8923af; }
+
+.category-prompt {
+  font-size: 20px; }
 
 .modal-background {
   background-color: rgba(49, 38, 62, 0.95); }
@@ -190,16 +192,24 @@ p {
   padding: 25px 25px 10px 25px; }
 
 .mini-logo-holder {
-  padding: 120px 0 30px 0; }
+  padding: 90px 0 10px 0; }
 
 .mini-logo {
-  width: 130px;
-  height: 130px;
+  width: 140px;
+  height: 140px;
   margin: 0 auto; }
 
 .giphy-component {
-  padding: 15px;
-  margin-bottom: 40px; }
+  padding: 10px 20px; }
+  .giphy-component #giphy-search-instructions {
+    top: 15px; }
+  .giphy-component #giphy-search-prompt {
+    max-width: 450px;
+    width: 100%;
+    margin-top: 55px;
+    background-color: #44BBA4; }
+  .giphy-component #giphy-theme-prompt {
+    color: #2a7566; }
   .giphy-component .search-holder {
     width: 100%;
     max-width: 450px;
@@ -300,77 +310,83 @@ p {
     cursor: pointer;
     transform: scale(0.99); }
 
-.color-btn {
+.profile-pg-component .setup-color-buttondiv .color-btn {
   border-radius: 50%;
   height: 70px;
   width: 70px;
   margin: 7px; }
 
-.setup-profile {
-  font-size: 30px;
-  padding-top: 15px; }
-
-.pick-a-color {
-  font-size: 20px;
-  padding-top: 20px; }
-
-.complete-profile-btn {
-  padding: 20px; }
-
-.join-btn {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  font-size: 25px;
-  padding: 12px 30px;
-  max-width: 200px;
-  width: 80%;
-  transition: .25s; }
-
-.join, .join:focus, .join:active {
-  background-color: #44BBA4; }
-
-.join:hover {
-  cursor: pointer;
-  background: #3a9785;
-  transform: scale(0.99); }
-
-.cantJoin {
-  background-color: #C0C0C0;
-  color: grey !important; }
-
-.setup-color-buttondiv {
-  padding: 15px 20px; }
-
-.color-btn:hover {
-  box-shadow: 0 0 2px 5px grey; }
-
-#selected {
-  box-shadow: 0 0 1px 6px grey; }
-
-.yellow-prof {
-  background-color: #FFC655; }
-
-.blue-prof {
-  background-color: #5FACFF; }
-
-.red-prof {
-  background-color: #FF6161; }
-
-.pink-prof {
-  background-color: #D45FFF; }
-
-.green-prof {
-  background-color: #44BBA4; }
-
-.orange-prof {
-  background-color: #FF8A5B; }
-
-.purple-prof {
-  background-color: #9964FF; }
-
-.charcoal-prof {
-  background-color: #444444; }
+.profile-pg-component {
+  padding: 15px 0; }
+  .profile-pg-component .setup-profile {
+    font-size: 25px;
+    padding-bottom: 15px; }
+  .profile-pg-component #enter-name {
+    margin: 0; }
+  .profile-pg-component .complete-profile-btn {
+    padding: 20px; }
+  .profile-pg-component .join-btn {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    border-radius: 30px;
+    font-size: 25px;
+    padding: 12px 30px;
+    max-width: 200px;
+    width: 80%;
+    transition: .25s; }
+  .profile-pg-component .join, .profile-pg-component .join:focus, .profile-pg-component .join:active {
+    background-color: #44BBA4; }
+  .profile-pg-component .join:hover {
+    cursor: pointer;
+    background: #3a9785;
+    transform: scale(0.99); }
+  .profile-pg-component .cantJoin {
+    background-color: #C0C0C0;
+    color: grey !important; }
+  .profile-pg-component .setup-color-buttondiv {
+    max-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 15px; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color {
+      padding: 30px 0 15px 0;
+      font-size: 18px;
+      overflow: hidden; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
+      background-color: white;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      position: relative;
+      vertical-align: middle;
+      width: 15%; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color:before {
+      right: 0.5em;
+      margin-left: -50%; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
+      left: 0.5em;
+      margin-right: -50%; }
+    .profile-pg-component .setup-color-buttondiv .color-btn:hover {
+      box-shadow: 0 0 2px 5px grey; }
+    .profile-pg-component .setup-color-buttondiv #selected {
+      box-shadow: 0 0 1px 6px grey; }
+    .profile-pg-component .setup-color-buttondiv .yellow-prof {
+      background-color: #FFC655; }
+    .profile-pg-component .setup-color-buttondiv .blue-prof {
+      background-color: #5FACFF; }
+    .profile-pg-component .setup-color-buttondiv .red-prof {
+      background-color: #FF6161; }
+    .profile-pg-component .setup-color-buttondiv .pink-prof {
+      background-color: #D45FFF; }
+    .profile-pg-component .setup-color-buttondiv .green-prof {
+      background-color: #44BBA4; }
+    .profile-pg-component .setup-color-buttondiv .orange-prof {
+      background-color: #FF8A5B; }
+    .profile-pg-component .setup-color-buttondiv .purple-prof {
+      background-color: #9964FF; }
+    .profile-pg-component .setup-color-buttondiv .charcoal-prof {
+      background-color: #444444; }
+    .profile-pg-component .setup-color-buttondiv .grey-prof {
+      background-color: #C0C0C0; }
 
 .bottom-nav {
   position: fixed;
@@ -410,48 +426,52 @@ p {
   min-height: 0; }
 
 .loading-screen-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px; }
 
 .judge, #loading-pg-roomkey {
   padding: 10px 25px;
   border-radius: 20px;
   position: absolute;
-  min-width: 120px; }
+  min-width: 125px;
+  left: 20px; }
 
 .judge {
-  top: 20px;
+  top: 10px;
   background-color: #C0C0C0; }
 
 #loading-pg-roomkey {
-  top: 75px;
+  top: 65px;
   background-color: #FF6161; }
 
 .judge-start, .show-gifs-btn, .next-round-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
-  font-size: 20px;
+  font-size: 17px;
   padding: 10px;
   border-radius: 40px;
   background: #D45FFF;
-  width: 155px;
-  margin: 10px auto; }
+  width: 145px;
+  margin: 0 auto; }
 
-.judge-start:hover, .show-gifs-btn:hover {
+.judge-start:hover, .show-gifs-btn:hover, .next-round-btn:hover {
   cursor: pointer;
   background: #c533fb;
   transform: scale(0.99); }
 
-.judge-start:focus, .judge-start:active, .show-gifs-btn:focus, .show-gifs-btn:active {
-  background: #D45FFF; }
+.show-gifs-btn {
+  margin-top: 20%; }
 
 .waiting-msg {
-  padding-top: 20px; }
+  padding: 10px 0;
+  font-size: 85%; }
 
 #current-players, #no-players {
   font-family: "Montserrat", sans-serif;
   color: white;
-  font-size: 165%;
-  padding: 10px; }
+  font-size: 185%; }
 
 #username {
   font-family: "Montserrat", sans-serif;
@@ -493,14 +513,13 @@ p {
 .gif-reveal-component {
   padding: 20px; }
   .gif-reveal-component .pick-winner-instruction {
-    font-size: 25px;
+    font-size: 30px;
     padding-bottom: 10px; }
   .gif-reveal-component .gif-reveal-div {
     margin: 0px auto;
     padding: 10px;
     max-width: 400px;
-    width: 100%;
-    border-radius: 25px; }
+    width: 100%; }
     .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
       border-radius: 25px;
       padding: 10px; }
@@ -510,44 +529,35 @@ p {
       transition: .25s; }
 
 .winnerScreen-component {
-  padding: 20px; }
-
-.winning-gif-holder {
-  width: 100%;
-  padding: 10px 0; }
-
-.winning-gif {
-  max-width: 100%;
-  border-radius: 15px;
-  max-height: 250px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 40px;
-  border: 7px solid gold; }
-
-h3 {
-  font-size: 18px;
-  letter-spacing: 1px; }
-
-.winner-name {
-  font-size: 30px;
-  letter-spacing: 1px; }
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .winnerScreen-component .winning-gif-holder {
+    width: 100%;
+    padding: 5px 0; }
+  .winnerScreen-component .winning-gif {
+    max-width: 100%;
+    border-radius: 15px;
+    max-height: 250px;
+    display: block;
+    margin: 0 auto;
+    border: 7px solid gold; }
+  .winnerScreen-component .true-that-text {
+    max-width: 400px;
+    width: 90%; }
+  .winnerScreen-component .winner-name {
+    padding: 20px;
+    font-size: 30px; }
 
 #winner-pg-prompt {
-  margin-top: 50px;
-  max-width: 400px; }
+  max-width: 400px;
+  margin: 15px 0; }
+
+#winner-pg-judge {
+  display: none; }
 
 @media only screen and (min-width: 650px) {
-  .setup-profile {
-    font-size: 40px; }
-  .color-btn {
-    height: 100px;
-    width: 100px;
-    margin: 10px; }
-  .pick-a-color {
-    padding-top: 65px; }
-  .complete-profile-btn {
-    padding-top: 35px; }
   .mini-logo-holder {
     padding: 30px 0; }
   .mini-logo {
@@ -555,39 +565,32 @@ h3 {
     height: 230px;
     margin: 0 auto; } }
 
-@media only screen and (min-width: 600px) and (max-width: 1000px) {
-  .setup-color-buttondiv {
-    padding: 20px 200px 20px 200px; }
-  .pick-a-color {
-    padding-top: 25px; }
-  .complete-profile-btn {
-    padding-top: 15px; } }
+@media only screen and (min-width: 1080px) {
+  .profile-pg-component .setup-profile {
+    font-size: 30px; }
+  .profile-pg-component #enter-name {
+    max-width: 300px; }
+  .profile-pg-component .setup-color-buttondiv {
+    padding: 40px 0 80px 0;
+    max-width: 1080px; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color {
+      font-size: 20px; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
+      display: none; }
+    .profile-pg-component .setup-color-buttondiv .color-btn {
+      height: 100px;
+      width: 100px;
+      margin: 10px; } }
 
-@media only screen and (min-height: 750px) {
-  .setup-color-buttondiv {
-    padding: 15px 50px 15px 50px; }
-  .color-btn {
-    height: 80px;
-    width: 80px;
-    margin: 8px; }
-  .pick-a-color, .complete-profile-btn {
-    padding-top: 20px; } }
-
-@media only screen and (max-width: 360px) {
-  .color-btn {
-    height: 60px;
-    width: 60px;
-    margin: 6px; }
-  .setup-profile {
-    font-size: 25px; }
-  #enter-name {
-    font-size: 20px;
-    width: 200px; }
-  .pick-a-color, .complete-profile-btn {
-    padding-top: 10px;
-    font-size: 15px; }
-  .join-btn {
-    font-family: "Montserrat", sans-serif;
-    color: white;
-    font-size: 20px;
-    width: 160px; } }
+@media only screen and (min-width: 650px) and (max-width: 1079px) {
+  .profile-pg-component {
+    padding-top: 50px; }
+    .profile-pg-component .setup-color-buttondiv {
+      padding: 40px 0;
+      max-width: 450px; }
+      .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
+        width: 27%; }
+      .profile-pg-component .setup-color-buttondiv .color-btn {
+        height: 120px;
+        width: 120px;
+        margin: 10px; } }

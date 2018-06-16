@@ -92,7 +92,7 @@ class Profile extends Component {
                 self.props.profileAdded('showPending', true);
             }
             else {
-                self.props.profileAdded('pendingMessage', 'Waiting for game to start')
+                self.props.profileAdded('pendingMessage', 'Waiting for game to start...')
                 self.props.profileAdded('showProfile', false);
                 self.props.profileAdded('showPending', true);
             }  
@@ -114,20 +114,18 @@ class Profile extends Component {
 
     render() {
         return (
-            <div>
+            <div className="profile-pg-component">
                 <div>
                     <div className="setup-profile">Setup Your Profile</div>
                     <input id="enter-name" type="text" placeholder="Enter Name" name="username" value={this.state.username} onChange={this.handleInputChange}/>
                 </div>
-
-                <div>
-                    <div className="pick-a-color">Pick a Color</div>
-                </div>
                 
                 <div className="setup-color-buttondiv">
+                    <div className="pick-a-color">Pick a Color</div>
                     <span data="#FFC655" className="yellow-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#5FACFF" className="blue-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#FF6161" className="red-prof btn color-btn" onClick={this.setupProfile}></span>
+                    <span data="#C0C0C0" className="grey-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#D45FFF" className="pink-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#44BBA4" className="green-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#FF8A5B" className="orange-prof btn color-btn" onClick={this.setupProfile}></span>

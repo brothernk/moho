@@ -82,11 +82,11 @@ class LoadingScreen extends Component {
 
     if (this.state.pendingMessage === "Players choosing gifs") {
       this.setState({showKeyword: false})
-      this.setState({showTheme: true})
+      this.setState({showTheme: false})
       this.setState({showMiniLogo:false})
     }
 
-    if (this.state.pendingMessage === "Waiting for game to start" || this.state.pendingMessage === "Click start game when ready to play") {
+    if (this.state.pendingMessage === "Waiting for game to start..." || this.state.pendingMessage === "Click start game when ready to play") {
       this.setState({showKeyword: true})
       this.setState({showTheme: false})
       this.setState({showMiniLogo:true})
@@ -121,6 +121,37 @@ class LoadingScreen extends Component {
     return (
 
       <div className="loading-screen-holder">
+
+        { this.state.showKeyword ? 
+          <div className="pull-themes-btn">
+
+            { this.state.userJudge ? 
+              <Modal 
+                className="game-instructions" 
+                id="game-start-instructions" 
+                text="?"
+                modalTitle="What Now?"
+                modalInstructions= 
+                    "You are the judge this round! Wait until all your friends join the game room, then click 'Start Game'."
+                ></Modal>
+            : 
+              <Modal 
+                className="game-instructions" 
+                id="game-start-instructions" 
+                text="?"
+                modalTitle="What Now?"
+                modalInstructions= 
+                    "You are a player this round! The judge will start the game once everyone joins"
+              ></Modal>
+            }
+
+            <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
+            
+            <div id="loading-pg-roomkey"> 
+                  <p><i className="fas fa-key"></i> {this.props.keyword}</p>
+            </div>
+          </div>
+        : null }
       
         { this.state.showTheme ? 
           <div className="theme-and-category" id="loading-pg-prompt"> 
@@ -155,6 +186,7 @@ class LoadingScreen extends Component {
         </div>
 
         { this.state.showKeyword ? 
+
           <div className="pull-themes-btn">
 
           { this.state.userJudge ? 
@@ -194,8 +226,7 @@ class LoadingScreen extends Component {
               <p className="judge-start" onClick={this.startGame}>Start Game</p>
             : null}
           </span>
-          </div>
-        : null }
+        : null}
 
         { this.state.userJudge ? 
           <div>
@@ -204,7 +235,6 @@ class LoadingScreen extends Component {
             : null}
           </div>
         : null}
-      
       </div>
     )
   }

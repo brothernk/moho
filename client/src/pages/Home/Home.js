@@ -311,14 +311,12 @@ class Home extends Component {
 
                             //No members in session
                             if (res.data[0].members.length === 0 ) {
-                                console.log("No members yet in session")
                                 self.setState({showProfile: true})
                             }
                             // If users exist but user's ip address is not associated with a session member,
                             // user gets shown profile page. If the ip address already exists, user goes straight to 
                             // home page
                             else {
-                                console.log("Members exist in session")
                                 self.setState({showProfile: true})
                             }
                         })    
@@ -390,11 +388,9 @@ class Home extends Component {
             }
 
             else {
-
                 if (data.model[0].members[i].judge === false) {
                     playerList.push(data.model[0].members[i])
                 }
-
             }
 
             if (data.model[0].members[i].judge) {
