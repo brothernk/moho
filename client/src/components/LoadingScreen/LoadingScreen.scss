@@ -22,88 +22,88 @@ $charcoal: #444444;
 
 //Loading Screen ===================================================
 .loading-screen-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding:20px;
 }
 
-.judge, #loading-pg-roomkey{
-  padding: 10px 25px;
-  border-radius: 20px;
-  position: absolute;
-  min-width:120px;
- }
+  .judge, #loading-pg-roomkey{
+    padding: 10px 25px;
+    border-radius: 20px;
+    position: absolute;
+    min-width:125px;
+    left:20px;
+  }
 
-.judge{
-  top:20px;
-  background-color: $grey;
-}
+  .judge{
+    top:10px;
+    background-color: $grey;
+  }
 
-#loading-pg-roomkey{
-  top:75px;
-  background-color: $red;
-}
+  #loading-pg-roomkey{
+    top:65px;
+    background-color: $red;
+  }
 
-//Loading screen buttons ==============================================================
-.judge-start, .show-gifs-btn, .next-round-btn{
-  @include font;
-  font-size:20px;
-  padding:10px;
-  border-radius: 40px;
-  background: $pink;
-  width: 155px;
-  margin:10px auto;
-}
+  //Loading screen buttons ==============================================================
+  .judge-start, .show-gifs-btn, .next-round-btn{
+    @include font;
+    font-size:17px;
+    padding:10px;
+    border-radius: 40px;
+    background: $pink;
+    width: 145px;
+    margin:0 auto;
+  }
 
-.judge-start:hover, .show-gifs-btn:hover{
-  cursor: pointer;
-  background:#c533fb;
-  transform: scale(.99);
-}
+  .judge-start:hover, .show-gifs-btn:hover, .next-round-btn:hover{
+    cursor: pointer;
+    background:#c533fb;
+    transform: scale(.99);
+  }
 
-.judge-start:focus, .judge-start:active, .show-gifs-btn:focus, .show-gifs-btn:active{
-  background: $pink;
-}
+  .show-gifs-btn {
+    margin-top:20%;
+  }
+  
+  //Loading Screen Text =================================================================
+  .waiting-msg {
+    padding:10px 0;
+    font-size:85%;
+  }
 
-//Loading Screen Text =================================================================
-.waiting-msg {
-  padding-top:20px;
-}
-#current-players, #no-players{
-  @include font;
-  font-size: 165%;
-  padding:10px;
-}
+  #current-players, #no-players{
+    @include font;
+    font-size: 185%;
+  }
 
-//User Icons =========================================================================
-#username{
-  @include font;
-  font-size: 35px;
-}
+  //User Icons =========================================================================
+  #username{
+    @include font;
+    font-size: 35px;
+  }
 
-.current-players-div {
-  width: 100%;
-  text-align: center;
-  padding:10px;
-}
+  .current-players-div {
+    width: 100%;
+    text-align: center;
+    padding:10px;
+  }
 
-.player-bubble {
-  display: inline-block;
-  z-index: 100;
-  margin:0 -12px;
-}
+  .player-bubble {
+    display: inline-block;
+    z-index: 100;
+    margin:0 -12px;
+  }
 
-.fa-stack {
-  display: inline-block;
-  height: 1.4em;
-  line-height: 1.5em;
-  position: relative;
-  vertical-align: middle;
-  width: 2em;
-}
-
-//Theme and Category Prompt ===========================================================
-#loading-pg-prompt {
-  // margin-bottom:-100px;
-}
+  .fa-stack {
+    display: inline-block;
+    height: 1.4em;
+    line-height: 1.5em;
+    position: relative;
+    vertical-align: middle;
+    width: 2em;
+  }
 
 //Loading Screen Timer ================================================================
 #timer-icon {

@@ -1,6 +1,14 @@
 .giphy-component {
-  padding: 15px;
-  margin-bottom: 40px; }
+  padding: 10px 20px; }
+  .giphy-component #giphy-search-instructions {
+    top: 15px; }
+  .giphy-component #giphy-search-prompt {
+    max-width: 450px;
+    width: 100%;
+    margin-top: 55px;
+    background-color: #44BBA4; }
+  .giphy-component #giphy-theme-prompt {
+    color: #2a7566; }
   .giphy-component .search-holder {
     width: 100%;
     max-width: 450px;

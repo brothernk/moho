@@ -103,7 +103,7 @@ p{
 //General Instructions. See individual components for specifics ======
 .game-instructions {
   position: absolute;
-  top:20px;
+  top:10px;
   right:20px;
   border-radius: 50%;
   background-color:#5a5164;
@@ -146,8 +146,11 @@ p{
 }
 
 .theme-prompt {
-  font-size: 21px;
   color: #8923af;
+}
+
+.category-prompt {
+  font-size: 20px;
 }
 
 //Modal  ==========================================================

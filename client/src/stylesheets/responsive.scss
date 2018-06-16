@@ -1,89 +1,68 @@
-//Desktop ===========================================================
+//Desktop & iPad ========================================================
 @media only screen and (min-width: 650px) {
-    .setup-profile{
-      font-size:40px;
-    }
-  
-    %round-buttons{
-      height: 100px;
-      width:100px;
-      margin:10px;
-    }
-  
-    .pick-a-color{
-      padding-top: 65px;
-    }
-  
-    .complete-profile-btn{
-      padding-top:35px;
-    }
+  .mini-logo-holder {
+    padding:30px 0;
+  }
 
-    .mini-logo-holder {
-      padding:30px 0;
-    }
-
-    .mini-logo {
-      width: 230px;
-      height: 230px;
-      margin:0 auto;
+  .mini-logo {
+    width: 230px;
+    height: 230px;
+    margin:0 auto;
   }
-  }
-  
-  @media only screen and (min-width: 600px) and (max-width: 1000px) {
-    .setup-color-buttondiv{
-      padding: 20px 200px 20px 200px;
-    }
-  
-    .pick-a-color{
-      padding-top: 25px;
-    }
-  
-    .complete-profile-btn{
-      padding-top: 15px;
-    }
-  }
-  
-  //Tall Mobile Height > 750 ===========================================
-  @media only screen and (min-height: 750px) {
-    .setup-color-buttondiv{
-      padding: 15px 50px 15px 50px;
-    }
-  
-    %round-buttons{
-      height: 80px;
-      width:80px;
-      margin:8px;
-    }
-  
-    .pick-a-color, .complete-profile-btn{
-      padding-top: 20px;
-    }
-  }
-  
-  //Small Mobile Width < 360 ==========================================
-  @media only screen and (max-width: 360px) {
-    %round-buttons{
-      height: 60px;
-      width:60px;
-      margin:6px;
-    }
-  
-    .setup-profile{
-      font-size:25px;
-    }
-  
-    #enter-name{
-      font-size:20px;
-      width:200px;
-    }
-  
-    .pick-a-color, .complete-profile-btn{
-      padding-top: 10px;
-      font-size:15px;
-    }
-    .join-btn{
-      @include font;
-      font-size:20px;
-      width:160px;
-    }
 }
+
+//Desktop Only ============================================================
+@media only screen and (min-width: 1080px) {
+
+  .profile-pg-component{
+
+    .setup-profile{
+      font-size:30px;
+    }
+
+    #enter-name {
+      max-width:300px;
+    }
+  
+    .setup-color-buttondiv {
+      padding:40px 0 80px 0;
+      max-width: 1080px;
+
+      .pick-a-color {
+        font-size:20px;
+      }
+      .pick-a-color:before, .pick-a-color:after {
+        display: none;
+      }
+
+      %round-buttons{
+        height: 100px;
+        width:100px;
+        margin:10px;
+      }
+    }
+  }
+}
+
+//iPad Only ==================================================================
+@media only screen and (min-width: 650px) and (max-width:1079px) {
+  .profile-pg-component{
+    padding-top:50px;
+
+    .setup-color-buttondiv {
+      padding:40px 0;
+      max-width: 450px;
+
+      .pick-a-color:before, .pick-a-color:after {
+        width:27%;
+      }
+
+      %round-buttons{
+        height: 120px;
+        width:120px;
+        margin:10px
+      }
+    }
+  }
+}
+

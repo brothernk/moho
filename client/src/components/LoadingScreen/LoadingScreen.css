@@ -1,46 +1,50 @@
 .loading-screen-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px; }
 
 .judge, #loading-pg-roomkey {
   padding: 10px 25px;
   border-radius: 20px;
   position: absolute;
-  min-width: 120px; }
+  min-width: 125px;
+  left: 20px; }
 
 .judge {
-  top: 20px;
+  top: 10px;
   background-color: #C0C0C0; }
 
 #loading-pg-roomkey {
-  top: 75px;
+  top: 65px;
   background-color: #FF6161; }
 
 .judge-start, .show-gifs-btn, .next-round-btn {
   font-family: "Montserrat", sans-serif;
   color: white;
-  font-size: 20px;
+  font-size: 17px;
   padding: 10px;
   border-radius: 40px;
   background: #D45FFF;
-  width: 155px;
-  margin: 10px auto; }
+  width: 145px;
+  margin: 0 auto; }
 
-.judge-start:hover, .show-gifs-btn:hover {
+.judge-start:hover, .show-gifs-btn:hover, .next-round-btn:hover {
   cursor: pointer;
   background: #c533fb;
   transform: scale(0.99); }
 
-.judge-start:focus, .judge-start:active, .show-gifs-btn:focus, .show-gifs-btn:active {
-  background: #D45FFF; }
+.show-gifs-btn {
+  margin-top: 20%; }
 
 .waiting-msg {
-  padding-top: 20px; }
+  padding: 10px 0;
+  font-size: 85%; }
 
 #current-players, #no-players {
   font-family: "Montserrat", sans-serif;
   color: white;
-  font-size: 165%;
-  padding: 10px; }
+  font-size: 185%; }
 
 #username {
   font-family: "Montserrat", sans-serif;

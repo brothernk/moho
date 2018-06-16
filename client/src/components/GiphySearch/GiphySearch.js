@@ -88,8 +88,13 @@ class GiphySearch extends Component {
             >
             </Modal>
 
-              <h6>{this.props.theme}</h6>
-              <h4>{this.props.category}</h4>
+            <p className="judge"><i className="fas fa-gavel"></i>Judge Here</p>
+            
+            <div className="theme-and-category" id="giphy-search-prompt"> 
+                <p className="theme-prompt" id="giphy-theme-prompt">{this.props.theme}</p>
+                <p className="category-prompt">{this.props.category}</p>
+            </div>
+
               <div className="search-holder">
                 <input name="giphySearchBar" onChange={this.searchTerm} type="text" />
                 <div onClick={this.callGIPHY} className="search-button">

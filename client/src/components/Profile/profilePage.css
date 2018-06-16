@@ -1,71 +1,77 @@
-.color-btn {
+.profile-pg-component .setup-color-buttondiv .color-btn {
   border-radius: 50%;
   height: 70px;
   width: 70px;
   margin: 7px; }
 
-.setup-profile {
-  font-size: 30px;
-  padding-top: 15px; }
-
-.pick-a-color {
-  font-size: 20px;
-  padding-top: 20px; }
-
-.complete-profile-btn {
-  padding: 20px; }
-
-.join-btn {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  border-radius: 30px;
-  font-size: 25px;
-  padding: 12px 30px;
-  max-width: 200px;
-  width: 80%;
-  transition: .25s; }
-
-.join, .join:focus, .join:active {
-  background-color: #44BBA4; }
-
-.join:hover {
-  cursor: pointer;
-  background: #3a9785;
-  transform: scale(0.99); }
-
-.cantJoin {
-  background-color: #C0C0C0;
-  color: grey !important; }
-
-.setup-color-buttondiv {
-  padding: 15px 20px; }
-
-.color-btn:hover {
-  box-shadow: 0 0 2px 5px grey; }
-
-#selected {
-  box-shadow: 0 0 1px 6px grey; }
-
-.yellow-prof {
-  background-color: #FFC655; }
-
-.blue-prof {
-  background-color: #5FACFF; }
-
-.red-prof {
-  background-color: #FF6161; }
-
-.pink-prof {
-  background-color: #D45FFF; }
-
-.green-prof {
-  background-color: #44BBA4; }
-
-.orange-prof {
-  background-color: #FF8A5B; }
-
-.purple-prof {
-  background-color: #9964FF; }
-
-.charcoal-prof {
-  background-color: #444444; }
+.profile-pg-component {
+  padding: 15px 0; }
+  .profile-pg-component .setup-profile {
+    font-size: 25px;
+    padding-bottom: 15px; }
+  .profile-pg-component #enter-name {
+    margin: 0; }
+  .profile-pg-component .complete-profile-btn {
+    padding: 20px; }
+  .profile-pg-component .join-btn {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    border-radius: 30px;
+    font-size: 25px;
+    padding: 12px 30px;
+    max-width: 200px;
+    width: 80%;
+    transition: .25s; }
+  .profile-pg-component .join, .profile-pg-component .join:focus, .profile-pg-component .join:active {
+    background-color: #44BBA4; }
+  .profile-pg-component .join:hover {
+    cursor: pointer;
+    background: #3a9785;
+    transform: scale(0.99); }
+  .profile-pg-component .cantJoin {
+    background-color: #C0C0C0;
+    color: grey !important; }
+  .profile-pg-component .setup-color-buttondiv {
+    max-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 15px; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color {
+      padding: 30px 0 15px 0;
+      font-size: 18px;
+      overflow: hidden; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
+      background-color: white;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      position: relative;
+      vertical-align: middle;
+      width: 15%; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color:before {
+      right: 0.5em;
+      margin-left: -50%; }
+    .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
+      left: 0.5em;
+      margin-right: -50%; }
+    .profile-pg-component .setup-color-buttondiv .color-btn:hover {
+      box-shadow: 0 0 2px 5px grey; }
+    .profile-pg-component .setup-color-buttondiv #selected {
+      box-shadow: 0 0 1px 6px grey; }
+    .profile-pg-component .setup-color-buttondiv .yellow-prof {
+      background-color: #FFC655; }
+    .profile-pg-component .setup-color-buttondiv .blue-prof {
+      background-color: #5FACFF; }
+    .profile-pg-component .setup-color-buttondiv .red-prof {
+      background-color: #FF6161; }
+    .profile-pg-component .setup-color-buttondiv .pink-prof {
+      background-color: #D45FFF; }
+    .profile-pg-component .setup-color-buttondiv .green-prof {
+      background-color: #44BBA4; }
+    .profile-pg-component .setup-color-buttondiv .orange-prof {
+      background-color: #FF8A5B; }
+    .profile-pg-component .setup-color-buttondiv .purple-prof {
+      background-color: #9964FF; }
+    .profile-pg-component .setup-color-buttondiv .charcoal-prof {
+      background-color: #444444; }
+    .profile-pg-component .setup-color-buttondiv .grey-prof {
+      background-color: #C0C0C0; }

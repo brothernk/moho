@@ -1,27 +1,28 @@
 .winnerScreen-component {
-  padding: 20px; }
-
-.winning-gif-holder {
-  width: 100%;
-  padding: 10px 0; }
-
-.winning-gif {
-  max-width: 100%;
-  border-radius: 15px;
-  max-height: 250px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 40px;
-  border: 7px solid gold; }
-
-h3 {
-  font-size: 18px;
-  letter-spacing: 1px; }
-
-.winner-name {
-  font-size: 30px;
-  letter-spacing: 1px; }
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .winnerScreen-component .winning-gif-holder {
+    width: 100%;
+    padding: 5px 0; }
+  .winnerScreen-component .winning-gif {
+    max-width: 100%;
+    border-radius: 15px;
+    max-height: 250px;
+    display: block;
+    margin: 0 auto;
+    border: 7px solid gold; }
+  .winnerScreen-component .true-that-text {
+    max-width: 400px;
+    width: 90%; }
+  .winnerScreen-component .winner-name {
+    padding: 20px;
+    font-size: 30px; }
 
 #winner-pg-prompt {
-  margin-top: 50px;
-  max-width: 400px; }
+  max-width: 400px;
+  margin: 15px 0; }
+
+#winner-pg-judge {
+  display: none; }
