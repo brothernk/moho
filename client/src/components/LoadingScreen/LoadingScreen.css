@@ -35,7 +35,10 @@
   transform: scale(0.99); }
 
 .show-gifs-btn {
-  margin-top: 20%; }
+  margin-top: 10%; }
+
+.pull-themes-btn {
+  width: 100%; }
 
 .waiting-msg {
   padding: 10px 0;

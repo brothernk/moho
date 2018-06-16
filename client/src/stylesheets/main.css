@@ -30,7 +30,7 @@ input[type="text"] {
   color: grey;
   padding: 8px;
   font-size: 25px;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 70%;
   max-width: 250px; }
 
@@ -224,7 +224,7 @@ p {
       display: inline-block;
       margin: 0px 0px 0px 15px;
       position: relative;
-      top: 18px;
+      top: 17px;
       border-radius: 50%; }
       .giphy-component .search-holder .search-button i {
         position: absolute;
@@ -462,7 +462,10 @@ p {
   transform: scale(0.99); }
 
 .show-gifs-btn {
-  margin-top: 20%; }
+  margin-top: 10%; }
+
+.pull-themes-btn {
+  width: 100%; }
 
 .waiting-msg {
   padding: 10px 0;
@@ -547,7 +550,7 @@ p {
     max-width: 400px;
     width: 90%; }
   .winnerScreen-component .winner-name {
-    padding: 20px;
+    padding: 10px;
     font-size: 30px; }
 
 #winner-pg-prompt {

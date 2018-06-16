@@ -119,7 +119,6 @@ class LoadingScreen extends Component {
 
   render() {
     return (
-
       <div className="loading-screen-holder">
 
         { this.state.showKeyword ? 
@@ -150,6 +149,7 @@ class LoadingScreen extends Component {
             <div id="loading-pg-roomkey"> 
                   <p><i className="fas fa-key"></i> {this.props.keyword}</p>
             </div>
+
           </div>
         : null }
       
@@ -166,66 +166,66 @@ class LoadingScreen extends Component {
 
         <div>
           <p className="waiting-msg">{this.state.pendingMessage}</p>
-          <div>
-            <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>
-              <div className="current-players-div">
-                  {this.state.members.length ? (
-                        <div style={{display: "inline-block"}}>
-                            {this.state.members.map(member => (
-                              <div className="player-bubble" key={member.ip}>
-                                <span className="fa-stack fa-3x" id="user-icon">
-                                  <i className="fas fa-circle" style={{color:member.color}}></i>
-                                  <strong className="fa-stack-1x" id="username">{member.name.charAt(0)}</strong>
-                                </span>
-                              </div>
-                            ))}
-                        </div>
-                  ) : null} 
-              </div>
-          </div>
+            <div>
+              <h1 id="current-players"> {this.state.pendingPlayerHeader} </h1>
+                <div className="current-players-div">
+                    {this.state.members.length ? (
+                          <div style={{display: "inline-block"}}>
+                              {this.state.members.map(member => (
+                                <div className="player-bubble" key={member.ip}>
+                                  <span className="fa-stack fa-3x" id="user-icon">
+                                    <i className="fas fa-circle" style={{color:member.color}}></i>
+                                    <strong className="fa-stack-1x" id="username">{member.name.charAt(0)}</strong>
+                                  </span>
+                                </div>
+                              ))}
+                          </div>
+                    ) : null} 
+                </div>
+            </div>
         </div>
 
         { this.state.showKeyword ? 
-
           <div className="pull-themes-btn">
-
-          { this.state.userJudge ? 
-            <Modal 
-              className="game-instructions" 
-              id="game-start-instructions" 
-              text="?"
-              modalTitle="What Now?"
-              modalInstructions1= 
-                "You are the judge this round!"
-              modalInstructions2 = 
-                "Wait until all your friends join the game room, then click 'Start Game'."
-              modalInstructions3 = ""
-              ></Modal>
-          : 
-            <Modal 
-              className="game-instructions" 
-              id="game-start-instructions" 
-              text="?"
-              modalTitle="What Now?"
-              modalInstructions1= 
-                "You are a player this round!"
-              modalInstructions2 = 
-                "The judge will start the game once everyone joins."
-              modalInstructions3 = ""
-              
-            ></Modal>
-          }
-
-          <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
-          <div id="loading-pg-roomkey"> 
-                <p><i className="fas fa-key"></i> {this.props.keyword}</p>
-          </div>
-
-          <span className="btn">
             { this.state.userJudge ? 
-              <p className="judge-start" onClick={this.startGame}>Start Game</p>
-            : null}
-          </span>
+              <Modal 
+                className="game-instructions" 
+                id="game-start-instructions" 
+                text="?"
+                modalTitle="What Now?"
+                modalInstructions1= 
+                  "You are the judge this round!"
+                modalInstructions2 = 
+                  "Wait until all your friends join the game room, then click 'Start Game'."
+                modalInstructions3 = ""
+                ></Modal>
+            : 
+              <Modal 
+                className="game-instructions" 
+                id="game-start-instructions" 
+                text="?"
+                modalTitle="What Now?"
+                modalInstructions1= 
+                  "You are a player this round!"
+                modalInstructions2 = 
+                  "The judge will start the game once everyone joins."
+                modalInstructions3 = ""
+                
+              ></Modal>
+            }
+
+            <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
+
+            <div id="loading-pg-roomkey"> 
+              <p><i className="fas fa-key"></i> {this.props.keyword}</p>
+            </div>
+
+            <span className="btn">
+              { this.state.userJudge ? 
+                <p className="judge-start" onClick={this.startGame}>Start Game</p>
+              : null}
+            </span>
+          </div>
         : null}
 
         { this.state.userJudge ? 
@@ -235,6 +235,7 @@ class LoadingScreen extends Component {
             : null}
           </div>
         : null}
+
       </div>
     )
   }
