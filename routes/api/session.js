@@ -1,11 +1,12 @@
 const router = require("express").Router();
 const sessionController = require("../../controllers/sessionController");
+const socketController = require("../../controllers/socketController");
 
 const sessionRoutes = (io) => {
   //Matches with "/api/session"
   router.route("/")
     .get(sessionController.findAll)
-    .post(sessionController.create(io))
+    .post(socketController.create(io))
     .delete(sessionController.deleteAll)
 
   //Matches with /api/session/title/sessiontitle

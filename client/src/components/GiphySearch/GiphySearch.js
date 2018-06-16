@@ -60,18 +60,23 @@ class GiphySearch extends Component {
   }
 
   confirmSelection = () => {
-    let gifObject = {
-        socket: this.props.userSocket,
-        gif: this.state.image_url
-    }
 
-    this.props.socket.emit('playergifchosen', gifObject)
-    this.props.outOfTime("pendingMessage", "Players choosing gifs")
-    this.props.outOfTime("pendingPlayerHeader", "Players done with challenge")
-    this.props.outOfTime("outOfTime", false)
-    this.props.outOfTime("showTimer", false)
-    this.props.outOfTime("showGiphySearch", false)
-    this.props.outOfTime("showPending", true)
+    if (this.state.image_url !== "http://via.placeholder.com/500x240/31263E/31263E") {
+
+        let gifObject = {
+            socket: this.props.userSocket,
+            gif: this.state.image_url
+        }
+
+        this.props.socket.emit('playergifchosen', gifObject)
+        this.props.outOfTime("pendingMessage", "Players choosing gifs")
+        this.props.outOfTime("pendingPlayerHeader", "Players done with challenge")
+        this.props.outOfTime("outOfTime", false)
+        this.props.outOfTime("showTimer", false)
+        this.props.outOfTime("showGiphySearch", false)
+        this.props.outOfTime("showPending", true)
+
+    }
   }
 
   render() {

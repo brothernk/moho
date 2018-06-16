@@ -186,6 +186,41 @@ class LoadingScreen extends Component {
         </div>
 
         { this.state.showKeyword ? 
+
+          <div className="pull-themes-btn">
+
+          { this.state.userJudge ? 
+            <Modal 
+              className="game-instructions" 
+              id="game-start-instructions" 
+              text="?"
+              modalTitle="What Now?"
+              modalInstructions1= 
+                "You are the judge this round!"
+              modalInstructions2 = 
+                "Wait until all your friends join the game room, then click 'Start Game'."
+              modalInstructions3 = ""
+              ></Modal>
+          : 
+            <Modal 
+              className="game-instructions" 
+              id="game-start-instructions" 
+              text="?"
+              modalTitle="What Now?"
+              modalInstructions1= 
+                "You are a player this round!"
+              modalInstructions2 = 
+                "The judge will start the game once everyone joins."
+              modalInstructions3 = ""
+              
+            ></Modal>
+          }
+
+          <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
+          <div id="loading-pg-roomkey"> 
+                <p><i className="fas fa-key"></i> {this.props.keyword}</p>
+          </div>
+
           <span className="btn">
             { this.state.userJudge ? 
               <p className="judge-start" onClick={this.startGame}>Start Game</p>
