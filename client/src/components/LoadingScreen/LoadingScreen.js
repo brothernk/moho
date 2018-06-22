@@ -100,6 +100,7 @@ class LoadingScreen extends Component {
   }
 
   checkJudge = () => {
+      console.log(this.state.members)
       for (var i = 0; i < this.state.members.length; i ++) {
         if (this.state.members[i].judge) {
           this.setState({judge: this.state.members[i].name})

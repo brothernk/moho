@@ -1,4 +1,4 @@
-const reloadSocket = (res, stateChange) => {
+const reloadSocket = (res, stateChange, socket) => {
 
     let socketMessageUsername = sessionStorage.getItem("socketMessage")
     let pendingPlayerHeader = ""
@@ -7,6 +7,7 @@ const reloadSocket = (res, stateChange) => {
     console.log(socketMessageUsername)
     let userJudge = false;
     let currentJudge = "";
+    let allPlayers = [];
 
     if ( socketMessageUsername === "useraddedsuccessfullyother" || socketMessageUsername === "useraddedsuccessfullyself" ) {
         pendingPlayerHeader = "Players logged in"
@@ -80,6 +81,7 @@ const reloadSocket = (res, stateChange) => {
         stateChange("pendingMessage", "Players choosing gifs")
         stateChange("pendingPlayerHeader", "Players done with challenge")
         updateMembers(res, function() {
+            stateChange("playerList", JSON.parse(sessionStorage.getItem("playerArray")))
             stateChange("showTimer", true)
             stateChange("showPending", true)
         })
@@ -93,6 +95,7 @@ const reloadSocket = (res, stateChange) => {
         stateChange("pendingMessage", "Players choosing gifs")
         stateChange("pendingPlayerHeader", "Players done with challenge")
         updateMembers(res, function() {
+            stateChange("playerList", JSON.parse(sessionStorage.getItem("playerArray")))
             stateChange("showPending", true)
             stateChange("outOfTime", true)
             stateChange("showTimer", false)
@@ -108,6 +111,7 @@ const reloadSocket = (res, stateChange) => {
         stateChange("pendingMessage", "Players choosing gifs")
         stateChange("pendingPlayerHeader", "Players done with challenge")
         updateMembers(res, function() {
+            stateChange("playerList", JSON.parse(sessionStorage.getItem("playerArray")))
             stateChange("showPending", true)
             stateChange("outOfTime", true)
             stateChange("showTimer", false)
@@ -132,6 +136,68 @@ const reloadSocket = (res, stateChange) => {
         stateChange("selectedCategory", sessionStorage.getItem("selectedCategory"))
         updateMembers(res, function() {
             stateChange("showGifReveal", true)
+            
+        })
+    }
+
+    if ( socketMessageUsername === "winnerinfojudge") {
+        let winner = JSON.parse(sessionStorage.getItem("winner"))
+        stateChange("winner", winner)
+        updateMembers(res, function() {
+
+            let allPlayerArray = []
+            let oldJudge = ""
+
+            for (var i = 0; i < allPlayers.length; i ++ ) {
+                if (allPlayers[i].judge === false) {
+                    allPlayerArray.push(allPlayers[i])
+                }
+
+                else {
+                    oldJudge = allPlayers[i]
+                }
+            }
+            
+            stateChange({oldJudge: oldJudge})
+            sessionStorage.setItem("oldJudge", oldJudge)
+            let randomJudge = allPlayerArray[Math.floor(Math.random() * allPlayerArray.length)]
+
+            socket.emit('choosenewjudge', randomJudge)
+
+        })
+    }
+
+    if ( socketMessageUsername === "winnerinfoplayer") {
+        let winner = JSON.parse(sessionStorage.getItem("winner"))
+        stateChange("winner", winner)
+    }   
+
+    if ( socketMessageUsername === "newjudgeupdated" ) {
+        let oldJudge = sessionStorage.getItem("oldJudge")
+        socket.emit('changeoldjudge', oldJudge)
+    }
+
+    if ( socketMessageUsername === "oldjudgeupdated") {
+        socket.emit("newgame")
+    }
+
+    if ( socketMessageUsername === "newgamejudge" ) {
+        let winner = JSON.parse(sessionStorage.getItem("winner"))
+        stateChange("winner", winner)
+        stateChange("selectedTheme", sessionStorage.getItem("selectedTheme"))
+        stateChange("selectedCategory", sessionStorage.getItem("selectedCategory"))
+        updateMembers(res, function() {
+            stateChange("showWinner", true)
+        })
+    }
+
+    if ( socketMessageUsername === "newgameplayer" ) {
+        let winner = JSON.parse(sessionStorage.getItem("winner"))
+        stateChange("winner", winner)
+        stateChange("selectedTheme", sessionStorage.getItem("selectedTheme"))
+        stateChange("selectedCategory", sessionStorage.getItem("selectedCategory"))
+        updateMembers(res, function() {
+            stateChange("showWinner", true)
         })
     }
 
@@ -157,6 +223,7 @@ const reloadSocket = (res, stateChange) => {
         for (var i = 0; i < members.length; i ++) {
 
             totalPlayerList.push(members[i])
+            allPlayers.push(members[i])
 
             if (members[i].ip === socketAddress) {
                 stateChange('userName', members[i].name)
@@ -190,7 +257,7 @@ const reloadSocket = (res, stateChange) => {
             }
 
             if (count === members.length) {
-                stateChange('allPlayer', totalPlayerList)
+                stateChange('allPlayers', totalPlayerList)
                 stateChange('playerList', playerList)
                 stateChange('BottomNavPlayerList', bottomNavArray)
             }
