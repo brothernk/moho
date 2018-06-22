@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const server = require('http').Server(app)
-const io = require('socket.io')();
+const io = require("./lib/socketClient");
 io.listen(server);
 
 //Port
@@ -19,20 +19,12 @@ app.use(bodyParser.json());
 app.use(express.static("client/build"));
 
 //Routing, both API and view
-app.use(routes(io));
+app.use(routes);
 
 //Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gifcategories", function(err) {
   if (err) throw err;
 })
-
-//Socket.io
-io.on('connection', function (socket) {
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-});
 
 // Start the API server
 server.listen(PORT, function() {
