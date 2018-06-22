@@ -113,6 +113,7 @@ module.exports = {
     
               socket.on('winnersocket', function(data) {
                 console.log('winner socket activated')
+                console.log(data)
                 let ip = (data.member.ip).toString()  
     
                 db.Session

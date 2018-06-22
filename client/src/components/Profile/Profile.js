@@ -62,11 +62,19 @@ class Profile extends Component {
             this.setState({showError: true})
         }
         else {
+
+            let randomNumber = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1)   
+            let newUsername = this.state.username + randomNumber         
+            sessionStorage.setItem("username", newUsername)
+            console.log("SESSION STORAGE")
+            console.log(sessionStorage.getItem("username"))
+            this.props.profileAdded('socketAddress', newUsername)
+
             API.addSessionMember({
                 url: this.state.url,
                 username: this.state.username,
                 color: this.state.color,
-                ip: this.state.ip,
+                ip: newUsername,
                 judge: this.state.judge
             })
             .then(res => {
@@ -81,22 +89,6 @@ class Profile extends Component {
         const self = this
         self.props.socket.emit('useradded')
 
-        self.props.socket.on('useraddedsuccessfullyself', function(data) {
-            console.log("YOU ARE ADDED")
-            self.props.profileAdded('pendingPlayerHeader', 'Players logged in')
-            self.props.userAdded(data, function() {console.log('useradded')})
-
-            if (self.state.judge) {
-                self.props.profileAdded('pendingMessage', 'Click start game when ready to play')
-                self.props.profileAdded('showProfile', false);
-                self.props.profileAdded('showPending', true);
-            }
-            else {
-                self.props.profileAdded('pendingMessage', 'Waiting for game to start...')
-                self.props.profileAdded('showProfile', false);
-                self.props.profileAdded('showPending', true);
-            }  
-        })
     }
 
     onClickIdHandler = () => {

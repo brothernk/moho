@@ -93,7 +93,7 @@ class GiphySearch extends Component {
             >
             </Modal>
 
-            <p className="judge"><i className="fas fa-gavel"></i>Judge Here</p>
+            <p className="judge"><i className="fas fa-gavel"></i>{this.props.judge}</p>
             
             <div className="theme-and-category" id="giphy-search-prompt"> 
                 <p className="theme-prompt" id="giphy-theme-prompt">{this.props.theme}</p>
