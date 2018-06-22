@@ -97,9 +97,18 @@ const reloadSocket = (res, stateChange, socket) => {
         updateMembers(res, function() {
             stateChange("playerList", JSON.parse(sessionStorage.getItem("playerArray")))
             stateChange("showPending", true)
-            stateChange("outOfTime", true)
-            stateChange("showTimer", false)
-            stateChange("showJudgeChoices", true)
+            stateChange("showTimer", true)
+            
+            console.log(JSON.parse(sessionStorage.getItem("playerArray")))
+            console.log(allPlayers)
+            let playerArray = JSON.parse(sessionStorage.getItem("playerArray"))
+
+            if (allPlayers.length === (playerArray.length)) {
+                stateChange("outOfTime", true)
+                stateChange("showTimer", false)
+                stateChange("showJudgeChoices", true)
+            }
+            
         })
     }
 
@@ -113,9 +122,18 @@ const reloadSocket = (res, stateChange, socket) => {
         updateMembers(res, function() {
             stateChange("playerList", JSON.parse(sessionStorage.getItem("playerArray")))
             stateChange("showPending", true)
-            stateChange("outOfTime", true)
-            stateChange("showTimer", false)
-            stateChange("showJudgeChoices", true)
+            stateChange("showTimer", true)
+            
+            console.log(JSON.parse(sessionStorage.getItem("playerArray")))
+            console.log(allPlayers)
+            let playerArray = JSON.parse(sessionStorage.getItem("playerArray"))
+
+            if (allPlayers.length === (playerArray.length)) {
+                stateChange("outOfTime", true)
+                stateChange("showTimer", false)
+                stateChange("showJudgeChoices", true)
+            }
+
         })
     }
 
@@ -223,7 +241,6 @@ const reloadSocket = (res, stateChange, socket) => {
         for (var i = 0; i < members.length; i ++) {
 
             totalPlayerList.push(members[i])
-            allPlayers.push(members[i])
 
             if (members[i].ip === socketAddress) {
                 stateChange('userName', members[i].name)
@@ -257,6 +274,7 @@ const reloadSocket = (res, stateChange, socket) => {
             }
 
             if (count === members.length) {
+                allPlayers = totalPlayerList
                 stateChange('allPlayers', totalPlayerList)
                 stateChange('playerList', playerList)
                 stateChange('BottomNavPlayerList', bottomNavArray)
