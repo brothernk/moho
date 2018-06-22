@@ -91,24 +91,14 @@ class Login extends Component {
     }
 
     enterGame = () => {
-
-        let newWord = (this.state.enteredWord).toLowerCase()
+        let newWord = this.state.enteredWord.toLowerCase();
         API.checkSessionTitle(newWord)
-        .then(res =>{
-            console.log(res.data)
-            if (res.data.length < 1) {
-                console.log("Not found")
-                this.setState({showError: true})
-            }
-            else {
-                let url = res.data[0].url
-                let newurl = "/game" + url
-                window.location.href = (newurl)
-                return false
-            }
-        })
-        .catch(err => console.log(err.response));
-    }
+          .then(res => {
+            if (!res.data.length) return this.setState({ showError: true });
+            this.props.history.push(`/game${res.data[0].url}`);
+          })
+          .catch(err => console.log(err.response));
+      };
 
     handleInputChange = event => {
         const { name, value } = event.target;

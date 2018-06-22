@@ -1,11 +1,11 @@
-const io = require('socket.io')();
+const io = require("../lib/socketClient");
 const db = require("../models");
 
 module.exports = {
 
     gameSocket: "",
 
-    create: (io) => (req, res) => {
+    create: function (req, res) {
         db.Session
           .create(req.body)
           .then(dbModel => {
