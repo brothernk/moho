@@ -9,13 +9,15 @@ $red: #FF6161;
 $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
+$lightPurple: #5a5164;
 
 //Giphy Search ===================================================
 .giphy-component {
-  padding: 10px 20px;
+  padding: 10px;
 
   #giphy-search-instructions {
     top:15px;
+    right:10px;
   }
 
   #giphy-search-prompt {

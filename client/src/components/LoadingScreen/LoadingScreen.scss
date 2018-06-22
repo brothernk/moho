@@ -9,6 +9,7 @@ $red: #FF6161;
 $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
+$lightPurple: #5a5164;
 
 @mixin position{
   margin:auto;
@@ -38,7 +39,6 @@ $charcoal: #444444;
 
   .judge{
     top:10px;
-    background-color: $grey;
   }
 
   #loading-pg-roomkey{

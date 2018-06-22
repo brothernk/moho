@@ -82,7 +82,7 @@ class LoadingScreen extends Component {
 
     if (this.state.pendingMessage === "Players choosing gifs") {
       this.setState({showKeyword: false})
-      this.setState({showTheme: false})
+      this.setState({showTheme: true})
       this.setState({showMiniLogo:false})
     }
 
@@ -124,7 +124,6 @@ class LoadingScreen extends Component {
 
         { this.state.showKeyword ? 
           <div className="pull-themes-btn">
-
             { this.state.userJudge ? 
               <Modal 
                 className="game-instructions" 
@@ -144,13 +143,6 @@ class LoadingScreen extends Component {
                     "You are a player this round! The judge will start the game once everyone joins"
               ></Modal>
             }
-
-            <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
-            
-            <div id="loading-pg-roomkey"> 
-                  <p><i className="fas fa-key"></i> {this.props.keyword}</p>
-            </div>
-
           </div>
         : null }
       
@@ -215,7 +207,7 @@ class LoadingScreen extends Component {
               ></Modal>
             }
 
-            <p className="judge"><i className="fas fa-gavel"></i> {this.props.judge}</p>
+            <p className="judge" style={{backgroundColor:'#C0C0C0'}}><i className="fas fa-gavel"></i> {this.props.judge}</p>
 
             <div id="loading-pg-roomkey"> 
               <p><i className="fas fa-key"></i> {this.props.keyword}</p>

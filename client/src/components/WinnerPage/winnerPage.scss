@@ -16,7 +16,7 @@
       max-height: 250px;
       display: block;
       margin: 0 auto;
-      border: 7px solid gold; //Change border to winner color
+      // border: 7px solid gold; //Change border to winner color
   }
 
   .true-that-text {
@@ -27,6 +27,7 @@
   .winner-name {
     padding:10px;
     font-size:30px;
+    margin:0;
   }
 }
 
