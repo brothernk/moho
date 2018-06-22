@@ -9,3 +9,4 @@ router.use("/session", sessionRoutes);
 router.use("/giphy", giphyRoutes);
 
 module.exports = router;
+

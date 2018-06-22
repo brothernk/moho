@@ -147,6 +147,7 @@ class Home extends Component {
             let newArray = []
             newArray.push(data.model.member)
             self.setState({playerList: newArray})
+            sessionStorage.setItem("playerArray", JSON.stringify(newArray))
             self.setState({selectedCategory: data.model.category}, function() {
                 self.setState({showPending: false})
                 self.setState({showTimer: true})
@@ -170,6 +171,7 @@ class Home extends Component {
                 let newArray = []
                 newArray.push(data.model.member)
                 self.setState({playerList: newArray}, function() {
+                    sessionStorage.setItem("playerArray", JSON.stringify(newArray))
                     self.setState({showTimer: true}) 
                     self.setState({showJudgeCategory: false})
                     self.setState({showPending: true})
@@ -201,6 +203,7 @@ class Home extends Component {
 
             playerArray.push(data.model.member)
             self.setState({playerList: playerArray}, function() {
+                sessionStorage.setItem("playerArray", JSON.stringify(playerArray))
                 if (self.state.playerList.length === self.state.allPlayers.length) {
                     self.setState({outOfTime: true})
                     self.setState({showTimer: false})
@@ -234,6 +237,7 @@ class Home extends Component {
             }
             playerArray.push(data.model.member)
             self.setState({playerList: playerArray}, function() {
+                sessionStorage.setItem("playerArray", JSON.stringify(playerArray))
                 if (self.state.playerList.length === self.state.allPlayers.length) {
                     self.setState({outOfTime: true})
                     self.setState({showTimer: false})
@@ -261,7 +265,8 @@ class Home extends Component {
             sessionStorage.setItem("socketMessage", "winnerinfojudge")
             
             self.setState({winner: data})
-            console.log(data)
+            
+            sessionStorage.setItem("winner", JSON.stringify(data))
 
             let allPlayerArray = []
             let oldJudge = ""
@@ -285,6 +290,7 @@ class Home extends Component {
 
         self.state.socket.on('winnerinfoplayer', function(data) {
             sessionStorage.setItem("socketMessage", "winnerinfoplayer")
+            sessionStorage.setItem("winner", JSON.stringify(data))
 
             self.setState({winner: data})
         })
@@ -383,7 +389,7 @@ class Home extends Component {
                                     console.log("API Check SessionURL response:")
                                     console.log(res)
                                     
-                                    reloadSocket(res, self.componentChange.bind(this))
+                                    reloadSocket(res, self.componentChange.bind(this), self.state.socket)
                                     
                                     // reloadSocket(sessionStorage.getItem("socketMessage"), sessionStorage.getItem("pendingPlayerHeader"), res, self.componentChange.bind(this), sessionStorage.getItem("username"))
                                     self.setState({socketAddress: sessionStorage.getItem("username")})
@@ -599,7 +605,7 @@ class Home extends Component {
                 { this.state.showGiphySearch ?
                     <div> 
                         <GiphySearch theme={this.state.selectedTheme} category={this.state.selectedCategory} socket={this.state.socket} 
-                        userSocket={this.state.socketAddress} judge={this.state.currentJudge}
+                        userSocket={sessionStorage.getItem("username")} judge={this.state.currentJudge}
                         timer={this.state.outOfTime} outOfTime={this.componentChange.bind(this)} >
                             <Timer outOfTime={this.componentChange.bind(this)} />
                         </GiphySearch>
@@ -626,7 +632,7 @@ class Home extends Component {
                 { this.state.showGifReveal ? 
                     <GifReveal
                         theme={this.state.selectedTheme} category={this.state.selectedCategory} gifsReturned={this.state.gifsReturned} 
-                        users={this.state.allPlayers} userSocket = {this.state.socketAddress}
+                        users={this.state.allPlayers} userSocket = {sessionStorage.getItem("username")}
                         socket={this.state.socket}
                     />
                 : null}
