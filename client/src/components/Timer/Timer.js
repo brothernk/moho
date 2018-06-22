@@ -7,25 +7,28 @@ class Timer extends React.Component {
   }
 
   componentDidMount = () => {
-    this.countdown();
+    let timer = sessionStorage.getItem("timer")
+    this.setState({timeRemaining: timer}, function() {
+      this.countdown();
+    })
+
   }
 
   countdown = () => {
-    this.setState({timeRemaining: 45}, function() {
       let number = this.state.timeRemaining;
       setInterval(() => {
         if (this.state.timeRemaining > 0) {
           number--;
-          this.setState({
-                timeRemaining: number
-              });
-        } else {
+          this.setState({timeRemaining: number}, function() {
+            sessionStorage.setItem("timer", number)
+          });
+        } 
+        else {
+          sessionStorage.setItem("timer", 45)
           this.props.outOfTime("outOfTime", true)
           this.props.outOfTime("showTimer", false)
         }
-        }, 1000)
-    })
-    
+        }, 1000)  
   }
 
 render() {
