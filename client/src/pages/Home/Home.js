@@ -143,6 +143,7 @@ class Home extends Component {
             sessionStorage.setItem("socketMessage", "categorytheme selected player")
             sessionStorage.setItem("selectedTheme", data.model.theme)
             sessionStorage.setItem("selectedCategory", data.model.category)
+            sessionStorage.setItem("timer", 45)
             self.setState({selectedTheme: data.model.theme})
             let newArray = []
             newArray.push(data.model.member)
@@ -159,6 +160,7 @@ class Home extends Component {
             sessionStorage.setItem("socketMessage", "categorytheme selected judge")
             sessionStorage.setItem("selectedTheme", data.model.theme)
             sessionStorage.setItem("selectedCategory", data.model.category)
+            sessionStorage.setItem("timer", 45)
 
             console.log("YOU SELECTED GAME")
             self.setState({showJudgeChoices: false})
