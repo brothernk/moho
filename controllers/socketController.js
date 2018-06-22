@@ -5,7 +5,7 @@ module.exports = {
 
     gameSocket: "",
 
-    create: (io) => (req, res) => {
+    create: function (req, res) {
         db.Session
           .create(req.body)
           .then(dbModel => {
