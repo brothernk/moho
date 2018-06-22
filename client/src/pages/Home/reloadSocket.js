@@ -97,11 +97,12 @@ const reloadSocket = (res, stateChange, socket) => {
         updateMembers(res, function() {
             stateChange("playerList", JSON.parse(sessionStorage.getItem("playerArray")))
             stateChange("showPending", true)
-            stateChange("showTimer", true)
             
-            console.log(JSON.parse(sessionStorage.getItem("playerArray")))
-            console.log(allPlayers)
             let playerArray = JSON.parse(sessionStorage.getItem("playerArray"))
+
+            if (userJudge) {
+                stateChange("showTimer", true)
+            }
 
             if (allPlayers.length === (playerArray.length)) {
                 stateChange("outOfTime", true)
@@ -122,11 +123,12 @@ const reloadSocket = (res, stateChange, socket) => {
         updateMembers(res, function() {
             stateChange("playerList", JSON.parse(sessionStorage.getItem("playerArray")))
             stateChange("showPending", true)
-            stateChange("showTimer", true)
-            
-            console.log(JSON.parse(sessionStorage.getItem("playerArray")))
-            console.log(allPlayers)
+
             let playerArray = JSON.parse(sessionStorage.getItem("playerArray"))
+            
+            if (userJudge) {
+                stateChange("showTimer", true)
+            }
 
             if (allPlayers.length === (playerArray.length)) {
                 stateChange("outOfTime", true)
