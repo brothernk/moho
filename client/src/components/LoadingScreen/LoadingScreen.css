@@ -14,6 +14,9 @@
 .judge {
   top: 10px; }
 
+.fa-gavel {
+  padding-right: 5px; }
+
 #loading-pg-roomkey {
   top: 65px;
   background-color: #FF6161; }
