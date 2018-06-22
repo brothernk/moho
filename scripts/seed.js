@@ -43,3 +43,4 @@ const Categories = [
 ];
 
 module.exports = Categories;
+
