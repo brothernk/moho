@@ -13,6 +13,7 @@ $red: #FF6161;
 $pink: #D45FFF;
 $purple: #9964FF;
 $charcoal: #444444;
+$lightPurple: #5a5164;
 
 //Mixins ===============================================================
 @mixin position{
@@ -106,7 +107,7 @@ p{
   top:10px;
   right:20px;
   border-radius: 50%;
-  background-color:#5a5164;
+  background-color:$lightPurple;
   width:30px;
   height:30px;
   padding:4px;

@@ -3,7 +3,7 @@
   bottom: 0;
   width: 100%;
   transition: .5s;
-  background: #C0C0C0;
+  background: #5a5164;
   height: 40px;
   min-height: 0;
   z-index: 1000;
@@ -11,26 +11,17 @@
   .bottom-nav .content-holder {
     width: 100%;
     position: relative; }
-    .bottom-nav .content-holder .user-initial {
-      position: absolute;
-      left: 15px;
-      top: 4px;
-      padding: 4px 9px 4px 9px;
-      border-radius: 50%; }
-    .bottom-nav .content-holder .userScore {
-      position: absolute;
-      right: 10px;
-      top: 11px; }
     .bottom-nav .content-holder .home-button {
       position: absolute;
-      right: 15px;
-      top: 7px;
+      right: 12px;
+      top: 8px;
       color: grey;
       font-size: 25px;
       z-index: 1000; }
 
 .expanded {
-  min-height: 50vh; }
+  min-height: 50vh;
+  overflow: scroll; }
 
 .not-expanded {
   min-height: 0; }
