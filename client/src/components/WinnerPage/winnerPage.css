@@ -11,14 +11,14 @@
     border-radius: 15px;
     max-height: 250px;
     display: block;
-    margin: 0 auto;
-    border: 7px solid gold; }
+    margin: 0 auto; }
   .winnerScreen-component .true-that-text {
     max-width: 400px;
     width: 90%; }
   .winnerScreen-component .winner-name {
     padding: 10px;
-    font-size: 30px; }
+    font-size: 30px;
+    margin: 0; }
 
 #winner-pg-prompt {
   max-width: 400px;

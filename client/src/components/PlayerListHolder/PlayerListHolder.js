@@ -1,11 +1,9 @@
 import React from "react";
 
 const PlayerListHolder = props => (
-  <table className="playerlist-holder">
-    <tbody>
+  <div className="playerlist-holder">
     {props.children}
-    </tbody>
-  </table>
+  </div>
 )
 
 export default PlayerListHolder;

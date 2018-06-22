@@ -1,7 +1,8 @@
 .giphy-component {
-  padding: 10px 20px; }
+  padding: 10px; }
   .giphy-component #giphy-search-instructions {
-    top: 15px; }
+    top: 15px;
+    right: 10px; }
   .giphy-component #giphy-search-prompt {
     max-width: 450px;
     width: 100%;
