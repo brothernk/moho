@@ -201,6 +201,8 @@ p {
 
 .giphy-component {
   padding: 10px; }
+  .giphy-component #giphy-search-judge {
+    left: 10px; }
   .giphy-component #giphy-search-instructions {
     top: 15px;
     right: 10px; }
@@ -432,6 +434,9 @@ p {
 
 .judge {
   top: 10px; }
+
+.fa-gavel {
+  padding-right: 5px; }
 
 #loading-pg-roomkey {
   top: 65px;
