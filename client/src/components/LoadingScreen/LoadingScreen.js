@@ -168,7 +168,7 @@ class LoadingScreen extends Component {
                                 <div className="player-bubble" key={member.ip}>
                                   <span className="fa-stack fa-3x" id="user-icon">
                                     <i className="fas fa-circle" style={{color:member.color}}></i>
-                                    <strong className="fa-stack-1x" id="username">{member.name.charAt(0)}</strong>
+                                    <strong className="fa-stack-1x" id="username">{String.fromCodePoint(member.name.codePointAt(0))}</strong>
                                   </span>
                                 </div>
                               ))}
