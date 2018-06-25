@@ -16,7 +16,7 @@ class Login extends Component {
         showResults: false,
         showError: false,
         showButton: true,
-        enterButton: 13,
+        enterKey: 13,
     }
 
     componentDidMount = () => {
@@ -24,9 +24,20 @@ class Login extends Component {
         document.addEventListener("keydown", this.handleKeyDown.bind(this));
     }
 
-    //validate
+    validateInput = () => {
+        if (!this.state.enteredWord) return;
+        this.enterGame();
+    }
 
-    //handleswitch
+    handleKeyDown = event => {
+        switch( event.keyCode ) {
+            case this.state.enterKey:
+                this.validateInput();
+                break;
+            default: console.log( event.keyCode )
+                break;
+        }
+    };
 
     generateRandomWord = () => {
         this.setState({showResults: false})
