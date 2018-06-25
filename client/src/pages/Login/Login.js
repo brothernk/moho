@@ -16,11 +16,17 @@ class Login extends Component {
         showResults: false,
         showError: false,
         showButton: true,
+        enterButton: 13,
     }
 
     componentDidMount = () => {
         this.loadSavedSessions()
+        // listener
     }
+
+    //validate
+
+    //handleswitch
 
     generateRandomWord = () => {
         this.setState({showResults: false})
