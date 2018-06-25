@@ -21,7 +21,7 @@ class Login extends Component {
 
     componentDidMount = () => {
         this.loadSavedSessions()
-        // listener
+        document.addEventListener("keydown", this.handleKeyDown.bind(this));
     }
 
     //validate
