@@ -47,6 +47,7 @@ class Login extends Component {
         var word = (mnGen.word()).toLowerCase()
 
         this.setState({randomWord: word}, function() {
+            sessionStorage.setItem("roomkey", word)
             this.generateRandomURL();
         })
     }

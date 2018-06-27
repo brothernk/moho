@@ -40,13 +40,15 @@ class Profile extends Component {
             self.onClickIdHandler()
             API.checkSessionUrl(this.state.url)
             .then(res => {
-                if (res.data[0].members.length === 0) {
+
+                if (res.data[0].title === sessionStorage.getItem('roomkey')) {
                     this.setState({judge: true});
                 }
 
                 else {
                     this.setState({judge: false})
                 }
+
                 this.setState({joinClasses: "join-btn join"})
             })
         })
