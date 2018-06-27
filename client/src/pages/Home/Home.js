@@ -12,7 +12,6 @@ import Profile from "../../components/Profile";
 import PromptSelect from "../../components/PromptSelect/PromptSelect";
 import Timer from "../../components/Timer/Timer";
 import WinnerPage from "../../components/WinnerPage/WinnerPage";
-
 import reloadSocket from "./reloadSocket.js";
 
 class Home extends Component {
@@ -74,6 +73,44 @@ class Home extends Component {
 
     configureSocket = (socket) => {
         const self = this;
+
+        self.state.socket.on('usermade', function(data) {
+            console.log("usermade socket working")
+
+            console.log(data.userid)
+
+            API.checkSessionUrl(self.state.urlString)
+            .then(res => {
+                console.log(res.data[0])
+                console.log(sessionStorage.getItem("username"))
+
+                let count = 0;
+
+                for (var i=0; i < res.data[0].members.length; i ++) {
+                    if (res.data[0].members[i].ip === sessionStorage.getItem("username")) {
+
+                        console.log("IF IS ACTIVE")
+                        console.log("API Check SessionURL response:")
+                        console.log(res)
+                        
+                        reloadSocket(res, self.componentChange.bind(this), self.state.socket)
+                        self.setState({socketAddress: sessionStorage.getItem("username")})
+
+                        break
+                    }
+
+                    else {
+                        count ++
+                    }
+                }
+
+                if (count === res.data[0].members.length) {
+                    console.log("ELSE IS ACTIVE")
+                    self.setState({showProfile: true})
+                }
+            }) 
+
+        })
 
         self.state.socket.on('useraddedsuccessfullyself', function(data) {
             console.log("YOU ARE ADDED")
@@ -327,9 +364,15 @@ class Home extends Component {
                 self.setState({showWinner: true})
             })
         })
+
+        self.state.socket.on('disconnectuser', function() {
+            self.state.socket.emit('disconnectuserinfo', sessionStorage.getItem("username"))
+        })
+
     }
 
     // Grab current URL and set state variable, then continue to check URL
+    
     setUrl = () => {
         let currenturl = window.location.href;
         let spliturl = currenturl.split("/");
@@ -369,64 +412,7 @@ class Home extends Component {
                 this.setState({keyword: res.data[0].title})
 
                 this.setState({socket: socket}, function() {
-
-                    this.configureSocket(this.state.socket)
-
-                    this.state.socket.on('usermade', function(data) {
-                        console.log("usermade socket working")
-
-                        console.log(data.userid)
-
-                        API.checkSessionUrl(self.state.urlString)
-                        .then(res => {
-                            console.log(res.data[0])
-                            console.log(sessionStorage.getItem("username"))
-
-                            let count = 0;
-
-                            for (var i=0; i < res.data[0].members.length; i ++) {
-                                if (res.data[0].members[i].ip === sessionStorage.getItem("username")) {
-
-                                    console.log("IF IS ACTIVE")
-                                    console.log("API Check SessionURL response:")
-                                    console.log(res)
-                                    
-                                    reloadSocket(res, self.componentChange.bind(this), self.state.socket)
-                                    
-                                    // reloadSocket(sessionStorage.getItem("socketMessage"), sessionStorage.getItem("pendingPlayerHeader"), res, self.componentChange.bind(this), sessionStorage.getItem("username"))
-                                    self.setState({socketAddress: sessionStorage.getItem("username")})
-                                    // self.setState({showProfile: false})
-                                    // self.setState({showPending: true})
-                                    break
-                                }
-
-                                else {
-                                    count ++
-                                }
-                            }
-
-                            if (count === res.data[0].members.length) {
-
-                                console.log("ELSE IS ACTIVE")
-                                self.setState({showProfile: true})
-                            }
-                        })
-
-                        // self.setState({socketAddress: data.userid}, function() {
-
-                        //     //No members in session
-                        //     if (res.data[0].members.length === 0 ) {
-                        //         self.setState({showProfile: true})
-                        //     }
-                        //     // If users exist but user's ip address is not associated with a session member,
-                        //     // user gets shown profile page. If the ip address already exists, user goes straight to 
-                        //     // home page
-                        //     else {
-                        //         self.setState({showProfile: true})
-                        //     }
-                        // })    
-
-                    })
+                    this.configureSocket(socket)
                 })
             }
         })

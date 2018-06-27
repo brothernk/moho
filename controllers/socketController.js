@@ -4,6 +4,7 @@ const db = require("../models");
 module.exports = {
 
     gameSocket: "",
+    continuedUsers: [],
 
     create: function (req, res) {
         db.Session
@@ -170,9 +171,16 @@ module.exports = {
     
               socket.on('disconnect', function(){
                 console.log('user disconnected');
+                socket.broadcast.emit('disconnectuser')
               });
+
+              socket.on('disconnectuserinfo', function(data) {
+                
+              })
+
             });
             res.json(dbModel);
+
           })
           .catch(err => res.status(422).json(err));
     }
