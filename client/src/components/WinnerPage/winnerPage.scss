@@ -1,9 +1,27 @@
+//Dependencies =========================================================
+$background: #31263E;
+$green: #44BBA4;
+$orange: #FF8A5B;
+$grey: #C0C0C0;
+$yellow: #FFC655;
+$blue: #5FACFF;
+$red: #FF6161;
+$pink: #D45FFF;
+$purple: #9964FF;
+$charcoal: #444444;
+$lightPurple: #5a5164;
+
 //Gif Reveal ================================================
 .winnerScreen-component {
   padding:10px;
 
   .winning-gif-holder {
+    max-width:450px;
     width: 100%;
+    background:#3d304e;
+    padding:10px;
+    margin:0 auto;
+    border-radius: 15px;
   }
 
   .winning-gif {
@@ -21,7 +39,7 @@
   }
 
   .winner-name {
-    padding:10px;
+    padding:10px 10px 5px 10px;
     font-size:30px;
     margin:0;
     letter-spacing: .5px;
@@ -32,4 +50,9 @@
 #winner-pg-prompt{
   max-width: 400px;
   margin:10px auto;
+  background-color:$red;
+}
+
+#winner-pg-theme {
+  color:#993a3a;
 }

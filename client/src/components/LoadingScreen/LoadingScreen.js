@@ -75,11 +75,12 @@ class LoadingScreen extends Component {
 
     if (this.props.showChoices !== this.state.showChoices) {
       this.setState({showChoices: this.props.showChoices})
+      this.setState({showTheme: false})
+      this.setState({showMiniLogo:true})
     }
   }
 
   checkMessage = () => {
-
     if (this.state.pendingMessage === "Players choosing gifs") {
       this.setState({showKeyword: false})
       this.setState({showTheme: true})

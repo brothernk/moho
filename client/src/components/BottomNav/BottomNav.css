@@ -16,13 +16,14 @@
       position: absolute;
       right: 12px;
       top: 8px;
-      color: grey;
+      color: #C0C0C0;
       font-size: 25px;
       z-index: 1000; }
 
 .expanded {
   min-height: 50vh;
-  overflow: scroll; }
+  overflow: scroll;
+  box-shadow: 0 -1px 5px #444444; }
 
 .not-expanded {
   min-height: 0; }

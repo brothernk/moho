@@ -7,10 +7,7 @@
   .giphy-component #giphy-search-prompt {
     max-width: 450px;
     width: 100%;
-    margin-top: 55px;
-    background-color: #44BBA4; }
-  .giphy-component #giphy-theme-prompt {
-    color: #2a7566; }
+    margin-top: 55px; }
   .giphy-component .search-holder {
     width: 100%;
     max-width: 450px;

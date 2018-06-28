@@ -564,17 +564,19 @@ class Home extends Component {
 
                 {this.state.showJudgeCategory ?
                     <div>
-                        <p className="judge-instructions">Select a Theme</p>
-                        {this.state.themeIndex.map(prompt => (
-                            <PromptSelect
-                            key={prompt.index}
-                            index={prompt.index}
-                            icon={prompt.icon}
-                            theme={prompt.theme}
-                            color={prompt.color}
-                            categories={prompt.categories}
-                            socket={this.state.socket} />
-                        ))}
+                        <div className="prompt-select-pg">
+                            <p className="judge-instructions">Select a Theme</p>
+                            {this.state.themeIndex.map(prompt => (
+                                <PromptSelect
+                                key={prompt.index}
+                                index={prompt.index}
+                                icon={prompt.icon}
+                                theme={prompt.theme}
+                                color={prompt.color}
+                                categories={prompt.categories}
+                                socket={this.state.socket} />
+                            ))}
+                        </div>
                         <BottomNav expand={() => { this.expandToggle() }} class={this.state.BottomNavClasses}>
                             <PlayerListHolder>
                                 <CurrentPlayer playerName={this.state.userName} playerScore={this.state.userScore}

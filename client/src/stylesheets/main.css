@@ -95,7 +95,7 @@ p {
   transition: .25s; }
 
 .theme-and-category {
-  background-color: #D45FFF;
+  background-color: #44BBA4;
   border-radius: 20px;
   padding: 10px;
   margin: 0 auto;
@@ -103,10 +103,10 @@ p {
   max-width: 400px; }
 
 .theme-prompt {
-  color: #8923af; }
+  color: #2a7566; }
 
 .category-prompt {
-  font-size: 20px; }
+  font-size: 19px; }
 
 .modal-background {
   background-color: rgba(49, 38, 62, 0.95); }
@@ -208,10 +208,7 @@ p {
   .giphy-component #giphy-search-prompt {
     max-width: 450px;
     width: 100%;
-    margin-top: 55px;
-    background-color: #44BBA4; }
-  .giphy-component #giphy-theme-prompt {
-    color: #2a7566; }
+    margin-top: 55px; }
   .giphy-component .search-holder {
     width: 100%;
     max-width: 450px;
@@ -406,13 +403,14 @@ p {
       position: absolute;
       right: 12px;
       top: 8px;
-      color: grey;
+      color: #C0C0C0;
       font-size: 25px;
       z-index: 1000; }
 
 .expanded {
   min-height: 50vh;
-  overflow: scroll; }
+  overflow: scroll;
+  box-shadow: 0 -1px 5px #444444; }
 
 .not-expanded {
   min-height: 0; }
@@ -445,14 +443,24 @@ p {
   font-size: 17px;
   padding: 10px;
   border-radius: 40px;
-  background: #D45FFF;
   width: 145px;
   margin: 0 auto; }
 
 .judge-start:hover, .show-gifs-btn:hover, .next-round-btn:hover {
   cursor: pointer;
-  background: #c533fb;
   transform: scale(0.99); }
+
+.next-round-btn {
+  background-color: #FF6161; }
+
+.next-round-btn:hover {
+  background-color: #b24343; }
+
+.judge-start, .show-gifs-btn {
+  background-color: #D45FFF; }
+
+.judge-start:hover, .show-gifs-btn:hover {
+  background-color: #c533fb; }
 
 .show-gifs-btn {
   margin-top: 10%; }
@@ -532,7 +540,12 @@ p {
 .winnerScreen-component {
   padding: 10px; }
   .winnerScreen-component .winning-gif-holder {
-    width: 100%; }
+    max-width: 450px;
+    width: 100%;
+    background: #3d304e;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 15px; }
   .winnerScreen-component .winning-gif {
     max-width: 100%;
     border-radius: 15px;
@@ -543,14 +556,18 @@ p {
     max-width: 400px;
     width: 85%; }
   .winnerScreen-component .winner-name {
-    padding: 10px;
+    padding: 10px 10px 5px 10px;
     font-size: 30px;
     margin: 0;
     letter-spacing: .5px; }
 
 #winner-pg-prompt {
   max-width: 400px;
-  margin: 10px auto; }
+  margin: 10px auto;
+  background-color: #FF6161; }
+
+#winner-pg-theme {
+  color: #993a3a; }
 
 @media only screen and (min-width: 650px) {
   .mini-logo-holder {
@@ -559,6 +576,17 @@ p {
     width: 230px;
     height: 230px;
     margin: 0 auto; }
+  .theme-and-category {
+    max-width: 450px;
+    min-width: 450px; }
+  .gif-reveal-component .pick-winner-instruction {
+    font-size: 50px; }
+  .gif-reveal-component .gif-reveal-div .gif-component .gif-preview:hover {
+    cursor: pointer;
+    background: #4a3b5c;
+    transition: .25s; }
+  .prompt-select-pg .judge-instructions {
+    font-size: 30px; }
   .profile-pg-component {
     display: flex;
     flex-direction: column;
