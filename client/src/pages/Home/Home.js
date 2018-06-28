@@ -52,6 +52,10 @@ class Home extends Component {
         pendingPlayerHeader: "",
         gifsReturned: [],
 
+        // If user exits, remaining users are reloaded
+        remainingUsers: [],
+        socketCalls: 0,
+
         // Variables to prompt showing React components
         showProfile: false,
         showPending: false, 
@@ -75,8 +79,8 @@ class Home extends Component {
         const self = this;
 
         self.state.socket.on('usermade', function(data) {
-            console.log("usermade socket working")
 
+            console.log("usermade socket working")
             console.log(data.userid)
 
             API.checkSessionUrl(self.state.urlString)
@@ -366,11 +370,46 @@ class Home extends Component {
         })
 
         self.state.socket.on('disconnectuser', function() {
-            self.state.socket.emit('disconnectuserinfo', sessionStorage.getItem("username"))
+            self.setState({remainingUsers: []})
+            self.setState({socketCalls: 0}, function() {
+                self.state.socket.emit('disconnectuserinfo', sessionStorage.getItem("username"))
+            })
+        })
+
+        self.state.socket.on('disconnectuserself', function() {
+            self.setState({remainingUsers: []})
+            self.setState({socketCalls: 0}, function() {
+                self.state.socket.emit('disconnectuserinfo', sessionStorage.getItem("username"))
+            })
         })
 
         self.state.socket.on('remaininguserinfo', function(data) {
-            console.log(data)
+            let playerArray = self.state.remainingUsers
+            playerArray.push(data)
+            let socketCount = self.state.socketCalls + 1
+            self.setState({remainingUsers: playerArray}, function() {
+                self.setState({socketCalls: socketCount}, function() {
+
+                    if (parseInt(self.state.socketCalls) === (parseInt(self.state.allPlayers.length) - 1)) {
+                        
+                        for (var i = 0; i < self.state.allPlayers.length; i ++ ) {
+                            if (self.state.remainingUsers.indexOf(self.state.allPlayers[i].ip) === -1) {
+                                self.state.socket.emit('updateremainingusers', self.state.allPlayers[i])
+                            }
+                        }
+                        
+                    }
+
+                }) 
+            })
+        })
+
+        self.state.socket.on('updateremainingusersreturn', function() {
+            self.state.socket.emit('updatedatabase')
+        })
+
+        self.state.socket.on('updatedatabasereturned', function(data) {
+           reloadSocket(data, self.componentChange.bind(this), self.state.socket)
         })
 
     }
@@ -394,6 +433,7 @@ class Home extends Component {
     // Check state variable URL against session database. If url exist is database, the user can continue into the game
     // If the URL does not exist in the database, the user is redirected to an error screen
     checkURL = () => {
+
         const self = this
 
         API.checkSessionUrl(self.state.urlString)

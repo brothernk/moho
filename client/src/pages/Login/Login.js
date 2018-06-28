@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios"
 import { SignupBtn, LoginBtn, EnterBtn } from "../../components/Buttons";
 import { Enter } from "../../components/Enter";
 import Logo from "../../components/Logo/Logo";
@@ -54,21 +53,17 @@ class Login extends Component {
     }
 
     generateRandomURL = () => {
-        var apiURL = "https://makemeapassword.org/api/v1/passphrase/json?pc=1&wc=6&sp=y"
-        axios.get(apiURL)
-        .then(response => {
-            let randomPhrase = response.data.pws[0]
-            let randomArray = randomPhrase.split(" ")
-            let url = ""
-            for (var i = 0; i < randomArray.length; i ++) {
-                url += "/" + randomArray[i]
-            }
-            this.setState({randomURL: url}, function() {
-                this.saveSessionData()
-                this.printState()
-            })    
+        let randomUrl = ""
+
+        for (var i = 0; i < 6; i ++ ) {
+           let word =  (mnGen.word()).toLowerCase()
+           randomUrl += "/" + word
+        }
+
+        this.setState({randomURL: randomUrl}, function() {
+            this.saveSessionData()
+            this.printState()
         })
-        .catch(err => console.log(err))
     }
 
     saveSessionData = () => {
