@@ -5,22 +5,6 @@
     width: 230px;
     height: 230px;
     margin: 0 auto; }
-  .gif-reveal-component .pick-winner-instruction {
-    font-size: 50px; }
-  .gif-reveal-component #gif-reveal-prompt {
-    min-width: 450px; }
-  .gif-reveal-component .gif-reveal-div {
-    margin: 0px auto;
-    padding: 10px;
-    max-width: 700px;
-    width: 100%;
-    border-radius: 10px; }
-    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
-      border-radius: 25px;
-      padding: 10px; }
-    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview:hover {
-      cursor: pointer;
-      transition: .25s; }
   .profile-pg-component {
     display: flex;
     flex-direction: column;
