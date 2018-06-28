@@ -21,7 +21,6 @@ $lightPurple: #5a5164;
   @include font;
   border-radius: 30px;
   font-size:25px;
-  margin: 10px;
   padding: 8px;
   width: 70%;
   max-width: 250px;
@@ -30,7 +29,10 @@ $lightPurple: #5a5164;
 .btn:hover{
   transform:scale(.99);
 }
-  
+.signup-btn, .login-btn, .enter-btn, .back-btn {
+  margin: 10px;
+} 
+
 .signup-btn {background-color: $red;}
 .signup-btn:hover{background-color:#cc4d4d;}
   
@@ -42,7 +44,6 @@ $lightPurple: #5a5164;
 
 .back-btn {
   max-width:150px;
-  margin:15px;
-  background-color: $green;
+  background-color: $pink;
 }
-.back-btn:hover {background-color: #369583;}
+.back-btn:hover {background-color: #a94ccc;}

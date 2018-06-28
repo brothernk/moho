@@ -1,14 +1,14 @@
 .profile-pg-component .setup-color-buttondiv .color-btn {
   border-radius: 50%;
-  height: 70px;
-  width: 70px;
-  margin: 7px; }
+  height: 80px;
+  width: 80px;
+  margin: 8px; }
 
 .profile-pg-component {
-  padding: 15px 0; }
+  padding: 10px 0; }
   .profile-pg-component .setup-profile {
     font-size: 25px;
-    padding-bottom: 15px; }
+    padding-bottom: 10px; }
   .profile-pg-component #enter-name {
     margin: 0; }
   .profile-pg-component .complete-profile-btn {
@@ -18,9 +18,7 @@
     color: white;
     border-radius: 30px;
     font-size: 25px;
-    padding: 12px 30px;
-    max-width: 200px;
-    width: 80%;
+    padding: 12px 25px;
     transition: .25s; }
   .profile-pg-component .join, .profile-pg-component .join:focus, .profile-pg-component .join:active {
     background-color: #44BBA4; }
@@ -37,7 +35,7 @@
     padding-bottom: 15px; }
     .profile-pg-component .setup-color-buttondiv .pick-a-color {
       padding: 30px 0 15px 0;
-      font-size: 18px;
+      font-size: 17px;
       overflow: hidden; }
     .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
       background-color: white;
@@ -46,7 +44,7 @@
       height: 1px;
       position: relative;
       vertical-align: middle;
-      width: 15%; }
+      width: 24%; }
     .profile-pg-component .setup-color-buttondiv .pick-a-color:before {
       right: 0.5em;
       margin-left: -50%; }

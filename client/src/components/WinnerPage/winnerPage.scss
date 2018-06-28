@@ -1,13 +1,9 @@
 //Gif Reveal ================================================
 .winnerScreen-component {
-  padding:20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding:10px;
 
   .winning-gif-holder {
     width: 100%;
-    padding: 5px 0;
   }
 
   .winning-gif {
@@ -21,22 +17,19 @@
 
   .true-that-text {
     max-width: 400px;
-    width:90%;
+    width:85%;
   }
 
   .winner-name {
     padding:10px;
     font-size:30px;
     margin:0;
+    letter-spacing: .5px;
   }
 }
 
 //Theme and Category Prompt ================================
 #winner-pg-prompt{
   max-width: 400px;
-  margin:15px 0;
-}
-
-#winner-pg-judge {
-  display: none;
+  margin:10px 0;
 }

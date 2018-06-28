@@ -118,8 +118,8 @@ class Profile extends Component {
                     <span data="#5FACFF" className="blue-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#FF6161" className="red-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#C0C0C0" className="grey-prof btn color-btn" onClick={this.setupProfile}></span>
-                    <span data="#D45FFF" className="pink-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#44BBA4" className="green-prof btn color-btn" onClick={this.setupProfile}></span>
+                    <span data="#D45FFF" className="pink-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#FF8A5B" className="orange-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#9964FF" className="purple-prof btn color-btn" onClick={this.setupProfile}></span>
                     <span data="#444444" className="charcoal-prof btn color-btn" onClick={this.setupProfile}></span>

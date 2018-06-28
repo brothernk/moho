@@ -9,11 +9,10 @@ body {
   background: #31263E; }
 
 #not-a-session {
-  padding: 50px;
-  font-size: 120%; }
+  padding: 40px 60px; }
 
 #session-not-exist {
-  padding: 30px; }
+  padding: 10px 30px; }
 
 #username-error {
   padding: 30px 40px 0px 40px; }
@@ -61,14 +60,14 @@ p {
 .home-container {
   padding-bottom: 50px; }
 
-.prompt-title {
+.judge-instructions {
   font-size: 27px;
   padding-top: 15px; }
 
 .game-instructions {
   position: absolute;
   top: 10px;
-  right: 20px;
+  right: 10px;
   border-radius: 50%;
   background-color: #5a5164;
   width: 30px;
@@ -114,31 +113,31 @@ p {
 
 .modal-style {
   background-color: #5a5164;
-  border-radius: 20px;
-  padding: 20px 20px 30px 20px; }
+  border-radius: 15px;
+  padding: 20px 10px;
+  border: 3px solid #484050; }
 
 .modal-title {
   font-family: "Montserrat", sans-serif;
   color: white;
   font-weight: 700;
-  color: #31263E;
-  text-transform: uppercase;
-  font-size: 32px; }
+  color: white;
+  font-size: 35px; }
 
 .modal-text {
-  padding: 10px 10px 30px 10px; }
+  padding: 20px; }
 
 .modal-p {
   padding: 5px;
   font-size: 13px; }
 
-.modal-btn {
+.modal-btn i {
   background-color: #44BBA4;
   border-radius: 50%;
   font-size: 20px;
-  padding: 10px 12px; }
+  padding: 10px; }
 
-.modal-btn:hover {
+.modal-btn:hover i {
   cursor: pointer;
   background-color: #3da893;
   transition: .25s; }
@@ -152,13 +151,15 @@ p {
   color: white;
   border-radius: 30px;
   font-size: 25px;
-  margin: 10px;
   padding: 8px;
   width: 70%;
   max-width: 250px; }
 
 .btn:hover {
   transform: scale(0.99); }
+
+.signup-btn, .login-btn, .enter-btn, .back-btn {
+  margin: 10px; }
 
 .signup-btn {
   background-color: #FF6161; }
@@ -180,11 +181,10 @@ p {
 
 .back-btn {
   max-width: 150px;
-  margin: 15px;
-  background-color: #44BBA4; }
+  background-color: #D45FFF; }
 
 .back-btn:hover {
-  background-color: #369583; }
+  background-color: #a94ccc; }
 
 .logo {
   max-width: 700px;
@@ -202,10 +202,9 @@ p {
 .giphy-component {
   padding: 10px; }
   .giphy-component #giphy-search-judge {
-    left: 10px; }
+    background-color: #FF6161 !important; }
   .giphy-component #giphy-search-instructions {
-    top: 15px;
-    right: 10px; }
+    top: 15px; }
   .giphy-component #giphy-search-prompt {
     max-width: 450px;
     width: 100%;
@@ -245,7 +244,7 @@ p {
     .giphy-component .search-holder .button-holder {
       width: 100%;
       text-align: right;
-      padding-top: 20px; }
+      padding-top: 15px; }
       .giphy-component .search-holder .button-holder .timer-placeholder {
         display: inline-block;
         width: calc(100% - 115px);
@@ -295,7 +294,7 @@ p {
     max-width: 100%; }
 
 .promptSelect-component {
-  padding: 10px; }
+  padding: 8px 10px; }
   .promptSelect-component h5 {
     font-family: "Montserrat", sans-serif;
     color: white; }
@@ -315,15 +314,15 @@ p {
 
 .profile-pg-component .setup-color-buttondiv .color-btn {
   border-radius: 50%;
-  height: 70px;
-  width: 70px;
-  margin: 7px; }
+  height: 80px;
+  width: 80px;
+  margin: 8px; }
 
 .profile-pg-component {
-  padding: 15px 0; }
+  padding: 10px 0; }
   .profile-pg-component .setup-profile {
     font-size: 25px;
-    padding-bottom: 15px; }
+    padding-bottom: 10px; }
   .profile-pg-component #enter-name {
     margin: 0; }
   .profile-pg-component .complete-profile-btn {
@@ -333,9 +332,7 @@ p {
     color: white;
     border-radius: 30px;
     font-size: 25px;
-    padding: 12px 30px;
-    max-width: 200px;
-    width: 80%;
+    padding: 12px 25px;
     transition: .25s; }
   .profile-pg-component .join, .profile-pg-component .join:focus, .profile-pg-component .join:active {
     background-color: #44BBA4; }
@@ -352,7 +349,7 @@ p {
     padding-bottom: 15px; }
     .profile-pg-component .setup-color-buttondiv .pick-a-color {
       padding: 30px 0 15px 0;
-      font-size: 18px;
+      font-size: 17px;
       overflow: hidden; }
     .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
       background-color: white;
@@ -361,7 +358,7 @@ p {
       height: 1px;
       position: relative;
       vertical-align: middle;
-      width: 15%; }
+      width: 24%; }
     .profile-pg-component .setup-color-buttondiv .pick-a-color:before {
       right: 0.5em;
       margin-left: -50%; }
@@ -393,6 +390,7 @@ p {
 
 .bottom-nav {
   position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
   transition: .5s;
@@ -423,20 +421,19 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px; }
+  padding: 10px; }
+  .loading-screen-holder .btn {
+    margin: 0; }
 
 .judge, #loading-pg-roomkey {
-  padding: 10px 25px;
+  padding: 10px 20px;
   border-radius: 20px;
   position: absolute;
-  min-width: 125px;
-  left: 20px; }
+  min-width: 133px;
+  left: 10px; }
 
 .judge {
   top: 10px; }
-
-.fa-gavel {
-  padding-right: 5px; }
 
 #loading-pg-roomkey {
   top: 65px;
@@ -511,16 +508,19 @@ p {
     padding: 10px 20px; }
 
 .gif-reveal-component {
-  padding: 10px 20px; }
+  padding: 10px; }
   .gif-reveal-component .pick-winner-instruction {
-    font-size: 25px;
-    padding: 10px;
-    width: 100%; }
+    font-size: 30px;
+    width: 100%;
+    letter-spacing: 1px;
+    color: white;
+    padding-bottom: 10px; }
   .gif-reveal-component .gif-reveal-div {
     margin: 0px auto;
     padding: 10px;
     max-width: 400px;
-    width: 100%; }
+    width: 100%;
+    border-radius: 10px; }
     .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
       border-radius: 25px;
       padding: 10px; }
@@ -530,13 +530,9 @@ p {
       transition: .25s; }
 
 .winnerScreen-component {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
+  padding: 10px; }
   .winnerScreen-component .winning-gif-holder {
-    width: 100%;
-    padding: 5px 0; }
+    width: 100%; }
   .winnerScreen-component .winning-gif {
     max-width: 100%;
     border-radius: 15px;
@@ -545,18 +541,16 @@ p {
     margin: 0 auto; }
   .winnerScreen-component .true-that-text {
     max-width: 400px;
-    width: 90%; }
+    width: 85%; }
   .winnerScreen-component .winner-name {
     padding: 10px;
     font-size: 30px;
-    margin: 0; }
+    margin: 0;
+    letter-spacing: .5px; }
 
 #winner-pg-prompt {
   max-width: 400px;
-  margin: 15px 0; }
-
-#winner-pg-judge {
-  display: none; }
+  margin: 10px 0; }
 
 @media only screen and (min-width: 650px) {
   .mini-logo-holder {
@@ -564,34 +558,40 @@ p {
   .mini-logo {
     width: 230px;
     height: 230px;
-    margin: 0 auto; } }
-
-@media only screen and (min-width: 1080px) {
-  .profile-pg-component .setup-profile {
-    font-size: 30px; }
-  .profile-pg-component #enter-name {
-    max-width: 300px; }
-  .profile-pg-component .setup-color-buttondiv {
-    padding: 40px 0 80px 0;
-    max-width: 1080px; }
-    .profile-pg-component .setup-color-buttondiv .pick-a-color {
-      font-size: 20px; }
-    .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
-      display: none; }
-    .profile-pg-component .setup-color-buttondiv .color-btn {
-      height: 100px;
-      width: 100px;
-      margin: 10px; } }
-
-@media only screen and (min-width: 650px) and (max-width: 1079px) {
+    margin: 0 auto; }
+  .gif-reveal-component .pick-winner-instruction {
+    font-size: 50px; }
+  .gif-reveal-component #gif-reveal-prompt {
+    min-width: 450px; }
+  .gif-reveal-component .gif-reveal-div {
+    margin: 0px auto;
+    padding: 10px;
+    max-width: 700px;
+    width: 100%;
+    border-radius: 10px; }
+    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
+      border-radius: 25px;
+      padding: 10px; }
+    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview:hover {
+      cursor: pointer;
+      transition: .25s; }
   .profile-pg-component {
-    padding-top: 50px; }
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    justify-content: center; }
+    .profile-pg-component .setup-profile {
+      font-size: 30px; }
+    .profile-pg-component #enter-name {
+      max-width: 300px; }
     .profile-pg-component .setup-color-buttondiv {
-      padding: 40px 0;
-      max-width: 450px; }
+      padding: 10px 0 20px 0;
+      max-width: 700px; }
+      .profile-pg-component .setup-color-buttondiv .pick-a-color {
+        font-size: 20px; }
       .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
-        width: 27%; }
+        display: none; }
       .profile-pg-component .setup-color-buttondiv .color-btn {
-        height: 120px;
-        width: 120px;
+        height: 100px;
+        width: 100px;
         margin: 10px; } }
