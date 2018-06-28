@@ -1,11 +1,13 @@
 //Gif Reveal Page ====================================================
 .gif-reveal-component{
-  padding:10px 20px;
+  padding:10px;
 
   .pick-winner-instruction {
-    font-size: 25px;
-    padding:10px;
+    font-size: 30px;
     width:100%;
+    letter-spacing: 1px;
+    color:white;
+    padding-bottom:10px;
   }
 
   .gif-reveal-div {
@@ -13,6 +15,7 @@
     padding:10px;
     max-width: 400px;
     width:100%;
+    border-radius: 10px;
     
     .gif-component{
         .gif-preview{

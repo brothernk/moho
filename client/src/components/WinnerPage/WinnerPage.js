@@ -61,15 +61,11 @@ class WinnerPage extends Component {
 
         <h1 className="winner-name">{this.state.winner} wins!</h1>
 
-        {/* <div className="pull-themes-btn"> */}
-          <span className="btn">
+        <span className="btn">
           { this.state.userJudge ? 
             <p className="next-round-btn" onClick={this.startGame}>Next Round</p>
           : null}
-          </span>
-        {/* </div> */}
-
-        {/* <p className="judge" id="winner-pg-judge"><i className="fas fa-gavel"></i> {this.state.judge}</p> */}
+        </span>
 
       </div>
 			);

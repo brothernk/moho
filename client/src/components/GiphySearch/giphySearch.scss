@@ -16,12 +16,11 @@ $lightPurple: #5a5164;
   padding: 10px;
 
   #giphy-search-judge {
-    left:10px;
+    background-color:$red !important;
   }
-  
+
   #giphy-search-instructions {
     top:15px;
-    right:10px;
   }
 
   #giphy-search-prompt {
@@ -78,7 +77,7 @@ $lightPurple: #5a5164;
     .button-holder {
       width: 100%;
       text-align: right;
-      padding-top: 20px;
+      padding-top: 15px;
 
       .timer-placeholder{
         display: inline-block;

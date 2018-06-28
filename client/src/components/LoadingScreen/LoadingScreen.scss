@@ -26,23 +26,23 @@ $lightPurple: #5a5164;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding:20px;
+  padding:10px;
+
+  .btn {
+    margin:0;
+  }
 }
 
   .judge, #loading-pg-roomkey{
-    padding: 10px 25px;
+    padding: 10px 20px;
     border-radius: 20px;
     position: absolute;
-    min-width:125px;
-    left:20px;
+    min-width:133px;
+    left:10px;
   }
 
   .judge{
     top:10px;
-  }
-
-  .fa-gavel {
-    padding-right: 5px;
   }
 
   #loading-pg-roomkey{

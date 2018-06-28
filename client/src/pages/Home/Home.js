@@ -560,7 +560,7 @@ class Home extends Component {
 
                 {this.state.showJudgeCategory ?
                     <div>
-                        <p className="prompt-title">Select a Theme</p>
+                        <p className="judge-instructions">Select a Theme</p>
                         {this.state.themeIndex.map(prompt => (
                             <PromptSelect
                             key={prompt.index}
