@@ -11,36 +11,36 @@
     margin:0 auto;
   }
 
-  //GIF Reveal Page
-  .gif-reveal-component {
-    .pick-winner-instruction {
-      font-size: 50px;
-    }
+  // //GIF Reveal Page
+  // .gif-reveal-component {
+  //   .pick-winner-instruction {
+  //     font-size: 50px;
+  //   }
 
-    #gif-reveal-prompt {
-      min-width:450px;
-    }
+  //   #gif-reveal-prompt, #winner-pg-prompt{
+  //     min-width:450px;
+  //   }
 
-    .gif-reveal-div {
-      margin:0px auto;
-      padding:10px;
-      max-width: 700px;
-      width:100%;
-      border-radius: 10px;
+  //   .gif-reveal-div {
+  //     margin:0px auto;
+  //     padding:10px;
+  //     max-width: 700px;
+  //     width:100%;
+  //     border-radius: 10px;
       
-      .gif-component{
-        .gif-preview{
-          border-radius:25px;
-          padding: 10px;
-        }
+  //     .gif-component{
+  //       .gif-preview{
+  //         border-radius:25px;
+  //         padding: 10px;
+  //       }
         
-        .gif-preview:hover{
-          cursor: pointer;
-          transition: .25s;
-        }
-      }
-    }
-  } 
+  //       .gif-preview:hover{
+  //         cursor: pointer;
+  //         transition: .25s;
+  //       }
+  //     }
+  //   }
+  // } 
 
   //Profile Page
   .profile-pg-component{
