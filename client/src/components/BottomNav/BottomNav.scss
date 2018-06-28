@@ -32,7 +32,7 @@ $lightPurple: #5a5164;
       position: absolute;
       right: 12px;
       top: 8px;
-      color: grey;
+      color: $grey;
       font-size: 25px;
       z-index: 1000;
     }
@@ -42,6 +42,7 @@ $lightPurple: #5a5164;
 .expanded {
   min-height: 50vh;
   overflow: scroll;
+  box-shadow: 0 -1px 5px $charcoal;
 }
 
 .not-expanded {

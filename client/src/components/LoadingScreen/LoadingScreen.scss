@@ -56,16 +56,23 @@ $lightPurple: #5a5164;
     font-size:17px;
     padding:10px;
     border-radius: 40px;
-    background: $pink;
     width: 145px;
     margin:0 auto;
   }
 
   .judge-start:hover, .show-gifs-btn:hover, .next-round-btn:hover{
     cursor: pointer;
-    background:#c533fb;
     transform: scale(.99);
   }
+
+  // .show-gifs-btn {background-color: $green;}
+  // .show-gifs-btn:hover:hover{background-color:#2a7566;}
+
+  .next-round-btn {background-color:$red;}
+  .next-round-btn:hover {background-color: #b24343;}
+
+  .judge-start, .show-gifs-btn {background-color:$pink;}
+  .judge-start:hover, .show-gifs-btn:hover {background-color:#c533fb;}
 
   .show-gifs-btn {
     margin-top:10%;

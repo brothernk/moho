@@ -5,6 +5,17 @@
     width: 230px;
     height: 230px;
     margin: 0 auto; }
+  .theme-and-category {
+    max-width: 450px;
+    min-width: 450px; }
+  .gif-reveal-component .pick-winner-instruction {
+    font-size: 50px; }
+  .gif-reveal-component .gif-reveal-div .gif-component .gif-preview:hover {
+    cursor: pointer;
+    background: #4a3b5c;
+    transition: .25s; }
+  .prompt-select-pg .judge-instructions {
+    font-size: 30px; }
   .profile-pg-component {
     display: flex;
     flex-direction: column;

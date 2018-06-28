@@ -26,14 +26,24 @@
   font-size: 17px;
   padding: 10px;
   border-radius: 40px;
-  background: #D45FFF;
   width: 145px;
   margin: 0 auto; }
 
 .judge-start:hover, .show-gifs-btn:hover, .next-round-btn:hover {
   cursor: pointer;
-  background: #c533fb;
   transform: scale(0.99); }
+
+.next-round-btn {
+  background-color: #FF6161; }
+
+.next-round-btn:hover {
+  background-color: #b24343; }
+
+.judge-start, .show-gifs-btn {
+  background-color: #D45FFF; }
+
+.judge-start:hover, .show-gifs-btn:hover {
+  background-color: #c533fb; }
 
 .show-gifs-btn {
   margin-top: 10%; }

@@ -56,7 +56,7 @@ class WinnerPage extends Component {
         </div>
 
         <div className="winning-gif-holder">
-          <img className="winning-gif" style={{border:'7px solid gold'}} src={this.state.gif} alt=""/>
+          <img className="winning-gif" src={this.state.gif} alt=""/>
         </div>
 
         <h1 className="winner-name">{this.state.winner} wins!</h1>
