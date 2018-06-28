@@ -1,14 +1,17 @@
 .gif-reveal-component {
-  padding: 10px 20px; }
+  padding: 10px; }
   .gif-reveal-component .pick-winner-instruction {
-    font-size: 25px;
-    padding: 10px;
-    width: 100%; }
+    font-size: 30px;
+    width: 100%;
+    letter-spacing: 1px;
+    color: white;
+    padding-bottom: 10px; }
   .gif-reveal-component .gif-reveal-div {
     margin: 0px auto;
     padding: 10px;
     max-width: 400px;
-    width: 100%; }
+    width: 100%;
+    border-radius: 10px; }
     .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
       border-radius: 25px;
       padding: 10px; }

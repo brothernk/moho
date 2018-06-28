@@ -24,19 +24,20 @@ $lightPurple: #5a5164;
 
 .modal-style {
   background-color: $lightPurple;
-  border-radius: 20px;
-  padding:20px 20px 30px 20px;
+  border-radius: 15px;
+  padding:20px 10px;
+  border:3px solid #484050;
 }
 
 .modal-title {
     @include font;
-    color:$background;
-    text-transform: uppercase;
-    font-size: 32px;
+    color:white;
+    font-size: 35px;
 }
 
+
 .modal-text {
-    padding:10px 10px 30px 10px;
+    padding:20px;
 }
 
 .modal-p {
@@ -44,14 +45,14 @@ $lightPurple: #5a5164;
     font-size: 13px;
 }
 
-.modal-btn {
+.modal-btn i{
     background-color:$green;
     border-radius: 50%;
     font-size:20px;
-    padding:10px 12px;
+    padding:10px;
 }
 
-.modal-btn:hover {
+.modal-btn:hover i{
     cursor: pointer;
     background-color: #3da893;
     transition: .25s;

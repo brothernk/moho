@@ -161,7 +161,7 @@ class Login extends Component {
                     modalInstructions3="Share your room key with your friends to all play together!"
                 ></Modal>
 
-                <button onClick={this.deleteSavedSessions}>Delete Sessions</button>
+                {/* <button onClick={this.deleteSavedSessions}>Delete Sessions</button> */}
                 
             </div>
         );

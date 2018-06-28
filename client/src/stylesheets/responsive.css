@@ -4,26 +4,36 @@
   .mini-logo {
     width: 230px;
     height: 230px;
-    margin: 0 auto; } }
-
-@media only screen and (min-width: 1080px) {
-  .profile-pg-component .setup-profile {
-    font-size: 30px; }
-  .profile-pg-component #enter-name {
-    max-width: 300px; }
-  .profile-pg-component .setup-color-buttondiv {
-    padding: 40px 0 80px 0;
-    max-width: 1080px; }
-    .profile-pg-component .setup-color-buttondiv .pick-a-color {
-      font-size: 20px; }
-    .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
-      display: none; } }
-
-@media only screen and (min-width: 650px) and (max-width: 1079px) {
+    margin: 0 auto; }
+  .gif-reveal-component .pick-winner-instruction {
+    font-size: 50px; }
+  .gif-reveal-component #gif-reveal-prompt {
+    min-width: 450px; }
+  .gif-reveal-component .gif-reveal-div {
+    margin: 0px auto;
+    padding: 10px;
+    max-width: 700px;
+    width: 100%;
+    border-radius: 10px; }
+    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview {
+      border-radius: 25px;
+      padding: 10px; }
+    .gif-reveal-component .gif-reveal-div .gif-component .gif-preview:hover {
+      cursor: pointer;
+      transition: .25s; }
   .profile-pg-component {
-    padding-top: 50px; }
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    justify-content: center; }
+    .profile-pg-component .setup-profile {
+      font-size: 30px; }
+    .profile-pg-component #enter-name {
+      max-width: 300px; }
     .profile-pg-component .setup-color-buttondiv {
-      padding: 40px 0;
-      max-width: 450px; }
+      padding: 10px 0 20px 0;
+      max-width: 700px; }
+      .profile-pg-component .setup-color-buttondiv .pick-a-color {
+        font-size: 20px; }
       .profile-pg-component .setup-color-buttondiv .pick-a-color:before, .profile-pg-component .setup-color-buttondiv .pick-a-color:after {
-        width: 27%; } }
+        display: none; } }

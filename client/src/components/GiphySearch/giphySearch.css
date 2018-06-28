@@ -1,10 +1,9 @@
 .giphy-component {
   padding: 10px; }
   .giphy-component #giphy-search-judge {
-    left: 10px; }
+    background-color: #FF6161 !important; }
   .giphy-component #giphy-search-instructions {
-    top: 15px;
-    right: 10px; }
+    top: 15px; }
   .giphy-component #giphy-search-prompt {
     max-width: 450px;
     width: 100%;
@@ -44,7 +43,7 @@
     .giphy-component .search-holder .button-holder {
       width: 100%;
       text-align: right;
-      padding-top: 20px; }
+      padding-top: 15px; }
       .giphy-component .search-holder .button-holder .timer-placeholder {
         display: inline-block;
         width: calc(100% - 115px);

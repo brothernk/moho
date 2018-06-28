@@ -3,13 +3,15 @@
   color: white;
   border-radius: 30px;
   font-size: 25px;
-  margin: 10px;
   padding: 8px;
   width: 70%;
   max-width: 250px; }
 
 .btn:hover {
   transform: scale(0.99); }
+
+.signup-btn, .login-btn, .enter-btn, .back-btn {
+  margin: 10px; }
 
 .signup-btn {
   background-color: #FF6161; }
@@ -31,8 +33,7 @@
 
 .back-btn {
   max-width: 150px;
-  margin: 15px;
-  background-color: #44BBA4; }
+  background-color: #D45FFF; }
 
 .back-btn:hover {
-  background-color: #369583; }
+  background-color: #a94ccc; }
