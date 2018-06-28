@@ -8,12 +8,30 @@ class GiphySearch extends Component {
   state = {
       searchTerm: "",
       image_url: "http://via.placeholder.com/500x240/31263E/31263E",
-      defaultGif: "https://media.giphy.com/media/6GY01XQBkf3lS/giphy.gif"
+      defaultGif: "https://media.giphy.com/media/6GY01XQBkf3lS/giphy.gif",
+      enterKey: 13,
   }
 
   componentDidMount = () => {
-      console.log("Mounted");
+    console.log("Mounted");
+    document.addEventListener("keydown", this.handleKeyDown.bind(this)); 
   }
+
+  validateInput = () => {
+    if (!this.state.searchTerm) return;
+    this.callGIPHY();
+  }
+
+  handleKeyDown = event => {
+    switch( event.keyCode ) {
+        case this.state.enterKey:
+            this.validateInput();
+            break;
+        default: 
+            console.log( event.keyCode )
+            break;
+    }
+  };
 
   componentDidUpdate = () => {
 
@@ -39,7 +57,7 @@ class GiphySearch extends Component {
     API.getGIF(this.state.searchTerm)
     .then(response => {
         this.setState({
-            image_url: response.data.original.url
+            image_url: response.data.url
         });
     })
     .catch(err => console.log(err))

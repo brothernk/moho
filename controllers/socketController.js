@@ -12,6 +12,7 @@ module.exports = {
           .then(dbModel => {
             gameSocket = io.of(dbModel.url);
             gameSocket.on('connect', (socket) => {
+              
               console.log(`User connected to room ${dbModel.url}`);
               socket.emit('usermade', { userid: socket.client.id});
     
@@ -171,14 +172,9 @@ module.exports = {
     
               socket.on('disconnect', function(){
                 console.log('user disconnected');
-                socket.broadcast.emit('disconnectuser')
               });
 
-              socket.on('disconnectuserinfo', function(data) {
-                console.log(data)
-                socket.broadcast.emit('remaininguserinfo')
-                socket.emit('remaininguserinfo')
-              })
+              
 
             });
             res.json(dbModel);
