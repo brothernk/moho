@@ -34,7 +34,8 @@ class Login extends Component {
             case this.state.enterKey:
                 this.validateInput();
                 break;
-            default: console.log( event.keyCode )
+            default: 
+                console.log( event.keyCode )
                 break;
         }
     };
@@ -160,7 +161,7 @@ class Login extends Component {
                     modalInstructions3="Share your room key with your friends to all play together!"
                 ></Modal>
 
-                {/* <button onClick={this.deleteSavedSessions}>Delete Sessions</button> */}
+                <button onClick={this.deleteSavedSessions}>Delete Sessions</button>
                 
             </div>
         );
