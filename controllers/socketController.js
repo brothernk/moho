@@ -175,7 +175,9 @@ module.exports = {
               });
 
               socket.on('disconnectuserinfo', function(data) {
-                
+                console.log(data)
+                socket.broadcast.emit('remaininguserinfo')
+                socket.emit('remaininguserinfo')
               })
 
             });

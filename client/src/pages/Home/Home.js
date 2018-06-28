@@ -369,6 +369,10 @@ class Home extends Component {
             self.state.socket.emit('disconnectuserinfo', sessionStorage.getItem("username"))
         })
 
+        self.state.socket.on('remaininguserinfo', function(data) {
+            console.log(data)
+        })
+
     }
 
     // Grab current URL and set state variable, then continue to check URL

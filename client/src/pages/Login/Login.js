@@ -34,7 +34,8 @@ class Login extends Component {
             case this.state.enterKey:
                 this.validateInput();
                 break;
-            default: console.log( event.keyCode )
+            default: 
+                console.log( event.keyCode )
                 break;
         }
     };
