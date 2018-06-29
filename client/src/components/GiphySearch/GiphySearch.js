@@ -9,29 +9,11 @@ class GiphySearch extends Component {
       searchTerm: "",
       image_url: "http://via.placeholder.com/500x240/31263E/31263E",
       defaultGif: "https://media.giphy.com/media/6GY01XQBkf3lS/giphy.gif",
-      enterKey: 13,
   }
 
   componentDidMount = () => {
     console.log("Mounted");
-    // document.addEventListener("keydown", this.handleKeyDown.bind(this)); 
   }
-
-//   validateInput = () => {
-//     if (!this.state.searchTerm) return;
-//     this.callGIPHY();
-//   }
-
-//   handleKeyDown = event => {
-//     switch( event.keyCode ) {
-//         case this.state.enterKey:
-//             this.validateInput();
-//             break;
-//         default: 
-//             console.log( event.keyCode )
-//             break;
-//     }
-//   };
 
   componentDidUpdate = () => {
 
@@ -48,6 +30,7 @@ class GiphySearch extends Component {
         this.props.outOfTime("showGiphySearch", false)
         this.props.outOfTime("showPending", true)
     }
+
   }
   
   callGIPHY = () => {
