@@ -14,24 +14,24 @@ class GiphySearch extends Component {
 
   componentDidMount = () => {
     console.log("Mounted");
-    document.addEventListener("keydown", this.handleKeyDown.bind(this)); 
+    // document.addEventListener("keydown", this.handleKeyDown.bind(this)); 
   }
 
-  validateInput = () => {
-    if (!this.state.searchTerm) return;
-    this.callGIPHY();
-  }
+//   validateInput = () => {
+//     if (!this.state.searchTerm) return;
+//     this.callGIPHY();
+//   }
 
-  handleKeyDown = event => {
-    switch( event.keyCode ) {
-        case this.state.enterKey:
-            this.validateInput();
-            break;
-        default: 
-            console.log( event.keyCode )
-            break;
-    }
-  };
+//   handleKeyDown = event => {
+//     switch( event.keyCode ) {
+//         case this.state.enterKey:
+//             this.validateInput();
+//             break;
+//         default: 
+//             console.log( event.keyCode )
+//             break;
+//     }
+//   };
 
   componentDidUpdate = () => {
 
