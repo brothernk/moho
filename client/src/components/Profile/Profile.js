@@ -13,7 +13,6 @@ class Profile extends Component {
         showError: false,
         memberArray: [],
         joinClasses: "join-btn cantJoin",
-        enterKey: 13,
     }
 
     componentDidMount = () => {
@@ -22,26 +21,8 @@ class Profile extends Component {
         this.setState({ip: this.props.ip})
         this.setState({memberArray: this.props.memberArray}, function() {
             console.log(this.state)
-            document.addEventListener("keydown", this.handleKeyDown.bind(this)); 
         })
     }
-
-    validateInput = () => {
-        if (!this.state.username) return;
-        if (!this.state.color) return;
-        this.addMember();
-    }
-    
-    handleKeyDown = event => {
-        switch( event.keyCode ) {
-            case this.state.enterKey:
-                this.validateInput();
-                break;
-            default: 
-                console.log( event.keyCode )
-                break;
-        }
-    };
 
     handleInputChange = event => {
         const { name, value } = event.target;
