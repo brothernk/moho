@@ -9,12 +9,30 @@ class GiphySearch extends Component {
       searchTerm: "",
       image_url: "http://via.placeholder.com/500x240/31263E/31263E",
       defaultGif: "https://media.giphy.com/media/6GY01XQBkf3lS/giphy.gif",
-      enterKey: 13,
+      enterKey : 13 
   }
 
   componentDidMount = () => {
     console.log("Mounted");
     document.addEventListener("keydown", this.handleKeyDown.bind(this)); 
+  }
+
+  componentDidUpdate = () => {
+
+    if (this.props.timer) {
+
+        let gifObject = {
+            socket: this.props.userSocket,
+            gif: this.state.defaultGif
+        }
+
+        this.props.socket.emit('playeroutoftime', gifObject)
+        this.props.outOfTime("pendingMessage", "Players choosing gifs")
+        this.props.outOfTime("pendingPlayerHeader", "Players done with challenge")
+        this.props.outOfTime("showGiphySearch", false)
+        this.props.outOfTime("showPending", true)
+    }
+
   }
 
   validateInput = () => {
@@ -32,23 +50,6 @@ class GiphySearch extends Component {
             break;
     }
   };
-
-  componentDidUpdate = () => {
-
-    if (this.props.timer) {
-
-        let gifObject = {
-            socket: this.props.userSocket,
-            gif: this.state.defaultGif
-        }
-
-        this.props.socket.emit('playeroutoftime', gifObject)
-        this.props.outOfTime("pendingMessage", "Players choosing gifs")
-        this.props.outOfTime("pendingPlayerHeader", "Players done with challenge")
-        this.props.outOfTime("showGiphySearch", false)
-        this.props.outOfTime("showPending", true)
-    }
-  }
   
   callGIPHY = () => {
     
